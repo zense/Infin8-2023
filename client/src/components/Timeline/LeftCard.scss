@@ -1,0 +1,77 @@
+$line-color : #000000;
+$time-color : #ffffff;
+$buttonbg : #ffffff;
+$buttontext : #000000;
+.LeftCard{
+    width: 50vw;
+    .card{
+        border: 5px solid $line-color;
+        margin-left: 0px !important;
+        border-radius: 0;
+    }
+    .topBorder{
+        border-top: 5px solid $line-color;
+    }
+    .timeBox{
+        background-color: $line-color;
+        color : $time-color;
+        width: 100px;
+        margin-right: -20px;
+    }
+    .title{
+        text-align: left;
+        margin-left: 14px;
+        font-size: 32px;
+        font-weight: 700;
+    }
+    .incentives{
+        text-align: left;
+        margin-left: 14px;
+        font-size: 22px;
+        font-weight: 500;
+    }
+
+    .buttonrow{
+        margin-top: 10px;
+    }
+
+    .buttoncol{
+        button{
+            background-color: $buttonbg; /* Green */
+            border: none;
+            border-top: 5px solid $line-color;
+            border-radius: 0;
+            color: $buttontext;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            height: 100%;
+          font-size: 16px;
+          margin: 0;
+      }
+      margin-bottom: 0;
+      .leftborder{
+        border-left: 2.5px solid $line-color;
+      }
+      .rightborder{
+        border-right: 2.5px solid $line-color;
+      }
+    }
+
+    //trivial classes
+    .mzl{
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
+    .mzr{
+        margin-right: 0 !important;
+        padding-right: 0 !important;
+    }
+    .emptyspace{
+        height: 10vh;
+    }
+    .emptyspace2{
+        height: 8vh;
+    }
+}

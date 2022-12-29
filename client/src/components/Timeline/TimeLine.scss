@@ -1,0 +1,24 @@
+$line-color : #000000;
+$heading-color : #000000;
+.Timeline{
+    padding-top: 10vh;
+    .heading{
+        font-size: 15vw;
+        font-weight: 600;
+        color: $heading-color;
+    }
+    .beginRect{
+        font-size: 36px;
+        font-weight: 700;
+        color: $heading-color;
+        border: 5px solid $line-color;
+        width: 300px;
+        padding: 10px;
+        margin : auto;
+    }
+    .lineBox{
+        border-right: 5px solid $line-color;
+        min-height: 60px;
+        // width: 51vw;
+    }
+}
