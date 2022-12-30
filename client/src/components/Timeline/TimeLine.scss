@@ -7,18 +7,48 @@ $heading-color : #000000;
         font-weight: 600;
         color: $heading-color;
     }
-    .beginRect{
-        font-size: 36px;
-        font-weight: 700;
-        color: $heading-color;
-        border: 5px solid $line-color;
-        width: 300px;
-        padding: 10px;
-        margin : auto;
+    
+    .largescreens{
+        .space2{
+            height: 10vh;
+        }
+        .lineBox{
+            border-right: 5px solid $line-color;
+            min-height: 60px;
+            // width: 51vw;
+        }
+        .beginRect{
+            font-size: 36px;
+            font-weight: 700;
+            color: $heading-color;
+            border: 5px solid $line-color;
+            width: 300px;
+            padding: 10px;
+            margin : auto !important;
+        }
+        .space{
+            height: 50vh;
+        }
     }
-    .lineBox{
-        border-right: 5px solid $line-color;
-        min-height: 60px;
-        // width: 51vw;
+
+    .smallscreens{
+        .lineBox{
+            border-left: 5px solid $line-color;
+            min-height: 60px;
+            // width: 51vw;
+        }
+        .beginRect{
+            font-size: 25px;
+            font-weight: 700;
+            color: $heading-color;
+            border: 5px solid $line-color;
+            width: 300px;
+            padding: 5px;
+            margin-left: 30px;
+            margin-right: 10px;
+        }
+        .space{
+            height: 10vh;
+        }
     }
 }
