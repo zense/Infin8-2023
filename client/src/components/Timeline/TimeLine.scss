@@ -1,10 +1,11 @@
 $line-color : #000000;
+$line-width : 3px;
 $heading-color : #000000;
 .Timeline{
     padding-top: 10vh;
     .heading{
         font-size: 15vw;
-        font-weight: 600;
+        font-weight: 500;
         color: $heading-color;
     }
     
@@ -13,7 +14,7 @@ $heading-color : #000000;
             height: 10vh;
         }
         .lineBox{
-            border-right: 5px solid $line-color;
+            border-right: $line-width solid $line-color;
             min-height: 60px;
             // width: 51vw;
         }
@@ -21,7 +22,7 @@ $heading-color : #000000;
             font-size: 36px;
             font-weight: 700;
             color: $heading-color;
-            border: 5px solid $line-color;
+            border: $line-width solid $line-color;
             width: 300px;
             padding: 10px;
             margin : auto !important;
@@ -33,7 +34,7 @@ $heading-color : #000000;
 
     .smallscreens{
         .lineBox{
-            border-left: 5px solid $line-color;
+            border-left: $line-width solid $line-color;
             min-height: 60px;
             // width: 51vw;
         }
@@ -41,7 +42,7 @@ $heading-color : #000000;
             font-size: 25px;
             font-weight: 700;
             color: $heading-color;
-            border: 5px solid $line-color;
+            border: $line-width solid $line-color;
             width: 300px;
             padding: 5px;
             margin-left: 30px;

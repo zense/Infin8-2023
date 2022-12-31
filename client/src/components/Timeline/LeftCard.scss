@@ -1,16 +1,17 @@
 $line-color : #000000;
 $time-color : #ffffff;
+$line-width : 3px;
 $buttonbg : #ffffff;
 $buttontext : #000000;
 .LeftCard{
     width: 50vw;
     .card{
-        border: 5px solid $line-color;
+        border: $line-width solid $line-color;
         // margin-right: -2.1vw !important;
         border-radius: 0;
     }
     .topBorder{
-        border-top: 5px solid $line-color;
+        border-top: $line-width solid $line-color;
         width: 12vw;
         // margin-right : -5vw !important;
     }
@@ -41,7 +42,7 @@ $buttontext : #000000;
         button{
             background-color: $buttonbg; /* Green */
             border: none;
-            border-top: 5px solid $line-color;
+            border-top: $line-width solid $line-color;
             border-radius: 0;
             color: $buttontext;
             padding: 8px 10px;
@@ -55,10 +56,10 @@ $buttontext : #000000;
       }
       margin-bottom: 0;
       .leftborder{
-        border-left: 2.5px solid $line-color;
+        border-left: $line-width/2 solid $line-color;
       }
       .rightborder{
-        border-right: 2.5px solid $line-color;
+        border-right: $line-width/2 solid $line-color;
       }
     }
 
@@ -79,7 +80,7 @@ $buttontext : #000000;
     }
     @media(max-width : 991px){
         .topBorder{
-            border-top: 5px solid $line-color;
+            border-top: $line-width solid $line-color;
             width: 12vw;
             margin-left: -4vw !important;
         }

@@ -1,0 +1,44 @@
+$heading-color : black;
+$heading-size : 18vw;
+$heading-final : 120px;
+
+.About{
+    margin-top: 10vh;
+    margin-bottom : 5vh;
+    padding : 5vw;
+    .about,.infin8{
+        font-size: $heading-size*0.7;
+        line-height: $heading-size*0.7;
+        color : $heading-color;
+        text-align: center;
+    }
+    .infin8{
+        letter-spacing: 1.1vw;
+        margin-bottom: 3vh;
+    }
+    .para{
+        margin-left: 3vw;
+    }
+    // .about{
+    //     margin-top: 10%;
+    // }
+    @media(max-width : 767px) {
+        .about,.infin8{
+            font-size: $heading-size;
+            line-height: $heading-size - 3vw;
+        }
+        .about{
+            text-align: left;
+            margin-top : 0;
+        }
+        .infin8{
+            text-align: right;
+        }
+    }
+    @media(min-width : 1000px){
+        .about,.infin8{
+            font-size: $heading-final;
+            line-height: $heading-final;
+        }
+    }
+}
