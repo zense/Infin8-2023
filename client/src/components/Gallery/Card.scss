@@ -1,0 +1,62 @@
+$buttonbg : white;
+$line-color : black;
+$buttontext : black;
+$line-width : 3px;
+
+.Card{
+    flex : 0 0 auto;
+    width: 26vw;
+    margin: 3vh 3vw;
+    .space{
+        height: 5vh;
+    }
+    .cardImage{
+        margin: 0!important;
+        width: 100%;
+        border: $line-width solid $line-color;
+    }
+    button{
+        background-color: $buttonbg; /* Green */
+        border: $line-width solid $line-color;
+        border-radius: 0;
+        color: $buttontext;
+        padding: 8px 20px !important;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        font-size: 17px;
+        font-weight: 600;
+        margin: 0;
+    }
+    .border_right{
+        border-right : $line-width/2 solid $line-color;
+    }
+    .border_left{
+        border-left : $line-width/2 solid $line-color;
+    }
+    .arrow{
+        height: 17px;
+        width: auto;
+    }
+    .title,.incentives{
+        text-align: left;
+        color : $buttontext
+    }
+    @media(max-width : 538px){
+        width: 60vw;
+        margin : 3vh 6vw !important;
+    }
+    @media(min-width : 539px) and (max-width : 615px){
+        width: 45vw;
+    }
+    @media(min-width : 615px) and (max-width : 869px){
+        width: 35vw;
+    }
+
+
+    .mz{
+        margin : 0!important;
+        padding :0!important;
+    }
+}
