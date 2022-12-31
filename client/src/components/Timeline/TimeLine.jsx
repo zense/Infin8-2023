@@ -42,7 +42,7 @@ const TimeLine = () => {
                     </div>
                 </div>
                 <div className="col-3"></div>
-                <div className="space"></div>
+                <div className="space2"></div>
             </div>
         </div>
 
@@ -74,7 +74,7 @@ const TimeLine = () => {
                 </div>
                 <div className="col"></div>
             </div>
-            
+            <div className="space"></div>
         </div>
     </div>
 }

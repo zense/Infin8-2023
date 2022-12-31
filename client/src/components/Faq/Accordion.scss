@@ -1,0 +1,39 @@
+$line-color : black;
+$accordion-bg : white;
+$accordion-text : black;
+$line-width : 2px;
+
+.Accordion{
+    padding-left: 5vw;
+    padding-right: 5vw;
+    .accordion-flush{
+        .accordion-button{
+            box-shadow: none !important;
+            border : none !important;
+            background-color: $accordion-bg !important;
+            color : $accordion-text !important;
+            border-bottom : $line-width solid $line-color !important;
+
+            font-size: 25px;
+        }
+        .accordion-button:focus{
+            box-shadow: none !important;
+            border : none !important;
+            background-color: $accordion-bg !important;
+            color : $accordion-text !important;
+        }
+        .accordion-button::after{
+            background-image: url("../../images/downright.svg") !important;
+        }
+        .accordion-body{
+            border-bottom : $line-width solid $line-color;
+        }
+        @media(max-width : 768px){
+            .accordion-button{
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// @import url("/src/images/downright.svg");
