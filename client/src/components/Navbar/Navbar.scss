@@ -1,0 +1,31 @@
+$line-color : black;
+$line-width : 3px;
+$navbg : white;
+$textcolor : black;
+.Navbar{
+    background-color: $navbg;
+    position: fixed;
+    top : 3vh;
+    right : 4vw;
+    width: 40%;
+    height: 50px;
+    border : $line-width solid $line-color;
+    box-shadow: 1px 7px 32px 4px rgba(187,187,187,1);
+    z-index: 60;
+    .col-2{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .navbutton{
+        text-decoration: none !important;
+        color : $textcolor;
+        font-size: 18px;
+        // margin-top: 9px !important;
+    }
+    .navrow{
+        padding-top: 6px;
+        padding-left : 8px;
+        padding-right: 10px;
+    }
+}

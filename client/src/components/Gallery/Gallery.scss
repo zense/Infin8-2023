@@ -1,24 +1,52 @@
 $line-width : 3px;
 $line-color : black;
 $heading-color : black;
-.Gallery{
+$background : white;
+$scrollbar : #aaaaaa;
+
+.Gallery {
+    scrollbar-color : $scrollbar $background !important;
+    scrollbar-width: thin !important;
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: $background;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: $scrollbar;
+        border-radius: 5px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: $scrollbar;
+    }
+
     border-top : $line-width solid $line-color;
     border-bottom : $line-width solid $line-color;
     padding-bottom: 5vh;
     padding-top: 5vh;
-    .scroll{
+
+    .scroll {
         display: flex;
         flex-wrap: nowrap;
         overflow-x: scroll !important;
         padding-left: 3vw;
         // white-space: nowrap !important;
     }
-    .space{
+
+    .space {
         height: 3vh;
     }
-    .heading{
-        font-size : 8vw;
-        color : $heading-color;
+
+    .heading {
+        font-size: 8vw;
+        color: $heading-color;
         text-align: left;
         padding-left: 7vw;
         font-weight: 400;

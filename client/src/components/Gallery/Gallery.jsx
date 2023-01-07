@@ -22,7 +22,6 @@ const Gallery = () => {
             <Card title="Lorem" incentives="ipsum" />
             <Card title="Lorem" incentives="ipsum" />
         </div>
-        <div className="space"></div>
     </div>
 }
 

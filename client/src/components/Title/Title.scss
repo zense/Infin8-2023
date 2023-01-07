@@ -1,0 +1,47 @@
+.Title{
+    height: 100vh;
+    img.infiimg{
+        width : 64%;
+        height: auto;
+        position: absolute;
+        top : 20vh;
+        left : 5vw;
+        z-index: 2;
+    }
+    img.yearimg{
+        width : 80%;
+        height: auto;
+        position: absolute;
+        top : 38vh;
+        right:-1vw;
+        z-index: 1;
+    }
+    @media(max-width: 450px){
+        .infiimg2,.infiimg3{
+            position: absolute;
+        }
+        img.infiimg{
+            width : 95%;
+            top : 10vh;
+            left : 2.5%;
+            z-index: 4;
+        }
+        img.infiimg2{
+            width : 95%;
+            top : 20vh;
+            left : 2.5%;
+            z-index: 3;
+        }
+        img.infiimg3{
+            width : 95%;
+            top : 30vh;
+            left : 2.5%;
+            z-index: 2;
+        }
+        img.yearimg{
+            width : 80%;
+            top : 48vh;
+            right:5vw;
+        }
+    }
+}

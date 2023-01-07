@@ -7,8 +7,8 @@ $buttontext : #000000;
     width: 50vw;
     .card{
         border: $line-width solid $line-color;
-        // margin-right: -2.1vw !important;
         border-radius: 0;
+        // margin-right: -2.1vw !important;
     }
     .topBorder{
         border-top: $line-width solid $line-color;
