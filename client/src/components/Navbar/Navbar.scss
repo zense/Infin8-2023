@@ -2,6 +2,8 @@ $line-color : black;
 $line-width : 3px;
 $navbg : white;
 $textcolor : black;
+$fontsize : 30px;
+
 .Navbar{
     background-color: $navbg;
     position: fixed;
@@ -10,8 +12,15 @@ $textcolor : black;
     width: 40%;
     height: 50px;
     border : $line-width solid $line-color;
-    box-shadow: 1px 7px 32px 4px rgba(187,187,187,1);
+    box-shadow: 1px 7px 32px 4px rgba(0,0,0,0.3);
+    // rgba(187,187,187,1)
     z-index: 60;
+    .smallscreens{
+        display : none;
+    }
+    .largescreens{
+        display: block;
+    }
     .col-2{
         display: flex;
         align-items: center;
@@ -27,5 +36,96 @@ $textcolor : black;
         padding-top: 6px;
         padding-left : 8px;
         padding-right: 10px;
+    }
+    @media(max-width: 728px){
+        width: 80px;
+        height: 45px;
+        .smallscreens{
+            display : block;
+        }
+        .largescreens{
+            display: none;
+        }
+    }
+    .smallscreens{
+        .navbutton{
+            margin: 0;
+        }
+    }
+}
+
+.NavModal{
+    .modal-content{
+        padding: 0;
+    }
+    .modBody{
+        padding-top: 0;
+        border : 3px solid black;
+        color : black;
+        padding : 0;
+        .buttoncol,.buttonrow,.row{
+            padding : 0;
+            margin : 0;
+        }
+        .topbutton{
+            padding : 10px 5px;
+            text-align: center;
+            font-size: $fontsize;
+            font-weight: 600;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            
+        }
+        .br{
+            background-color: black;
+            color : white;
+        }
+        
+        .br{
+            border-right : 1.5px solid black;
+        }
+        .bl{
+            border-left : 1.5px solid black;
+        }
+        .bt{
+            border-top : 3px solid black;
+        }
+        .option{
+            padding-left: 20px;
+            border-bottom : 3px solid black;
+            font-size: $fontsize;
+            font-weight: 600;
+        }
+        .space{
+            height: 30vh;
+        }
+        .touch{
+            font-size: 40px;
+            font-weight: 600;
+            padding : 0 0 10px 15px; 
+        }
+        .topbutton:hover,
+        .topbutton:active,
+        .option:hover,
+        .option:active{
+            background-color: black;
+            color : white;
+        }
+        .col{
+            text-align: center;
+        }
+        .icon{
+            height : 9vmin;
+            width : auto;
+            margin-bottom : 3vh;
+        }
+        .triangle{
+            height: 30px;
+            width: auto;
+            margin : auto;
+            margin-left : 20px;
+        }
     }
 }

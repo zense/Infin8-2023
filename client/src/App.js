@@ -7,6 +7,7 @@ import About from './components/About/About';
 import Jump from './components/Jump/Jump';
 import Title from './components/Title/Title';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Gallery></Gallery>
       <Faq></Faq>
       <div className='space'></div>
+      <Footer></Footer>
     </div>
   );
 }

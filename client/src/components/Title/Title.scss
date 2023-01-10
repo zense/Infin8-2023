@@ -16,31 +16,34 @@
         right:-1vw;
         z-index: 1;
     }
-    @media(max-width: 450px){
+    @media(max-width: 576px){
+
+    }
+    @media(max-width: 576px){
         .infiimg2,.infiimg3{
             position: absolute;
         }
         img.infiimg{
             width : 95%;
-            top : 10vh;
+            top : 20vmin;
             left : 2.5%;
             z-index: 4;
         }
         img.infiimg2{
             width : 95%;
-            top : 20vh;
+            top : 37vmin;
             left : 2.5%;
             z-index: 3;
         }
         img.infiimg3{
             width : 95%;
-            top : 30vh;
+            top : 54vmin;
             left : 2.5%;
             z-index: 2;
         }
         img.yearimg{
             width : 80%;
-            top : 48vh;
+            top : 80vmin;
             right:5vw;
         }
     }
