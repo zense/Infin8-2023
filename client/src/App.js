@@ -1,27 +1,24 @@
-import './App.scss';
-
-import Faq from './components/Faq/Faq';
-import TimeLine from './components/Timeline/TimeLine';
-import Gallery from './components/Gallery/Gallery';
-import About from './components/About/About';
-import Jump from './components/Jump/Jump';
-import Title from './components/Title/Title';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-
+import Home from "./Home";
+import Navbar from "./components/Navbar/Navbar";
+import Footer from "./components/Footer/Footer";
+import RegisterCard from "./components/RegisterCard/RegisterCard";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 function App() {
   return (
+    <>
     <div className="App">
-      <Navbar></Navbar>
-      <Title></Title>
-      <About></About>
-      <Jump></Jump>
-      <TimeLine></TimeLine>
-      <Gallery></Gallery>
-      <Faq></Faq>
-      <div className='space'></div>
-      <Footer></Footer>
+      <BrowserRouter>
+        <Navbar></Navbar>
+          <Routes>
+            <Route path="/home" element={<Home/>} />
+            <Route path="/events" element={<RegisterCard />} />
+            <Route path="*" element={<Navigate to ="/home" replace/>} />
+          </Routes>
+          <div className='space'></div>
+        <Footer></Footer>
+      </BrowserRouter>
     </div>
+    </>
   );
 }
 

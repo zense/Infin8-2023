@@ -7,6 +7,7 @@ import { BsTwitter } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import { BsFacebook } from 'react-icons/bs';
 import { BsFillCaretLeftFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
     const [open, setOpen] = React.useState(false);
 
@@ -21,14 +22,16 @@ const Navbar = () => {
         <div className="largescreens">
             <div className="row navrow">
                 <div className="col-3 col-lg-2">
-                    <a href="#" className="navbutton">
+                    {/* <a href="#" className="navbutton">
                         Home
-                    </a>
+                    </a> */}
+                    <Link to={`../home`} className="navbutton">Home </Link>
                 </div>
                 <div className="col-3 col-lg-2">
-                    <a href="#" className="navbutton">
+                    {/* <a href="#" className="navbutton">
                         Events
-                    </a>
+                    </a> */}
+                    <Link to={`../events`} className="navbutton">Events </Link>
                 </div>
                 <div className="col-3 col-lg-2">
                     <a href="#" className="navbutton">
