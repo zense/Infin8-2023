@@ -5,6 +5,10 @@ $textcolor : black;
 $fontsize : 30px;
 
 .Navbar{
+    text-align: center;
+  overflow-x: hidden !important;
+  font-family: 'Poppins';
+
     background-color: $navbg;
     position: fixed;
     top : 3vh;

@@ -1,8 +1,11 @@
 import React from "react";
 import DUMMY from "../../images/concert.jpeg";
 import ARROW from "../../images/Vector1.png";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 import Title from "./Title";
 import "./style.css";
+import { Link } from "react-router-dom";
 function LeftCard(props){
     return (
         <>
@@ -26,8 +29,8 @@ function LeftCard(props){
                     <div className="col-md-1"></div>
                     <div className="col-md-10">
                         <div className="row">
-                            <div className="col-6 edge"><a href="#">View Details</a></div>
-                            <div className="col-6 edge" style={{borderLeft: 0}}><a href="#">Register</a></div>
+                            <div className="col-6 edge"><Link to={`#`}>View Details</Link></div>
+                            <div className="col-6 edge" style={{borderLeft: 0}}><Link to={`../registerevent`} >Register</Link></div>
                         </div>
                     </div>
                     <div className="col-md-1"></div>
@@ -45,11 +48,11 @@ function LeftCard(props){
                 </div>
                 <div className="row" >
                     <div className="col-6 edge1" style={{borderTop: 0}}>
-                        <a href="#">Details</a>
+                        <Link to={`#`}>Details</Link>
                         <img src={ARROW} className="arrowpoint"></img>
                     </div>
                     <div className="col-6 edge1" style={{borderLeft: 0 , borderTop: 0}}>
-                        <a href="#">Register</a>
+                        <Link to={`../registerevent`} >Register</Link>
                         <img src={ARROW} className="arrowpoint1"></img>
                         </div>
                 </div>
@@ -61,6 +64,7 @@ function LeftCard(props){
 function RegisterCard(props){
     return (
         <>
+        <Navbar></Navbar>
         <Title></Title>
         <div className="container RegisterCard">
             <div className="row marginchange">
@@ -73,6 +77,7 @@ function RegisterCard(props){
                 
             </div>
         </div>
+        <Footer></Footer>
         </>
     )
 }

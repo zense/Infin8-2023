@@ -6,21 +6,21 @@ import Gallery from './components/Gallery/Gallery';
 import About from './components/About/About';
 import Jump from './components/Jump/Jump';
 import Title from './components/Title/Title';
-// import Navbar from './components/Navbar/Navbar';
-// import Footer from './components/Footer/Footer';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 function Home() {
   return (
-    <div >
-      {/* <Navbar></Navbar> */}
+    <div className='App'>
+      <Navbar></Navbar>
       <Title></Title>
       <About></About>
       <Jump></Jump>
       <TimeLine></TimeLine>
       <Gallery></Gallery>
       <Faq></Faq>
-      {/* <div className='space'></div>
-      <Footer></Footer> */}
+      <div className='space'></div>
+      <Footer></Footer>
     </div>
   );
 }
