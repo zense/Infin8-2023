@@ -1,6 +1,8 @@
 // import arrow from '../../Vector1.png'
 import Register from '../Register/Register';
 import RegisterTeam from "../RegisterTeam/RegisterTeam.jsx"
+import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
+import Registered from '../Registered/Registered';
 export default function Container(props){
 
     return (
@@ -52,11 +54,23 @@ export default function Container(props){
                 </div>
                 
                 <div className="col-md-4 col-12" style={{"backgroundColor":"black"}}>
-                    <RegisterTeam
-                        total_cost={props.total_cost}
+                   
+                    
+                    {/* <Register
                         event_fee={props.event_fee}
-                        entrance_fee={props.entrance_fee}
-                        />
+                        email={props.email}
+                    /> */}
+                    
+                    
+                    <RegisterTeam
+                        fee={props.event_fee}
+                        email={props.email}
+                    />
+                    
+                    {/* <NotSignedIn/> */}
+
+                    {/* <Registered email={"vikaskaly@gmail.com"}/> */}
+                
                 </div>  
                 
             </div>
@@ -65,3 +79,10 @@ export default function Container(props){
         </div>
     );
 }
+
+// Register is for individual events when user is signed in
+// RegisterTeam is for team events when user is logged in
+// NotSignedIn is for when User isn't Signed in
+// Registered is when user has registered for the event.
+
+// Whether the user has signed in or not needs to be taken from props

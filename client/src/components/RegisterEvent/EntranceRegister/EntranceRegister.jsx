@@ -1,7 +1,7 @@
 import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
-import './Register.css'
-export default function Register(props){
+import './EntranceRegister.css'
+export default function EntranceRegister(props){
     return (
         <div>
             <div style={{"textAlign":"center"}}>
@@ -11,22 +11,21 @@ export default function Register(props){
             <br></br>
 
             <div className="costDiv">
-                Rs. {props.event_fee}
+                Rs. {props.entrance_fee}
             </div>
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 Signed in as {props.email}
             </div>
-            
             <br></br>
             
             <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px"}}>
-                <span>Event Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.event_fee}</span>
+                <span>Entrance Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.entrance_fee}</span>
                 <br></br>
                 {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
                 <div style={{"backgroundColor":"white","height":"2px","marginRight":"20px"}}>
 
                 </div>
-                <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.event_fee}</span>
+                <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.entrance_fee}</span>
             </div>
 
             <div style={{"color":"white","marginTop":"15px"}}>
