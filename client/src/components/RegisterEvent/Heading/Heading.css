@@ -1,0 +1,23 @@
+.EventHeading{
+    font-family: 'Archivo';
+    font-style: normal;
+
+    width:70%;
+    margin-left: 4.86vw;
+    margin-top: 50px;
+    /* line-height: 13.89vw; */
+    color: #000000;
+}
+
+@media screen and (max-width: 768px) {
+    .ArrowImage{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 3.5vw;
+    }
+}
+

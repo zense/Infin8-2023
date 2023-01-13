@@ -1,27 +1,29 @@
-import './App.scss';
-
-import Faq from './components/Faq/Faq';
-import TimeLine from './components/Timeline/TimeLine';
-import Gallery from './components/Gallery/Gallery';
-import About from './components/About/About';
-import Jump from './components/Jump/Jump';
-import Title from './components/Title/Title';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
-
+import Home from "./Home";
+// import Navbar from "./components/Navbar/Navbar";
+// import Footer from "./components/Footer/Footer";
+import RegisterCard from "./components/RegisterCard/RegisterCard";
+import RegisterEvent from "./components/RegisterEvent/RegisterEvent";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import Profile from "./screens/Profile";
 function App() {
   return (
-    <div className="App">
-      <Navbar></Navbar>
-      <Title></Title>
-      <About></About>
-      <Jump></Jump>
-      <TimeLine></TimeLine>
-      <Gallery></Gallery>
-      <Faq></Faq>
-      <div className='space'></div>
-      <Footer></Footer>
+    <>
+    <div>
+      <BrowserRouter>
+        {/* <Navbar></Navbar> */}
+          <Routes>
+            <Route path="/home" element={<Home/>} />
+            <Route path="/events" element={<RegisterCard />} />
+            {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
+            <Route path="/registerevent" element={<RegisterEvent paid_base_fees={true} signed_in={true}/>} />
+            <Route path="/profile" element = {<Profile/>}/>
+            <Route path="*" element={<Navigate to ="/home" replace/>} />
+          </Routes>
+          <div className='space'></div>
+        {/* <Footer></Footer> */}
+      </BrowserRouter>
     </div>
+    </>
   );
 }
 

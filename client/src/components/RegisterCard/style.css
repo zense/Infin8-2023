@@ -1,0 +1,220 @@
+.adjust{
+    margin-top: 150px;
+    width: 97%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.RegisterCard{
+    margin-top: 150px;
+}
+.LeftCards{
+    border: 3px solid black;
+}
+
+.val{
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.Titl{
+    text-align: left;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 54px;
+    height: 68px;
+}
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  a:hover{
+    color: black;
+  }
+.incen{
+    text-align: left;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 42px;
+    padding-left: 4px;
+    padding-bottom: 10px;
+}
+@media screen and (min-width : 1200px) {
+    .edge{
+        border: 3px solid black;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        text-align: center;
+        padding: 8px;
+    }   
+}
+@media screen and (max-width: 1199px) {
+    .Titl{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 46px;
+        height: 60px;
+    }
+    .incen{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1199px){
+    .edge{
+        border: 3px solid black;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        padding: 8px;
+    }  
+}
+@media screen and (max-width: 767px) {
+    .BigCard{
+        display: none;
+    }
+    .SmallCard{
+        margin-bottom: 60px;
+    }
+    .RegisterCard{
+        margin-top: 90px;
+    }
+    .container.change{
+        padding: 0px;
+    }
+    .edge{
+        border: 3px solid black;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 16px;
+    }
+    .edge1{
+        border: 3px solid black;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        padding: 8px;
+    
+    }
+    .col-6.edge1{
+        padding-left: 30px;
+    }
+    .arrowpoint{
+        margin-left: 120px;
+        margin-bottom: 2px;
+    }
+    .arrowpoint1{
+        margin-left: 110px;
+        margin-bottom: 2px;
+    }
+    .adjust{
+        margin-top: 120px;
+        width: 100%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (min-width: 768px) {
+    .SmallCard{
+        display : none;
+    }
+
+}
+@media screen and (max-width: 992px) and (min-width: 768px){
+    .RegisterCard{
+        margin-top: 120px;
+    }
+    .adjust{
+        margin-top: 150px;
+        width: 95%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media screen and (max-width: 576px) {
+    .container.change{
+        padding-left: 12px;
+    }
+    .row.marginchange{
+        padding-left: 12px;
+    }
+    .Titl{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 40px;
+        height: 50px;
+    }
+    .incen{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 510px) {
+    .arrowpoint{
+        margin-left: 100px;
+        margin-bottom: 2px;
+    }
+    .arrowpoint1{
+        margin-left: 90px;
+        margin-bottom: 2px;
+    }
+}
+@media screen and (max-width: 476px) {
+    .arrowpoint{
+        margin-left: 80px;
+        margin-bottom: 2px;
+    }
+    .arrowpoint1{
+        margin-left: 70px;
+        margin-bottom: 2px;
+    }
+}
+@media screen and (max-width: 424px) {
+    .arrowpoint{
+        margin-left: 55px;
+        margin-bottom: 2px;
+    }
+    .arrowpoint1{
+        margin-left: 45px;
+        margin-bottom: 2px;
+    }
+}
+@media screen and (max-width: 378px) {
+    .arrowpoint{
+        margin-left: 35px;
+        margin-bottom: 2px;
+    }
+    .arrowpoint1{
+        margin-left: 25px;
+        margin-bottom: 2px;
+    }
+}

@@ -1,0 +1,30 @@
+.Profile{
+    overflow-x: hidden;
+    background-color: black;
+    color: white;
+    .ticketrow{
+        background-color : white;
+        margin : 4vh 6vw 7vh 6vw;
+    }
+    .qrimage{
+        width : 20vw;
+        height: auto;
+        margin: 40px;
+    }
+    .qrcol{
+        justify-content: center;
+        display : flex;
+        border-right : 3px dashed black;
+    }
+    .page_heading{
+        font-size: 5vw;
+        font-family: "Archivo";
+        font-weight: 500;
+        padding-left : 6vw;
+        line-height: 5.5vw;
+    }
+    .arrowicon{
+        height: 4vw;
+        width: auto;
+    }
+}

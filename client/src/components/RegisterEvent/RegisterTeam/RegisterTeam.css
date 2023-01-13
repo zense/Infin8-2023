@@ -1,0 +1,116 @@
+.costDiv{
+    margin-left: 2.7vw;
+    background: #FFFFFF;
+    width: 30%;
+    text-align: center;
+    font-size: 2.2vw;
+    margin-top: 20px;
+}
+.newclass{
+    margin-left: 2.7vw;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+    width: 80%;
+    
+    border-radius: 0px !important;
+}
+.height{
+    height: 10px;
+}
+.fontControl{
+    font-size: calc(1rem + .1vw);
+    font-weight: 500;
+}
+
+.bsfil{
+    text-align: right;
+}
+@media screen and (min-width:996px) and (max-width:1122px){
+    .fontControl{
+        font-size: calc(0.9rem + .01vw);
+        font-weight: 500;
+    }
+}
+@media screen and (max-width:995px){
+    .fontControl{
+        font-size: calc(0.75rem + .01vw);
+        font-weight: 500;
+    }
+}
+/*@media screen and (min-width: 1034px) and (max-width:1229px){
+    .fontControl{
+        font-size: calc(0.8rem);
+    }
+} */
+@media screen and (max-width: 768px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 3.5vw;
+        margin-top: 20px;
+    }
+    .fontControl{
+        font-size: calc(1.4rem + .05vw);
+        font-weight: 500;
+    }
+}
+@media screen and (max-width: 488px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 4vw;
+        margin-top: 20px;
+    }
+}
+@media screen and (max-width: 394px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 4.5vw;
+        margin-top: 20px;
+    }
+}
+
+.line{
+    background-color:blue;
+}
+
+#inputID{
+    margin-left:15px;
+    margin-top:15px;
+    font-family: Poppins;
+    font-weight:500;
+    background-color:black;
+    border-bottom-color: #FFFFFF;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    color:white;
+}
+#inputID::placeholder{
+    color:white;
+
+}
+.button{
+    background-color: white;
+}
+
+.clickk:hover{
+    cursor: pointer;
+}

@@ -1,4 +1,7 @@
 .Footer{
+    text-align: center;
+  font-family: 'Poppins';
+
     overflow-y: hidden !important;
     overflow-x: hidden !important;
     background-color: black;
@@ -31,15 +34,15 @@
         display: flex;
     }
     .touch{
-        font-size: 32px;
+        font-size: 38px;
         font-weight: 500;
     }
     .sociallabel{
-        font-size: 21px;
+        font-size: 26px;
         font-weight: 400;
     }
     .saicon{
-        height: 22px;
+        height: 27px;
         width: auto;
     }
     .socialcol{
