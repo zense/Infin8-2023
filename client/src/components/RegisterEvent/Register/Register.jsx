@@ -46,8 +46,18 @@ export default function Register(props){
                     <div className="col-6 clickk" onClick={()=>{
                         document.getElementById("inputFile").click()
                     }} style={{"paddingTop":"20px"}}>
-                        <input type={"file"} id="inputFile" style={{"display":"none"}}></input>
-                        <img src={Dotted} className="img-fluid" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
+                        <input type={"file"} id="inputFile" style={{"display":"none"}} accept="image/*" onChange={(e)=>{
+                            console.log(e.target.files[0]);
+                            //e.target.files[0] can be posted to backend
+                            var file=e.target.files[0];
+                            var imgtag=document.getElementById("dotted1");
+                            var reader=new FileReader();
+                            reader.onload=function(event){
+                                imgtag.src=event.target.result;
+                            };
+                            reader.readAsDataURL(file);
+                        }}></input>
+                        <img src={Dotted} className="img-fluid" id="dotted1" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
                     </div>
                 </div>
             </div>

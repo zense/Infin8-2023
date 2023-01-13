@@ -14,7 +14,7 @@ function App() {
             <Route path="/home" element={<Home/>} />
             <Route path="/events" element={<RegisterCard />} />
             {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
-            <Route path="/registerevent" element={<RegisterEvent paid_base_fees={false} signed_in={true}/>} />
+            <Route path="/registerevent" element={<RegisterEvent paid_base_fees={true} signed_in={true}/>} />
             <Route path="*" element={<Navigate to ="/home" replace/>} />
           </Routes>
           <div className='space'></div>

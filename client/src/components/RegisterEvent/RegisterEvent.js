@@ -37,6 +37,9 @@ function RegisterEvent(props) {
         />
         :
         <PayBaseFees
+          prize_money={"Rs. 10000"} 
+          about={about} 
+          other_details={other_details} 
           contacts={contacts}
           email={"vikaskaly@gmail.com"}
           entrance_fee={200}
