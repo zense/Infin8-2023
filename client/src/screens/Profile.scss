@@ -30,4 +30,28 @@
             height: 7vw;
         }
     }
+    .YourProf{
+        padding-left : 5.4vw;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-size: calc(3.5rem + 8vw);
+        font-weight: 700;
+        line-height: 0.95;
+    }
+    @media screen and (max-width: 577px) {
+        .YourProf{
+            padding-left : 5.4vw;
+            font-family: 'Archivo';
+            font-style: normal;
+            font-size: calc(2.8rem + 7vw);
+            font-weight: 700;
+            line-height: 0.95;
+            width: 100%;
+        }
+    }
+    .arrowicon1{
+        margin-left: 4vw ;
+        height: 8.2vw ;
+        margin-bottom: 1.8vw;
+    }
 }

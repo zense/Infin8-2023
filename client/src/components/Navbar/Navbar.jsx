@@ -40,9 +40,12 @@ const Navbar = () => {
                 </div>
                 <div className="d-none d-lg-block col-lg-4"></div>
                 <div className="col-3 col-lg-2">
-                    <a href="#" className="navbutton">
+                    {/* <a href="#" className="navbutton">
                         Profile
-                    </a>
+                    </a> */}
+                    <Link to={`../profile`} className="navbutton">
+                        Profile
+                    </Link>
                 </div>
             </div>
         </div>
@@ -71,13 +74,24 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="row option bt">
+                    <Link to={`../home`}>
                     HOME <BsFillCaretLeftFill color = "white" className='triangle'/>
+                    </Link>
                 </div>
                 <div className="row option">
+                    <Link to={`../events`}>
                     EVENTS <BsFillCaretLeftFill color = "white" className='triangle'/>
+                    </Link>
                 </div>
                 <div className="row option">
+                    <Link to={`#`}>
                     TEAM <BsFillCaretLeftFill color = "white" className='triangle'/>
+                    </Link>
+                </div>
+                <div className="row option">
+                    <Link to={`../profile`}>
+                    PROFILE <BsFillCaretLeftFill color = "white" className='triangle'/>
+                    </Link>
                 </div>
                 <div className="row space">
                 </div>

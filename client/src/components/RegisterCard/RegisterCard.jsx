@@ -29,8 +29,8 @@ function LeftCard(props){
                     <div className="col-md-1"></div>
                     <div className="col-md-10">
                         <div className="row">
-                            <div className="col-6 edge"><Link to={`#`}>View Details</Link></div>
-                            <div className="col-6 edge" style={{borderLeft: 0}}><Link to={`../registerevent`} >Register</Link></div>
+                            <div className="col-6 edge popup"><Link to={`#`} className="link">View Details</Link></div>
+                            <div className="col-6 edge" style={{borderLeft: 0}}><Link to={`../registerevent`} className="link">Register</Link></div>
                         </div>
                     </div>
                     <div className="col-md-1"></div>
@@ -47,11 +47,11 @@ function LeftCard(props){
                 </div>
                 <div className="row" >
                     <div className="col-6 edge1" style={{borderTop: 0}}>
-                        <Link to={`#`}>Details</Link>
+                        <Link to={`#`} className="link">Details</Link>
                         <img src={ARROW} className="arrowpoint"></img>
                     </div>
                     <div className="col-6 edge1" style={{borderLeft: 0 , borderTop: 0}}>
-                        <Link to={`../registerevent`} >Register</Link>
+                        <Link to={`../registerevent`} className="link">Register</Link>
                         <img src={ARROW} className="arrowpoint1"></img>
                         </div>
                 </div>

@@ -22,7 +22,7 @@
     height: 10px;
 }
 .fontControl{
-    font-size: calc(0.9rem + .1vw) !important;
+    font-size: calc(1rem + .1vw) !important;
     font-weight: 500;
 }
 

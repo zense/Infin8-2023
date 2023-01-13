@@ -1,7 +1,7 @@
 import './Card.scss'
 import Image from "../../images/concert.jpeg"
 import arrow from "../../images/downright.svg"
-
+import { Link } from 'react-router-dom'
 const Card = (props) => {
     return <div className="Card">
         <div className="row">
@@ -30,7 +30,9 @@ const Card = (props) => {
             </div>
             <div className="col-6 mz border_left">
                 <button className='border_left'><div className="row">
-                    <div className="col-9">Register</div>
+                    <div className="col-9">
+                        <Link to={`../registerevent`} >Register</Link>
+                    </div>
                     <div className="col-3">
                         <img  className = "arrow" src={arrow} alt="" />
                     </div>
