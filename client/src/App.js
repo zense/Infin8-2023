@@ -5,12 +5,24 @@ import RegisterCard from "./components/RegisterCard/RegisterCard";
 import RegisterEvent from "./components/RegisterEvent/RegisterEvent";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Profile from "./screens/Profile";
+import { useEffect } from "react";
+import { useLocation } from "react-router";
+
+const ScrollToTop = (props) => {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  return <>{props.children}</>
+};
 function App() {
   return (
     <>
     <div>
       <BrowserRouter>
         {/* <Navbar></Navbar> */}
+        <ScrollToTop>
           <Routes>
             <Route path="/home" element={<Home/>} />
             <Route path="/events" element={<RegisterCard />} />
@@ -19,6 +31,7 @@ function App() {
             <Route path="/profile" element = {<Profile/>}/>
             <Route path="*" element={<Navigate to ="/home" replace/>} />
           </Routes>
+          </ScrollToTop>
           <div className='space'></div>
         {/* <Footer></Footer> */}
       </BrowserRouter>
