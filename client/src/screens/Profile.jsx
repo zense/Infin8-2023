@@ -1,9 +1,13 @@
 import './Profile.scss'
-import qr from '../images/qr-ticket.png'
 import arrow from '../images/downrightwhite.svg'
 import RegisteredSlip from '../components/RegisteredSlip/RegisteredSlip'
-const Profile = ()=>{
+import Footer from '../components/Footer/Footer'
+import { Navbar } from 'react-bootstrap'
+import Ticket from '../components/Ticket/Ticket'
+
+const Profile = () => {
     return <div className="Profile">
+        <Navbar/>
         <div className="row title">
 
         </div>
@@ -13,26 +17,35 @@ const Profile = ()=>{
         </div>
         <div className="row page_heading">
             TICKET
-            <img src={arrow} alt="" className='arrowicon'/>
+            <img src={arrow} alt="" className='arrowicon' />
         </div>
-        <div className="row ticketrow">
-            <div className="col-5 qrcol">
-                <img src={qr} alt="" className='qrimage'/>
-            </div>
-            <div className="col-7">
-                Ticket text
-            </div>
-        </div>
+        <Ticket/>
         <div className="row page_heading">
             YOUR
         </div>
         <div className="row page_heading">
             REGISTRATIONS
-            <img src={arrow} alt="whatever" className='arrowicon'/>
+            <img src={arrow} alt="whatever" className='arrowicon' />
         </div>
-        <RegisteredSlip></RegisteredSlip>
-        <RegisteredSlip></RegisteredSlip>
-
+        <div className="slips">
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+        </div>
+        <Footer/>
     </div>
 }
 
