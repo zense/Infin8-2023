@@ -1,18 +1,25 @@
 import "./Counter.scss"
 const Counter = () => {
     return(
-        <div className="container">
+        <div className="square-container">
             <div className="row">
-                <div className="col col-sq">
+                <div className="col-4 col-xl-3">
                     <div className="square-orange">
                         <div className="square-text">24</div>
+                        <div className="square-subtitle ">Days</div>
                     </div>
                 </div>
-                <div className="col">
-                    <div className="square-orange">00</div>
+                <div className="col-4 col-xl-3 ">
+                    <div className="square-orange">
+                        <div className="square-text">00</div>
+                        <div className="square-subtitle ">Hours</div>
+                    </div>
                 </div>
-                <div className="col">
-                    <div className="square-orange">59</div>
+                <div className="col-4 col-xl-3 ">
+                    <div className="square-orange">
+                        <div className="square-text">59</div>
+                        <div className="square-subtitle ">Mins</div>
+                    </div>
                 </div>
             </div>
         </div>
