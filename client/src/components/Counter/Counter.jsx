@@ -34,19 +34,19 @@ const Counter = ({dayshoursMinSecs}) => {
             <div className="row">
                 <div className="col-4 col-xl-3">
                     <div className="square-orange">
-                        <div className="square-text">{days}</div>
+                        <div className="square-text">{`${days.toString().padStart(2, '0')}`}</div>
                         <div className="square-subtitle ">Days</div>
                     </div>
                 </div>
                 <div className="col-4 col-xl-3 ">
                     <div className="square-orange">
-                        <div className="square-text">{hrs}</div>
+                        <div className="square-text">{`${hrs.toString().padStart(2, '0')}`}</div>
                         <div className="square-subtitle ">Hours</div>
                     </div>
                 </div>
                 <div className="col-4 col-xl-3 ">
                     <div className="square-orange">
-                        <div className="square-text">{mins}</div>
+                        <div className="square-text">{`${mins.toString().padStart(2, '0')}`}</div>
                         <div className="square-subtitle ">Mins</div>
                     </div>
                 </div>
