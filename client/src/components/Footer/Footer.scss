@@ -1,0 +1,63 @@
+.Footer{
+    text-align: center;
+  font-family: 'Poppins';
+
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    background-color: black;
+    color : white;
+    padding : 7vh 0vw;
+    margin-bottom: 0;
+    .slantstrip{
+        color : white;
+
+        font-size: 80px;
+        font-family: 'Archivo';
+        line-height: 85px;
+        white-space: nowrap;
+
+        display: inline-block;
+        transform: rotate(7deg);
+        margin-left: -5vw;
+        margin-top: 17vh;
+        height: fit-content;
+        // margin-right: -5vw;
+        // width: 400vw !important;
+    }
+    .slantspan{
+        background-color: #161616;
+    }
+    .slantrow{
+        height: 50vh;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+    .touch{
+        font-size: 38px;
+        font-weight: 500;
+    }
+    .sociallabel{
+        font-size: 26px;
+        font-weight: 400;
+    }
+    .saicon{
+        height: 27px;
+        width: auto;
+    }
+    .socialcol{
+        text-align: start;
+    }
+    .iconcol{
+        text-align: start;
+    }
+    .footerimg2{
+        width: 150px;
+        height : auto;
+    }
+    .footerimg1{
+        width: 200px;
+        height : auto;
+        margin-top: 40px;
+    }
+}

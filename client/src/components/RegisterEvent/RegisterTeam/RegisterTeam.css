@@ -1,0 +1,111 @@
+.costDiv{
+    margin-left: 2.7vw;
+    background: #FFFFFF;
+    width: 30%;
+    text-align: center;
+    font-size: 2.2vw;
+    margin-top: 35px !important;
+}
+.newclass{
+    margin-left: 2.7vw;
+    margin-bottom: 30px;
+    margin-top: 15px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    text-align: left;
+    width: 80%;
+    
+    border-radius: 0px !important;
+}
+.height{
+    height: 10px;
+}
+.fontControl{
+    font-size: calc(1rem + .1vw) !important;
+    font-weight: 500;
+}
+
+.bsfil{
+    text-align: right;
+}
+@media screen and (min-width:996px) and (max-width:1150px){
+    .fontControl{
+        font-size: calc(0.85rem + .01vw) !important;
+        font-weight: 500;
+    }
+}
+@media screen and (min-width: 768px) and (max-width:995px){
+    .fontControl{
+        font-size: calc(0.7rem + .01vw) !important;
+        font-weight: 700;
+    }
+}
+@media screen and (max-width: 768px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 3.5vw;
+        margin-top: 35px !important;
+    }
+    .fontControl{
+        font-size: calc(1.2rem + .05vw) !important;
+        font-weight: 500;
+    }
+}
+@media screen and (max-width: 488px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 4vw;
+        margin-top: 35px !important;
+    }
+}
+@media screen and (max-width: 394px) {
+    .costDiv{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-left: 2.7vw;
+        background: #FFFFFF;
+        width: 20%;
+        text-align: center;    
+        font-size: 4.5vw;
+        margin-top: 35px !important;
+    }
+}
+
+.line{
+    background-color:blue;
+}
+
+#inputID{
+    margin-left:15px;
+    margin-top:15px;
+    font-family: Poppins;
+    font-weight:500;
+    background-color:black;
+    border-bottom-color: #FFFFFF;
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    color:white;
+}
+#inputID::placeholder{
+    color:white;
+
+}
+.button{
+    background-color: white;
+}
+
+.clickk:hover{
+    cursor: pointer;
+}

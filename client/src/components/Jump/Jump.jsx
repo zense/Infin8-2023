@@ -3,7 +3,7 @@ import arrow from '../../images/downrightthin.svg'
 
 const Jump = () => {
     return <div className="Jump">
-        <a href="">
+        <a href='#Timeline'>
             <div className="row jump1">
                 <div className="col-8 col-md-10">
                     <h1 className="title">
@@ -18,7 +18,7 @@ const Jump = () => {
             </div>
         </a>
 
-        <a href="">
+        <a href="#Gallery">
             <div className="row jump2">
                 <div className="col-8 col-md-10">
                     <h1 className="title">

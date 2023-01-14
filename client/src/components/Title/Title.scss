@@ -1,47 +1,43 @@
+@keyframes changebg{
+    0%{
+        background-image: url(../../images/herogif.gif);
+    }
+    25%{
+        opacity: 25%;
+    }
+    75%{
+        opacity: 50%;
+    }
+    100%{
+        background-image: url(../../images/eventgif.jpg);
+        object-fit:scale-down;
+    }
+}
+
 .Title{
+    padding-top: 5vh;
     height: 100vh;
-    img.infiimg{
-        width : 64%;
-        height: auto;
-        position: absolute;
-        top : 20vh;
-        left : 5vw;
-        z-index: 2;
+    width : 100%;
+    background-image: url(../../images/herogif.gif);
+    margin : 0 !important;
+    object-fit: scale-down;
+    .titlerow{
+        color : white;
+        font-size: 16vw;
+        font-family: 'Barlow Condensed';
+        font-weight: 700;
+        line-height: 13vw;
+        padding-left : 5vw;
     }
-    img.yearimg{
-        width : 80%;
-        height: auto;
-        position: absolute;
-        top : 38vh;
-        right:-1vw;
-        z-index: 1;
+    @media(max-width : 767px){
+        padding-top: 13vh;
+        .titlerow{
+            font-size: 35vw;
+            line-height: 30vw;
+            padding-left: 10vw;
+        }
     }
-    @media(max-width: 450px){
-        .infiimg2,.infiimg3{
-            position: absolute;
-        }
-        img.infiimg{
-            width : 95%;
-            top : 10vh;
-            left : 2.5%;
-            z-index: 4;
-        }
-        img.infiimg2{
-            width : 95%;
-            top : 20vh;
-            left : 2.5%;
-            z-index: 3;
-        }
-        img.infiimg3{
-            width : 95%;
-            top : 30vh;
-            left : 2.5%;
-            z-index: 2;
-        }
-        img.yearimg{
-            width : 80%;
-            top : 48vh;
-            right:5vw;
-        }
+    .orange{
+        color : #ff7c00;
     }
 }
