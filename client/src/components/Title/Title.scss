@@ -1,50 +1,21 @@
 .Title{
     height: 100vh;
-    img.infiimg{
-        width : 64%;
-        height: auto;
-        position: absolute;
-        top : 20vh;
-        left : 5vw;
-        z-index: 2;
+    width : 100%;
+    margin : 0 !important;
+    background-image: url(../../images/mainbg.svg);
+    object-fit: cover;
+    .titlerow{
+        color : white;
+        font-size: 14vw;
+        font-family: 'Barlow Condensed';
+        font-weight: 700;
+        // letter-spacing: 1vw;
+        line-height: 14vw;
+        padding-left : 5vw;
     }
-    img.yearimg{
-        width : 80%;
-        height: auto;
-        position: absolute;
-        top : 38vh;
-        right:-1vw;
-        z-index: 1;
-    }
-    @media(max-width: 576px){
-
-    }
-    @media(max-width: 576px){
-        .infiimg2,.infiimg3{
-            position: absolute;
-        }
-        img.infiimg{
-            width : 95%;
-            top : 20vmin;
-            left : 2.5%;
-            z-index: 4;
-        }
-        img.infiimg2{
-            width : 95%;
-            top : 37vmin;
-            left : 2.5%;
-            z-index: 3;
-        }
-        img.infiimg3{
-            width : 95%;
-            top : 54vmin;
-            left : 2.5%;
-            z-index: 2;
-        }
-        img.yearimg{
-            width : 80%;
-            top : 80vmin;
-            right:5vw;
+    @media(max-width : 767px){
+        .titlerow{
+            font-size: 18vw;
         }
     }
 }

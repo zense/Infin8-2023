@@ -8,7 +8,7 @@ const About = () => {
                     <div className="about">ABOUT</div>
                 </div>
                 <div className="row">
-                    <div className="infin8">INFIN8</div>
+                    <div className="infin8">infin8</div>
                 </div>
             </div>
             <div className="col-12 col-md-6">

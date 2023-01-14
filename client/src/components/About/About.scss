@@ -2,6 +2,12 @@ $heading-color : black;
 $heading-size : 18vw;
 $heading-final : 120px;
 
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    40% {transform: translateY(-30px);} 
+    60% {transform: translateY(-15px);} 
+ } 
+
 .About{
     margin-top: 10vh;
     margin-bottom : 5vh;
@@ -14,7 +20,13 @@ $heading-final : 120px;
     }
     .infin8{
         letter-spacing: 1.1vw;
+        font-size: $heading-size*0.9 !important;
         margin-bottom: 3vh;
+        font-family: 'Just Another Hand';
+        color : #ff7c00;
+        margin-top : -2vw;
+        animation-name : bounce;
+        animation-duration : 3s;
     }
     .para{
         margin-left: 3vw;

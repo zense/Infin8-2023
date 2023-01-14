@@ -3,10 +3,10 @@ import { BsCircleFill } from 'react-icons/bs';
 
 const RegisteredSlip = (props) => {
     return <div className="RegisteredSlip row">
-        <div className="col-1 col-sm-2 bordercol">
+        <div className="col-1 col-sm-1 bordercol">
             <div className="borderbox"></div>
         </div>
-        <div className="col-11 col-sm-10 contcol">
+        <div className="col-10 col-sm-10 contcol">
             <div className="white row">
                 <div className="col-1 dotcol">
                     <BsCircleFill color='black' className='dot' size={12}/>
