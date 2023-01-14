@@ -2,7 +2,7 @@ import "./Gallery.scss"
 import Card from "./Card"
 
 const Gallery = () => {
-    return <div className="Gallery">
+    return <div className="Gallery" id="Gallery">
         <div className="row">
             <h1 className="heading">
                 GALLERY OF

@@ -1,14 +1,21 @@
 import './TimeLine.scss';
-
 import LeftCard from './LeftCard';
 import RightCard from './RightCard';
+import Fade from 'react-reveal/Fade'
 
 const TimeLine = () => {
-    return <div className="Timeline">
+    return <div className="Timeline" id="Timeline">
         {/* heading  */}
-        <div className="row">
-            <div className="heading">
-                TIMELINE
+        <div className="row headingrow">
+            <Fade top>
+                <div className="heading">
+                    TIMELINE
+                </div>
+            </Fade>
+        </div>
+        <div className="row overlayrow">
+            <div className="overlay">
+                infin8 2023
             </div>
         </div>
 

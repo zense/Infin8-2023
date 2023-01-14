@@ -2,19 +2,18 @@
     overflow-x: hidden;
     background-color: black;
     color: white;
-    .ticketrow{
-        background-color : white;
-        margin : 4vh 6vw 7vh 6vw;
+    .titledeets{
+        // background-color: #fafafa;
+        color :white;
+        font-size: 20px;
+        padding : 0% 5% 0% 6%;
+        margin-bottom : 1.5vh;
+        font-family: 'Poppins';
+        font-weight: 500;
+        // padding-left : 5.4vw;
     }
-    .qrimage{
-        width : 20vw;
-        height: auto;
-        margin: 40px;
-    }
-    .qrcol{
-        justify-content: center;
-        display : flex;
-        border-right : 3px dashed black;
+    .lasttitle{
+        margin-bottom: 10vh;
     }
     .page_heading{
         font-size: 5vw;
@@ -26,6 +25,23 @@
     .arrowicon{
         height: 4vw;
         width: auto;
+    }
+    .slips{
+        margin-top: 8vh;
+        margin-bottom: 8vh;
+        padding-top : 0.8px;
+        padding-bottom : 0.1px;
+        background: rgb(0,0,0);
+        background: linear-gradient(274deg, rgba(0,0,0,1) 12%, rgba(221,221,221,1) 100%); 
+    }
+    @media(max-width : 567px){
+        .page_heading{
+            font-size: 9vw;
+            line-height: 9vw;
+        }
+        .arrowicon{
+            height: 7vw;
+        }
     }
     .YourProf{
         padding-left : 5.4vw;
@@ -40,7 +56,7 @@
             padding-left : 5.4vw;
             font-family: 'Archivo';
             font-style: normal;
-            font-size: calc(2.8rem + 7vw);
+            font-size: calc(2.5rem + 6vw);
             font-weight: 700;
             line-height: 0.95;
             width: 100%;
@@ -48,7 +64,18 @@
     }
     .arrowicon1{
         margin-left: 4vw ;
-        height: 8.2vw ;
+        height: 10vw ;
         margin-bottom: 1.8vw;
+    }
+    @media(min-width : 1000px) {
+        .YourProf{
+            font-size: 130px;
+        }
+        .arrowicon1{
+            height: 100px;
+        }
+        .titledeets{
+            font-size: 30px;
+        }
     }
 }
