@@ -6,11 +6,11 @@ import year from "../../images/2023_text.svg";
 const Title = ()=>{
     return <div className="Title">
         <div className="row">
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-sm-6">
                 <div className="row titlerow">
                     INFIN8
                 </div>
-                <div className="row titlerow">
+                <div className="row titlerow orange">
                     2023.
                 </div>
             </div>

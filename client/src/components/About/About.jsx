@@ -1,5 +1,5 @@
 import "./About.scss"
-
+import { Zoom } from "react-reveal";
 const About = () => {
     return <div className="About">
         <div className="row">
@@ -7,9 +7,11 @@ const About = () => {
                 <div className="row">
                     <div className="about">ABOUT</div>
                 </div>
-                <div className="row">
-                    <div className="infin8">infin8</div>
-                </div>
+                <Zoom>
+                    <div className="row">
+                        <div className="infin8">infin8</div>
+                    </div>
+                </Zoom>
             </div>
             <div className="col-12 col-md-6">
                 <div className="para">
