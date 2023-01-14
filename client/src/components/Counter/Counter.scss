@@ -1,0 +1,23 @@
+.square-orange{
+    width: 120px;
+    height: 120px;
+    background: #FF5C00;
+    position: relative;
+    @media (max-width: 768px) {
+        width: 90px;
+        height: 90px;
+    }
+    .square-text{
+        position: absolute;
+        width: 62px;
+        height: 84px;
+        left: 35.45px;
+
+        font-family: 'Barlow Condensed';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 69.6352px;
+        line-height: 84px;
+        color: #FFFFFF;
+    }
+}
