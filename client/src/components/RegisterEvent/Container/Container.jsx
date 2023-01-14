@@ -59,8 +59,8 @@ export default function Container(props){
                     {/* <Register
                         event_fee={props.event_fee}
                         email={props.email}
-                    /> */}
-                    
+                    />
+                     */}
                     
                     <RegisterTeam
                         fee={props.event_fee}

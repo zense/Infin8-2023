@@ -12,7 +12,7 @@ export default function RegisterTeam(props){
         
         <div>
             <div style={{"textAlign":"center"}}>
-                <h1 style={{"color":"white","paddingTop":"20px"}}>REGISTER</h1>
+                <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom": "10px"}}>REGISTER</h1>
             </div>
             <div className="container-fluid" style={{"paddingLeft":"2.7vw", "paddingRight":"2.7vw"}}>
                 <div className="row">
@@ -66,24 +66,26 @@ export default function RegisterTeam(props){
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 Signed in as {props.email}
             </div>
-            <br></br>
+        
             
-            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"2.7vw"}}>
+            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"2.7vw","padding-top": "20px" }}>
+                <div style={{"padding-bottom": "3px"}}>
                 <span>Team Creation Fee</span><span style={{"float":"right","paddingRight":"50px"}}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
-                <br></br>
+                </div>
                 {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
                 <div style={{"backgroundColor":"white","height":"2px","marginRight":"20px"}}>
 
                 </div>
-                <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
+                <div style={{"padding-top": "3px"}}>
+                <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span></div>
             </div>
 
             {!joinExistingTeam &&
 
                 <div>
-                    <div style={{"color":"white","marginTop":"15px"}}>
+                    <div style={{"color":"white","marginTop":"20px"}}>
                         <h1 style={{"textAlign":"center"}}>PAYMENT</h1>
-                        <div style={{"marginLeft":"15px","marginRight":"15px"}}>Pay the above mentioned amount using UPI and 
+                        <div style={{"marginLeft":"15px","marginRight":"15px",  "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
                         upload the receipt screenshot here. Our team will 
                         verify the payment. The 'Register' button will turn 
                         to 'Registered ' if it is approved :</div>
@@ -116,12 +118,12 @@ export default function RegisterTeam(props){
                 </div>
             }
             
-            <div style={{"paddingTop":"15px","textAlign":"center"}}>
-                {!joinExistingTeam && <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px"}}/>}
-                <br></br>
+            <div style={{"paddingTop":"5px","textAlign":"center"}}>
+                <div>
+                {!joinExistingTeam && <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px", "marginTop": "30px"}}/>}
                 {joinExistingTeam && <input placeholder="Enter Team Code" id="inputID" style={{"width":"200px"}}/>}
-                <br></br>
-                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Register</button>
+                </div>
+                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
             </div>
             
         </div>

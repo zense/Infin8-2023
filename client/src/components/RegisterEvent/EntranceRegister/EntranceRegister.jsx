@@ -5,32 +5,34 @@ export default function EntranceRegister(props){
     return (
         <div>
             <div style={{"textAlign":"center"}}>
-                <h1 style={{"color":"white","paddingTop":"20px"}}>REGISTER</h1>
+                <h1 style={{"color":"white","paddingTop":"32px" , "paddingBottom": "10px"}}>REGISTER</h1>
             </div>
 
-            <br></br>
 
-            <div className="costDiv">
+            <div className="costDiv" >
                 Rs. {props.entrance_fee}
             </div>
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 Signed in as {props.email}
             </div>
-            <br></br>
+
             
-            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px"}}>
+            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px" , "padding-top": "30px"}}>
+                <div style={{"padding-bottom": "3px"}}>
                 <span>Entrance Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.entrance_fee}</span>
-                <br></br>
+                </div>
                 {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
                 <div style={{"backgroundColor":"white","height":"2px","marginRight":"20px"}}>
 
                 </div>
+                <div style={{"padding-top": "3px"}}>
                 <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.entrance_fee}</span>
+                </div>
             </div>
 
-            <div style={{"color":"white","marginTop":"15px"}}>
+            <div style={{"color":"white","marginTop":"30px" }}>
                 <h1 style={{"textAlign":"center"}}>PAYMENT</h1>
-                <div style={{"marginLeft":"15px","marginRight":"15px"}}>Pay the above mentioned amount using UPI and 
+                <div style={{"marginLeft":"15px","marginRight":"15px", "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
                 upload the receipt screenshot here. Our team will 
                 verify the payment. The 'Register' button will turn 
                 to 'Registered ' if it is approved :</div>
@@ -64,9 +66,10 @@ export default function EntranceRegister(props){
             
             
             <div style={{"paddingTop":"15px","textAlign":"center"}}>
+                <div>
                 <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px"}}/>
-                <br></br>
-                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Register</button>
+                </div>
+                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
             </div>
         </div>
     );
