@@ -57,7 +57,7 @@
     position: absolute;
     width: 83px;
     height: 60px;
-    left: 130px;
+    left: 125px;
     bottom: -5px;
 
     font-family: 'Barlow Condensed';
@@ -80,4 +80,11 @@
         transform: translateX(-50%);
 
     }
+}
+.square-box{
+    @media (max-width: 1354px) and (min-width: 1200px)
+    {
+        margin-left: 2rem !important;
+    }
+    
 }
