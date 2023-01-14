@@ -1,7 +1,32 @@
 import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
-import './EntranceRegister.css'
+import './EntranceRegister.css';
+import { db } from "../../../firebase-config";
+import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
+
 export default function EntranceRegister(props){
+
+    function processBaseFee(){
+        const paymentObject = {
+            base_event: true,
+            event: "",
+            multi: false,
+            screenshot: "",
+            status: "processing",
+            transaction_id: "",
+            user:"" 
+        }
+
+        const dbRef = collection(db, "payments");
+        addDoc(dbRef, paymentObject)
+        .then(docRef => {
+            console.log(docRef);
+        }).catch(error => {
+            console.log(error);
+        });
+    }
+
+
     return (
         <div>
             <div style={{"textAlign":"center"}}>
@@ -45,18 +70,8 @@ export default function EntranceRegister(props){
                     <div className="col-6 clickk" onClick={()=>{
                         document.getElementById("inputFile").click()
                     }} style={{"paddingTop":"20px"}}>
-                        <input type={"file"} id="inputFile" style={{"display":"none"}} accept="image/*" onChange={(e)=> {
-                            console.log(e.target.files[0]);
-                            //e.target.files[0] can be posted to backend
-                            var file=e.target.files[0];
-                            var imgtag=document.getElementById("dotted");
-                            var reader=new FileReader();
-                            reader.onload=function(event){
-                                imgtag.src=event.target.result;
-                            };
-                            reader.readAsDataURL(file);
-                        }}></input>
-                        <img src={Dotted} className="img-fluid" id="dotted" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
+                        <input type={"file"} id="inputFile" style={{"display":"none"}}></input>
+                        <img src={Dotted} className="img-fluid" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
                     </div>
                 </div>
             </div>
@@ -66,7 +81,7 @@ export default function EntranceRegister(props){
             <div style={{"paddingTop":"15px","textAlign":"center"}}>
                 <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px"}}/>
                 <br></br>
-                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Register</button>
+                <button onClick={processBaseFee} className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Register</button>
             </div>
         </div>
     );

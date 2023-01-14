@@ -7,33 +7,7 @@ export default function PayBaseFees(props){
             
             <div className="row">
                 <div className="col-md-8 col-12" style={{"paddingRight":"0"}}>
-                    
-                    <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
-                        <h1 style={{"fontWeight":"700"}}>INCENTIVES</h1>
-                    </div>
-                    
-                    <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
-                        <h2 style={{"fontWeight":"500"}}>{props.prize_money}</h2>
-                        <br></br>
-                        <h3 className='worthPrizePool'>worth Prize Pool</h3>
-                    </div>
-                    
-                    <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
-                        <h1 style={{"fontWeight":"700"}}>ABOUT</h1>
-                    </div>
-                    
-                    <div style={{"border":"1px solid black","padding":"20px 30px 20px 30px"}}>
-                        <p>{props.about}</p>
-                    </div>
 
-                    <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
-                        <h1 style={{"fontWeight":"700"}}>OTHER DETAILS</h1>
-                    </div>
-                
-                    <div style={{"border":"1px solid black","padding":"20px 30px 20px 30px"}}>
-                        <p>{props.other_details}</p>
-                    </div>
-                    
                     <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
                         <h1 style={{"fontWeight":"700"}}>CONTACTS</h1>
                     </div>

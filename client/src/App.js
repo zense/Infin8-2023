@@ -3,41 +3,43 @@ import Home from "./Home";
 // import Footer from "./components/Footer/Footer";
 import RegisterCard from "./components/RegisterCard/RegisterCard";
 import RegisterEvent from "./components/RegisterEvent/RegisterEvent";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-import Profile from "./screens/Profile";
-import { useEffect } from "react";
-import { useLocation } from "react-router";
+import SignUp from "./SignUp";
+import SignIn from "./SignIn";
+import OTPVerification from "./OTPVerification";
 
-const ScrollToTop = (props) => {
-  const location = useLocation();
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [location]);
+import { Route, Routes, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-  return <>{props.children}</>
-};
-function App() {
+
+function App(props) {
+
+  
+  function navigator(position, replace) {
+    props.navigate(position, { replace: replace });
+  }
+  
+  const [loggedInStatus, setLoggedInStatus] = useState(false);
+  const [user, setUser] = useState({});
+
   return (
     <>
-    <div>
-      <BrowserRouter>
-        {/* <Navbar></Navbar> */}
-        <ScrollToTop>
-          <Routes>
-            <Route path="/home" element={<Home/>} />
-            <Route path="/events" element={<RegisterCard />} />
-            {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
-            <Route path="/registerevent" element={<RegisterEvent paid_base_fees={true} signed_in={true}/>} />
-            <Route path="/profile" element = {<Profile/>}/>
-            <Route path="*" element={<Navigate to ="/home" replace/>} />
-          </Routes>
-          </ScrollToTop>
-          <div className='space'></div>
-        {/* <Footer></Footer> */}
-      </BrowserRouter>
-    </div>
+      <Routes>
+        <Route exact path="/" element={<Home user={user} loggedInStatus={loggedInStatus} navigator={navigator}/>}></Route>
+        <Route exact path="sign-up" element={<SignUp setUser={setUser} setLoggedInStatus={setLoggedInStatus} navigator={navigator}/>}></Route>
+        <Route exact path="sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus} navigator={navigator}/>}></Route>
+        <Route exact path="otp-verification" element={<OTPVerification user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus} navigator={navigator}/>}></Route>
+        <Route exact path="events" element={<RegisterCard user={user} loggedInStatus={loggedInStatus} navigator={navigator}/>}></Route>
+        <Route exact path="registerevent" element={<RegisterEvent user={user} paid_base_fees={true} signed_in={true} loggedInStatus={loggedInStatus} navigator={navigator}/>}></Route>
+      </Routes>
+      <div className='space'></div>
     </>
   );
 }
 
-export default App;
+
+function WithNavigate(props) {
+  let navigate = useNavigate();
+  return <App navigate={navigate} />
+}
+
+export default WithNavigate;

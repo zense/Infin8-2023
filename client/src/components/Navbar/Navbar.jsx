@@ -8,8 +8,11 @@ import { BsLinkedin } from 'react-icons/bs';
 import { BsFacebook } from 'react-icons/bs';
 import { BsFillCaretLeftFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-const Navbar = () => {
-    const [open, setOpen] = React.useState(false);
+
+import { useState } from 'react';
+
+const Navbar = (props) => {
+    const [open, setOpen] = useState(false);
 
     const showMod = () => {
         setOpen(true);
@@ -18,19 +21,19 @@ const Navbar = () => {
         setOpen(false);
     }
 
+    var page = "";
+    var displayText = "";
+
+    props.props.loggedInStatus ? page = "#" : page = "sign-in"; 
+    props.props.loggedInStatus ? displayText = "Profile" : displayText = "Login"; 
+
     return <div className="Navbar">
         <div className="largescreens">
             <div className="row navrow">
                 <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Home
-                    </a> */}
-                    <Link to={`../home`} className="navbutton">Home </Link>
+                    <Link to={`../`} className="navbutton">Home </Link>
                 </div>
                 <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Events
-                    </a> */}
                     <Link to={`../events`} className="navbutton">Events </Link>
                 </div>
                 <div className="col-3 col-lg-2">
@@ -40,12 +43,9 @@ const Navbar = () => {
                 </div>
                 <div className="d-none d-lg-block col-lg-4"></div>
                 <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Profile
-                    </a> */}
-                    <Link to={`../profile`} className="navbutton">
-                        Profile
-                    </Link>
+                    <a href={page} className="navbutton">
+                        {displayText}
+                    </a>
                 </div>
             </div>
         </div>
@@ -74,24 +74,13 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="row option bt">
-                    <Link to={`../home`}>
                     HOME <BsFillCaretLeftFill color = "white" className='triangle'/>
-                    </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`../events`}>
                     EVENTS <BsFillCaretLeftFill color = "white" className='triangle'/>
-                    </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`#`}>
                     TEAM <BsFillCaretLeftFill color = "white" className='triangle'/>
-                    </Link>
-                </div>
-                <div className="row option">
-                    <Link to={`../profile`}>
-                    PROFILE <BsFillCaretLeftFill color = "white" className='triangle'/>
-                    </Link>
                 </div>
                 <div className="row space">
                 </div>

@@ -14,14 +14,41 @@ export default function RegisterTeam(props){
             <div style={{"textAlign":"center"}}>
                 <h1 style={{"color":"white","paddingTop":"20px"}}>REGISTER</h1>
             </div>
+            {/* <div className="container-fluid" style={{"paddingLeft":"2.7vw", "paddingRight":"2.7vw"}}>
+                <div className="row">
+
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group" style={{"marginTop":"10px"}}>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" defaultChecked onClick={()=>{
+                            changejoinExistingTeam(true);
+                        }}/>
+                        <label class="btn btn-outline-light" for="btnradio1" style={{"borderRadius": "0px"}}>
+                            <div style={{"textAlign": "left"}}>
+                                <div className="fontControl">Join an</div>
+                                <div className="fontControl">existing team.</div>
+                            </div>
+                        </label>
+
+
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onClick={()=>{
+                            changejoinExistingTeam(false);
+                        }}/>
+                        <label class="btn btn-outline-light" for="btnradio3" style={{"borderRadius": "0px"}}>
+                            <div style={{"textAlign": "left"}}>
+                                <div className="fontControl">Create a</div>
+                                <div className="fontControl">new team.</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div> */}
             <div className="container-fluid" style={{"paddingLeft":"2.7vw", "paddingRight":"2.7vw"}}>
                 <div className="row">
 
-                    <div className="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group" style={{"marginTop":"10px"}}>
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked onClick={()=>{
+                    <div class="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group" style={{"marginTop":"10px"}}>
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" defaultChecked onClick={()=>{
                             changejoinExistingTeam(true);
                         }}/>
-                        <label className="btn btn-outline-light" htmlFor="btnradio1" style={{"borderRadius": "0px"}}>
+                        <label class="btn btn-outline-light" for="btnradio1" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}} onClick={()=>{
                                             changecolor2("green");
                                             changecolor1("red");
@@ -39,10 +66,10 @@ export default function RegisterTeam(props){
                         </label>
 
 
-                        <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" onClick={()=>{
+                        <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onClick={()=>{
                             changejoinExistingTeam(false);
                         }}/>
-                        <label className="btn btn-outline-light" htmlFor="btnradio3" style={{"borderRadius": "0px"}}>
+                        <label class="btn btn-outline-light" for="btnradio3" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}}  onClick={()=>{
                                             changecolor2("red");
                                             changecolor1("green");
@@ -98,18 +125,8 @@ export default function RegisterTeam(props){
                             <div className="col-6 clickk" onClick={()=>{
                                 document.getElementById("inputFile").click()
                             }} style={{"paddingTop":"20px"}}>
-                                <input type={"file"} id="inputFile" style={{"display":"none"}} accept="image/*" onChange={(e)=>{
-                                    console.log(e.target.files[0]);
-                                    //e.target.files[0] can be posted to backend
-                                    var file=e.target.files[0];
-                                    var imgtag=document.getElementById("dotted2");
-                                    var reader=new FileReader();
-                                    reader.onload=function(event){
-                                        imgtag.src=event.target.result;
-                                    };
-                                    reader.readAsDataURL(file);
-                                }}></input>
-                                <img src={Dotted} className="img-fluid" id="dotted2" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
+                                <input type={"file"} id="inputFile" style={{"display":"none"}}></input>
+                                <img src={Dotted} className="img-fluid" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
                             </div>
                         </div>
                     </div>

@@ -1,7 +1,7 @@
 import "./RightCard.scss"
 import Image from "../../images/concert.jpeg"
 import { BsArrowDownRight } from "react-icons/bs"
-import { Link } from "react-router-dom"
+
 const RightCard = (props) => {
     return <div className="RightCard">
         <div className="largescreens d-none d-md-block">
@@ -42,7 +42,7 @@ const RightCard = (props) => {
                             </div>
                             <div className="col-6 buttoncol mzl">
                                 <button className="leftborder "><div className="row">
-                                <div className="col-9"><Link to={`../registerevent`}>Register</Link></div>
+                                <div className="col-9">Register</div>
                                 <div className="col-3">
                                 <BsArrowDownRight/>
                                 </div>
@@ -99,7 +99,7 @@ const RightCard = (props) => {
                             </div>
                             <div className="col-6 buttoncol mzl">
                                 <button className="leftborder "><div className="row">
-                                <div className="col-8"><Link to={`../registerevent`}>Register</Link></div>
+                                <div className="col-8">Register</div>
                                 <div className="col-4">
                                 <BsArrowDownRight/>
                                 </div>
