@@ -1,5 +1,5 @@
 import "./LeftCard.scss"
-import Image from "../../images/concert.jpeg"
+import Image from "../../images/clashroyale.jpeg"
 import { BsArrowDownRight } from 'react-icons/bs'
 import { Link } from "react-router-dom"
 import Fade from 'react-reveal/Fade'
@@ -35,7 +35,7 @@ const LeftCard = (props) => {
                             </div>
                             <div className="col-6 buttoncol mzl">
                                 <button className="leftborder "><div className="row">
-                                    <div className="col-9"><Link to={`../registerevent`}>Register</Link></div>
+                                    <div className="col-9"><Link to={`../registerevent`}className="whitetext">Register</Link></div>
                                     <div className="col-3">
                                         <BsArrowDownRight />
                                     </div>

@@ -1,14 +1,15 @@
-$line-color : #000000;
+$line-color : white;
+$time-color : black;
 $line-width : 3px;
-$time-color : #ffffff;
-$buttonbg : #ffffff;
-$buttontext : #000000;
+$buttonbg : black;
+$buttontext : white;
 .RightCard{
     // width: 50vw;
     .card{
         border: $line-width solid $line-color;
         margin-left: -2.1vw;
         border-radius: 0;
+        box-shadow: 10px 10px 0px 0px rgba(74,58,255,1);
     }
     .topBorder{
         border-top: $line-width solid $line-color;
@@ -36,6 +37,9 @@ $buttontext : #000000;
 
     .buttonrow{
         margin-top: 10px;
+    }
+    .whitetext{
+        color : white;
     }
 
     .buttoncol{

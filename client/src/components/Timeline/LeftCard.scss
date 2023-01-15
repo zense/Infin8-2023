@@ -1,13 +1,14 @@
-$line-color : #000000;
-$time-color : #ffffff;
+$line-color : white;
+$time-color : black;
 $line-width : 3px;
-$buttonbg : #ffffff;
-$buttontext : #000000;
+$buttonbg : black;
+$buttontext : white;
 .LeftCard{
     width: 50vw;
     .card{
         border: $line-width solid $line-color;
         border-radius: 0;
+        box-shadow: 10px 10px 0px 0px rgba(74,58,255,1);
         // margin-right: -2.1vw !important;
     }
     .topBorder{
@@ -77,6 +78,9 @@ $buttontext : #000000;
     }
     .emptyspace2{
         height: 50px !important;
+    }
+    .whitetext{
+        color : white;
     }
     @media(max-width : 991px){
         .topBorder{
