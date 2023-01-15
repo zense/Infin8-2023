@@ -4,12 +4,13 @@
     }
     25%{
         opacity: 25%;
+        background-image: url(../../images/herogif.gif);
     }
     75%{
         opacity: 50%;
     }
     100%{
-        background-image: url(../../images/eventgif.jpg);
+        background-image: url(../../images/herobg.jpg);
         object-fit:scale-down;
     }
 }
@@ -20,7 +21,10 @@
     width : 100%;
     background-image: url(../../images/herogif.gif);
     margin : 0 !important;
-    object-fit: scale-down;
+    object-fit: fill !important;
+    animation: changebg 5s linear 1;
+    // background-image: url(../../images/herobg.jpg);
+    //     object-fit: scale-down;
     .titlerow{
         color : white;
         font-size: 16vw;
