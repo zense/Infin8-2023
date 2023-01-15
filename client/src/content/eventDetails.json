@@ -1,0 +1,472 @@
+[
+    {
+        "title":"Clash of Royale",
+        "subtitle": "ESports",
+        "image":"",
+        "id":"",
+        "mode":"Online",
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"We bring to you, the vintage supercell classic tower rush and strategy game, Clash Royale! Take a break from the academic grind and join us for this thrilling manhunt. Show off your gaming abilities and be eligible for amazing prizes. Don't miss out on this opportunity to prove your worth and have some fun!",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "The tournament is only open to invited participants, who will receive the necessary login information an hour before the event starts.",
+            "The tournament will last for 4 hours and will involve normal matches in Clash Royale.",
+            "Matches will be played according to the standard rules of the game.",
+            "Cheating is not allowed and may result in disqualification.",
+            "The player with the most trophies at the end of the tournament will be declared the winner and will receive a prize.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+
+        ],
+        "spocs": [
+            {
+                "name":"Prasanth Kumar",
+                "contact":"7989839700"
+            },
+            {
+                "name":"Prudhvi Nath Reddy",
+                "contact":"6305949565"
+            }
+        ]
+        
+    },
+    {
+        "title":"Call of Duty",
+        "subtitle": "ESports",
+        "image":"",
+        "id":"",
+        "mode":"Hybrid" ,
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"Welcome to IIITBs rendition of the CODM World Championship. Battle it out in team deathmatch to claim top cash prizes. Squads of maximum 5 people with at least 2 members from current or alumni IIITB. The drop is sharp and we expect every player to join their squads on team, else your team plays handicapped.No cheating, aim assists, emulations or tampering with the game client else it's permaban from the lobby and event. Judges' decisions on all matters will be final and binding so bring your best aim and even better friends to try and place higher than everyone. Bonuses for kills of course so take those risks and shoot your way to victory. And if we have more teams then we settle the prelims with a good ol fashioned round of battle royale.",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "Minimum 2 IIITB members, current or alumni.",
+            "Max 5 in a squad and on time. If team isn't filled on start time, the team has to play handicapped",
+            "Cheating, aim assists, emulation, wall hacks or any tampering with the CODM client will lead to instaban from the match and tournament.",
+            "Scoring will be based on position and kills",
+            "If there are more registration than expected, we'll have a prelims of Battle Royale",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Prasanth Kumar",
+                "contact":"7989839700"
+            },
+            {
+                "name":"Prudhvi Nath Reddy",
+                "contact":"6305949565"
+            }
+        ]
+        
+    },
+    {
+        "title":"Nritta",
+        "subtitle": "Solo / Duet Dance",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"The stage is set for fiery performances, cut-throat competition, graceful movements, and a beautiful display of the visual symphony that is Dance. Put on your dancing shoes as ”Nritta” provides an opportunity to be yourself and let your inner performer shine bright.",
+        "prizes": {
+            "first":"4000",
+            "second":"2000"
+        },
+        "rules": [
+            "This is a solo or duo participation event.",
+            "The performance should not exceed 5 minutes.",
+            "Negative marking if the performance exceeds 5 minutes.",
+            "We believe in art beyond boundaries. All genres are accepted.",
+            "The vulgarity of any kind with respect to dance moves/costumes will lead to disqualification.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Balaji Sankalp",
+                "contact":"8010785622"
+            },
+            {
+                "name":"Aryan Bhat",
+                "contact":"7425964111"
+            }
+        ]
+        
+    },
+    {
+        "title":"Cut to the chase",
+        "subtitle": "Short film",
+        "image":"",
+        "id":"",
+        "mode":"Hybrid",
+        "type":"all",
+        "registrationDeadline":"1st Feb' 22, 11:59 PM",
+        "description":"A picture speaks a thousand words, a film is a million pictures… do the math! Show off your writing, acting and editing prowess to influence the masses with your short yet impactful film.",
+        "prizes": {
+            "first":"5000",
+            "second":"3000"
+        },
+        "rules": [
+        ],
+        "spocs": [
+            {
+                "name":"Varshit",
+                "contact":"9886987649"
+            }
+        ]
+        
+    },
+    {
+        "title":"Take the stage",
+        "subtitle": "Group acting",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"The acting competition where you and a small group of friends (A team of 1-4 people) can act out a short scene of any kind you’d want, and live the dream of being in the spotlight on a theater stage. It can be a comical skit, a heart-wrenching conflict, or even a straight-up stand up comedy. This time we bring the stage to you!",
+        "prizes": {
+            "first":"4000",
+            "second":"2000"
+        },
+        "rules": [
+            "You can participate solo, or in a team of up to 4 members",
+            "Performances should be 3-10 minutes",
+            "Negative marking if the performance exceeds 10 minutes",
+            "All genres of theater performances are accepted as long as there is no extreme vulgarity",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Mukul Gupta",
+                "contact":"9728669749"
+            },
+            {
+                "name":"Arjun Subhedar",
+                "contact":"7028770201"
+            }
+        ]
+    },
+    {
+        "title":"Brush Up",
+        "subtitle": "Art contest",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"all",
+        "registrationDeadline":" 5th Feb' 23, 11:59 PM",
+        "description":"BRUSH UP!\nHey everyone out there !\nHope you all are going great.It's time for your creativity to flow and predict your emotions with colours.Look no further! We are excited to announce our annual painting competition open to all students. Art is the brain's way of letting the heart know how big it is, grab this opportunity to showcase your talent.",
+        "prizes": {
+            "first":"2000",
+            "second":"1000"
+        },
+        "rules": [
+            "Any mode of art/painting is permitted, i.e. watercolors, oils or acrylics,all mediums welcomed.",
+            "The event shall span over 3 hours, offline at the venue.",
+            "Everything should be done in the venue and not beforehand .",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Nupur Patil",
+                "contact":"9922709459"
+            },
+            {
+                "name":"Hemang Seth",
+                "contact":"8817972743"
+            }
+        ]
+        
+    },
+    {
+        "title":"Ramp it Up",
+        "subtitle": "Fashion Show",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"Today's youth is known for fashion. Fashion not only promotes creativity, but it's also a form of expressing and empowering oneself. Style is what defines you. From traditional to casual, from vintage to trendy, every fashion style speaks of itself and of the culture it possesses. We're presenting 'Ramp it up' for the girls and boys who would love to show their modish nature by being a part of the show! Gone is the time of just watching ramp shows, now it's your turn to join the show and 'ramp it up'!",
+        "prizes": {
+            "first":"3000"
+        },
+        "rules": [
+            "You can form a team of 2 or take part individually.",
+            "The time limit for every team/individual would be 1 minute (Including setup and the performance both).",
+            "Negative marking if participants exceed the time limit.",
+            "Vulgarity is strongly prohibited. Any form of obscenity will lead to debarring the team/individual from the contest.",
+            "Teams/individuals will be judged on costumes, walking stance, attitude, hairstyle, and overall presentation.",
+            "The decision of the judges will be final and binding.",
+            "All costumes are permitted, which maintain decency including original costumes & fashion designs.",
+            "Purchased, professionally made, or rented costumes are permitted.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+
+        ],
+        "spocs": [
+                {
+                "name":"Ashish Gatreddi",
+                "contact":"9740461745"
+            },
+            {
+                "name":"Ankrutee Arora",
+                "contact":"9246809610"
+            }
+        ]
+        
+    },
+    {
+        "title":"Sargam",
+        "subtitle": "Singing competition",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"all",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"INFIN8 presents - The Solo Singing Competition, 'Sargam',  where those gifted with melody in their voices can make their mark! So, what are you waiting for? Unleash your inner singer, dive into the ocean of music and sing your heart out at the festival that promises soul-teasing music and a party you will remember for years to come!",
+        "prizes": {
+            "first":"4000",
+            "second":"2000"
+        },
+        "rules": [
+            "This is a solo participation event.",
+            "The performance should not exceed 4 minutes.",
+            "If the time exceeds the limit, the participant receives the penalty.",
+            "Pure classical pieces are not allowed, but semi classical pieces will be allowed",
+            "Participants must make sure that the lyrics of the song are not offensive in any way.",
+            "The submission should be exclusive to this event.",
+            "One instrument can be used to accompany the singer, which can be played by the singers themself or by one other person.",
+            "If participants want to make use of karaoke, then they have to submit the same beforehand to the organizers.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Anirban Mukherjee",
+                "contact":"9477772677"
+            },
+            {
+                "name":"Sahil Kare",
+                "contact":"9752112005"
+            }
+        ]
+        
+    },
+    {
+        "title":"Second edition",
+        "subtitle": "Photography contest",
+        "image":"",
+        "id":"",
+        "mode":"Online",
+        "type":"all",
+        "registrationDeadline":"8th Feb' 23, 11:59 PM",
+        "description":"'If you can smell the street by looking at the photo, it's a street photograph.'\nTheme of the upcoming Infin8's photography competition, CITY STREETS , is street photography. Participate and submit your captures of the moments and happenings on the streets that would tell stories of people and their day to day life.",
+        "prizes": {
+            "first":"2000",
+            "second":"1000"
+        },
+        "rules": [
+            "Click good pics on the given theme and submit the best you feel.",
+            "Photos must be clicked using a mobile phone only by the one who is submitting.",
+            "RAW Image editing is allowed.",
+            "Basic visual editing such as cropping, lighting, shadow, hue, and saturation adjustments are allowed provided automatic filters are not used.",
+            "Either landscape or portrait mode is allowed.",
+            "The submission links will be sent to registered participants via mail.",
+            "Each participant is allowed to submit a single picture, submitting more than one picture may lead to his/her disqualification from the competition.",
+            "Results will be announced on our Instagram handle.",
+            "The decision of the organizing committee and the jury will be final.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Vaibhav Thapliyal",
+                "contact":"8128818422"
+            },
+            {
+                "name":"Pranav Bhutada",
+                "contact":"7020000938"
+            }
+        ]   
+    },
+    {
+        "title":"War of Words",
+        "subtitle": "Debate contest",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"intra",
+        "registrationDeadline":"5th Feb' 23, 11:59 PM",
+        "description":"Debating Society, IIIT Bangalore in association with infin8, IIIT Bangalore, is proud to present to you another edition of the “War of Words” Debate competition. The competition will provide an opportunity for participants to engage in intellectually stimulating debates on current and pressing issues. Showcase your ability to think critically, express your thoughts effectively and persuade others of your viewpoint. Mark the date on your calendar and get ready for the War of Words.",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "There will be a team of three. It shall be a mini parliamentary debate format.",
+            "Each speaker will get 2.5 minutes to speak.",
+            "The theme would revolve around culture, which includes historical events, pop culture, etc.",
+            "For a clearer explanation of the format, refer to thai document - https://docs.google.com/document/d/1qxFnfn_ucjjv2zA9Jsxk399avvScR8ZY/edit?usp=share_link&ouid=104386498173006673249&rtpof=true&sd=true",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Raghav Khurana",
+                "contact":"8168626440"
+            },
+            {
+                "name":"Vishruth Vijay",
+                "contact":"9449960095"
+            },
+            {
+                "name":"Arhant Arora",
+                "contact":"7696572850"
+            }
+        ]   
+    },
+    {
+        "title":"League of Fanatics",
+        "subtitle": "Pop culture trivia",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"intra",
+        "registrationDeadline":"1st Feb' 23, 11:59 PM",
+        "description":"Welcome to the biggest annual pop culture event of IIITB. Team up with movie enthusiasts, TV show binge watchers and Anime Otakus to compete in a variety of innovative and exciting pop culture trivia rounds and win big prizes!",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "Team size:4-5",
+            "First round: written and top 8 teams qualify for the semis.",
+            "Semi-finals: 2 groups of 4 teams each will go through 2 rounds and top 2 of each group qualifies for the finals",
+            "Finals: the final 4 teams compete in 3 rounds, the prizes will be awarded according to the points merited to each team.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Prakhar Rastogi",
+                "contact":"6395378668"
+            },
+            {
+                "name":"Shreyansh Rai",
+                "contact":"9167900348"
+            },
+            {
+                "name":"Aamod BK",
+                "contact":"7406423802"
+            },
+            {
+                "name":"Naitik Solanki",
+                "contact":"7016740700"
+            }
+        ]   
+    },
+    {
+        "title":"Dumb Charades",
+        "subtitle": "Fun",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"intra",
+        "registrationDeadline":"1st Feb' 23, 11:59 PM",
+        "description":"We bring to you every kid's favorite pass time game, Dumb charades. Come and put your acting skills and team chemistry to the test. We will have 4 rounds. Each round is an eliminator round and only the best will progress to the finals",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "Groups can be formed of 3-4 members.",
+            "The performance has to be silent with no words as the word “dumb” goes.",
+            "The player has to use facial expression, gestures and body language.",
+            "Clues like lip-reading, humming songs, pointing and spelling are banned.",
+            "Scoreboard will be maintained by the judges.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"C Amitha Reddy",
+                "contact":"9182667308"
+            },
+            {
+                "name":"N Srihith Penjarla",
+                "contact":"7893039570"
+            }
+        ]   
+    },
+    {
+        "title":"Gulp and Gobble",
+        "subtitle": "Fun",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"intra",
+        "registrationDeadline":"NA",
+        "description":"What can be better than getting paid for eating good food? Put your hungry stomach to the test in this competitive eating contest. The faster you can gobble up all the food and gulp the beverages, the better chance you have to win a prize. What can you win? Some cash and more food!",
+        "prizes": {
+            "first":"3000"
+        },
+        "rules": [
+            "This is a one-on-one eating contest.",
+            "There will be a table manager for every 10-12 people to judge the participants.",
+            "The top 25 finishers from the first round will advance to the next round.",
+            "The top five finishers from the second round will advance to the third round.",
+            "One winner will be chosen from among the five entrants.",
+            "In the event of a disagreement, the organizers’ decision will be final.",
+            "After each round, participants should display their empty plates to the table supervisors and proceed to the registration desk to register for the next round.",
+            "No one should begin eating the food before the organizers give the all-clear.",
+            "Registrations work on a first-come, first-served basis.",
+            "Results will be announced on our Instagram handle."
+        ],
+        "spocs": [
+            {
+                "name":"Ganesh",
+                "contact":"9573384259"
+            },
+            {
+                "name":"Tarun Kumar",
+                "contact":"9032272225"
+            }
+        ]   
+    },
+    {
+        "title":"Valorant",
+        "subtitle": "ESports",
+        "image":"",
+        "id":"",
+        "mode":"Offline",
+        "type":"intra",
+        "registrationDeadline":"31st Jan' 23, 11:59 PM",
+        "description":"Here is presenting a world renowned, enthralling, 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities!The main game mode focuses on Search and Destroy where one team attacks by planting a bomb, and the other defends by avoiding detonation.More than guns and bullets, you'll choose an Agent armed with adaptive,swift, and lethal abilities that create opportunities to let your gunplay shine. Tactics beat gunplay!",
+        "prizes": {
+            "first":"3000",
+            "second":"1000"
+        },
+        "rules": [
+            "Every Team must have 5 members. However 1 substitute will be allowed for each team. At least 1 member must be a student of IIITBangalore, and on campus.",
+            "Team Name is Mandatory.",
+            "All participants are supposed to have an account on discord.",
+            "Participants should have their real names on Discord Server. No nicknames are allowed.",
+            "All communication regarding the tournament will be done on discord server only.",
+            "Team will be banned from the tournament if the organizing committee found any malpractice",
+            "No use of abusive language.",
+            "Make sure you have the latest version of the game before the day of the match. No delays will be allowed on the day of the match.",
+            "All games will be knockout matches.",
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+        ],
+        "spocs": [
+            {
+                "name":"Saket Gurjar",
+                "contact":"8502883397"
+            },
+            {
+                "name":"Srinivas Manda",
+                "contact":"9110322406"
+            }
+        ]   
+    } 
+]

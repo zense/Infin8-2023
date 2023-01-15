@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Title from "./Title";
 import "./style.css";
 import { Link } from "react-router-dom";
+import eventDetails from "../../content/eventDetails.json";
 function LeftCard(props){
     return (
         <>
@@ -67,13 +68,11 @@ function RegisterCard(props){
         <Title></Title>
         <div className="container RegisterCard">
             <div className="row marginchange">
-                <LeftCard title="Title" Incentives="Incentives"/>
-                <LeftCard title="Title" Incentives="Incentives"/>
-                <LeftCard title="Title" Incentives="Incentives"/>
-                <LeftCard title="Title" Incentives="Incentives"/>
-                <LeftCard title="Title" Incentives="Incentives"/>
-                <LeftCard title="Title" Incentives="Incentives"/>
-                
+            {
+                eventDetails.map((event) => {
+                    return <LeftCard title={event.title} Incentives={event.subtitle}/>
+                })
+            }  
             </div>
         </div>
         <Footer></Footer>
