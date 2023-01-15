@@ -1,11 +1,12 @@
 $line-width : 3px;
-$line-color : black;
-$heading-color : black;
-$background : white;
+$line-color : white;
+$heading-color : white;
+$background : black;
 $scrollbar : #aaaaaa;
 
 .Gallery {
     scrollbar-color : $scrollbar $background !important;
+    background-color: $background;
     scrollbar-width: thin !important;
     ::-webkit-scrollbar {
         width: 10px;
@@ -43,6 +44,7 @@ $scrollbar : #aaaaaa;
     .space {
         height: 3vh;
     }
+    
 
     .heading {
         font-size: 8vw;
@@ -50,5 +52,14 @@ $scrollbar : #aaaaaa;
         text-align: left;
         padding-left: 7vw;
         font-weight: 400;
+    }
+    .heading2 {
+        font-size: 8vw;
+        color: #4a3aff;
+        text-align: left;
+        padding-left: 20vw;
+        margin-top : -5vw;
+        font-weight: 500;
+        font-family: 'Just Another Hand';
     }
 }

@@ -1,24 +1,87 @@
 import './TimeLine.scss';
 import LeftCard from './LeftCard';
 import RightCard from './RightCard';
-import Fade from 'react-reveal/Fade'
+import Fade from 'react-reveal/Fade';
+import { day1, day2, day3 } from '../../content/timeline _content';
+import { useState } from 'react';
+
 
 const TimeLine = () => {
+    const [day, setDay] = useState(1);
+    const giveSetFunction = (i) => {
+        var ret = () => {
+            setDay(i);
+        }
+        return ret;
+    }
+
+    var navlinks = [];
+    for (var i = 1; i <= 3; i++) {
+        if (day == i) {
+            navlinks.push(
+                <a class="nav-link active" aria-current="page" onClick={giveSetFunction(i)}>DAY {i}</a>
+            )
+        } else {
+            navlinks.push(
+                <a class="nav-link" aria-current="page" onClick={giveSetFunction(i)}>DAY {i}</a>
+            )
+        }
+    }
+    var desktopCardsLeft = [];
+    var desktopCardsRight = [];
+    var mobileCards = [];
+
+    var ct = 0;
+    var data = day3;
+    if (day == 1) {
+        data = day1;
+    } else if (day == 2) {
+        data = day2;
+    }
+    for (var i = 0; i < data.length; i++) {
+        if (ct & 1) {
+            desktopCardsRight.push(
+                <>
+                    <div className="space" id='event'></div>
+                    <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></RightCard>
+                </>
+            );
+        } else {
+            desktopCardsLeft.push(
+                <>
+                    <LeftCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></LeftCard>
+                    <div className="space"></div>
+                </>
+            );
+        }
+        ct++;
+        mobileCards.push(
+            <>
+                <div className="space">
+                </div>
+                <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></RightCard>
+            </>
+        )
+    }
+
+
     return <div className="Timeline" id="Timeline">
         {/* heading  */}
         <div className="row headingrow">
-            <Fade top>
                 <div className="heading">
                     TIMELINE
                 </div>
-            </Fade>
         </div>
         <div className="row overlayrow">
             <div className="overlay">
                 infin8 2023
             </div>
         </div>
-
+        <div className="row navrow">
+            <nav class="nav nav-pills nav-justified">
+                {navlinks}
+            </nav>
+        </div>
         {/* timeline cards */}
         <div className="largescreens d-none d-md-block">
             <div className="row">
@@ -33,12 +96,11 @@ const TimeLine = () => {
             <div className="row">
                 <div className="lineBox col-6">
                     <div className="space2"></div>
-                    <LeftCard image="../../images/concert.jpeg" title="Title" incentives="Fuckall" time="12.20PM"></LeftCard>
-                    <div className="space"></div>
+                    {desktopCardsLeft}
                 </div>
                 <div className="col-6">
-                    <div className="space"></div>
-                    <RightCard image="../../images/concert.jpeg" title="Title" incentives="Fuckall" time="12.20PM"></RightCard>
+                    {desktopCardsRight}
+                    <div className="space2"></div>
                 </div>
             </div>
             <div className="row">
@@ -65,11 +127,7 @@ const TimeLine = () => {
             <div className="row">
                 <div className="col-2"></div>
                 <div className="lineBox col-10">
-                    <div className="space">
-                    </div>
-                    <RightCard image="../../images/concert.jpeg" title="Title" incentives="Fuckall,kidding lots of incentives." time="12.20PM"></RightCard>
-                    <div className="space"></div>
-                    <RightCard image="../../images/concert.jpeg" title="Title" incentives="Fuckall" time="12.20PM"></RightCard>
+                    {mobileCards}
                     <div className="space"></div>
                 </div>
             </div>

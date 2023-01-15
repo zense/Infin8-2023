@@ -1,5 +1,5 @@
 import "./RightCard.scss"
-import Image from "../../images/clashroyale.jpeg"
+// import Image from "../../images/clashroyale.jpeg"
 import { BsArrowDownRight } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Fade from 'react-reveal/Fade'
@@ -21,7 +21,7 @@ const RightCard = (props) => {
                     <div className="col-md-8 col-lg-7 col-xl-6 mzl">
                         <div className="card">
                             <div className="row">
-                                <img src={Image} alt={props.title} />
+                                <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className='cardimage'/>
                             </div>
                             <div className="row">
                                 <div className="col title">
@@ -74,7 +74,7 @@ const RightCard = (props) => {
                             <div className="row">
                                 <div className="col-6">
                                     <div className="imagebox">
-                                        <img src={Image} alt={props.title} />
+                                        <img src={process.env.PUBLIC_URL + props.image} alt={props.title} cardImage/>
                                     </div>
                                 </div>
                                 <div className="col-6">

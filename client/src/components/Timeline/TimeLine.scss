@@ -5,6 +5,14 @@ $heading-color : white;
 .Timeline{
     background-color: black;
     padding-top: 10vh;
+    .nav-link{
+        margin : 3vw;
+        margin-bottom: 5vh;
+    }
+    .navrow{
+        padding-left : 5vw;
+        padding-right : 5vw;
+    }
     .heading{
         font-size: 15vw;
         font-weight: 500;
@@ -32,6 +40,20 @@ $heading-color : white;
         z-index: 3;
         letter-spacing: 2vw;
     }
+    .nav-link{
+        color : white;
+    }
+    .nav-link:hover,
+    .nav-link:active
+    {
+        color : black;
+        background-color: white;
+        cursor: pointer;
+    }
+    .nav-link.active{
+        background-color: white !important;
+        color : black !important;
+    }
     
     .largescreens{
         .space2{
@@ -52,7 +74,7 @@ $heading-color : white;
             margin : auto !important;
         }
         .space{
-            height: 50vh;
+            height: 30vh;
         }
     }
 

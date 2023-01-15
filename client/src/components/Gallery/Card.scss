@@ -1,6 +1,6 @@
-$buttonbg : white;
-$line-color : black;
-$buttontext : black;
+$buttonbg : black;
+$line-color : white;
+$buttontext : white;
 $line-width : 3px;
 
 .Card{
@@ -14,7 +14,10 @@ $line-width : 3px;
     .cardImage{
         margin: 0!important;
         width: 100%;
-        border: $line-width solid $line-color;
+        box-shadow: 10px 10px 0px 0px #4a3aff;
+    }
+    .white{
+        color : white;
     }
     button{
         background-color: $buttonbg; /* Green */
@@ -39,10 +42,14 @@ $line-width : 3px;
     .arrow{
         height: 17px;
         width: auto;
+        color : white;
     }
     .title,.incentives{
         text-align: left;
         color : $buttontext
+    }
+    .title{
+        margin-top: 3vh;
     }
     @media(max-width : 538px){
         width: 60vw;
