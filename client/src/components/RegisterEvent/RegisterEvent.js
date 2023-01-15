@@ -24,7 +24,7 @@ function RegisterEvent(props) {
     <div>
       <Navbar/>
       {/* If user is not logged in, should we print the pay base fees page or the regular event page */}
-      <Heading heading="Event Heading" paid_base_fees={props.paid_base_fees}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
+      <Heading heading="BATTLE OF BANDS." paid_base_fees={props.paid_base_fees}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
       {
         props.paid_base_fees===true ? 
         <Container 

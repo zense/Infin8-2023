@@ -9,14 +9,14 @@ import Vector from '../images/Vector3.png'
 const Profile = () => {
     return <div className="Profile">
         <Navbar/>
-        <div className="row title" style={{"marginTop": "10vh"}}>
+        <div className="row title" style={{"marginTop": "12vh"}}>
             <div className='col-12 YourProf'>
                YOUR 
             </div>
         </div>
         
         <div className="row title" 
-        style={{"marginBottom": "10vh"}}
+        style={{"marginBottom": "12vh"}}
         >
             <div className='col-12 YourProf'>
                PROFILE

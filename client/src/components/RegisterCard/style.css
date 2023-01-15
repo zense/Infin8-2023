@@ -5,14 +5,20 @@
     margin-left: auto;
     margin-right: auto;
 }
-.a:hover{
-    color: black;
+.invert.a:hover{
+    color: white;
 }
 .RegisterCard{
-    margin-top: 150px;
+    margin-top: 100px;
 }
 .LeftCards{
-    border: 3px solid black;
+    border: 3px solid white;
+    -webkit-box-shadow: 8px 8px 0px 0px #4A3AFF
+;
+-moz-box-shadow: 8px 8px 0px 0px#4A3AFF
+;
+box-shadow: 8px 8px 0px 0px #4A3AFF
+;
 }
 
 .val{
@@ -26,40 +32,92 @@
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 500;
-    font-size: 54px;
-    height: 68px;
+    font-size: 1.9vw;
+    /* line-height: 46px; */
+    margin-left: 2px;
+    margin-top: 15px
+
 }
-a:link {
+.invert a:link {
     text-decoration: none;
-    color: black;
+    color: white;
   }
   
-  a:visited {
+.invert a:visited {
     text-decoration: none;
-    color: black;
+    color: white;
   }
-.link:hover{
-color: black;
+.invert .link:hover{
+color: white;
 }
 .incen{
     text-align: left;
     font-family: 'Poppins';
     font-style: normal;
     font-weight: 400;
-    font-size: 26px;
-    line-height: 42px;
+    font-size: 1.5vw;
+    /* line-height: 42px; */
     padding-left: 4px;
-    padding-bottom: 10px;
+    margin-top: 4px;
+    padding-bottom: 15px;
 }
 
+.popup{
+    
+    transition-timing-function: ease-in-out;
+    transition: 0.2s;
+}
 .popup:hover{
-    box-shadow: 8px 8px 24px 4px rgba(0, 0, 0, 0.25);
     transform: scale(1.1, 1.1);
-    background-color: white;
+    border: 3px solid white !important;
+    background-color: black;
+}
+
+
+
+.regis{
+    background-color: black;
+    color: white;
+}
+.weird{
+    font-family: 'Just Another Hand';
+    font-style: normal;
+    font-weight: 400;
+    font-size: calc(3.5rem + 8vw);
+    line-height: 0.95;
+    color: #4A3AFF !important;
+    letter-spacing: 0.4vw;
+    margin-top: 12vh;
+}
+.weird1{
+    font-size: calc(3.5rem + 8vw);
+    margin-bottom: -8vh;
+}
+.awesome1{
+    font-size: calc(3.5rem + 8vw);
+}
+.awesome{
+    font-family: 'Archivo';
+    font-style: normal;
+    font-size: calc(3.5rem + 8vw);
+    font-weight: 700;
+    line-height: 0.95;
+}
+
+.arrowicon1{
+    margin-left: 4vw ;
+    height: 10vw ;
+    margin-bottom: 2vw;
+}
+
+@media screen and (min-width: 1000px) {
+    .arrowicon1{
+        height: 90px;
+    }
 }
 @media screen and (min-width : 1200px) {
     .edge{
-        border: 3px solid black;
+        border: 3px solid white;
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 400;
@@ -68,26 +126,54 @@ color: black;
         padding: 8px;
     }   
 }
-@media screen and (max-width: 1199px) {
+@media screen and (max-width: 1100px) {
     .Titl{
         text-align: left;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
-        font-size: 46px;
-        height: 60px;
+        font-size: 2.2vw;
+       
     }
     .incen{
         text-align: left;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
-        font-size: 24px;
+        font-size: 1.7vw;
     }
+}
+@media (max-width: 900px){
+    .Titl{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.8vw;
+       
+    }
+    .incen{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 2.2vw;
+    }
+}
+@media screen and (max-width: 1250px) {
+    .weird1{
+        font-size: calc(3.5rem + 8vw);
+        margin-bottom: -6vh;
+    } 
+}@media screen and (max-width: 850px){
+    .weird1{
+        font-size: calc(3.5rem + 8vw);
+        margin-bottom: -4vh;
+    } 
 }
 @media screen and (min-width: 768px) and (max-width: 1199px){
     .edge{
-        border: 3px solid black;
+        border: 3px solid white;
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 500;
@@ -95,7 +181,7 @@ color: black;
         line-height: 24px;
         text-align: center;
         padding: 8px;
-    }  
+    } 
 }
 @media screen and (max-width: 767px) {
     .BigCard{
@@ -103,22 +189,28 @@ color: black;
     }
     .SmallCard{
         margin-bottom: 60px;
+        -webkit-box-shadow: 8px 8px 0px 0px #4A3AFF
+        ;
+        -moz-box-shadow: 8px 8px 0px 0px#4A3AFF
+        ;
+        box-shadow: 8px 8px 0px 0px #4A3AFF
+        ;
     }
     .RegisterCard{
-        margin-top: 90px;
+        margin-top: 70px;
     }
     .container.change{
         padding: 0px;
     }
     .edge{
-        border: 3px solid black;
+        border: 3px solid white;
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 500;
         font-size: 16px;
     }
     .edge1{
-        border: 3px solid black;
+        border: 3px solid white;
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 500;
@@ -144,6 +236,28 @@ color: black;
         margin-left: auto;
         margin-right: auto;
     }
+    .weird1{
+        font-size: calc(3rem + 6vw);
+        margin-bottom: -3.5vh;
+    }
+    .awesome1{
+        font-size: calc(3rem + 6vw);
+    }
+    .Titl{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+       
+    }
+    .incen{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 17px;
+    }
 }
 @media screen and (min-width: 768px) {
     .SmallCard{
@@ -153,7 +267,7 @@ color: black;
 }
 @media screen and (max-width: 992px) and (min-width: 768px){
     .RegisterCard{
-        margin-top: 120px;
+        margin-top: 90px;
     }
     .adjust{
         margin-top: 150px;
@@ -175,15 +289,14 @@ color: black;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
-        font-size: 40px;
-        height: 50px;
+        font-size: 24px;
     }
     .incen{
         text-align: left;
         font-family: 'Poppins';
         font-style: normal;
         font-weight: 500;
-        font-size: 20px;
+        font-size: 16px;
     }
 }
 @media screen and (max-width: 510px) {
@@ -204,6 +317,21 @@ color: black;
     .arrowpoint1{
         margin-left: 60px;
         margin-bottom: 2px;
+    }
+    .Titl{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 21px;
+       
+    }
+    .incen{
+        text-align: left;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 15px;
     }
 }
 @media screen and (max-width: 424px) {
