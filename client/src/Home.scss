@@ -21,7 +21,7 @@ $line-color : black;
 $line-width : 3px;
 
 .Jump{
-    a,a:hover{
+    a{
         text-decoration: none;
         color : $line-color;
     }
@@ -36,6 +36,13 @@ $line-width : 3px;
     }
     .jump2{
         border-top : $line-width/2 solid $line-color;
+    }
+    .jump1:hover,
+    .jump1:active,
+    .jump2:hover,
+    .jump2:active{
+        background-color: #ff5c00;
+        color : white;
     }
     .title{
         text-align: left;

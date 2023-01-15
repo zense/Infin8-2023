@@ -12,7 +12,7 @@ const LeftCard = (props) => {
                 <div className="col-md-8 col-lg-7 col-xl-6 mzr">
                     <div className="card">
                         <div className="row">
-                            <img src={Image} alt={props.title} />
+                            <img src={process.env.PUBLIC_URL + props.image} alt={props.title} />
                         </div>
                         <div className="row">
                             <div className="col title">

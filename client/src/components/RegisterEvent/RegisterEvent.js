@@ -3,44 +3,40 @@ import Footer from "../Footer/Footer";
 import Heading from "./Heading/Heading";
 import Container from "./Container/Container";
 import PayBaseFees from "./PayBaseFees/PayBaseFees";
+import { useParams } from "react-router-dom";
+import eventDetails from "../../content/eventDetails.json";
 function RegisterEvent(props) {
-  const about="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  const other_details="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-  const contacts=[
-    {
-      name:"PERSON 1",
-      number:"+91 99999 99999"
-    },
-    {
-      name:"PERSON 2",
-      number:"+91 99999 99999"
-    },
-    {
-      name:"PERSON 3",
-      number:"+91 99999 99999"
+  const id = useParams().id;
+  let event;
+  for(var i=0;i<eventDetails.length;i++){
+    if(eventDetails[i].id===id){
+      event=eventDetails[i];
     }
-  ]
+  }
   return (
     <div>
       <Navbar/>
       {/* If user is not logged in, should we print the pay base fees page or the regular event page */}
-      <Heading heading="BATTLE OF BANDS." paid_base_fees={props.paid_base_fees}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
+      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)} mode={event.mode}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
       {
         props.paid_base_fees===true ? 
         <Container 
-          prize_money={"Rs. 10000"} 
-          about={about} 
-          other_details={other_details} 
-          contacts={contacts}
+          prize_money={event.prizes.first} 
+          prize_money2={event.prizes.second}
+          about={event.description} 
+          other_details={event.rules} 
+          contacts={event.spocs}
           event_fee={201}
           email={"vikaskaly@gmail.com"}
+
         />
         :
         <PayBaseFees
-          prize_money={"Rs. 10000"} 
-          about={about} 
-          other_details={other_details} 
-          contacts={contacts}
+          prize_money={event.prizes.first} 
+          prize_money2={event.prizes.second}
+          about={event.description} 
+          other_details={event.rules} 
+          contacts={event.spocs}
           email={"vikaskaly@gmail.com"}
           entrance_fee={200}
         />

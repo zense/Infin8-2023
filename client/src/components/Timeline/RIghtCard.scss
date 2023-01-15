@@ -11,6 +11,10 @@ $buttontext : white;
         border-radius: 0;
         box-shadow: 10px 10px 0px 0px rgba(74,58,255,1);
     }
+    .cardimage{
+        width : 100%;
+        height: auto;
+    }
     .topBorder{
         border-top: $line-width solid $line-color;
         width: 12vw;

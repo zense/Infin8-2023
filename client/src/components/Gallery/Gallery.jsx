@@ -9,7 +9,7 @@ const Gallery = () => {
             </h1>
         </div>
         <div className="row">
-            <h1 className="heading">
+            <h1 className="heading2">
                 BIG EVENTS.
             </h1>
         </div>
