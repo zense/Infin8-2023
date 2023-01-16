@@ -336,11 +336,11 @@ color: white;
 }
 @media screen and (max-width: 476px) {
     .arrowpoint{
-        margin-left: 12vw;
+        margin-left: 11.5vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 10vw;
+        margin-left: 9.5vw;
         margin-bottom: 2px;
     }
     .Titl{
@@ -361,11 +361,11 @@ color: white;
 }
 @media screen and (max-width: 424px) {
     .arrowpoint{
-        margin-left: 10vw;
+        margin-left: 9.5vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 8vw;
+        margin-left: 7.7vw;
         margin-bottom: 2px;
     }
 }
