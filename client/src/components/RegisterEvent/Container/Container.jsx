@@ -18,7 +18,7 @@ export default function Container(props){
                     <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
                         <h2 style={{"fontWeight":"500"}}>{props.prize_money}</h2>
                         <br></br>
-                        <h3 className='worthPrizePool'>worth Prize Pool</h3>
+                        <h2 className='worthPrizePool'>{props.prize_money2}</h2>
                     </div>
                     
                     <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
@@ -34,7 +34,9 @@ export default function Container(props){
                     </div>
                 
                     <div style={{"border":"1px solid black","padding":"20px 30px 20px 30px"}}>
-                        <p>{props.other_details}</p>
+                        <ol>{props.other_details.map((string)=>{
+                            return <li>{string}</li>
+                        })}</ol>
                     </div>
 
                     <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
@@ -46,7 +48,7 @@ export default function Container(props){
                             return(
                                 <div key={index}>
                                     <h4 style={{"fontFamily":"Archivo","fontWeight":"600"}}>{contact.name}</h4>
-                                    <h5 style={{"fontFamily":"Poppins","color":"#575757"}}>{contact.number}</h5>
+                                    <h5 style={{"fontFamily":"Poppins","color":"#575757"}}>{contact.contact}</h5>
                                 </div>
                             );
                         })}

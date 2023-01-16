@@ -8,7 +8,7 @@ export default function Heading(props){
             <div className="row">
                 <div className="col-12 col-md-7" >
                     <div className="row titlerow">
-                        {props.heading}
+                        {props.heading}.
                     </div>
                     {/* <img src={Arrow}></img> */}
                 </div>
