@@ -3,7 +3,7 @@ const day1 = [
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "2:00 PM",
         "title" : "Dumb Charades",
-        "incentives" : ""
+        "incentives" : "incentives"
     },
     {
         "image" : "eventimages/clashroyale.jpeg",
