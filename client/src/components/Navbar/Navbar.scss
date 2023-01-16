@@ -113,12 +113,18 @@ $fontsize : 30px;
             font-weight: 600;
             padding : 0 0 10px 15px; 
         }
+        .white{
+            text-decoration: none;
+            color : black;
+        }
         .topbutton:hover,
         .topbutton:active,
         .option:hover,
         .option:active{
             background-color: black;
-            color : white;
+            .white{
+                color : white;
+            }
         }
         .col{
             text-align: center;

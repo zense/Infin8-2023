@@ -22,15 +22,9 @@ const Navbar = () => {
         <div className="largescreens">
             <div className="row navrow">
                 <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Home
-                    </a> */}
                     <Link to={`../home`} className="navbutton">Home </Link>
                 </div>
                 <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Events
-                    </a> */}
                     <Link to={`../events`} className="navbutton">Events </Link>
                 </div>
                 <div className="col-3 col-lg-2">
@@ -74,22 +68,22 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="row option bt">
-                    <Link to={`../home`}>
+                    <Link to={`../home`} className='white'>
                     HOME <BsFillCaretLeftFill color = "white" className='triangle'/>
                     </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`../events`}>
+                    <Link to={`../events`} className='white'>
                     EVENTS <BsFillCaretLeftFill color = "white" className='triangle'/>
                     </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`#`}>
+                    <Link to={`#`} className='white'>
                     TEAM <BsFillCaretLeftFill color = "white" className='triangle'/>
                     </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`../profile`}>
+                    <Link to={`../profile`}className='white'>
                     PROFILE <BsFillCaretLeftFill color = "white" className='triangle'/>
                     </Link>
                 </div>

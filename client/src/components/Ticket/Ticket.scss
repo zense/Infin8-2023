@@ -1,4 +1,19 @@
 .Ticket{
+    .gridtile{
+        margin: 1px !important;
+        padding: 0 !important;
+        height: 30px;
+        width: 30px;
+    }
+    .blue{background-color: #4a3aff;}
+    .white{background-color: white;}
+    .gridrow{
+        margin: 0;
+    }
+    .pattern{
+        padding-left : 4vw;
+        padding-bottom : 4vh;
+    }
     .ticketrow{
         background-color : white;
         margin : 4vh 6vw 7vh 6vw;
@@ -28,7 +43,7 @@
         font-size : 2vw;
         padding-left : 30%;
         padding-right : 10%;
-        padding-bottom : 10%;
+        padding-bottom : 4%;
     }
     .deets1,.deets2{
         color : black;

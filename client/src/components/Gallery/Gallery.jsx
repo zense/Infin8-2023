@@ -1,7 +1,18 @@
 import "./Gallery.scss"
 import Card from "./Card"
+import data from '../../content/gallery_content'
 
 const Gallery = () => {
+    const galleryCards = [];
+    for (var i = 0; i < data.length; i++) {
+        galleryCards.push(
+            <Card
+                title={data[i]['title']}
+                incentives={data[i]['incentives']}
+                image = {data[i]['image']}
+            />
+        );
+    }
     return <div className="Gallery" id="Gallery">
         <div className="row">
             <h1 className="heading">
@@ -14,13 +25,7 @@ const Gallery = () => {
             </h1>
         </div>
         <div className="scroll">
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
-            <Card title="Lorem" incentives="ipsum" />
+            {galleryCards}
         </div>
     </div>
 }

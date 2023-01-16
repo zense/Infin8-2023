@@ -8,6 +8,10 @@ $line-width : 3px;
     width: 26vw;
     margin: 3vh 2.7vw;
     margin-bottom: 6vh;
+    .incentives{
+        font-size: medium;
+        padding-bottom: 4vh;
+    }
     .space{
         height: 5vh;
     }
@@ -63,7 +67,7 @@ $line-width : 3px;
     }
     @media(max-width : 538px){
         width: 60vw;
-        margin : 3vh 6vw !important;
+        margin : 3vh 10vw !important;
     }
     @media(min-width : 539px) and (max-width : 615px){
         width: 45vw;
