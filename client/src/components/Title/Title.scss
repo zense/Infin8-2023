@@ -1,30 +1,43 @@
 @keyframes changebg{
     0%{
         background-image: url(../../images/herogif.gif);
-    }
-    25%{
-        opacity: 25%;
-        background-image: url(../../images/herogif.gif);
-    }
-    75%{
-        opacity: 50%;
+        opacity: 100%;
     }
     100%{
-        background-image: url(../../images/herobg.jpg);
-        object-fit:scale-down;
+        opacity : 20%;
     }
+}
+.titlecontainer{
+    position: relative;
+    width : 100%;
+    height: fit-content;
+    margin : 0 !important;
+    padding : 0 !important;
+    background-image: url(../../images/herobg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.flicker{
+    position: absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    margin : 0;
+    padding : 0 ;
+    height: 100vh;
+    animation-name : changebg;
+    animation-duration: 5s;
+    background-image: url(../../images/herogif.gif);
+    opacity : 15%;
 }
 
 .Title{
+    z-index: 9;
     padding-top: 5vh;
     height: 100vh;
     width : 100%;
-    background-image: url(../../images/herogif.gif);
     margin : 0 !important;
-    object-fit: fill !important;
-    animation: changebg 5s linear 1;
-    // background-image: url(../../images/herobg.jpg);
-    //     object-fit: scale-down;
+    
     .titlerow{
         color : white;
         font-size: 16vw;
@@ -32,6 +45,7 @@
         font-weight: 700;
         line-height: 13vw;
         padding-left : 5vw;
+        z-index: 10;
     }
     @media(max-width : 767px){
         padding-top: 13vh;
