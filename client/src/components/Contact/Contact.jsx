@@ -23,16 +23,16 @@ function ContactCard(props){
     )
 }
 export default function Contact(){
-
     return (
-        <div style={{"overflow-x": "hidden"}}>
+        <div style={{"overflow-x" : "hidden"}}>
         <Navbar />
-        <div className="ContactPage">
-            <div className="row" >
-                <div className="col-12" style={{"marginTop" : "70px"}}>
-                    <div className="Contact">
+        <div className="Contacts_style ContactPage">
+            <div className="row">
+                <div className="col-12 col-md-7">
+                    <div className="row titlerow">
                         CONTACT US
                     </div>
+                    
                 </div>
             </div>
             <div className="row idc" >
