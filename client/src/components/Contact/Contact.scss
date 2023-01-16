@@ -2,10 +2,11 @@
     background-color: black;
     .Contact{
         color: white;
-        font-size: calc(3.5rem + 8vw);
+        font-size: calc(3rem + 6vw);
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 700;
+        margin-left: 5vw;
     }
     .US{
         color: #4A3AFF;
@@ -29,5 +30,39 @@
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .edit{
+        margin-top: -0.6vw !important;
+    }
+    .alignment{
+        margin: auto;
+    }
+    .font{
+        
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    border-radius: 0px !important;
+    }
+
+    .idc{
+        margin-left: 5vw;
+    }
+
+    @media screen and (max-width : 992px) {
+        .person{
+            font-size: 35px;
+        }
+        .font{
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 767px) {
+        .alignment{
+            margin-top: 20px;
+            
+        }
     }
 }

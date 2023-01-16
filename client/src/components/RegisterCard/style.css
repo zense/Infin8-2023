@@ -204,6 +204,10 @@ color: white;
     } 
 }
 @media screen and (max-width: 767px) {
+    .values{
+        font-size: 25px;
+        margin-top: 50px;
+    }
     .container-fluid{
         width: 90% !important;
     }

@@ -57,7 +57,7 @@ function LeftCard(props){
                         <img src={ARROW} className="arrowpoint"></img>
                     </div>
                     </Link>
-                    <Link to={`../registerevent`} className="col-6 edge1 link" style={{borderLeft: 0 , borderTop: 0}} state={props.props}>
+                    <Link to={`/registerevent/${props.props.id}`} className="col-6 edge1 link" style={{borderLeft: 0 , borderTop: 0}} state={props.props}>
                     <div >
                         Register
                         <img src={ARROW} className="arrowpoint1"></img>
