@@ -82,6 +82,7 @@ color: white;
 .regis{
     background-color: black;
     color: white;
+    overflow-x: hidden;
 }
 .weird{
     font-family: 'Just Another Hand';
