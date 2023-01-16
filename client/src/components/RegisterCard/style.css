@@ -87,11 +87,11 @@ color: white;
     line-height: 0.95;
     color: #4A3AFF !important;
     letter-spacing: 0.4vw;
-    margin-top: 12vh;
+    margin-top: 70px;
 }
 .weird1{
     font-size: calc(3.5rem + 8vw);
-    margin-bottom: -8vh;
+    margin-bottom: -2.8vw;
 }
 .awesome1{
     font-size: calc(3.5rem + 8vw);
