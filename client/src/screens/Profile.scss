@@ -45,11 +45,21 @@
     }
     .YourProf{
         padding-left : 5.4vw;
-        font-family: 'Archivo';
         font-style: normal;
         font-size: calc(3.5rem + 8vw);
         font-weight: 700;
-        line-height: 0.95;
+        line-height: 0.7;
+        z-index: 1;
+    }
+    .blue{
+        font-family: 'Just Another Hand';
+        color : #4a3aff;
+        font-size: calc(5rem + 8vw);
+        margin-top: 5vh;
+        z-index : 2;
+    }
+    .bottomtitle{
+        margin-top: -1vh !important;
     }
     @media screen and (max-width: 577px) {
         .YourProf{

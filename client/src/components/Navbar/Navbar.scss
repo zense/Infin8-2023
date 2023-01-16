@@ -59,6 +59,9 @@ $fontsize : 30px;
     @media(min-width : 1300px){
         width : 520px;
     }
+    @media(min-width : 992px) and (max-width : 1200px){
+        width : 45%;
+    }
 }
 
 .NavModal{

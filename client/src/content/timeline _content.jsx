@@ -59,7 +59,7 @@ const day2 = [
     {
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "6:30 PM",
-        "title" : "Stand-up Comedy",
+        "title" : "Mad Mix",
         "incentives" : ""
     },
     {
