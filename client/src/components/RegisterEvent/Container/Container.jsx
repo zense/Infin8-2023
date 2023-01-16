@@ -7,10 +7,10 @@ import {BiPhone} from 'react-icons/bi'
 export default function Container(props){
 
     return (
-        <div className="container-fluid px-0" >
+        <div className="container-fluid p-0" style={{"padding":"0px"}}>
             
             <div className="row">
-                <div className="col-md-8 col-12" style={{"paddingRight":"0"}}>
+                <div className="col-md-8 col-12">
 
                     
                     <div style={{"marginTop":"20px","padding":"20px 0 20px 0","textIndent": "1em"}} className="row">
@@ -45,8 +45,8 @@ export default function Container(props){
                     
                     <div style={{"padding":"20px 30px 20px 30px","marginLeft":"0"}} className="row">
                         <div className='col-11' style={{"backgroundColor":"#FF5C00","padding":"20px 20px 20px 20px","color":"white","fontFamily":"Poppins","borderRadius":"0px 20px 20px 20px"}}>
-                            <ol>{props.other_details.map((string)=>{
-                                return <li>{string}</li>
+                            <ol>{props.other_details.map((string,index)=>{
+                                return <li key={index}>{string}</li>
                             })}</ol>
                         </div>
                     </div>
@@ -69,30 +69,31 @@ export default function Container(props){
                     </div>
                 </div>
                 
-                <div className="col-md-4 col-12" style={{"backgroundColor":"black"}}>
-                   
+                    <div className="col-md-4 col-12" style={{"backgroundColor":"black"}}>
                     
-                    {/* <Register
-                        event_fee={props.event_fee}
-                        email={props.email}
-                    />
-                     */}
-                    
-                    <RegisterTeam
-                        fee={props.event_fee}
-                        email={props.email}
-                    />
-                    
-                    {/* <NotSignedIn/> */}
-
-                    {/* <Registered email={"vikaskaly@gmail.com"}/> */}
-                
-                </div>  
+                        
+                        {props.signed_in === false ?
+                            <NotSignedIn/>
+                        :
+                            props.registered_for_event === true ?
+                                <Registered email={"vikaskaly@gmail.com"}/>
+                            :
+                                props.team_event===true ?
+                                    <RegisterTeam
+                                        fee={props.event_fee}
+                                        email={props.email}
+                                    />
+                                :
+                                    <Register
+                                        event_fee={props.event_fee}
+                                        email={props.email}
+                                    />
+                        }
+                    </div>  
+                </div>
                 
             </div>
-            
-        
-        </div>
+
     );
 }
 

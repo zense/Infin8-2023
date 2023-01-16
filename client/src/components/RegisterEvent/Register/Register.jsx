@@ -17,15 +17,15 @@ export default function Register(props){
             </div>
             
             
-            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px", "padding-top": "30px"}}>
-                <div style={{"padding-bottom": "3px"}}>
+            <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px", "paddingTop": "30px"}}>
+                <div style={{"paddingBottom": "3px"}}>
                 <span>Event Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.event_fee}</span>
                 </div>
                 {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
                 <div style={{"backgroundColor":"white","height":"2px","marginRight":"20px"}}>
 
               </div>
-                <div style={{"padding-top": "3px"}}>
+                <div style={{"paddingTop": "3px"}}>
                 <span>Total Fee</span><span style={{"float":"right","paddingRight":"50px"}}>Rs. {props.event_fee}</span>
                 </div>  
             </div>
