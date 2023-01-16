@@ -13,7 +13,7 @@ export default function EntranceRegister(props){
                 Rs. {props.entrance_fee}
             </div>
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
-                Signed in as {props.email}
+                ⓘ Signed in as {props.email}
             </div>
 
             

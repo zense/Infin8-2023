@@ -18,6 +18,15 @@ $line-width : 3px;
     }
     .white{
         color : white;
+        text-decoration: none;
+    }
+    .registerbutton:hover,
+    .registerbutton:active{
+        background-color: white;
+        color : black;
+        .white{
+            color : black;
+        }
     }
     button{
         background-color: $buttonbg; /* Green */
@@ -39,10 +48,11 @@ $line-width : 3px;
     .border_left{
         border-left : $line-width/2 solid $line-color;
     }
+    
     .arrow{
         height: 17px;
         width: auto;
-        color : white;
+        color : white !important;
     }
     .title,.incentives{
         text-align: left;

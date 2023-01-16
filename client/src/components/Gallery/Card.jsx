@@ -32,7 +32,7 @@ const Card = (props) => {
                     </div></button>
                 </div>
                 <div className="col-6 mz border_left">
-                    <button className='border_left'><div className="row">
+                    <button className='border_left registerbutton'><div className="row">
                         <div className="col-9">
                             <Link className="white" to={`../registerevent`} >Register</Link>
                         </div>
