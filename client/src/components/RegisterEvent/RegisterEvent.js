@@ -28,7 +28,9 @@ function RegisterEvent(props) {
           contacts={event.spocs}
           event_fee={201}
           email={"vikaskaly@gmail.com"}
-
+          team_event={true}
+          signed_in={props.signed_in}
+          registered_for_event={props.registered_for_event}
         />
         :
         <PayBaseFees

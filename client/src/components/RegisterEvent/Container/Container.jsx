@@ -72,21 +72,23 @@ export default function Container(props){
                 <div className="col-md-4 col-12" style={{"backgroundColor":"black"}}>
                    
                     
-                    {/* <Register
-                        event_fee={props.event_fee}
-                        email={props.email}
-                    /> */}
-                    
-                    
-                    {/* <RegisterTeam
-                        fee={props.event_fee}
-                        email={props.email}
-                    /> */}
-                    
-                    {/* <NotSignedIn/> */}
-
-                    <Registered email={"vikaskaly@gmail.com"}/>
-                
+                    {props.signed_in === false ?
+                        <NotSignedIn/>
+                    :
+                        props.registered_for_event === true ?
+                            <Registered email={"vikaskaly@gmail.com"}/>
+                        :
+                            props.team_event===true ?
+                                <RegisterTeam
+                                    fee={props.event_fee}
+                                    email={props.email}
+                                />
+                            :
+                                <Register
+                                    event_fee={props.event_fee}
+                                    email={props.email}
+                                />
+                    }
                 </div>  
                 
             </div>
