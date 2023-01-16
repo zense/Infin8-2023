@@ -10,7 +10,7 @@ export default function Container(props){
         <div className="container-fluid px-0" >
             
             <div className="row">
-                <div className="col-md-8 col-12" style={{"paddingRight":"0"}}>
+                <div className="col-md-8 col-12">
 
                     
                     <div style={{"marginTop":"20px","padding":"20px 0 20px 0","textIndent": "1em"}} className="row">
@@ -75,17 +75,17 @@ export default function Container(props){
                     {/* <Register
                         event_fee={props.event_fee}
                         email={props.email}
-                    />
-                     */}
+                    /> */}
                     
-                    <RegisterTeam
+                    
+                    {/* <RegisterTeam
                         fee={props.event_fee}
                         email={props.email}
-                    />
+                    /> */}
                     
                     {/* <NotSignedIn/> */}
 
-                    {/* <Registered email={"vikaskaly@gmail.com"}/> */}
+                    <Registered email={"vikaskaly@gmail.com"}/>
                 
                 </div>  
                 
