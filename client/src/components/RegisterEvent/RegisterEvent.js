@@ -14,7 +14,7 @@ function RegisterEvent(props) {
     }
   }
   return (
-    <div>
+    <div style={{"overflowX":"hidden"}}>
       <Navbar/>
       {/* If user is not logged in, should we print the pay base fees page or the regular event page */}
       <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)} mode={event.mode}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
@@ -28,7 +28,9 @@ function RegisterEvent(props) {
           contacts={event.spocs}
           event_fee={201}
           email={"vikaskaly@gmail.com"}
-
+          team_event={true}
+          signed_in={props.signed_in}
+          registered_for_event={props.registered_for_event}
         />
         :
         <PayBaseFees

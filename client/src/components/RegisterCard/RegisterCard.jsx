@@ -76,7 +76,7 @@ function RegisterCard(props){
         <div className="regis">
         <Navbar></Navbar>
         <Title></Title>
-        <div className="container RegisterCard">
+        <div className="container-fluid RegisterCard">
             <div className="row marginchange invert">
             {
                 eventDetails.map((event) => {

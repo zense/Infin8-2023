@@ -5,6 +5,10 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.col-12.register{
+    padding-left: 2.5vw;
+}
 .invert.a:hover{
     color: white;
 }
@@ -78,6 +82,7 @@ color: white;
 .regis{
     background-color: black;
     color: white;
+    overflow-x: hidden;
 }
 .weird{
     font-family: 'Just Another Hand';
@@ -91,7 +96,7 @@ color: white;
 }
 .weird1{
     font-size: calc(3.5rem + 8vw);
-    margin-bottom: -2.8vw;
+    margin-bottom: -3.6vw;
 }
 .awesome1{
     font-size: calc(3.5rem + 8vw);
@@ -105,11 +110,22 @@ color: white;
 }
 
 .arrowicon1{
-    margin-left: 4vw ;
-    height: 10vw ;
+    margin-left: 3.5vw ;
+    height: 8vw ;
     margin-bottom: 2vw;
 }
-
+.values{
+    border-top: 2px solid white;
+    border-bottom:2px solid white ;
+    font-family: 'Gloria Hallelujah';
+    font-style: normal;
+    font-weight: 400;
+    color: #FF5C00;
+    font-size: 30px;
+    margin-top: 60px;
+    padding: 6px;
+    white-space: nowrap;
+}
 @media screen and (min-width: 1000px) {
     .arrowicon1{
         height: 90px;
@@ -159,16 +175,20 @@ color: white;
         font-weight: 500;
         font-size: 2.2vw;
     }
+    .col-12.register{
+        padding-left: 4vw;
+    }
 }
-@media screen and (max-width: 1250px) {
+/* @media screen and (max-width: 1250px) {
     .weird1{
         font-size: calc(3.5rem + 8vw);
-        margin-bottom: -6vh;
+        margin-bottom: -2vw;
     } 
-}@media screen and (max-width: 850px){
+} */
+@media screen and (max-width: 850px){
     .weird1{
         font-size: calc(3.5rem + 8vw);
-        margin-bottom: -4vh;
+        margin-bottom: -4.6vw;
     } 
 }
 @media screen and (min-width: 768px) and (max-width: 1199px){
@@ -184,6 +204,9 @@ color: white;
     } 
 }
 @media screen and (max-width: 767px) {
+    .container-fluid{
+        width: 90% !important;
+    }
     .BigCard{
         display: none;
     }
@@ -222,11 +245,11 @@ color: white;
         padding-left: 30px;
     }
     .arrowpoint{
-        margin-left: 110px;
+        margin-left: 20vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 100px;
+        margin-left: 18vw;
         margin-bottom: 2px;
     }
     .adjust{
@@ -237,11 +260,11 @@ color: white;
         margin-right: auto;
     }
     .weird1{
-        font-size: calc(3rem + 6vw);
+        font-size: calc(2.8rem + 6vw);
         margin-bottom: -3.5vh;
     }
     .awesome1{
-        font-size: calc(3rem + 6vw);
+        font-size: calc(2.8rem + 6vw);
     }
     .Titl{
         text-align: left;
@@ -257,6 +280,9 @@ color: white;
         font-style: normal;
         font-weight: 500;
         font-size: 17px;
+    }
+    .col-12.register{
+        padding-left: 0.5vw;
     }
 }
 @media screen and (min-width: 768px) {
@@ -281,9 +307,9 @@ color: white;
     .container.change{
         padding-left: 12px;
     }
-    .row.marginchange{
+    /* .row.marginchange{
         padding-left: 12px;
-    }
+    } */
     .Titl{
         text-align: left;
         font-family: 'Poppins';
@@ -301,21 +327,21 @@ color: white;
 }
 @media screen and (max-width: 510px) {
     .arrowpoint{
-        margin-left: 90px;
+        margin-left: 16vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 80px;
+        margin-left: 14vw;
         margin-bottom: 2px;
     }
 }
 @media screen and (max-width: 476px) {
     .arrowpoint{
-        margin-left: 70px;
+        margin-left: 11.5vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 60px;
+        margin-left: 9.5vw;
         margin-bottom: 2px;
     }
     .Titl{
@@ -336,11 +362,11 @@ color: white;
 }
 @media screen and (max-width: 424px) {
     .arrowpoint{
-        margin-left: 55px;
+        margin-left: 9.5vw;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 45px;
+        margin-left: 7.7vw;
         margin-bottom: 2px;
     }
 }

@@ -2,6 +2,7 @@ import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
 import './RegisterTeam.css'
 import { BsFillSquareFill } from "react-icons/bs";
+import { BsArrowDownRight } from "react-icons/bs";
 import React from 'react'
 export default function RegisterTeam(props){
     const [joinExistingTeam,changejoinExistingTeam] = React.useState(true);
@@ -12,7 +13,7 @@ export default function RegisterTeam(props){
         
         <div>
             <div style={{"textAlign":"center"}}>
-                <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom": "10px"}}>REGISTER</h1>
+                <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom": "10px"}}>REGISTER <BsArrowDownRight/></h1>
             </div>
             <div className="container-fluid" style={{"paddingLeft":"2.7vw", "paddingRight":"2.7vw"}}>
                 <div className="row">
@@ -64,13 +65,13 @@ export default function RegisterTeam(props){
                 {!joinExistingTeam ? "Rs." + props.fee : "Free"}
             </div>
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
-                Signed in as {props.email}
+             ⓘ Signed in as {props.email}
             </div>
         
             
             <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"2.7vw","padding-top": "20px" }}>
                 <div style={{"padding-bottom": "3px"}}>
-                <span>Team Creation Fee</span><span style={{"float":"right","paddingRight":"50px"}}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
+                <span>Team Creation</span><span style={{"float":"right","paddingRight":"50px"}}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
                 </div>
                 {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
                 <div style={{"backgroundColor":"white","height":"2px","marginRight":"20px"}}>
@@ -84,7 +85,7 @@ export default function RegisterTeam(props){
 
                 <div>
                     <div style={{"color":"white","marginTop":"20px"}}>
-                        <h1 style={{"textAlign":"center"}}>PAYMENT</h1>
+                        <h1 style={{"textAlign":"center"}}>PAYMENT <BsArrowDownRight/></h1>
                         <div style={{"marginLeft":"15px","marginRight":"15px",  "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
                         upload the receipt screenshot here. Our team will 
                         verify the payment. The 'Register' button will turn 
