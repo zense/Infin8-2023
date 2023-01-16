@@ -4,7 +4,7 @@
     width: 30%;
     text-align: center;
     font-size: 2.2vw;
-    margin-top: 20px;
+    margin-top: 25px !important;
 }
 .newclass{
     margin-left: 2.7vw;
@@ -48,7 +48,7 @@
         width: 20%;
         text-align: center;    
         font-size: 3.5vw;
-        margin-top: 20px;
+        margin-top: 25px !important;
     }
     /* .newclass{
         margin-left: 2.7vw;
@@ -72,7 +72,7 @@
         width: 20%;
         text-align: center;    
         font-size: 4vw;
-        margin-top: 20px;
+        margin-top: 25px !important;
     }
 }
 @media screen and (max-width: 394px) {
@@ -84,7 +84,7 @@
         width: 20%;
         text-align: center;    
         font-size: 4.5vw;
-        margin-top: 20px;
+        margin-top: 25px !important;
     }
 }
 

@@ -30,7 +30,7 @@ export default function Container(props){
                     </div>
 
                     <div style={{"border":"1px solid black","padding":"20px 0 20px 0","textIndent": "1em"}}>
-                        <h1 style={{"fontWeight":"700"}}>OTHER DETAILS</h1>
+                        <h1 style={{"fontWeight":"700"}}>RULES</h1>
                     </div>
                 
                     <div style={{"border":"1px solid black","padding":"20px 30px 20px 30px"}}>
@@ -59,8 +59,8 @@ export default function Container(props){
                     {/* <Register
                         event_fee={props.event_fee}
                         email={props.email}
-                    /> */}
-                    
+                    />
+                     */}
                     
                     <RegisterTeam
                         fee={props.event_fee}

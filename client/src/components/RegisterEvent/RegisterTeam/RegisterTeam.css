@@ -4,7 +4,7 @@
     width: 30%;
     text-align: center;
     font-size: 2.2vw;
-    margin-top: 20px;
+    margin-top: 35px !important;
 }
 .newclass{
     margin-left: 2.7vw;
@@ -22,7 +22,7 @@
     height: 10px;
 }
 .fontControl{
-    font-size: calc(0.9rem + .1vw) !important;
+    font-size: calc(1rem + .1vw) !important;
     font-weight: 500;
 }
 
@@ -50,7 +50,7 @@
         width: 20%;
         text-align: center;    
         font-size: 3.5vw;
-        margin-top: 20px;
+        margin-top: 35px !important;
     }
     .fontControl{
         font-size: calc(1.2rem + .05vw) !important;
@@ -66,7 +66,7 @@
         width: 20%;
         text-align: center;    
         font-size: 4vw;
-        margin-top: 20px;
+        margin-top: 35px !important;
     }
 }
 @media screen and (max-width: 394px) {
@@ -78,7 +78,7 @@
         width: 20%;
         text-align: center;    
         font-size: 4.5vw;
-        margin-top: 20px;
+        margin-top: 35px !important;
     }
 }
 

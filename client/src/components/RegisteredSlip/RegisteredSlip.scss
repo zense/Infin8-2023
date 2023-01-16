@@ -1,0 +1,38 @@
+.RegisteredSlip {
+    margin : 1px 0 1px 0;
+    background-color: black;
+    .white{
+        margin: 5px 10px 5px 0;
+        background-color: white;
+        padding-bottom: 5px;
+    }
+    .contcol{
+        margin : 0;
+        padding :0;
+    }
+    .title{
+        color : black;
+        font-family: 'Archivo';
+        font-size: 3vw;
+        font-weight: 600;
+    }
+    .subtitle{
+        color :  #313131;
+        font-size: 12px;
+        font-family: 'Poppins';
+    }
+    .dotcol{
+        display: flex;
+        align-items: center;
+    }
+    .borderbox{
+        border-bottom: 3px solid white;
+        height: 50%;
+        margin-left : 0;
+        margin-right : 0;
+    }
+    .bordercol{
+        margin : 0;
+        padding : 0;
+    }
+}

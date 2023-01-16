@@ -1,0 +1,135 @@
+// @keyframes changebg{
+//     0%{
+//         background-image: url(../../images/herogif.gif);
+//     }
+//     25%{
+//         opacity: 25%;
+//         background-image: url(../../images/herogif.gif);
+//     }
+//     75%{
+//         opacity: 50%;
+//     }
+//     100%{
+//         background-image: url(../../images/herobg.jpg);
+//         object-fit:scale-down;
+//     }
+// }
+
+.NewTitle{
+    padding-top: 70px;
+    height: fit-content;
+    width : 100%;
+    // background-size: 100% 100%;
+    background-image: url(../../../images/Battle.png);
+    // background-repeat: no-repeat;
+    margin : 0 !important;
+    object-fit: fill !important;
+    // animation: changebg 5s linear 1;
+    // background-image: url(../../images/herobg.jpg);
+    //     object-fit: scale-down;
+    .titlerow{
+        color : white;
+        font-size: 11.5vw;
+        font-family: 'Barlow Condensed';
+        font-weight: 700;
+        line-height: 10.5vw;
+        padding-left : 5.5vw;
+    }
+
+    @media (min-width: 1600px){
+        .titlerow{
+            font-size: 10vw;
+            line-height: 10vw;
+            
+        }   
+    }
+    @media (max-width: 1100px){
+        .titlerow{
+            font-size: 12vw;
+            line-height: 11vw;
+            
+        }
+    }
+    @media(max-width : 767px){
+        .titlerow{
+            color: white;
+            font-size: 16vw;
+            font-family: "Barlow Condensed";
+            font-weight: 700;
+            line-height: 14vw;
+        }
+    }
+    @media(max-width : 500px){
+        .titlerow{
+            color: white;
+            font-size: 18vw;
+            font-family: "Barlow Condensed";
+            font-weight: 700;
+            line-height: 16vw;
+            padding-left : 6.5vw;
+        }
+    }
+    .orange{
+        color : #ff7c00;
+    }
+}
+
+.Details{
+    padding-left : 5vw;
+    padding-top: 18vh;
+    // padding-top: 24vh;
+    font-family: 'Barlow Condensed';
+    font-style: normal;
+    padding-bottom: 30px;
+    .Top{
+        color: white;
+        font-weight: 500;
+        font-size: 2.5vw;
+    }
+    .Bottom{
+        color:#ff7c00;
+        font-weight: 500;
+        font-size: 5vw;
+        margin-top: -2.6vh;
+    }
+    @media (min-width: 1600px) {
+        .Top{
+            color: white;
+            font-weight: 500;
+            font-size: 2.2vw;
+        }
+        .Bottom{
+            color:#ff7c00;
+            font-weight: 500;
+            font-size: 4.4vw;
+            margin-top: -2.6vh;
+        }
+    }
+    @media (max-width: 1100px) {
+        .Bottom{
+            margin-top: -2.2vh;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .Top{
+            font-size: 3.2vw;
+        }
+        .Bottom{
+            font-size: 6.4vw;
+            margin-top: -2vh;
+        }
+    }
+    @media (max-width: 500px){
+        .Top{
+            font-size: 3.8vw;
+        }
+        .Bottom{
+            font-size: 7.4vw;
+            margin-top: -1.4vh;
+        }
+    }
+    .align{
+        padding-left: 10vw;
+    }
+}

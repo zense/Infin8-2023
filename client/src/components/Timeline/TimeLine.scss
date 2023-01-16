@@ -1,12 +1,58 @@
-$line-color : #000000;
+$line-color : white;
 $line-width : 3px;
-$heading-color : #000000;
+$heading-color : white;
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 .Timeline{
+    background-color: black;
     padding-top: 10vh;
+    .nav-link{
+        margin : 3vw;
+        margin-bottom: 5vh;
+    }
+    .navrow{
+        padding-left : 5vw;
+        padding-right : 5vw;
+    }
     .heading{
         font-size: 15vw;
         font-weight: 500;
         color: $heading-color;
+        font-family: 'Archivo';
+        letter-spacing: 0.7vw;
+        z-index: 1;
+    }
+    .headingrow{
+        margin-bottom: 0;
+        padding-bottom : 0;
+    }
+    .overlayrow{
+        margin-top: 0;
+        padding-top : 0;
+    }
+    .overlay{
+        font-size: 9vw;
+        font-weight: 500;
+        // letter-spacing: 0.7vw;
+        font-family: 'Gloria Hallelujah';
+        color : #4a3aff;
+        line-height: 10vw;
+        margin-top : -17vw !important;
+        z-index: 3;
+        letter-spacing: 2vw;
+    }
+    .nav-link{
+        color : white;
+    }
+    .nav-link:hover,
+    .nav-link:active
+    {
+        color : black;
+        background-color: white;
+        cursor: pointer;
+    }
+    .nav-link.active{
+        background-color: white !important;
+        color : black !important;
     }
     
     .largescreens{
@@ -28,7 +74,7 @@ $heading-color : #000000;
             margin : auto !important;
         }
         .space{
-            height: 50vh;
+            height: 30vh;
         }
     }
 

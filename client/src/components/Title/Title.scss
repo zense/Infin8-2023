@@ -1,50 +1,47 @@
-.Title{
-    height: 100vh;
-    img.infiimg{
-        width : 64%;
-        height: auto;
-        position: absolute;
-        top : 20vh;
-        left : 5vw;
-        z-index: 2;
+@keyframes changebg{
+    0%{
+        background-image: url(../../images/herogif.gif);
     }
-    img.yearimg{
-        width : 80%;
-        height: auto;
-        position: absolute;
-        top : 38vh;
-        right:-1vw;
-        z-index: 1;
+    25%{
+        opacity: 25%;
+        background-image: url(../../images/herogif.gif);
     }
-    @media(max-width: 576px){
+    75%{
+        opacity: 50%;
+    }
+    100%{
+        background-image: url(../../images/herobg.jpg);
+        object-fit:scale-down;
+    }
+}
 
+.Title{
+    padding-top: 5vh;
+    height: 100vh;
+    width : 100%;
+    background-image: url(../../images/herogif.gif);
+    margin : 0 !important;
+    object-fit: fill !important;
+    animation: changebg 5s linear 1;
+    // background-image: url(../../images/herobg.jpg);
+    //     object-fit: scale-down;
+    .titlerow{
+        color : white;
+        font-size: 16vw;
+        font-family: 'Barlow Condensed';
+        font-weight: 700;
+        line-height: 13vw;
+        padding-left : 5vw;
     }
-    @media(max-width: 576px){
-        .infiimg2,.infiimg3{
-            position: absolute;
+    @media(max-width : 767px){
+        padding-top: 13vh;
+        .titlerow{
+            font-size: 35vw;
+            line-height: 30vw;
+            padding-left: 10vw;
         }
-        img.infiimg{
-            width : 95%;
-            top : 20vmin;
-            left : 2.5%;
-            z-index: 4;
-        }
-        img.infiimg2{
-            width : 95%;
-            top : 37vmin;
-            left : 2.5%;
-            z-index: 3;
-        }
-        img.infiimg3{
-            width : 95%;
-            top : 54vmin;
-            left : 2.5%;
-            z-index: 2;
-        }
-        img.yearimg{
-            width : 80%;
-            top : 80vmin;
-            right:5vw;
-        }
+    }
+    .orange{
+        color : #ff7c00;
     }
 }

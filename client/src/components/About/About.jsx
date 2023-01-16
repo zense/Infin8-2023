@@ -1,5 +1,5 @@
 import "./About.scss"
-
+import Bounce from 'react-reveal/Bounce';
 const About = () => {
     return <div className="About">
         <div className="row">
@@ -7,9 +7,11 @@ const About = () => {
                 <div className="row">
                     <div className="about">ABOUT</div>
                 </div>
-                <div className="row">
-                    <div className="infin8">INFIN8</div>
-                </div>
+                <Bounce top>
+                    <div className="row">
+                        <div className="infin8">infin8</div>
+                    </div>
+                </Bounce>
             </div>
             <div className="col-12 col-md-6">
                 <div className="para">

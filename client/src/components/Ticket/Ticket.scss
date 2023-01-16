@@ -1,0 +1,77 @@
+.Ticket{
+    .ticketrow{
+        background-color : white;
+        margin : 4vh 6vw 7vh 6vw;
+    }
+    .qrimage{
+        width : 80%;
+        height: auto;
+        margin : 10%;
+    }
+    .qrcol{
+        justify-content: center;
+        display : flex;
+        border-right : 3px dashed black;
+    }
+    .titlerow{
+        color : black;
+        font-size : 6vw;
+        letter-spacing: 0.5vw;
+        font-family: 'Archivo';
+        font-weight: 600;
+        padding-left: 10%;
+    }
+    .subtitle{
+        color : #313131;
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-size : 2vw;
+        padding-left : 30%;
+        padding-right : 10%;
+        padding-bottom : 10%;
+    }
+    .deets1,.deets2{
+        color : black;
+        font-family: 'Archivo';
+        padding-left : 10%;
+    }
+    .deets1{
+        font-size: 3vw;
+    }
+    .deets2{
+        font-size : 1.5vw;
+        letter-spacing: 0.3vw;
+        padding-bottom : 3%;
+    }
+    @media(max-width : 567px){
+        .qrcol{
+            border: none;
+            border-bottom : 3px dashed black;
+        }
+        .titlerow{
+            font-size : 8vw;
+            letter-spacing: 0.6vw;
+            font-family: 'Archivo';
+            font-weight: 600;
+            padding-left: 10%;
+            padding-top : 10%;
+        }
+        .subtitle{
+            color : #313131;
+            font-family: 'Poppins';
+            font-weight: 500;
+            font-size : 3vw;
+            padding-left : 10%;
+            padding-right : 10%;
+            padding-bottom : 10%;
+        }
+        .deets1{
+            font-size: 4vw;
+        }
+        .deets2{
+            font-size : 3vw;
+            letter-spacing: 0.3vw;
+            padding-bottom : 10%;
+        }
+    }
+}
