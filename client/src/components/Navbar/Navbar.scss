@@ -59,6 +59,9 @@ $fontsize : 30px;
     @media(min-width : 1300px){
         width : 520px;
     }
+    @media(min-width : 992px) and (max-width : 1200px){
+        width : 45%;
+    }
 }
 
 .NavModal{
@@ -113,12 +116,18 @@ $fontsize : 30px;
             font-weight: 600;
             padding : 0 0 10px 15px; 
         }
+        .white{
+            text-decoration: none;
+            color : black;
+        }
         .topbutton:hover,
         .topbutton:active,
         .option:hover,
         .option:active{
             background-color: black;
-            color : white;
+            .white{
+                color : white;
+            }
         }
         .col{
             text-align: center;

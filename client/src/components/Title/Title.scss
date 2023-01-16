@@ -35,6 +35,7 @@
     z-index: 9;
     padding-top: 5vh;
     height: 100vh;
+    min-height: fit-content;
     width : 100%;
     margin : 0 !important;
     
@@ -57,5 +58,14 @@
     }
     .orange{
         color : #ff7c00;
+    }
+    @media(max-height : 680px ) and (max-width: 690px){
+        padding-top: 5vh;
+        .titlerow{
+            font-size: 20vw;
+            margin-top : 4vh;
+            line-height: 15vw;
+            padding-left: 10vw;
+        }
     }
 }

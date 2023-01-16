@@ -45,8 +45,8 @@ function Home() {
           </div>
         </a>
       </div>
-      <TimeLine></TimeLine>
       <Gallery></Gallery>
+      <TimeLine></TimeLine>
       <Faq></Faq>
       <div className='space'></div>
       <Footer></Footer>
