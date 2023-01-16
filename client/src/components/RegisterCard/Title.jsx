@@ -5,9 +5,10 @@ import Vector from '../../images/Vector3.png'
 
 function Title(){
     return (
-        <div className="container change">
+        <>
+        <div className="container-fluid change">
             <div className="row">
-                    <div className="col-12" style={{"padding-left": "1.5vw"}}>
+                    <div className="col-12 register" >
                         <Fade top delay={100} duration={1500}>
                         <div className="weird weird1">
                             {">"} register
@@ -20,8 +21,14 @@ function Title(){
                     
                     </div>
             </div>
-        
         </div>
+        <div className="values">
+            <marquee behavior="scroll" direction="right" scrollamount="20" >
+                Valorant. Call Of Duty. DJ Night. Duet Dance. Battle Of Bands. Blastoff. Mad Mix. Chitrakarma. League Of Fanatics. Nritta. Clash Royale. Cut To The Chase. Brush Up. Sargam. Ramp It Up. Brush Up. 
+            </marquee>
+            </div>
+        </>
+
     )
 }
 export default Title;
