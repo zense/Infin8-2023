@@ -2,7 +2,7 @@
     background-color: black;
     .Contact{
         color: white;
-        font-size: calc(3.5rem + 8vw);
+        // font-size: calc(3.5rem + 8vw);
         font-family: 'Archivo';
         font-style: normal;
         font-weight: 700;
@@ -13,8 +13,9 @@
         font-style: normal;
         font-weight: 400;
         font-size: calc(8rem + 9vw);
-        margin-left: 43vw;
-        margin-top: -16vw;
+        position: relative;
+        margin-top: -9vw;
+
     }
     .person{
         color: white;

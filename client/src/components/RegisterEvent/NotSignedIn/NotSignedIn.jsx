@@ -3,7 +3,7 @@ export default function NotSignedIn(){
     return (
         <div>
             <div style={{"textAlign":"center"}}>
-                <h1 style={{"color":"white","paddingTop":"20px"}}>REGISTER</h1>
+            <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom":"10px","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>REGISTER</h1>
             </div>
 
             <br></br>

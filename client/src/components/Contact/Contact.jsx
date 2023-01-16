@@ -17,27 +17,30 @@ function ContactCard(props){
         </div>
     )
 }
-export default function Contact(){
 
+
+export default function Contact(){
     return (
         <>
-        <Navbar />
-        <div className="ContactPage">
-            <div className="row">
-                <div className="col-12">
-                    <div className="Contact">
-                        CONTACT
+            <Navbar />
+            <div className="ContactPage">
+                <div className="row">
+                    <div className="col-12">
+                        <div className="Contact row titlerow">
+                            CONTACT US
+                        </div>
+                    
                     </div>
-                    <div className="US">
-                        {">"} us.
+                    <div>
+
                     </div>
                 </div>
+                
+                <div className="row">
+                    <ContactCard />
+                </div>
             </div>
-            <div className="row">
-                <ContactCard />
-            </div>
-        </div>
-        <Footer />
+            <Footer />
         </>
     )
 }

@@ -13,7 +13,7 @@ export default function RegisterTeam(props){
         
         <div>
             <div style={{"textAlign":"center"}}>
-                <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom": "10px"}}>REGISTER <BsArrowDownRight/></h1>
+                <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom":"10px","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>REGISTER</h1>
             </div>
             <div className="container-fluid" style={{"paddingLeft":"2.7vw", "paddingRight":"2.7vw"}}>
                 <div className="row">
@@ -85,7 +85,7 @@ export default function RegisterTeam(props){
 
                 <div>
                     <div style={{"color":"white","marginTop":"20px"}}>
-                        <h1 style={{"textAlign":"center"}}>PAYMENT <BsArrowDownRight/></h1>
+                        <h1 style={{"textAlign":"center","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>PAYMENT</h1>
                         <div style={{"marginLeft":"15px","marginRight":"15px",  "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
                         upload the receipt screenshot here. Our team will 
                         verify the payment. The 'Register' button will turn 
