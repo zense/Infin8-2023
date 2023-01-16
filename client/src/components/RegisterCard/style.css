@@ -109,7 +109,7 @@ color: white;
 }
 
 .arrowicon1{
-    margin-left: 4vw ;
+    margin-left: 3.5vw ;
     height: 8vw ;
     margin-bottom: 2vw;
 }
@@ -259,11 +259,11 @@ color: white;
         margin-right: auto;
     }
     .weird1{
-        font-size: calc(3rem + 6vw);
+        font-size: calc(2.8rem + 6vw);
         margin-bottom: -3.5vh;
     }
     .awesome1{
-        font-size: calc(3rem + 6vw);
+        font-size: calc(2.8rem + 6vw);
     }
     .Titl{
         text-align: left;
