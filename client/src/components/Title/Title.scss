@@ -25,10 +25,10 @@
     margin : 0;
     padding : 0 ;
     height: 100vh;
-    animation-name : changebg;
-    animation-duration: 5s;
+    // animation-name : changebg;
+    // animation-duration: 5s;
     background-image: url(../../images/herogif.gif);
-    opacity : 15%;
+    // opacity : 100%;
 }
 
 .Title{
@@ -67,5 +67,8 @@
             line-height: 15vw;
             padding-left: 10vw;
         }
+    }
+    @media (min-width : 770px) and (max-width : 964px){
+        padding-top: 80px;
     }
 }

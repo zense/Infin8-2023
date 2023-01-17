@@ -22,10 +22,10 @@ function ContactCard(props){
         </div>
     )
 }
-export default function Contact(){
+export default function Contact(props){
     return (
         <div style={{"overflow-x" : "hidden"}}>
-        <Navbar />
+        <Navbar props={props}/>
         <div className="Contacts_style ContactPage">
             <div className="row">
                 <div className="col-12 col-md-7">

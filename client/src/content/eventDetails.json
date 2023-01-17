@@ -8,10 +8,7 @@
         "type":"all",
         "registrationDeadline":"NA",
         "description":"Get ready for a burst of never-ending hysterical laughter at MAD-MIX by a well renowned stand up comedian! We bring you some of the finest humor at the stand-up comedy event of infin8, don’t miss this out!!! (Reveal Coming Soon)  Location: (IIITB Auditorium)",
-        "prizes": {
-            "first":"12500",
-            "second":"7500"
-        },
+        "prizes": "NA",
         "rules": [
             "A band must have a maximum of 8 and a minimum of 3 members.",
             "The performance should not exceed 15 minutes.",
@@ -31,7 +28,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : false
         
     },
     {
@@ -66,7 +64,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -78,10 +77,7 @@
         "type":"all",
         "registrationDeadline":"NA",
         "description":"A night to remember with an enthralling show, sure to give goosebumps to one and all, performed by world-renowned SUNBURN DJs. Stay tuned for an ecstatic and raving experience! (Reveal Coming Soon) Location:  (IIITB Football Ground)",
-        "prizes": {
-            "first":"12500",
-            "second":"7500"
-        },
+        "prizes": "NA",
         "rules": [
             "A band must have a maximum of 8 and a minimum of 3 members.",
             "The performance should not exceed 15 minutes.",
@@ -101,7 +97,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -135,7 +132,8 @@
                 "name":"Prudhvi Nath Reddy",
                 "contact":"6305949565"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -168,7 +166,8 @@
                 "name":"Prudhvi Nath Reddy",
                 "contact":"6305949565"
             }
-        ]
+        ],
+        "team": true
         
     },
     {
@@ -201,7 +200,8 @@
                 "name":"Aryan Bhat",
                 "contact":"7425964111"
             }
-        ]
+        ],
+        "team" :true
         
     },
     {
@@ -218,13 +218,15 @@
             "second":"3000"
         },
         "rules": [
+            "Excited ? Learn more here : https://drive.google.com/file/d/1-OGEQqnjOCHWiPOqkj8GLiRYPbCQ90cg/view?usp=share_link"
         ],
         "spocs": [
             {
                 "name":"Varshit",
                 "contact":"9886987649"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -256,7 +258,8 @@
                 "name":"Arjun Subhedar",
                 "contact":"7028770201"
             }
-        ]
+        ],
+        "team": true
     },
     {
         "title":"Brush Up",
@@ -286,7 +289,8 @@
                 "name":"Hemang Seth",
                 "contact":"8817972743"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -299,7 +303,8 @@
         "registrationDeadline":"5th Feb' 23, 11:59 PM",
         "description":"Today's youth is known for fashion. Fashion not only promotes creativity, but it's also a form of expressing and empowering oneself. Style is what defines you. From traditional to casual, from vintage to trendy, every fashion style speaks of itself and of the culture it possesses. We're presenting 'Ramp it up' for the girls and boys who would love to show their modish nature by being a part of the show! Gone is the time of just watching ramp shows, now it's your turn to join the show and 'ramp it up'!",
         "prizes": {
-            "first":"3000"
+            "first":"3000",
+            "second": "3000"
         },
         "rules": [
             "You can form a team of 2 or take part individually.",
@@ -322,7 +327,8 @@
                 "name":"Ankrutee Arora",
                 "contact":"9246809610"
             }
-        ]
+        ],
+        "team": true
         
     },
     {
@@ -358,7 +364,8 @@
                 "name":"Sahil Kare",
                 "contact":"9752112005"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -395,7 +402,8 @@
                 "name":"Pranav Bhutada",
                 "contact":"7020000938"
             }
-        ]   
+        ],
+        "team": false   
     },
     {
         "title":"War Of Words",
@@ -430,7 +438,8 @@
                 "name":"Arhant Arora",
                 "contact":"7696572850"
             }
-        ]   
+        ],
+        "team": true   
     },
     {
         "title":"League Of Fanatics",
@@ -469,7 +478,8 @@
                 "name":"Naitik Solanki",
                 "contact":"7016740700"
             }
-        ]   
+        ],
+        "team": true   
     },
     {
         "title":"Dumb Charades",
@@ -501,7 +511,8 @@
                 "name":"N Srihith Penjarla",
                 "contact":"7893039570"
             }
-        ]   
+        ], 
+        "team": true  
     },
     {
         "title":"Gulp And Gobble",
@@ -513,7 +524,8 @@
         "registrationDeadline":"NA",
         "description":"What can be better than getting paid for eating good food? Put your hungry stomach to the test in this competitive eating contest. The faster you can gobble up all the food and gulp the beverages, the better chance you have to win a prize. What can you win? Some cash and more food!",
         "prizes": {
-            "first":"3000"
+            "first":"1000",
+             "second": "0"
         },
         "rules": [
             "This is a one-on-one eating contest.",
@@ -536,7 +548,8 @@
                 "name":"Tarun Kumar",
                 "contact":"9032272225"
             }
-        ]   
+        ],
+        "team": false   
     },
     {
         "title":"Valorant",
@@ -572,76 +585,8 @@
                 "name":"Srinivas Manda",
                 "contact":"9110322406"
             }
-        ]   
-    },
-    { 
-        "title":"Karaoke+Dance Show",
-        "subtitle": "Fun",
-        "image":"",
-        "id":"18",
-        "mode":"Offline",
-        "type":"intra",
-        "registrationDeadline":"NA",
-        "description":"",
-        "prizes": {
-            "first":"3000"
-        },
-        "rules": [
-            "This is a one-on-one eating contest.",
-            "There will be a table manager for every 10-12 people to judge the participants.",
-            "The top 25 finishers from the first round will advance to the next round.",
-            "The top five finishers from the second round will advance to the third round.",
-            "One winner will be chosen from among the five entrants.",
-            "In the event of a disagreement, the organizers’ decision will be final.",
-            "After each round, participants should display their empty plates to the table supervisors and proceed to the registration desk to register for the next round.",
-            "No one should begin eating the food before the organizers give the all-clear.",
-            "Registrations work on a first-come, first-served basis.",
-            "Results will be announced on our Instagram handle."
         ],
-        "spocs": [
-            {
-                "name":"Ganesh",
-                "contact":"9573384259"
-            },
-            {
-                "name":"Tarun Kumar",
-                "contact":"9032272225"
-            }
-        ]   
-    },
-    {
-        "title":"Movie Screening",
-        "subtitle": "Fun",
-        "image":"",
-        "id":"19",
-        "mode":"Offline",
-        "type":"intra",
-        "registrationDeadline":"NA",
-        "description":"",
-        "prizes": {
-            "first":"3000"
-        },
-        "rules": [
-            "This is a one-on-one eating contest.",
-            "There will be a table manager for every 10-12 people to judge the participants.",
-            "The top 25 finishers from the first round will advance to the next round.",
-            "The top five finishers from the second round will advance to the third round.",
-            "One winner will be chosen from among the five entrants.",
-            "In the event of a disagreement, the organizers’ decision will be final.",
-            "After each round, participants should display their empty plates to the table supervisors and proceed to the registration desk to register for the next round.",
-            "No one should begin eating the food before the organizers give the all-clear.",
-            "Registrations work on a first-come, first-served basis.",
-            "Results will be announced on our Instagram handle."
-        ],
-        "spocs": [
-            {
-                "name":"Ganesh",
-                "contact":"9573384259"
-            },
-            {
-                "name":"Tarun Kumar",
-                "contact":"9032272225"
-            }
-        ]   
+        "team": true   
     }
+
 ]

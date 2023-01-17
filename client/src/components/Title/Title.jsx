@@ -4,6 +4,8 @@ import Infin8white from "../../images/Infin8_white_text.png";
 import year from "../../images/2023_text.svg";
 import Counter from "../Counter/Counter"
 import { useEffect, useState } from "react";
+import FadeInOut from "./FadeInOut";
+
 const Title = () => {
     const [dayshoursMinSecs, setdayshoursMinSecs] = useState({ das: 0, hours: 0, minutes: 0, seconds: 0 });
     const finalDate = new Date("2023-02-07T00:00:00");
@@ -17,9 +19,11 @@ const Title = () => {
         console.log(days, hours, minutes, seconds)
         setdayshoursMinSecs({ das: days, hours: hours, minutes: minutes, seconds: seconds })
     }, [])
-    return <div className="titlecontainer">
-        <div className="flicker">
-        </div>
+    return <div className="titlecontainer" >
+        <FadeInOut show={true} duration={3500}>
+            <div className="flicker" id='titleflicker'>
+            </div>
+        </FadeInOut>
         <div className="Title">
             <div className="row">
                 <div className="col-12 col-sm-6">

@@ -1,4 +1,3 @@
 {
-    "cmake.configureOnOpen": true,
-    "cmake.sourceDirectory": "${workspaceFolder}/test_app/linux"
+    "cmake.configureOnOpen": true
 }

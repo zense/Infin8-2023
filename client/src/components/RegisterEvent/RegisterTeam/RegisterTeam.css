@@ -40,6 +40,13 @@
         font-size: calc(0.7rem + .01vw) !important;
         font-weight: 700;
     }
+    .padd{
+        padding-right: 8px !important;
+        padding-left: 6px !important;
+    }
+    .padd1{
+        padding-left: 6px !important;
+    }
 }
 @media screen and (max-width: 768px) {
     .costDiv{

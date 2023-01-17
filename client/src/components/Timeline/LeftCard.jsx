@@ -26,16 +26,23 @@ const LeftCard = (props) => {
                         </div>
                         <div className="row buttonrow">
                             <div className="col-6 buttoncol mzr">
-                                <button className="rightborder"><div className="row">
-                                    <div className="col-9">Details</div>
+                                <button className="rightborder tabbtn"><div className="row">
+                                    <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
+                                        Details
+                                    </Link></div>
                                     <div className="col-3">
                                         <BsArrowDownRight />
                                     </div>
                                 </div></button>
                             </div>
                             <div className="col-6 buttoncol mzl">
-                                <button className="leftborder "><div className="row">
-                                    <div className="col-9"><Link to={`../registerevent`}className="whitetext">Register</Link></div>
+                                <button className="leftborder
+                                tabbtn "><div className="row">
+                                    <div className="col-9">
+                                        <Link to={`/registerevent/${props.id}`} className="whitetext">
+                                            Register
+                                        </Link>
+                                    </div>
                                     <div className="col-3">
                                         <BsArrowDownRight />
                                     </div>

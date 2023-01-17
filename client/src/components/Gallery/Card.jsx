@@ -9,7 +9,7 @@ const Card = (props) => {
         <div className="Card">
             <div className="row">
                 <div className="col mz">
-                    <img className="cardImage" src={props.image} alt="" />
+                    <img className="cardImage" src={props.image} alt="image" />
                 </div>
             </div>
             <div className="row">
@@ -24,20 +24,25 @@ const Card = (props) => {
             </div>
             <div className="row">
                 <div className="col-6 mz">
-                    <button className='border_right'><div className="row">
-                        <div className="col-9">Details</div>
+                    <button className='border_right registerbutton'><div className="row">
+                        <div className="col-9">
+                            <Link to={`/registerevent/${props.id}`} className="white">
+                                Details
+                            </Link></div>
                         <div className="col-3">
-                            <img className="arrow" src={arrow} alt="" />
+                            <img className="arrow" src={arrow} alt="image" />
                         </div>
                     </div></button>
                 </div>
                 <div className="col-6 mz border_left">
                     <button className='border_left registerbutton'><div className="row">
                         <div className="col-9">
-                            <Link className="white" to={`../registerevent`} >Register</Link>
+                            <Link to={`/registerevent/${props.id}`} className="white">
+                                Register
+                            </Link>
                         </div>
                         <div className="col-3">
-                            <img className="arrow" src={arrow} alt="" />
+                            <img className="arrow" src={arrow} alt="image" />
                         </div>
                     </div></button>
                 </div>

@@ -24,7 +24,7 @@ function Home(props) {
             </div>
             <div className="col-4 col-md-2 arrowcol">
               <div className="arrowdiv">
-                <img src={arrow} alt="" className="arrow" />
+                <img src={arrow} alt="image" className="arrow" />
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ function Home(props) {
             </div>
             <div className="col-4 col-md-2 arrowcol">
               <div className="arrowdiv">
-                <img src={arrow} alt="" className="arrow" />
+                <img src={arrow} alt="image" className="arrow" />
               </div>
             </div>
           </div>
