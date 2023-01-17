@@ -7,6 +7,7 @@
         font-style: normal;
         font-weight: 700;
         font-size: calc(2.3rem + 5vw);
+        // margin-left: 7vw;
     }
     .person{
         color: white;
@@ -21,6 +22,40 @@
         font-style: normal;
         font-weight: 500;
         font-size: 20px;
+        margin-bottom: 5px;
+    }
+    .edit{
+        margin-top: -0.6vw !important;
+    }
+    .alignment{
+        margin: auto;
+    }
+    .font{
+        
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    border-radius: 0px !important;
+    }
+
+    .idc{
+        margin-left: 5vw;
+    }
+
+    @media screen and (max-width : 992px) {
+        .person{
+            font-size: 35px;
+        }
+        .font{
+            font-size: 20px;
+        }
+    }
+    @media (max-width: 767px) {
+        .alignment{
+            margin-top: 20px;
+            
+        }
     }
 }
 .Contacts_style{
@@ -33,7 +68,8 @@
         font-family: 'Barlow Condensed';
         font-weight: 700;
         line-height: 10.5vw;
-        padding-left : 5.5vw;
+        padding-left : 6vw;
+        margin-bottom: 70px;
     }
 
     @media (min-width: 1600px){
@@ -47,7 +83,7 @@
         .titlerow{
             font-size: 12vw;
             line-height: 11vw;
-            
+            padding-left : 7vw;
         }
     }
     @media(max-width : 767px){
@@ -57,6 +93,7 @@
             font-family: "Barlow Condensed";
             font-weight: 700;
             line-height: 14vw;
+            padding-left : 8vw;
         }
     }
     @media(max-width : 500px){
@@ -66,7 +103,7 @@
             font-family: "Barlow Condensed";
             font-weight: 700;
             line-height: 16vw;
-            padding-left : 6.5vw;
+            padding-left : 11vw;
         }
     }
     .orange{

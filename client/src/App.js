@@ -23,6 +23,7 @@ function App() {
     <div>
       <BrowserRouter>
         {/* <Navbar></Navbar> */}
+        {/* <ScrollToTop> */}
           <Routes>
             <Route path="/home" element={<Home/>} />
             <Route path="/events" element={<RegisterCard />} />
@@ -32,6 +33,7 @@ function App() {
             <Route path="/contact" element={<Contact/>} />
             <Route path="*" element={<Navigate to ="/home" replace/>} />
           </Routes>
+          {/* </ScrollToTop> */}
           <div className='space'></div>
         {/* <Footer></Footer> */}
       </BrowserRouter>

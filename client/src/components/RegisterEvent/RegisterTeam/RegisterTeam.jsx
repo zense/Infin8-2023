@@ -22,7 +22,7 @@ export default function RegisterTeam(props){
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked onClick={()=>{
                             changejoinExistingTeam(true);
                         }}/>
-                        <label className="btn btn-outline-light" htmlFor="btnradio1" style={{"borderRadius": "0px"}}>
+                        <label className="btn btn-outline-light padd" htmlFor="btnradio1" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}} onClick={()=>{
                                             changecolor2("green");
                                             changecolor1("red");
@@ -43,7 +43,7 @@ export default function RegisterTeam(props){
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" onClick={()=>{
                             changejoinExistingTeam(false);
                         }}/>
-                        <label className="btn btn-outline-light" htmlFor="btnradio3" style={{"borderRadius": "0px"}}>
+                        <label className="btn btn-outline-light padd1" htmlFor="btnradio3" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}}  onClick={()=>{
                                             changecolor2("red");
                                             changecolor1("green");

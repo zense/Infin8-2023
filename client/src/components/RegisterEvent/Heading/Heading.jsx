@@ -9,6 +9,7 @@ export default function Heading(props){
 
         <div className="NewTitle" >
             <Bounce top duration={1000}>
+                <div className='titlename'>
                 <div className="row">
                     <div className="col-12 col-md-7" >
                     
@@ -17,6 +18,7 @@ export default function Heading(props){
                         </div>
                         {/* <img src={Arrow}></img> */}
                     </div>
+                </div>
                 </div>
             </Bounce>
             
