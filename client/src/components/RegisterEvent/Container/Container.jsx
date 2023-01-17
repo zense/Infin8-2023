@@ -5,6 +5,26 @@ import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import {BiPhone} from 'react-icons/bi'
 import Zoom from 'react-reveal/Zoom';
+function PrizeMoney(props){
+    if(props.id==10){
+        return <div> 
+        <h2 style={{"fontWeight":"500"}}>Mr. Infin8 : {props.prize_money}</h2>
+        <br></br>
+        <h2 className='worthPrizePool'>Ms. Infin8 : {props.prize_money2}</h2>
+    </div>
+    }
+    else if(props.id==16){
+        return <div>
+            <h2 style={{"fontWeight":"500"}}>First Prize : {props.prize_money} + Onesta Pizza</h2>
+        </div>
+    }
+    return <div> 
+        <h2 style={{"fontWeight":"500"}}>First Prize : {props.prize_money}</h2>
+        <br></br>
+        <h2 className='worthPrizePool'>Second Prize : {props.prize_money2}</h2> 
+    </div> 
+    
+}
 export default function Container(props){
 
     return (
@@ -22,9 +42,7 @@ export default function Container(props){
                     
                     
                     <div style={{"padding":"20px 0 20px 25px","textIndent": "1em","fontFamily":"Poppins"}}>
-                        <h2 style={{"fontWeight":"500"}}>First Prize : {props.prize_money}</h2>
-                        <br></br>
-                        <h2 className='worthPrizePool'>Second Prize : {props.prize_money2}</h2>
+                        <PrizeMoney id={props.id} prize_money={props.prize_money} prize_money2={props.prize_money2} />
                     </div>
                     
                     

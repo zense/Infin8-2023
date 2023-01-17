@@ -42,6 +42,7 @@ function RegisterEvent(props) {
           team_event={event.team}
           signed_in={props.signed_in}
           registered_for_event={props.registered_for_event}
+          id={id}
         />
         :
         <PayBaseFees

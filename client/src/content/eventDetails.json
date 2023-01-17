@@ -309,7 +309,8 @@
         "registrationDeadline":"5th Feb' 23, 11:59 PM",
         "description":"Today's youth is known for fashion. Fashion not only promotes creativity, but it's also a form of expressing and empowering oneself. Style is what defines you. From traditional to casual, from vintage to trendy, every fashion style speaks of itself and of the culture it possesses. We're presenting 'Ramp it up' for the girls and boys who would love to show their modish nature by being a part of the show! Gone is the time of just watching ramp shows, now it's your turn to join the show and 'ramp it up'!",
         "prizes": {
-            "first":"3000"
+            "first":"3000",
+            "second": "3000"
         },
         "rules": [
             "You can form a team of 2 or take part individually.",
@@ -529,7 +530,8 @@
         "registrationDeadline":"NA",
         "description":"What can be better than getting paid for eating good food? Put your hungry stomach to the test in this competitive eating contest. The faster you can gobble up all the food and gulp the beverages, the better chance you have to win a prize. What can you win? Some cash and more food!",
         "prizes": {
-            "first":"3000"
+            "first":"1000",
+             "second": "0"
         },
         "rules": [
             "This is a one-on-one eating contest.",
@@ -591,59 +593,6 @@
             }
         ],
         "team": true   
-    },
-    { 
-        "title":"Karaoke+Dance Show",
-        "subtitle": "Fun",
-        "image":"",
-        "id":"18",
-        "mode":"Offline",
-        "type":"intra",
-        "registrationDeadline":"NA",
-        "description":"",
-        "prizes": {
-            "first":"3000"
-        },
-        "rules": [
-            "Results will be announced on our Instagram handle."
-        ],
-        "spocs": [
-            {
-                "name":"Ganesh",
-                "contact":"9573384259"
-            },
-            {
-                "name":"Tarun Kumar",
-                "contact":"9032272225"
-            }
-        ],
-        "team" : false  
-    },
-    {
-        "title":"Movie Screening",
-        "subtitle": "Fun",
-        "image":"",
-        "id":"19",
-        "mode":"Offline",
-        "type":"intra",
-        "registrationDeadline":"NA",
-        "description":"",
-        "prizes": {
-            "first":"3000"
-        },
-        "rules": [
-            "Results will be announced on our Instagram handle."
-        ],
-        "spocs": [
-            {
-                "name":"Ganesh",
-                "contact":"9573384259"
-            },
-            {
-                "name":"Tarun Kumar",
-                "contact":"9032272225"
-            }
-        ],
-        "team": false   
     }
+
 ]
