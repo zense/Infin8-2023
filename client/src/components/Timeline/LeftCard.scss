@@ -5,6 +5,10 @@ $buttonbg : black;
 $buttontext : white;
 .LeftCard{
     width: 50vw;
+    .whitetext{
+        text-decoration: none;
+        color : white;
+    }
     .card{
         border: $line-width solid $line-color;
         border-radius: 0;
@@ -21,6 +25,14 @@ $buttontext : white;
         color : $time-color;
         width: 10vw;
         margin-right: -6vw;
+    }
+    .tabbtn:hover,
+    .tabbtn:active{
+        background-color: white;
+        color : black;
+        .whitetext{
+            color : black;
+        }
     }
     .title{
         text-align: left;
@@ -57,10 +69,10 @@ $buttontext : white;
       }
       margin-bottom: 0;
       .leftborder{
-        border-left: $line-width/2 solid $line-color;
+        border-left: calc($line-width/2) solid $line-color;
       }
       .rightborder{
-        border-right: $line-width/2 solid $line-color;
+        border-right: calc($line-width/2) solid $line-color;
       }
     }
 

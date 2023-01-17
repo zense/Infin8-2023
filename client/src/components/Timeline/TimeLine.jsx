@@ -43,13 +43,13 @@ const TimeLine = () => {
             desktopCardsRight.push(
                 <>
                     <div className="space" id='event'></div>
-                    <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></RightCard>
+                    <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
                 </>
             );
         } else {
             desktopCardsLeft.push(
                 <>
-                    <LeftCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></LeftCard>
+                    <LeftCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></LeftCard>
                     <div className="space"></div>
                 </>
             );
@@ -59,7 +59,7 @@ const TimeLine = () => {
             <>
                 <div className="space">
                 </div>
-                <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]}></RightCard>
+                <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
             </>
         )
     }

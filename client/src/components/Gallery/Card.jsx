@@ -24,8 +24,11 @@ const Card = (props) => {
             </div>
             <div className="row">
                 <div className="col-6 mz">
-                    <button className='border_right'><div className="row">
-                        <div className="col-9">Details</div>
+                    <button className='border_right registerbutton'><div className="row">
+                        <div className="col-9">
+                            <Link to={`/registerevent/${props.id}`} className="white">
+                                Details
+                            </Link></div>
                         <div className="col-3">
                             <img className="arrow" src={arrow} alt="" />
                         </div>
@@ -34,7 +37,9 @@ const Card = (props) => {
                 <div className="col-6 mz border_left">
                     <button className='border_left registerbutton'><div className="row">
                         <div className="col-9">
-                            <Link className="white" to={`../registerevent`} >Register</Link>
+                            <Link to={`/registerevent/${props.id}`} className="white">
+                                Register
+                            </Link>
                         </div>
                         <div className="col-3">
                             <img className="arrow" src={arrow} alt="" />
