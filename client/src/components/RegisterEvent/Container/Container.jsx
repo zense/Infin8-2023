@@ -4,7 +4,6 @@ import RegisterTeam from "../RegisterTeam/RegisterTeam.jsx"
 import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import {BiPhone} from 'react-icons/bi'
-import Zoom from 'react-reveal/Zoom';
 export default function Container(props){
 
     return (
