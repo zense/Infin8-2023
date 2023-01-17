@@ -8,22 +8,21 @@ export default function Heading(props){
     return (
 
         <div className="NewTitle" >
-            <Bounce top duration={1000}>
+            {/* <Bounce top duration={1000}> */}
                 <div className='titlename'>
-                <div className="row">
-                    <div className="col-12 col-md-7" >
-                    
-                        <div className="row titlerow">
-                            {props.heading}.
+                    <Bounce top duration={1000}>
+                    <div className="row">
+                        <div className="col-12 col-md-7" >
+                        
+                            <div className="row titlerow">
+                                {props.heading}.
+                            </div>
+                            {/* <img src={Arrow}></img> */}
                         </div>
-                        {/* <img src={Arrow}></img> */}
+                        
                     </div>
-                </div>
-                </div>
-            </Bounce>
-            
-            <div className='row Details'>
-                {props.deadline !== null &&
+                    </Bounce>
+                        <div className='row Details'>
                     <Fade left delay={600}>
                         <div className='col-12 col-md-5 '>
                             <div className='Top'>
@@ -34,9 +33,7 @@ export default function Heading(props){
                             </div>
                         </div>
                     </Fade>
-                }
-            
-                {props.prizes !==null &&
+
                     <Fade left delay={600}>
                         <div className='col-6 col-md-3'>
                             <div className='Top'>
@@ -47,9 +44,7 @@ export default function Heading(props){
                             </div>
                         </div>
                     </Fade>
-                }
-
-                {props.mode !== null &&
+                    
                     <Fade left delay={600}>
                         <div className='col-6 col-sm-4 align'>
                         <div className='Top'>
@@ -60,10 +55,12 @@ export default function Heading(props){
                             </div>
                         </div>
                     </Fade>
-                }
 
-
-            </div>
+                </div>
+                </div>
+            {/* </Bounce> */}
+            
+           
         </div>
     );
 }
