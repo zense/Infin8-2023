@@ -23,38 +23,45 @@ export default function Heading(props){
             </Bounce>
             
             <div className='row Details'>
-                <Fade left delay={600}>
-                    <div className='col-12 col-md-5 '>
-                        <div className='Top'>
-                            Last Date of Registration
+                {props.deadline !== null &&
+                    <Fade left delay={600}>
+                        <div className='col-12 col-md-5 '>
+                            <div className='Top'>
+                                Last Date of Registration
+                            </div>
+                            <div className='Bottom'>
+                                {props.deadline}
+                            </div>
                         </div>
-                        <div className='Bottom'>
-                            {props.deadline}
+                    </Fade>
+                }
+            
+                {props.prizes !==null &&
+                    <Fade left delay={600}>
+                        <div className='col-6 col-md-3'>
+                            <div className='Top'>
+                                Prizes
+                            </div>
+                            <div className='Bottom'>
+                                <BiRupee style={{"marginTop": "-10px"}}/>{props.prizes}
+                            </div>
                         </div>
-                    </div>
-                </Fade>
+                    </Fade>
+                }
 
-                <Fade left delay={600}>
-                    <div className='col-6 col-md-3'>
+                {props.mode !== null &&
+                    <Fade left delay={600}>
+                        <div className='col-6 col-sm-4 align'>
                         <div className='Top'>
-                            Prizes
+                                Mode
+                            </div>
+                            <div className='Bottom'>
+                                {props.mode}
+                            </div>
                         </div>
-                        <div className='Bottom'>
-                            <BiRupee style={{"marginTop": "-10px"}}/>{props.prizes}
-                        </div>
-                    </div>
-                </Fade>
-                
-                <Fade left delay={600}>
-                    <div className='col-6 col-sm-4 align'>
-                    <div className='Top'>
-                            Mode
-                        </div>
-                        <div className='Bottom'>
-                            {props.mode}
-                        </div>
-                    </div>
-                </Fade>
+                    </Fade>
+                }
+
 
             </div>
         </div>

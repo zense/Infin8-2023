@@ -69,6 +69,9 @@ export default function EntranceRegister(props){
                 <div>
                 <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px"}}/>
                 </div>
+                <div>
+                <input placeholder="Enter UPI ID" id="inputID" style={{"width":"200px"}}/>
+                </div>
                 <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
             </div>
         </div>

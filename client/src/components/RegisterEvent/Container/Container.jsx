@@ -86,11 +86,14 @@ export default function Container(props){
                                     <RegisterTeam
                                         fee={props.event_fee}
                                         email={props.email}
+                                        paid_base_fees={props.paid_base_fees}
                                     />
                                 :
                                     <Register
                                         event_fee={props.event_fee}
                                         email={props.email}
+                                        paid_base_fees={props.paid_base_fees}
+                                        event={props.event}
                                     />
                         }
                     </div>  
