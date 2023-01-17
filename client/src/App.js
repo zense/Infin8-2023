@@ -27,7 +27,7 @@ function App() {
         {/* <ScrollToTop> */}
           <Routes>
             <Route path="/home" element={<Home/>} />
-            <Route path="/events" element={<RegisterCard />} />
+            <Route path="/events" element={<RegisterCard paid_base_fees={false}/>} />
             {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
             <Route path="/registerevent/:id" element={<RegisterEvent paid_base_fees={false} signed_in={true} registered_for_event={false}/>} />
             <Route path="/profile" element = {<Profile/>}/>

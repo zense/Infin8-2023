@@ -48,6 +48,7 @@ export default function Container(props){
                     
                     <div style={{"padding":"20px 0 20px 0","textIndent": "1em"}} className="row">
                         <div className='col-11' style={{"backgroundColor":"#FFCD00","padding":"20px 0 20px 30px","boxShadow": "0px 5px 5px grey"}}>
+                            {/* <a href='/about'></a> */}
                             <h1 style={{"fontWeight":"700","fontFamily": "Gloria Hallelujah"}}>ABOUT</h1>
                         </div>
                     </div>

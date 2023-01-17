@@ -46,7 +46,7 @@ export default function Heading(props){
                     </Fade>
                     
                     <Fade left delay={600}>
-                        <div className='col-6 col-sm-4 align'>
+                        <div className='col-6 col-md-4 align'>
                         <div className='Top'>
                                 Mode
                             </div>

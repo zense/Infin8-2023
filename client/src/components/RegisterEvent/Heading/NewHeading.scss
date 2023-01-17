@@ -53,7 +53,6 @@
         .titlerow{
             font-size: 12vw;
             line-height: 11vw;
-            
         }
     }
     @media(max-width : 767px){
@@ -115,6 +114,15 @@
         }
     }
 
+    @media (min-width: 768px) and (max-width: 992px){
+        .Top{
+            font-size: 3.4vw;
+        }
+        .Bottom{
+            margin-top: -1vh;
+            font-size: 5.2vw;
+        }
+    }
     @media screen and (max-width: 767px) {
         .Top{
             font-size: 3.8vw;
