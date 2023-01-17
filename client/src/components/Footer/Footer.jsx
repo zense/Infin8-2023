@@ -53,10 +53,10 @@ const Footer = () => {
             <div className="col-12 col-md-6">
                 <div className="row">
                     <div className="col-7 logocol">
-                        <img src={infilogo} alt="" className='footerimg1'/>
+                        <img src={infilogo} alt="image" className='footerimg1'/>
                     </div>
                     <div className="col-5 logocol">
-                        <img src={iiitlogo} alt="" className='footerimg2'/>
+                        <img src={iiitlogo} alt="image" className='footerimg2'/>
                     </div>
                 </div>
             </div>

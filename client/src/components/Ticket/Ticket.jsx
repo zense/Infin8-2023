@@ -33,7 +33,7 @@ const Ticket = () => {
         <div className="row ticketrow">
             <div className="col-12 col-sm-5 qrcol container">
 
-                <img src={qr} alt="" className='qrimage' />
+                <img src={qr} alt="image" className='qrimage' />
             </div>
             <div className="col-12 col-sm-7 restcol">
                 <div className="row titlerow">
@@ -55,8 +55,8 @@ const Ticket = () => {
                         </div>
                     </div>
                     <div className="col">
-                        <img src={infilogo} alt="" className="logo" />
-                        <img src={iiitblogo} alt="" className="logo" />
+                        <img src={infilogo} alt="image" className="logo" />
+                        <img src={iiitblogo} alt="image" className="logo" />
                     </div>
                 </div>
             </div>

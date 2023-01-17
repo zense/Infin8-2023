@@ -9,7 +9,7 @@ const Card = (props) => {
         <div className="Card">
             <div className="row">
                 <div className="col mz">
-                    <img className="cardImage" src={props.image} alt="" />
+                    <img className="cardImage" src={props.image} alt="image" />
                 </div>
             </div>
             <div className="row">
@@ -30,7 +30,7 @@ const Card = (props) => {
                                 Details
                             </Link></div>
                         <div className="col-3">
-                            <img className="arrow" src={arrow} alt="" />
+                            <img className="arrow" src={arrow} alt="image" />
                         </div>
                     </div></button>
                 </div>
@@ -42,7 +42,7 @@ const Card = (props) => {
                             </Link>
                         </div>
                         <div className="col-3">
-                            <img className="arrow" src={arrow} alt="" />
+                            <img className="arrow" src={arrow} alt="image" />
                         </div>
                     </div></button>
                 </div>

@@ -74,7 +74,7 @@ const TimeLine = () => {
         </div>
         <div className="row overlayrow">
             <div className="overlay">
-                infin8 2023
+                infin8'23
             </div>
         </div>
         <div className="row navrow">
