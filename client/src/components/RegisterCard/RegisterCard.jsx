@@ -16,12 +16,12 @@ import {BiRupee} from 'react-icons/bi'
 const ScrollToTop = (props) => {
     const location = useLocation();
     useEffect(() => {
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
     }, [location]);
-  
+
     return <>{props.children}</>
-  };
-function LeftCard(props){
+};
+function LeftCard(props) {
     return (
         <>
         <Zoom duration={1500} delay={100} >
@@ -50,8 +50,8 @@ function LeftCard(props){
                             `/registerevent/${props.props.id}`
                         } className="col-6 edge link popup" style={{borderLeft: 0}} > <div>Register</div> </Link>
                         </div>
+                        <div className="col-md-1"></div>
                     </div>
-                    <div className="col-md-1"></div>
                 </div>
             </div>
             <div className="col-12 SmallCard">
@@ -75,14 +75,14 @@ function LeftCard(props){
                         <img src={ARROW} className="arrowpoint1"></img>
                         </div>
                         </Link>
+                    </div>
                 </div>
-            </div>
             </Zoom>
         </>
     )
 }
 
-function RegisterCard(props){
+function RegisterCard(props) {
 
     return (
         <div className="regis">

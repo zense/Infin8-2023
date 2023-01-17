@@ -9,7 +9,9 @@ const Gallery = () => {
             <Card
                 title={data[i]['title']}
                 incentives={data[i]['incentives']}
-                image = {data[i]['image']}
+                image = {data[i]['image']
+            }
+            id = {data[i]['id']}
             />
         );
     }

@@ -20,7 +20,7 @@ const Profile = () => {
         >
             <div className='col-12 YourProf'>
                PROFILE
-               <img src={Vector} alt="" className='arrowicon1' />
+               <img src={Vector} alt="image" className='arrowicon1' />
             </div>
         </div>
         <div className="row titledeets">
@@ -39,7 +39,7 @@ const Profile = () => {
         </div>
         <div className="row page_heading">
             TICKET
-            <img src={arrow} alt="" className='arrowicon' />
+            <img src={arrow} alt="image" className='arrowicon' />
         </div>
         <Ticket/>
         </div>

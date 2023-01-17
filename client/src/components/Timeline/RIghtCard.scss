@@ -5,6 +5,18 @@ $buttonbg : black;
 $buttontext : white;
 .RightCard{
     // width: 50vw;
+    .whitetext{
+        color : white;
+        text-decoration: none;
+    }
+    .tabbtn:hover,
+    .tabbtn:active{
+        background-color: white;
+        color : black;
+        .whitetext{
+            color : black;
+        }
+    }
     .card{
         border: $line-width solid $line-color;
         margin-left: -2.1vw;
@@ -64,10 +76,10 @@ $buttontext : white;
       }
       margin-bottom: 0;
       .leftborder{
-        border-left: $line-width/2 solid $line-color;
+        border-left: calc($line-width/2) solid $line-color;
       }
       .rightborder{
-        border-right: $line-width/2 solid $line-color;
+        border-right: calc($line-width/2) solid $line-color;
       }
     }
     @media(max-width : 991px){
@@ -173,10 +185,10 @@ $buttontext : white;
           }
           margin-bottom: 0;
           .leftborder{
-            border-left: $line-width/2 solid $line-color;
+            border-left: calc($line-width/2) solid $line-color;
           }
           .rightborder{
-            border-right: $line-width/2 solid $line-color;
+            border-right: calc($line-width/2) solid $line-color;
           }
         }
         @media (min-width:374px) {
