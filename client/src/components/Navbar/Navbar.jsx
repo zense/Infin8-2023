@@ -21,22 +21,19 @@ const Navbar = () => {
     return <div className="Navbar">
         <div className="largescreens">
             <div className="row navrow">
-                <div className="col-3 col-lg-2">
+                <div className="col-2">
                     <Link to={`../home`} className="navbutton">Home </Link>
                 </div>
-                <div className="col-3 col-lg-2">
+                <div className="col-2">
                     <Link to={`../events`} className="navbutton">Events </Link>
                 </div>
-                <div className="col-3 col-lg-2">
-                    <a href="#" className="navbutton">
-                        Team
-                    </a>
+                <div className="col-3">
+                    <Link to={`../contact`} className="navbutton">Contact Us </Link>
                 </div>
-                <div className="d-none d-lg-block col-lg-4"></div>
-                <div className="col-3 col-lg-2">
-                    {/* <a href="#" className="navbutton">
-                        Profile
-                    </a> */}
+                <div className="col-2">
+                    <Link to={`../events`} className="navbutton">Team</Link>
+                </div>
+                <div className="col">
                     <Link to={`../profile`} className="navbutton">
                         Profile
                     </Link>
@@ -69,22 +66,27 @@ const Navbar = () => {
                 </div>
                 <div className="row option bt">
                     <Link to={`../home`} className='white'>
-                    HOME <BsFillCaretLeftFill color = "white" className='triangle'/>
+                        HOME <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
                 <div className="row option">
                     <Link to={`../events`} className='white'>
-                    EVENTS <BsFillCaretLeftFill color = "white" className='triangle'/>
+                        EVENTS <BsFillCaretLeftFill color="white" className='triangle' />
+                    </Link>
+                </div>
+                <div className="row option">
+                    <Link to={`../contact`} className='white'>
+                        CONTACT US <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
                 <div className="row option">
                     <Link to={`#`} className='white'>
-                    TEAM <BsFillCaretLeftFill color = "white" className='triangle'/>
+                        TEAM <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`../profile`}className='white'>
-                    PROFILE <BsFillCaretLeftFill color = "white" className='triangle'/>
+                    <Link to={`../profile`} className='white'>
+                        PROFILE <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
                 <div className="row space">
@@ -97,13 +99,13 @@ const Navbar = () => {
                         <BsTwitter className='icon'></BsTwitter>
                     </div>
                     <div className="col">
-                        <BsInstagram  className='icon'></BsInstagram>
+                        <BsInstagram className='icon'></BsInstagram>
                     </div>
                     <div className="col">
-                        <BsLinkedin  className='icon'></BsLinkedin>
+                        <BsLinkedin className='icon'></BsLinkedin>
                     </div>
                     <div className="col">
-                        <BsFacebook  className='icon'></BsFacebook>
+                        <BsFacebook className='icon'></BsFacebook>
                     </div>
                 </div>
             </Modal.Body>
