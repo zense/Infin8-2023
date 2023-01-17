@@ -36,9 +36,8 @@ export default function Contact(){
                 </div>
             </div>
             <div className="row idc" >
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
+                <ContactCard name={"Asrith Nune"} contact={"+91 9492824058"} email={"sac@iiitb.ac.in"}/>
+                <ContactCard name={"VL Sahithi"} contact={"+91 8374150444"} email={"sac@iiitb.ac.in"}/>
             </div>
         </div>
         <Footer />
