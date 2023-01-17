@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar/Navbar'
 import Ticket from '../components/Ticket/Ticket'
 
 import Vector from '../images/Vector3.png'
+import { useReducer } from 'react'
 const Profile = (props) => {
     return <div className="Profile">
         <Navbar props={props}/>
@@ -24,13 +25,13 @@ const Profile = (props) => {
             </div>
         </div>
         <div className="row titledeets">
-            FISHY BUTT
+            {props.user.name}
         </div>
         <div className="row titledeets">
-              9997989898
+            {props.user.id}
         </div>
         <div className="row titledeets lasttitle">
-            buttfisher@gmail.com
+            {props.user.email}
         </div>
 
         <div className="orange">

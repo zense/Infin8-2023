@@ -14,9 +14,14 @@ export default function Registered(props){
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
                 {props.cannot_register === true ?  "You cannot register for this event": "You have successfully Registered for this event"}
             </div>
-            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+            
+            {(props.loggedInStatus)
+            ? (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 ⓘ Signed in as {props.email}
-            </div>
+            </div>)
+            : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Not Signed In.
+            </div>)}
             
         </div>
     );

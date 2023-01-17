@@ -69,7 +69,8 @@ function RegisterEvent(props) {
           other_details={event.rules} 
           contacts={event.spocs}
           event_fee={201}
-          email={"vikaskaly@gmail.com"}
+          loggedInStatus={props.loggedInStatus}
+          email={props.user.email}
           team_event={event.team}
           signed_in={props.signed_in}
           registered_for_event={props.registered_for_event}

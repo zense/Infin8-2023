@@ -3,6 +3,7 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 // import { auth } from "./firebase-config";
 import { db } from "./firebase-config";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { useNavigate } from 'react-router-dom';
 
 
 function SignIn(props) {
@@ -37,16 +38,22 @@ function SignIn(props) {
             // })
 
             props.setLoggedInStatus(true);
-            props.navigator("/", false);
+            
+            routeChange(`home`);
+            // props.navigator("/", false);
 
         }).catch((error) => {
             console.log(error.message);
         });
     }
 
+    let navigate = useNavigate(); 
+    const routeChange = (path) =>{ 
+        navigate(path);
+    }
 
     const goToRegister = async() => {
-        props.navigator("sign-up", false);
+        routeChange(`sign-up`);
     }
 
 

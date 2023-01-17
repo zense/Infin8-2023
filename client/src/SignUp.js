@@ -10,6 +10,7 @@ import {
 } from "firebase/auth";
 import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 
 function SignUp(props) {
@@ -59,7 +60,7 @@ function SignUp(props) {
             console.log("After OTP");
 
             props.setUser(userDetails);
-            props.navigator("otp-verification", false);
+            routeChange(`home`);
         } 
         else if (result.status === "Exists") {
             console.log("User already exists");
@@ -67,6 +68,13 @@ function SignUp(props) {
         else if (result.status === "error"){
             console.log("Error encountered!");
         }
+    }
+
+    let navigate = useNavigate(); 
+    
+    const routeChange = (path) =>{ 
+        // let path = `home`; 
+        navigate(path);
     }
 
 
