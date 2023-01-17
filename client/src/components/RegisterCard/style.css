@@ -286,7 +286,7 @@ color: white;
         font-size: 17px;
     }
     .col-12.register{
-        padding-left: 4.5vw;
+        padding-left: 0.5vw;
     }
 }
 @media screen and (min-width: 768px) {
@@ -376,11 +376,11 @@ color: white;
 }
 @media screen and (max-width: 378px) {
     .arrowpoint{
-        margin-left: 30px;
+        margin-left: 35px;
         margin-bottom: 2px;
     }
     .arrowpoint1{
-        margin-left: 20px;
+        margin-left: 25px;
         margin-bottom: 2px;
     }
 }

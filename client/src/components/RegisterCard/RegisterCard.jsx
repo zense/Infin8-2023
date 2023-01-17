@@ -9,16 +9,6 @@ import { Link } from "react-router-dom";
 import REC from "../../images/rec.png"
 import { Zoom } from "react-reveal";
 import eventDetails from "../../content/eventDetails.json";
-import { useEffect } from "react";
-import { useLocation } from "react-router";
-const ScrollToTop = (props) => {
-    const location = useLocation();
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, [location]);
-  
-    return <>{props.children}</>
-  };
 function LeftCard(props){
     return (
         <>
@@ -84,7 +74,6 @@ function RegisterCard(props){
 
     return (
         <div className="regis">
-            <ScrollToTop>
         <Navbar></Navbar>
         <Title></Title>
         <div className="container-fluid RegisterCard">
@@ -97,7 +86,6 @@ function RegisterCard(props){
             </div>
         </div>
         <Footer></Footer>
-        </ScrollToTop>
         </div>
     )
 }

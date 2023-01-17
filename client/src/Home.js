@@ -8,10 +8,10 @@ import Title from './components/Title/Title';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
-function Home() {
+function Home(props) {
   return (
     <div className='App'>
-      <Navbar></Navbar>
+      <Navbar props={props}></Navbar>
       <Title></Title>
       <About></About>
       <div className="Jump">

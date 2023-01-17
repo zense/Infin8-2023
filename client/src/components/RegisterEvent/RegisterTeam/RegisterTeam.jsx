@@ -2,6 +2,7 @@ import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
 import './RegisterTeam.css'
 import { BsFillSquareFill } from "react-icons/bs";
+import { BsArrowDownRight } from "react-icons/bs";
 import React from 'react'
 export default function RegisterTeam(props){
     const [joinExistingTeam,changejoinExistingTeam] = React.useState(true);
@@ -21,7 +22,7 @@ export default function RegisterTeam(props){
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked onClick={()=>{
                             changejoinExistingTeam(true);
                         }}/>
-                        <label className="btn btn-outline-light padd" htmlFor="btnradio1" style={{"borderRadius": "0px"}}>
+                        <label className="btn btn-outline-light" htmlFor="btnradio1" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}} onClick={()=>{
                                             changecolor2("green");
                                             changecolor1("red");
@@ -42,7 +43,7 @@ export default function RegisterTeam(props){
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio3" autoComplete="off" onClick={()=>{
                             changejoinExistingTeam(false);
                         }}/>
-                        <label className="btn btn-outline-light padd1" htmlFor="btnradio3" style={{"borderRadius": "0px"}}>
+                        <label className="btn btn-outline-light" htmlFor="btnradio3" style={{"borderRadius": "0px"}}>
                             <div style={{"textAlign": "left"}}  onClick={()=>{
                                             changecolor2("red");
                                             changecolor1("green");
@@ -118,64 +119,12 @@ export default function RegisterTeam(props){
                 </div>
             }
             
-
-
-
             <div style={{"paddingTop":"5px","textAlign":"center"}}>
                 <div>
-                    <div>
-                        {!joinExistingTeam && 
-                        
-                        <input 
-                            placeholder="Enter UPI Transaction ID" 
-                            id="inputID" 
-                            style={{"width":"200px", "marginTop": "30px"}}
-                            onChange={()=>{
-                                if(props.paid_base_fees==false){
-                                    console.log("Hello")
-                                    window.location.href='/pay_base_fees'
-                                }
-                            }}
-                            
-                        />
-                            }
-                    </div>
-                    <div>
-                        {!joinExistingTeam && 
-                        <input 
-                            placeholder="Enter UPI ID" 
-                            id="inputID" 
-                            style={{"width":"200px", "marginTop": "30px"}}
-                            onChange={()=>{
-                                if(props.paid_base_fees==false){
-                                    console.log("Hello")
-                                    window.location.href='/pay_base_fees'
-                                }
-                            }}
-                        />}
-                    </div>
-                    {joinExistingTeam && 
-                    <input 
-                        placeholder="Enter Team Code" 
-                        id="inputID" 
-                        style={{"width":"200px"}}
-                        onChange={()=>{
-                            if(props.paid_base_fees==false){
-                                console.log("Hello")
-                                window.location.href='/pay_base_fees'
-                            }
-                        }}
-                        />}
+                {!joinExistingTeam && <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px", "marginTop": "30px"}}/>}
+                {joinExistingTeam && <input placeholder="Enter Team Code" id="inputID" style={{"width":"200px"}}/>}
                 </div>
-                <button 
-                    className="btn btn-default" 
-                    style={{"backgroundColor":"white","marginTop":"25px"}}
-                    onClick={()=>{
-                        if(props.paid_base_fees==false){
-                            console.log("Hello")
-                            window.location.href='/pay_base_fees'
-                        }
-                    }}>Register</button>
+                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
             </div>
             
         </div>

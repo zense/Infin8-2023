@@ -1,16 +1,7 @@
 import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
-import { useNavigate } from "react-router-dom";
 import './Register.css'
 export default function Register(props){
-    
-    
-    let navigate = useNavigate(); 
-    const routeChange = () =>{ 
-        let path = `pay_base_fees`; 
-        navigate(path);
-    }
-    
     return (
         <div>
             <div style={{"textAlign":"center"}}>
@@ -76,42 +67,9 @@ export default function Register(props){
             
             <div style={{"paddingTop":"15px","textAlign":"center"}}>
                 <div>
-                <input 
-                    placeholder="Enter UPI Transaction ID" 
-                    id="inputID" 
-                    style={{"width":"200px"}}
-                    onChange={()=>{
-                        if(props.paid_base_fees==false){
-                            console.log("Hello")
-                            window.location.href='/pay_base_fees'
-                        }
-                    }}
-                />
+                <input placeholder="Enter UPI Transaction ID" id="inputID" style={{"width":"200px"}}/>
                 </div>
-                <div>
-                <input 
-                    placeholder="Enter UPI ID" 
-                    id="inputID" 
-                    style={{"width":"200px"}}
-                    onChange={()=>{
-                        if(props.paid_base_fees==false){
-                            console.log("Hello")
-                            window.location.href='/pay_base_fees'
-                        }
-                    }}
-                />
-                </div>
-                <button 
-                    className="btn btn-default" 
-                    style={{"backgroundColor":"white","marginTop":"25px"}} 
-                    onClick={()=>{
-                        if(props.paid_base_fees==false){
-                            console.log("Hello")
-                            //Navigate_to_pay_base_fees;
-                            window.location.href='/pay_base_fees'
-                        }
-                    }}
-                >Register</button>
+                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
             </div>
         </div>
     );

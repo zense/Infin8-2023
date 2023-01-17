@@ -15,7 +15,7 @@ export default function NotSignedIn(){
                 ⓘ Not Signed In.
             </div>
             <div style={{"paddingTop":"15px","textAlign":"center"}}>
-                <button disabled className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Sign Up to Register</button>
+                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"20px"}}>Sign Up to Register</button>
             </div>
         </div>
     );
