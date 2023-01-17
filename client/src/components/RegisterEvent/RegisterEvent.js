@@ -5,6 +5,16 @@ import Container from "./Container/Container";
 import PayBaseFees from "./PayBaseFees/PayBaseFees";
 import { useParams } from "react-router-dom";
 import eventDetails from "../../content/eventDetails.json";
+import { useEffect } from "react";
+import { useLocation } from "react-router";
+const ScrollToTop = (props) => {
+    const location = useLocation();
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [location]);
+  
+    return <>{props.children}</>
+  };
 function RegisterEvent(props) {
   const id = useParams().id;
   let event;
@@ -15,6 +25,7 @@ function RegisterEvent(props) {
   }
   return (
     <div style={{"overflowX":"hidden"}}>
+      <ScrollToTop>
       <Navbar/>
       {/* If user is not logged in, should we print the pay base fees page or the regular event page */}
       <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)} mode={event.mode}/>       {/*If paid_base_fees is false, heading will always be "Pay Base Fees"*/}
@@ -28,7 +39,7 @@ function RegisterEvent(props) {
           contacts={event.spocs}
           event_fee={201}
           email={"vikaskaly@gmail.com"}
-          team_event={true}
+          team_event={event.team}
           signed_in={props.signed_in}
           registered_for_event={props.registered_for_event}
         />
@@ -44,6 +55,7 @@ function RegisterEvent(props) {
         />
       }
       <Footer/>
+      </ScrollToTop>
     </div>
   );
 }

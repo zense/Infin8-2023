@@ -31,7 +31,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : false
         
     },
     {
@@ -66,7 +67,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -101,7 +103,8 @@
                 "name":"Asrith Nune",
                 "contact":" 9492824058"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -135,7 +138,8 @@
                 "name":"Prudhvi Nath Reddy",
                 "contact":"6305949565"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -168,7 +172,8 @@
                 "name":"Prudhvi Nath Reddy",
                 "contact":"6305949565"
             }
-        ]
+        ],
+        "team": true
         
     },
     {
@@ -201,7 +206,8 @@
                 "name":"Aryan Bhat",
                 "contact":"7425964111"
             }
-        ]
+        ],
+        "team" :true
         
     },
     {
@@ -218,13 +224,15 @@
             "second":"3000"
         },
         "rules": [
+            "Excited ? Learn more here : https://drive.google.com/file/d/1-OGEQqnjOCHWiPOqkj8GLiRYPbCQ90cg/view?usp=share_link"
         ],
         "spocs": [
             {
                 "name":"Varshit",
                 "contact":"9886987649"
             }
-        ]
+        ],
+        "team" : true
         
     },
     {
@@ -256,7 +264,8 @@
                 "name":"Arjun Subhedar",
                 "contact":"7028770201"
             }
-        ]
+        ],
+        "team": true
     },
     {
         "title":"Brush Up",
@@ -286,7 +295,8 @@
                 "name":"Hemang Seth",
                 "contact":"8817972743"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -322,7 +332,8 @@
                 "name":"Ankrutee Arora",
                 "contact":"9246809610"
             }
-        ]
+        ],
+        "team": true
         
     },
     {
@@ -358,7 +369,8 @@
                 "name":"Sahil Kare",
                 "contact":"9752112005"
             }
-        ]
+        ],
+        "team": false
         
     },
     {
@@ -395,7 +407,8 @@
                 "name":"Pranav Bhutada",
                 "contact":"7020000938"
             }
-        ]   
+        ],
+        "team": false   
     },
     {
         "title":"War Of Words",
@@ -430,7 +443,8 @@
                 "name":"Arhant Arora",
                 "contact":"7696572850"
             }
-        ]   
+        ],
+        "team": true   
     },
     {
         "title":"League Of Fanatics",
@@ -469,7 +483,8 @@
                 "name":"Naitik Solanki",
                 "contact":"7016740700"
             }
-        ]   
+        ],
+        "team": true   
     },
     {
         "title":"Dumb Charades",
@@ -501,7 +516,8 @@
                 "name":"N Srihith Penjarla",
                 "contact":"7893039570"
             }
-        ]   
+        ], 
+        "team": true  
     },
     {
         "title":"Gulp And Gobble",
@@ -536,7 +552,8 @@
                 "name":"Tarun Kumar",
                 "contact":"9032272225"
             }
-        ]   
+        ],
+        "team": false   
     },
     {
         "title":"Valorant",
@@ -572,7 +589,8 @@
                 "name":"Srinivas Manda",
                 "contact":"9110322406"
             }
-        ]   
+        ],
+        "team": true   
     },
     { 
         "title":"Karaoke+Dance Show",
@@ -587,15 +605,6 @@
             "first":"3000"
         },
         "rules": [
-            "This is a one-on-one eating contest.",
-            "There will be a table manager for every 10-12 people to judge the participants.",
-            "The top 25 finishers from the first round will advance to the next round.",
-            "The top five finishers from the second round will advance to the third round.",
-            "One winner will be chosen from among the five entrants.",
-            "In the event of a disagreement, the organizers’ decision will be final.",
-            "After each round, participants should display their empty plates to the table supervisors and proceed to the registration desk to register for the next round.",
-            "No one should begin eating the food before the organizers give the all-clear.",
-            "Registrations work on a first-come, first-served basis.",
             "Results will be announced on our Instagram handle."
         ],
         "spocs": [
@@ -607,7 +616,8 @@
                 "name":"Tarun Kumar",
                 "contact":"9032272225"
             }
-        ]   
+        ],
+        "team" : false  
     },
     {
         "title":"Movie Screening",
@@ -622,15 +632,6 @@
             "first":"3000"
         },
         "rules": [
-            "This is a one-on-one eating contest.",
-            "There will be a table manager for every 10-12 people to judge the participants.",
-            "The top 25 finishers from the first round will advance to the next round.",
-            "The top five finishers from the second round will advance to the third round.",
-            "One winner will be chosen from among the five entrants.",
-            "In the event of a disagreement, the organizers’ decision will be final.",
-            "After each round, participants should display their empty plates to the table supervisors and proceed to the registration desk to register for the next round.",
-            "No one should begin eating the food before the organizers give the all-clear.",
-            "Registrations work on a first-come, first-served basis.",
             "Results will be announced on our Instagram handle."
         ],
         "spocs": [
@@ -642,6 +643,7 @@
                 "name":"Tarun Kumar",
                 "contact":"9032272225"
             }
-        ]   
+        ],
+        "team": false   
     }
 ]
