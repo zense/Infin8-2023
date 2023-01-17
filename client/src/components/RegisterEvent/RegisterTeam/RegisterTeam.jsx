@@ -154,7 +154,18 @@ export default function RegisterTeam(props){
                             }}
                         />}
                     </div>
-                    {joinExistingTeam && <input placeholder="Enter Team Code" id="inputID" style={{"width":"200px"}}/>}
+                    {joinExistingTeam && 
+                    <input 
+                        placeholder="Enter Team Code" 
+                        id="inputID" 
+                        style={{"width":"200px"}}
+                        onChange={()=>{
+                            if(props.paid_base_fees==false){
+                                console.log("Hello")
+                                window.location.href='/pay_base_fees'
+                            }
+                        }}
+                        />}
                 </div>
                 <button 
                     className="btn btn-default" 
