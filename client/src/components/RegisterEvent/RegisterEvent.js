@@ -18,18 +18,24 @@ const ScrollToTop = (props) => {
 
 function RegisterEvent(props) {
   const id = useParams().id;
-  let event;
+  let event,prize_money;
   for(var i=0;i<eventDetails.length;i++){
     if(eventDetails[i].id===id){
       event=eventDetails[i];
     }
   }
+
+  if(event.prizes!=="NA"){
+    prize_money=parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)
+  }else{
+    prize_money="NA"
+  }
+  
   return (
     <div style={{"overflowX":"hidden"}}>
       <ScrollToTop>
       <Navbar/>
-      {/* If user is not logged in, should we print the pay base fees page or the regular event page */}
-      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)} mode={event.mode}/>
+      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode}/>
       {/* {
         props.paid_base_fees===true ? 
         <Container 

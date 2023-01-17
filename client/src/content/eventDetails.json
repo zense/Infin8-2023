@@ -8,10 +8,7 @@
         "type":"all",
         "registrationDeadline":"NA",
         "description":"Get ready for a burst of never-ending hysterical laughter at MAD-MIX by a well renowned stand up comedian! We bring you some of the finest humor at the stand-up comedy event of infin8, don’t miss this out!!! (Reveal Coming Soon)  Location: (IIITB Auditorium)",
-        "prizes": {
-            "first":"12500",
-            "second":"7500"
-        },
+        "prizes": "NA",
         "rules": [
             "A band must have a maximum of 8 and a minimum of 3 members.",
             "The performance should not exceed 15 minutes.",
@@ -80,10 +77,7 @@
         "type":"all",
         "registrationDeadline":"NA",
         "description":"A night to remember with an enthralling show, sure to give goosebumps to one and all, performed by world-renowned SUNBURN DJs. Stay tuned for an ecstatic and raving experience! (Reveal Coming Soon) Location:  (IIITB Football Ground)",
-        "prizes": {
-            "first":"12500",
-            "second":"7500"
-        },
+        "prizes": "NA",
         "rules": [
             "A band must have a maximum of 8 and a minimum of 3 members.",
             "The performance should not exceed 15 minutes.",

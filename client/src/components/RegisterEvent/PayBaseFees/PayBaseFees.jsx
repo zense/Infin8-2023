@@ -5,7 +5,7 @@ import {BiPhone} from 'react-icons/bi'
 export default function PayBaseFees(props){
 
     return (
-            <div className="container-fluid px-0" >
+            <div className="container-fluid px-0" style={{"overflowX":"hidden"}}>
             
             <div className="PayBaseFeesTitle">
                     <div className='titlename'>
