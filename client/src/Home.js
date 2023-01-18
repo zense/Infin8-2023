@@ -14,7 +14,7 @@ function Home(props) {
       <Navbar props={props}></Navbar>
       <Title></Title>
       <About></About>
-      <div className="Jump">
+      {/* <div className="Jump">
         <a href='#Timeline'>
           <div className="row jump1">
             <div className="col-8 col-md-10">
@@ -44,7 +44,7 @@ function Home(props) {
             </div>
           </div>
         </a>
-      </div>
+      </div> */}
       <Gallery></Gallery>
       <TimeLine></TimeLine>
       <Faq></Faq>

@@ -5,6 +5,7 @@ import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import EntranceRegister from '../EntranceRegister/EntranceRegister';
 import { BiPhone } from 'react-icons/bi'
+import './Container.scss'
 function PrizeMoney(props) {
     if (props.id == 10) {
         return <div>
