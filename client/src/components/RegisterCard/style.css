@@ -35,7 +35,8 @@ box-shadow: 8px 8px 0px 0px #4A3AFF
 .val{
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .Titl{

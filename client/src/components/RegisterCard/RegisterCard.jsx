@@ -21,6 +21,8 @@ const ScrollToTop = (props) => {
     return <>{props.children}</>
 };
 function LeftCard(props) {
+    var link="./Eventimages/"+ props.props.id+".jpg";
+    console.log(link);
     return (
         <>
             <Zoom duration={1500} delay={100} >
@@ -28,7 +30,7 @@ function LeftCard(props) {
                     <div className="row ">
                         <div className="col-md-1"></div>
                         <div className="col-md-10 LeftCards" style={{ "padding": "0px" }}>
-                            <img src={DUMMY} className="val"></img>
+                            <img src={link} className="val"></img>
                         </div>
                         <div className="col-md-1" ></div>
                     </div>
@@ -55,7 +57,7 @@ function LeftCard(props) {
                 </div>
                 <div className="col-12 SmallCard">
                     <div className="row">
-                        <div className="col-6 edge" style={{ "padding": "0px" }}><img src={DUMMY} className="val"></img></div>
+                        <div className="col-6 edge" style={{ "padding": "0px" }}><img src={link} className="val"></img></div>
                         <div className="col-6 edge" style={{ borderLeft: 0 }}>
                             <div className="Titl"> {props.title}</div>
                             <div className="incen">{props.Incentives}</div>

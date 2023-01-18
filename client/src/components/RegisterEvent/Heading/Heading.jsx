@@ -7,7 +7,7 @@ import {BiRupee} from 'react-icons/bi'
 export default function Heading(props){
     return (
 
-        <div className="NewTitle" >
+        <div className="NewTitle" id="title">
             {/* <Bounce top duration={1000}> */}
                 <div className='titlename'>
                     <Bounce top duration={1000}>

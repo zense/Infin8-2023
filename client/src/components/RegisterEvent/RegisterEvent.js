@@ -35,7 +35,7 @@ function RegisterEvent(props) {
     <div style={{"overflowX":"hidden"}}>
       <ScrollToTop>
       <Navbar props={props}/>
-      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode}/>
+      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode} id={id}/>
       {/* {
         props.paid_base_fees===true ? 
         <Container 
