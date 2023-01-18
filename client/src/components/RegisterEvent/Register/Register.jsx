@@ -174,9 +174,9 @@ export default function Register(props){
                 <div style={{"paddingTop":"15px","textAlign":"center"}}>
                     <div>
                     <input 
-                        placeholder="Enter UPI Transaction ID" 
+                        placeholder="Enter UPI Reference Number / Transaction ID" 
                         id="inputID" 
-                        style={{"width":"200px"}}
+                        
                         onChange={()=>{
                             if(props.paid_base_fees==false){
                                 console.log("Hello")
@@ -189,7 +189,7 @@ export default function Register(props){
                     <input 
                         placeholder="Enter UPI ID" 
                         id="inputID" 
-                        style={{"width":"200px"}}
+                        
                         onChange={()=>{
                             if(props.paid_base_fees==false){
                                 console.log("Hello")
