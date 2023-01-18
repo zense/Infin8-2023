@@ -58,6 +58,7 @@ export default function PayBaseFees(props){
                         event_id={0}
                         entrance_fee={props.entrance_fee}
                         email={props.email}
+                        loggedInStatus = {props.loggedInStatus}
                     />
                     
                 </div>  
