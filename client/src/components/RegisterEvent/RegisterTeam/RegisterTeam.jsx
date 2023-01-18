@@ -9,7 +9,6 @@ export default function RegisterTeam(props){
     const [color1, changecolor1] = React.useState("red");
     const [color2, changecolor2] = React.useState("green");
     return (
-        
         <div>
             <div style={{"textAlign":"center"}}>
                 <h1 style={{"color":"white","paddingTop":"32px", "paddingBottom":"10px","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>REGISTER</h1>

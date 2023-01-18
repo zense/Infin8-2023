@@ -20,55 +20,16 @@ code {
   border: 3px solid red;
 }
 
-/* signin content{
-  signin-image
-  signin-form{
-    form title
-    form group
-  }
-} */
-
-
-.signin-content{
-  display: block;
-  margin-top: 5%;
-}
-
-.signin-image{
-  position: absolute;
-  width: 600px;
-  height: 838px;
-  left: 50%;
-  /* top: 0px; */
-  background: url(./images/pic.png);
-}
-
-.signin-form{
-  position: absolute;
-  margin-top: 300px;
-}
-
-
-.social-login{
-  
-}
-
 .form-title {
-  position: absolute;
   width: 450px;
   height: 131px;
   /* left: 111px; */
   margin-top: 100px;
-
   font-family: 'Archivo';
   font-style: normal;
   font-weight: 700;
-  font-size: 120px;
+  font-size: 7vmax;
   line-height: 131px;
-}
-
-.form-group {
-  /* border: 3px solid blue; */
 }
 
 .eye-position{
@@ -82,17 +43,8 @@ code {
   margin-right: 10px;
 }
 
- /* Making floating labels  */
-
- .login-box {
-  /* position: absolute; */
-  /* top: 50%; */
-  /* left: 50%; */
+.login-box {
   width: 400px;
-  /* padding: 40px; */
-  /* transform: translate(-50%, -50%); */
-  /* background: rgba(0,0,0,.5); */
-  /* box-sizing: border-box; */
   border-radius: 10px;
 }
 

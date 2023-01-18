@@ -73,9 +73,9 @@ export default function Container(props) {
                             <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px"
                          }}>
                                 <ol>{props.other_details.map((string, index) => {
-                                    return <li 
-                                    key={index}><span className='listing'>
-                                        {string}</span></li>
+                                    return <li className='listing' 
+                                    key={index}>
+                                        {string}</li>
                                 })}</ol>
                             </div>
                         </div>
