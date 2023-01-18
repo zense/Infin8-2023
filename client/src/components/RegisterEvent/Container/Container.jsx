@@ -55,7 +55,7 @@ export default function Container(props) {
                     </div>
 
                     <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
-                        <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
+                        <div className='col-11' style={{ "backgroundColor": "#005EB4", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
                             <p>{props.about}</p>
                         </div>
                     </div>
@@ -69,7 +69,7 @@ export default function Container(props) {
                     }
                     {(props.id != 1 && props.id != 3) &&
                         <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
-                            <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
+                            <div className='col-11' style={{ "backgroundColor": "#005EB4", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
                                 <ol>{props.other_details.map((string, index) => {
                                     return <li key={index}>{string}</li>
                                 })}</ol>

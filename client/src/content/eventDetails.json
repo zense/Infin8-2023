@@ -405,7 +405,10 @@
             "Each participant is allowed to submit a single picture, submitting more than one picture may lead to his/her disqualification from the competition.",
             "Results will be announced on our Instagram handle.",
             "The decision of the organizing committee and the jury will be final.",
-            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
+            "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/",
+            "Entrants confirm that everyone whose submission is featured in the contest entry has given consent for the use of their submission in connection with this Contest and in accordance with these Terms and Conditions:",
+            "All artists will retain full ownership of their submissions but, by entering, you agree to allow us to use the entries in the promotion of the Infin8. ",
+            "Any personal information collected from the participants will be used only for the purposes of administering the contest."
         ],
         "spocs": [
             {
@@ -579,15 +582,14 @@
             "second":"1000"
         },
         "rules": [
-            "Every Team must have 5 members. However 1 substitute will be allowed for each team. At least 1 member must be a student of IIITBangalore, and on campus.",
+            "Team of 5 + 1 substitute(optional).",
             "Team Name is Mandatory.",
-            "All participants are supposed to have an account on discord.",
-            "Participants should have their real names on Discord Server. No nicknames are allowed.",
-            "All communication regarding the tournament will be done on discord server only.",
-            "Team will be banned from the tournament if the organizing committee found any malpractice",
-            "No use of abusive language.",
+            "Minimum one player (part of the playing roster, not the substitute) should be a IIITB student.",
+            "All players should have joined the discord server before the matches. All forms of communication will be done through discord.",
+            "All Weapons / Agents / Abilities are allowed unless currently disabled in Ranked Mode.",
             "Make sure you have the latest version of the game before the day of the match. No delays will be allowed on the day of the match.",
-            "All games will be knockout matches.",
+            "All matches except the Finals (and Semi-Finals depending on total number of teams) will be knockouts.",
+            "Map Pool : All Maps",
             "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
         ],
         "spocs": [

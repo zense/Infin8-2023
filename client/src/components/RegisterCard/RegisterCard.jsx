@@ -11,6 +11,7 @@ import { Zoom } from "react-reveal";
 import eventDetails from "../../content/eventDetails.json";
 import { useEffect } from "react";
 import { useLocation } from "react-router";
+import {BiRupee} from 'react-icons/bi'
 const ScrollToTop = (props) => {
     const location = useLocation();
     useEffect(() => {
@@ -43,7 +44,7 @@ function LeftCard(props) {
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
                             <div className="row">
-                                <Link to={`#`} className="col-6 link edge popup" > <div>View Details</div> </Link>
+                                <Link to={`/registerevent/${props.props.id}`} className="col-6 link edge popup" > <div>View Details</div> </Link>
                                 <Link to={
                                     `/registerevent/${props.props.id}`
                                 } className="col-6 edge link popup" style={{ borderLeft: 0 }} > <div>Register</div> </Link>
@@ -61,7 +62,7 @@ function LeftCard(props) {
                         </div>
                     </div>
                     <div className="row" >
-                        <Link to={`#`} className=" col-6 edge1 link" style={{ borderTop: 0 }}>
+                        <Link to={`/registerevent/${props.props.id}`} className=" col-6 edge1 link" style={{ borderTop: 0 }}>
                             <div >
                                 Details
                                 <img src={ARROW} className="arrowpoint"></img>
@@ -87,6 +88,23 @@ function RegisterCard(props) {
             <ScrollToTop>
                 <Navbar props={props}></Navbar>
                 <Title></Title>
+                <div className="row">
+            <Zoom delay={500} duration={1250}>
+            {/* {props.paid_base_fees==false ? <div className='col-12 Disclaimer' style={{"backgroundColor":"#474646","padding":"20px 20px 20px 20px","color":"white","fontFamily":"Archivo"}}>
+                    <div>
+                        To register for an event, the base fee of <BiRupee style={{"marginTop": "-5px"}}/>50 needs to be paid. Once this fee is paid, you can register for any event in this fest. 
+                        <div style={{"marginTop" : "10px"}}>You an pay the base fee <a href="/pay_base_fees" style={{ "color" : "white"}}>here </a></div>
+                    </div>
+                </div> : null} */}
+                <div className='col-12 Disclaimer' style={{"backgroundColor":"#474646","padding":"20px 20px 20px 20px","color":"white","fontFamily":"Archivo"}}>
+                    <div>
+                        To register for an event, the base fee of <BiRupee style={{"marginTop": "-5px"}}/><b>50</b> needs to be paid. Once this fee is paid, you can register for any event in this fest. 
+                        <div style={{"marginTop" : "10px"}}>You an pay the base fee <a href="/pay_base_fees" style={{ "color" : "white"}}>here </a></div>
+                    </div>
+                </div> 
+                {/* disclaimer should be displayed only if the paid_base_fee isn't paid, else it shouldn't be visible, backend peeps, pls take care of this */}
+                </Zoom>
+            </div>
                 <div className="container-fluid RegisterCard">
                     <div className="row marginchange invert">
                         {

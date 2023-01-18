@@ -14,6 +14,7 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 import OTPVerification from "./OTPVerification";
 
+import Team from './components/Team/Team'
 import Contact from "./components/Contact/Contact";
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -45,7 +46,7 @@ function App(props) {
             <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             <Route path="/otp-verification" element={<OTPVerification user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             
-            <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus}/>} />
+            <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus} paid_base_fees={user.baseFeePaid}/>} />
             
             {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
             <Route path="/registerevent/:id" element={<RegisterEvent user={user} loggedInStatus={loggedInStatus} entrance_fee={50} paid_base_fees={user.baseFeePaid} signed_in={loggedInStatus} registered_for_event={false}/>} />
@@ -57,18 +58,18 @@ function App(props) {
                 contacts=
                 {
                   [
-                  {name:"Person1",
-                  contact:"999999999"},
-                  {name:"Person1",
-                  contact:"999999999"},
-                  {name:"Person1",
-                  contact:"999999999"}
+                  {name:"Asrith Nune",
+                  contact:"+91 9492824058"},
+                  {name:"VL Sahithi",
+                  contact:"+91 8374150444"},
                   ]
                 }
                 email={loggedInStatus ? user.email : "Not signed in"}
                 entrance_fee={50}
               />
             } />
+
+            <Route path="/team" element={<Team loggedInStatus={loggedInStatus}/>}></Route>
             <Route path="*" element={<Navigate to ="/home" replace/>} />
           </Routes>
           {/* </ScrollToTop> */}

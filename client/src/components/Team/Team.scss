@@ -1,0 +1,30 @@
+.Team{
+    background-color: black;
+    overflow-x: hidden;
+    .Cards{
+        width: 85%;
+        border-radius: 0px !important;
+        -webkit-box-shadow: 8px 8px 0px 0px #4A3AFF
+        ;
+        -moz-box-shadow: 8px 8px 0px 0px#4A3AFF
+        ;
+        box-shadow: 8px 8px 0px 0px #4A3AFF
+        ;
+    }
+    .Heading{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+    }
+    .Role{
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        margin-top: 8px;
+    }
+    .Cards:hover{
+        opacity: 0.5;
+    }
+}
