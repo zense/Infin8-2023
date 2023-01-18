@@ -77,6 +77,7 @@ function RegisterEvent(props) {
           paid_base_fees={props.paid_base_fees}
           event={event}
           id={id}
+          entrace_fee={props.entrace_fee}
         />
       <Footer/>
       </ScrollToTop>

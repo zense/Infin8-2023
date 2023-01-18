@@ -2,10 +2,12 @@
 import EntranceRegister from "../EntranceRegister/EntranceRegister";
 import './PayBaseFees.scss'
 import {BiPhone} from 'react-icons/bi'
+import Navbar from "../../Navbar/Navbar";
 export default function PayBaseFees(props){
 
     return (
-            <div className="container-fluid px-0" style={{"overflowX":"hidden"}}>
+        <div className="container-fluid px-0" style={{"overflowX":"hidden"}}>
+            {/* <Navbar /> */}
             
             <div className="PayBaseFeesTitle">
                     <div className='titlename'>

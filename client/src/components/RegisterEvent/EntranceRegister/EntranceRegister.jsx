@@ -1,6 +1,7 @@
 import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
 import './EntranceRegister.css'
+
 export default function EntranceRegister(props){
     return (
         <div>
@@ -12,9 +13,14 @@ export default function EntranceRegister(props){
             <div className="costDiv" >
                 Rs. {props.entrance_fee}
             </div>
-            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
-                ({props.email !== ""}) ? ⓘ Signed in as {props.email} : "Not Signed In"
-            </div>
+           
+            {(props.loggedInStatus)
+            ? (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Signed in as {props.email}
+            </div>)
+            : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Not Signed In.
+            </div>)}
 
             
             <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px" , "padding-top": "30px"}}>
