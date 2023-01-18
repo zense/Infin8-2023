@@ -60,7 +60,7 @@ function SignUp(props) {
             console.log("After OTP");
 
             props.setUser(userDetails);
-            routeChange(`home`);
+            routeChange(`otp-verification`);
         } 
         else if (result.status === "Exists") {
             console.log("User already exists");

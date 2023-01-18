@@ -19,23 +19,7 @@ function SignIn(props) {
             registerPassword
         ).then((userCredential) => {
             
-            var userDetails = {
-                id: userCredential.user.uid,
-                email: userCredential.user.email
-            }
-            props.setUser(userDetails);
-
-            // getDoc(doc(db, "users_list", userCredential.user.uid)).then(docData => {
-            //     var userDetails = {
-            //         id: userCredential.user.uid,
-            //         name: docData.data().name,
-            //         email: docData.data().email
-            //     }
-            //     props.setUser(userDetails);
-            //     console.log(props.user);
-            // }).catch(error => {
-            //     console.log(error);
-            // })
+            getData(userCredential);
 
             props.setLoggedInStatus(true);
             
@@ -47,13 +31,24 @@ function SignIn(props) {
         });
     }
 
+    const getData = async (userCredential) => {
+        const docRef = doc(db, "users_list", userCredential.user.uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            props.setUser(docSnap.data());
+        } else {
+            console.log("No such document!");
+        }
+    } 
+
     let navigate = useNavigate(); 
     const routeChange = (path) =>{ 
         navigate(path);
     }
 
     const goToRegister = async() => {
-        routeChange(`sign-up`);
+        routeChange(`/sign-up`);
     }
 
 
