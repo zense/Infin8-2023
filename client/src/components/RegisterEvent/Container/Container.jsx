@@ -55,7 +55,7 @@ export default function Container(props) {
                     </div>
 
                     <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
-                        <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
+                        <div className='col-11' style={{ "backgroundColor": "#4AA900", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
                             <p>{props.about}</p>
                         </div>
                     </div>
@@ -69,10 +69,26 @@ export default function Container(props) {
                     }
                     {(props.id != 1 && props.id != 3) &&
                         <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
-                            <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
-                                <ol>{props.other_details.map((string, index) => {
-                                    return <li key={index}>{string}</li>
-                                })}</ol>
+                            <div className='col-11' style={{ "backgroundColor": "#4AA900", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
+                                <ol>
+                                    
+                                    {props.other_details.map((string, index) => {
+                                        var stringArr=string.split(" ");
+                                        for(var i=0;i<stringArr.length;i++){
+                                            var word=stringArr[i];
+                                            if(word.slice(0, 4)==="http"){
+                                                word="<a target=\"blank\" href=\"" + word + "\">"+word+"</a>"
+                                            }
+                                            stringArr[i]=word
+                                        }
+                                        string = stringArr.join(" ")
+                                        return (<li className='listing' key={index} dangerouslySetInnerHTML={{__html: string}}>
+                                                </li>
+                                                );
+                                        
+                                    })
+                                    }
+                                    </ol>
                             </div>
                         </div>
                     }
@@ -102,7 +118,7 @@ export default function Container(props) {
                         <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
                         :
                         props.signed_in === false ?
-                            <NotSignedIn />
+                            <NotSignedIn  event_fee={props.event_fee}/>
                             :
                             props.registered_for_event === true ?
                                 <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} />
@@ -115,6 +131,8 @@ export default function Container(props) {
                                     // :                                
                                     props.team_event === true ? 
                                         <RegisterTeam
+                                            event_id={props.id}
+                                            user_id={props.user_id}
                                             fee={props.event_fee}
                                             loggedInStatus={props.signed_in}
                                             email={props.email}
@@ -122,6 +140,8 @@ export default function Container(props) {
                                         />
                                         :
                                         <Register
+                                            event_id={props.id}
+                                            user_id={props.user_id}
                                             event_fee={props.event_fee}
                                             loggedInStatus={props.signed_in}
                                             email={props.email}

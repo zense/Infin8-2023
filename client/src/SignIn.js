@@ -36,7 +36,14 @@ function SignIn(props) {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
-            props.setUser(docSnap.data());
+            const userDetails = {
+                id: userCredential.user.uid,
+                name: docSnap.data().name,
+                email: docSnap.data().email,
+                contact: docSnap.data().contact
+            }
+
+            props.setUser(userDetails);
         } else {
             console.log("No such document!");
         }
