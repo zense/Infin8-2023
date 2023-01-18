@@ -4,6 +4,7 @@ import RegisterTeam from "../RegisterTeam/RegisterTeam.jsx"
 import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import { BiPhone } from 'react-icons/bi'
+import './Container.scss'
 function PrizeMoney(props) {
     if (props.id == 10) {
         return <div>
@@ -67,10 +68,13 @@ export default function Container(props) {
                         </div>
                     }
                     {(props.id != 1 && props.id != 3) &&
-                        <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
-                            <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
+                        <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0"}} className="row">
+                            <div className='col-11' style={{ "backgroundColor": "#FF5C00", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px"
+                         }}>
                                 <ol>{props.other_details.map((string, index) => {
-                                    return <li key={index}>{string}</li>
+                                    return <li 
+                                    key={index}><span className='listing'>
+                                        {string}</span></li>
                                 })}</ol>
                             </div>
                         </div>
