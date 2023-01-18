@@ -8,7 +8,7 @@ import FadeInOut from "./FadeInOut";
 
 const Title = () => {
     const [dayshoursMinSecs, setdayshoursMinSecs] = useState({ das: 0, hours: 0, minutes: 0, seconds: 0 });
-    const finalDate = new Date("2023-02-07T00:00:00");
+    const finalDate = new Date("2023-02-10T00:00:00");
 
     useEffect(() => {
         const diffDate = finalDate - new Date();
