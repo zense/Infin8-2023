@@ -2,10 +2,14 @@
 import EntranceRegister from "../EntranceRegister/EntranceRegister";
 import './PayBaseFees.scss'
 import {BiPhone} from 'react-icons/bi'
+import Navbar from "../../Navbar/Navbar";
+import { useState } from "react";
+
 export default function PayBaseFees(props){
 
     return (
-            <div className="container-fluid px-0" style={{"overflowX":"hidden"}}>
+        <div className="container-fluid px-0" style={{"overflowX":"hidden"}}>
+            {/* <Navbar /> */}
             
             <div className="PayBaseFeesTitle">
                     <div className='titlename'>
@@ -49,6 +53,9 @@ export default function PayBaseFees(props){
                 
                 <div className="col-md-4 col-12" style={{"backgroundColor":"black"}}>
                     <EntranceRegister
+                        loggedInStatus={props.loggedInStatus}
+                        user_id={props.user_id}
+                        event_id={0}
                         entrance_fee={props.entrance_fee}
                         email={props.email}
                     />

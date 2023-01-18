@@ -63,6 +63,7 @@ function RegisterEvent(props) {
         />
       } */}
       <Container 
+          user_id={props.user.id}
           prize_money={event.prizes.first} 
           prize_money2={event.prizes.second}
           about={event.description} 
@@ -77,6 +78,7 @@ function RegisterEvent(props) {
           paid_base_fees={props.paid_base_fees}
           event={event}
           id={id}
+          entrace_fee={props.entrace_fee}
         />
       <Footer/>
       </ScrollToTop>

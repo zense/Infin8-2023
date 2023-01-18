@@ -8,6 +8,7 @@ import {
     isSignInWithEmailLink,
     signInWithEmailLink
 } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 
@@ -32,7 +33,8 @@ function OTPVerification(props) {
                 setDoc(docRef, {
                     name: props.user.name,
                     contact: props.user.contact,
-                    email: props.user.email
+                    email: props.user.email,
+                    baseFeePaid: false
                 })
 
                 // After login or signUp, 
@@ -47,8 +49,9 @@ function OTPVerification(props) {
                 props.setUser(userDetails);
                 // Add the new uid generated in the user json. 
                 props.setLoggedInStatus(true);
-                props.navigator("/", true);
             
+                routeChange(`home`);
+
             }).catch((error) => {
                 console.log(error.message);
             });
@@ -58,6 +61,11 @@ function OTPVerification(props) {
         }
     }
 
+    let navigate = useNavigate();
+    const routeChange = (path) =>{ 
+        // let path = `home`; 
+        navigate(path);
+    }
 
     return (
         <div>

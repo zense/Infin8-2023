@@ -104,6 +104,7 @@
     border-right-style: hidden;
     border-left-style: hidden;
     color:white;
+    width:80%;
 }
 #inputID::placeholder{
     color:white;

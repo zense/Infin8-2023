@@ -28,7 +28,7 @@ const Profile = (props) => {
             {props.user.name}
         </div>
         <div className="row titledeets">
-            {props.user.id}
+            {props.user.contact}
         </div>
         <div className="row titledeets lasttitle">
             {props.user.email}
@@ -42,7 +42,7 @@ const Profile = (props) => {
             TICKET
             <img src={arrow} alt="image" className='arrowicon' />
         </div>
-        <Ticket/>
+        <Ticket user={props.user}/>
         </div>
         <div className="row page_heading">
             YOUR

@@ -1,9 +1,93 @@
 import QR from "../../../images/qr-ticket.png"
 import Dotted from "../../../images/dottedbox.png"
 import './EntranceRegister.css'
+import { db } from "../../../firebase-config";
+import { useState } from "react";
+import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
+import Navbar from "../../Navbar/Navbar";
+
 export default function EntranceRegister(props){
+
+
+    const createPaymentObject = async () => {
+
+        console.log(props.user_id);
+        // event id
+        const paymentRef = await addDoc(collection(db, "payments"), {
+            event_id: props.event_id,
+            multi: false,
+            screenshot: "",
+            status:"processing",
+            transaction_id:"ID NUMBER PATA NAHI",
+            user: props.user_id
+        });
+        console.log("Payment Object Made");
+        
+        let paymentObjectID = paymentRef.id;
+
+        const userRef = doc(db, "users_list", props.user_id);
+        const userDocSnap = getDoc(userRef);
+
+        console.log("Setting users_list");
+
+        // if (userDocSnap.exists()){
+        let paymentDetails = (await userDocSnap).data().paymentDetails;
+        paymentDetails[0] = paymentObjectID;
+
+        updateDoc(userRef, {
+            paymentDetails: paymentDetails
+        })
+
+        document.getElementById("payBaseFeeButton").innerHTML = "Processing";
+        document.getElementById("payBaseFeeButton").classList.add("disabled");
+        // }
+        // else{
+            // console.log("User does not exists!");
+        // }
+        // get payment_details from a user
+
+    }
+
+    const checkStatus = async () => {
+        var userReference = doc(db, "users_list", props.user_id);
+        var userData = getDoc(userReference);
+    
+        var paymentID = (await userData).data().paymentDetails[0];
+    
+        if (paymentID !== "Register"){
+            var paymentReference = doc(db, "payments", paymentID);
+            var paymentData = getDoc(paymentReference);
+            
+            var status = (await paymentData).data().status;
+    
+            if (status === "processed"){
+
+                document.getElementById("payBaseFeeButton").innerHTML = "Processed";
+                document.getElementById("payBaseFeeButton").classList.add("disabled");
+
+                updateDoc(userReference, {
+                    paid_base_fees: true
+                })
+                // props.setDisplayText("Payment Successful");
+                // return true;
+            }
+            else{
+                document.getElementById("payBaseFeeButton").innerHTML = "Processing";
+                document.getElementById("payBaseFeeButton").classList.add("disabled");
+                // return false;
+            }
+        }
+    }
+
+
+    if (props.loggedInStatus)
+        checkStatus();
+    
+
+
     return (
         <div>
+            <Navbar props={props}/>
             <div style={{"textAlign":"center"}}>
                 <h1 style={{"color":"white","paddingTop":"32px" , "paddingBottom": "10px"}}>REGISTER</h1>
             </div>
@@ -12,9 +96,14 @@ export default function EntranceRegister(props){
             <div className="costDiv" >
                 Rs. {props.entrance_fee}
             </div>
-            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
-                ({props.email !== ""}) ? ⓘ Signed in as {props.email} : "Not Signed In"
-            </div>
+           
+            {(props.loggedInStatus)
+            ? (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Signed in as {props.email}
+            </div>)
+            : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Not Signed In.
+            </div>)}
 
             
             <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"15px" , "padding-top": "30px"}}>
@@ -73,7 +162,7 @@ export default function EntranceRegister(props){
                 <input placeholder="Enter UPI ID" id="inputID" style={{"width":"200px"}}/>
                 </div>
                 <div style={{"marginBottom":"50px"}}>
-                <button className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
+                <button onClick={createPaymentObject} id="payBaseFeeButton" className="btn btn-default" style={{"backgroundColor":"white","marginTop":"25px"}}>Register</button>
                 </div>
             </div>
         </div>
