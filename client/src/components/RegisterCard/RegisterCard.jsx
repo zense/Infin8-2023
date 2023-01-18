@@ -99,7 +99,7 @@ function RegisterCard(props) {
                 <div className='col-12 Disclaimer' style={{"backgroundColor":"#474646","padding":"20px 20px 20px 20px","color":"white","fontFamily":"Archivo"}}>
                     <div>
                         To register for an event, the base fee of <BiRupee style={{"marginTop": "-5px"}}/><b>50</b> needs to be paid. Once this fee is paid, you can register for any event in this fest. 
-                        <div style={{"marginTop" : "10px"}}>You an pay the base fee <a href="/pay_base_fees" style={{ "color" : "white"}}>here </a></div>
+                        <div style={{"marginTop" : "10px"}}>You an pay the base fee <a href="/pay-base-fees" style={{ "color" : "white"}}>here </a></div>
                     </div>
                 </div> 
                 {/* disclaimer should be displayed only if the paid_base_fee isn't paid, else it shouldn't be visible, backend peeps, pls take care of this */}

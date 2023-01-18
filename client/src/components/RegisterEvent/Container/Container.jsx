@@ -71,9 +71,25 @@ export default function Container(props) {
                     {(props.id != 1 && props.id != 3) &&
                         <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
                             <div className='col-11' style={{ "backgroundColor": "#005EB4", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
-                                <ol>{props.other_details.map((string, index) => {
-                                    return <li key={index}>{string}</li>
-                                })}</ol>
+                                <ol>
+                                    
+                                    {props.other_details.map((string, index) => {
+                                        var stringArr=string.split(" ");
+                                        for(var i=0;i<stringArr.length;i++){
+                                            var word=stringArr[i];
+                                            if(word.slice(0, 4)==="http"){
+                                                word="<a target=\"blank\" href=\"" + word + "\" class='changechan'>"+word+"</a>"
+                                            }
+                                            stringArr[i]=word
+                                        }
+                                        string = stringArr.join(" ")
+                                        return (<li className='listing' key={index} dangerouslySetInnerHTML={{__html: string}}>
+                                                </li>
+                                                );
+                                        
+                                    })
+                                    }
+                                    </ol>
                             </div>
                         </div>
                     }
