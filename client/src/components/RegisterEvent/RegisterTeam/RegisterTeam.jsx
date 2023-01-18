@@ -91,7 +91,7 @@ export default function RegisterTeam(props){
                     <div style={{"color":"white","marginTop":"20px"}}>
                         <h1 style={{"textAlign":"center","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>PAYMENT</h1>
                         <div style={{"marginLeft":"15px","marginRight":"15px",  "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
-                        upload the receipt screenshot here. Our team will 
+                        upload the receipt screenshot here, making sure that the UPI reference ID is visible. Our team will 
                         verify the payment. The 'Register' button will turn 
                         to 'Registered ' if it is approved :</div>
                     </div>
@@ -132,7 +132,7 @@ export default function RegisterTeam(props){
                         {!joinExistingTeam && 
                         
                         <input 
-                            placeholder="Enter UPI Transaction ID" 
+                            placeholder="UPI Reference Number" 
                             id="inputID" 
                             style={{"width":"200px", "marginTop": "30px"}}
                             onChange={()=>{

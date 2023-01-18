@@ -47,9 +47,9 @@ export default function Register(props){
             <div style={{"color":"white","marginTop":"30px"}}>
             <h1 style={{"textAlign":"center","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>PAYMENT</h1>
                 <div style={{"marginLeft":"15px","marginRight":"15px", "marginTop": "15px", "marginBottom": "15px"}}>Pay the above mentioned amount using UPI and 
-                upload the receipt screenshot here. Our team will 
-                verify the payment. The 'Register' button will turn 
-                to 'Registered ' if it is approved :</div>
+                        upload the receipt screenshot here, making sure that the UPI reference ID is visible. Our team will 
+                        verify the payment. The 'Register' button will turn 
+                        to 'Registered ' if it is approved :</div>
             </div>
 
             <div className="fluid-container">
@@ -82,7 +82,7 @@ export default function Register(props){
             <div style={{"paddingTop":"15px","textAlign":"center"}}>
                 <div>
                 <input 
-                    placeholder="Enter UPI Transaction ID" 
+                    placeholder="UPI Reference Number" 
                     id="inputID" 
                     style={{"width":"200px"}}
                     onChange={()=>{
