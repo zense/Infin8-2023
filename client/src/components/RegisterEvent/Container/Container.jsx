@@ -5,6 +5,7 @@ import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import EntranceRegister from '../EntranceRegister/EntranceRegister';
 import { BiPhone } from 'react-icons/bi'
+import './Container.scss'
 function PrizeMoney(props) {
     if (props.id == 10) {
         return <div>
@@ -102,7 +103,7 @@ export default function Container(props) {
                         <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
                         :
                         props.signed_in === false ?
-                            <NotSignedIn />
+                            <NotSignedIn  event_fee={props.event_fee}/>
                             :
                             props.registered_for_event === true ?
                                 <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} />
@@ -115,6 +116,8 @@ export default function Container(props) {
                                     // :                                
                                     props.team_event === true ? 
                                         <RegisterTeam
+                                            event_id={props.id}
+                                            user_id={props.user_id}
                                             fee={props.event_fee}
                                             loggedInStatus={props.signed_in}
                                             email={props.email}
@@ -122,6 +125,8 @@ export default function Container(props) {
                                         />
                                         :
                                         <Register
+                                            event_id={props.id}
+                                            user_id={props.user_id}
                                             event_fee={props.event_fee}
                                             loggedInStatus={props.signed_in}
                                             email={props.email}
