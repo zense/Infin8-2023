@@ -21,7 +21,7 @@ const ScrollToTop = (props) => {
     return <>{props.children}</>
 };
 function LeftCard(props) {
-    var link="./Eventimages/"+ props.props.id+".jpg";
+    var link="./eventimages/"+ props.props.id+".jpg";
     console.log(link);
     return (
         <>
