@@ -144,7 +144,7 @@
         "mode":"Hybrid" ,
         "type":"all",
         "registrationDeadline":"5th Feb' 23, 11:59 PM",
-        "description":"Welcome to IIITBs rendition of the CODM World Championship. Battle it out in team deathmatch to claim top cash prizes. Squads of maximum 5 people with at least 2 members from current or alumni IIITB. The drop is sharp and we expect every player to join their squads on team, else your team plays handicapped.No cheating, aim assists, emulations or tampering with the game client else it's permaban from the lobby and event. Judges' decisions on all matters will be final and binding so bring your best aim and even better friends to try and place higher than everyone. Bonuses for kills of course so take those risks and shoot your way to victory. And if we have more teams then we settle the prelims with a good ol fashioned round of battle royale.",
+        "description":"Welcome to IIITBs rendition of the CODM World Championship. Battle it out in team deathmatch to claim top cash prizes. Squads of maximum 5 people with at least 2 members from current or alumni IIITB.If there are teams missing after this time,the game will be started with the number of players present in the room.No cheating, aim assists, emulations or tampering with the game client else it's permaban from the lobby and event. Judges' decisions on all matters will be final and binding so bring your best aim and even better friends to try and place higher than everyone. Bonuses for kills of course so take those risks and shoot your way to victory. And if we have more teams then we settle the prelims with a good ol fashioned round of battle royale.",
         "prizes": {
             "first":"3000",
             "second":"1000"
@@ -157,6 +157,7 @@
             "If there are more registration than expected, we'll have a prelims of Battle Royale",
             "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
         ],
+           
         "spocs": [
             {
                 "name":"Prasanth Kumar",
@@ -206,7 +207,7 @@
     },
     {
         "title":"Cut To The Chase",
-        "subtitle": "Short Film",
+        "subtitle": "Short Film Competition",
         "image":"",
         "id":"7",
         "mode":"Hybrid",
@@ -218,11 +219,24 @@
             "second":"3000"
         },
         "rules": [
-            "Excited ? Learn more here : https://drive.google.com/file/d/1-OGEQqnjOCHWiPOqkj8GLiRYPbCQ90cg/view?usp=share_link"
+            "Theme:A theme/topic will be announced exactly 15 days prior to the main event.Participants will have these 15 days to make a short film.",
+            "Duration: The short film must not be less than 2 minutes or more than 12 minutes(titles and credits included). ±30 seconds will be permitted, but its encouraged that the participants limit their film to the given duration. Entries not satisfying the same will be judged only till the 12.5 minute mark.",
+            "Legitimacy: Participants can choose to do either of the two options mentioned below: ",
+            "They can include footage filmed in IIITB on the 2nd day of Infin8, 11th February(minimum 15 seconds). This option is HIGHLY ENCOURAGED, and brownie points will be awarded for the same",         
+            "They can include the Infin8 2023 logo anywhere in the frame physically(eg: on a paper stuck on a wall in the background) in at least 3 different scenes for at least 3 seconds per scene.",
+            "Screenplay submission: The teams will have to submit a draft of the screenplay or a storyboard or any physical piece of written material by 1st February EOD. This will not be a part of the judging criteria, but is aprerequisite for nomination.",            
+            "Deadlines:",
+            "First/existing draft submission: 11:59 pm, 1st February.",
+            "Short film submission: 10:30 pm, 11th February.",
+            "Nominations: The core organising team, along with the core team of Parvaaz and Parvaaz Film Division will nominate the best films out of all submissions.The nominations will be out by 1:30 am on 12th February.",
+            "Screening: The nominated films will be screened in the Auditorium in front of a live audience. This will happen from 2-4pm on the final day, i.e., 12th February 2023.",
+            "Audience participation: After the screening of each film, the audience will be given a 2 minute window to rate the film. This vote will contribute to the final scoring(10% weightage). The judges will give their final verdict after the screening of all the films and cash prizes will be given away to the winners.",
+            "Nominations will be announced on our Instagram handle at 1:30 am on 12th February.(https://www.instagram.com/infin8_iiitb/)"
+
         ],
         "spocs": [
             {
-                "name":"Varshit",
+                "name":"Varshith",
                 "contact":"9886987649"
             }
         ],
@@ -361,7 +375,7 @@
                 "contact":"9477772677"
             },
             {
-                "name":"Sahil Kare",
+                "name":"Sahil Khare",
                 "contact":"9752112005"
             }
         ],
@@ -369,8 +383,8 @@
         
     },
     {
-        "title":"Second Edition",
-        "subtitle": "Photography Contest",
+        "title":"Pratibimbh 2.0",
+        "subtitle": "Photograhy Contest",
         "image":"",
         "id":"12",
         "mode":"Online",

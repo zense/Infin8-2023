@@ -3,6 +3,7 @@ import Register from '../Register/Register';
 import RegisterTeam from "../RegisterTeam/RegisterTeam.jsx"
 import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
+import EntranceRegister from '../EntranceRegister/EntranceRegister';
 import { BiPhone } from 'react-icons/bi'
 function PrizeMoney(props) {
     if (props.id == 10) {
@@ -106,21 +107,27 @@ export default function Container(props) {
                             props.registered_for_event === true ?
                                 <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} />
                                 :
-                                props.team_event === true ?
-                                    <RegisterTeam
-                                        fee={props.event_fee}
-                                        loggedInStatus={props.signed_in}
-                                        email={props.email}
-                                        paid_base_fees={props.paid_base_fees}
-                                    />
-                                    :
-                                    <Register
-                                        event_fee={props.event_fee}
-                                        loggedInStatus={props.signed_in}
-                                        email={props.email}
-                                        paid_base_fees={props.paid_base_fees}
-                                        event={props.event}
-                                    />
+                                // props.user.baseFeePaid === false ?
+                                    // <EntranceRegister
+                                    //     entrance_fee={props.entrance_fee}
+                                    //     email={props.email}
+                                    // />
+                                    // :                                
+                                    props.team_event === true ? 
+                                        <RegisterTeam
+                                            fee={props.event_fee}
+                                            loggedInStatus={props.signed_in}
+                                            email={props.email}
+                                            paid_base_fees={props.paid_base_fees}
+                                        />
+                                        :
+                                        <Register
+                                            event_fee={props.event_fee}
+                                            loggedInStatus={props.signed_in}
+                                            email={props.email}
+                                            paid_base_fees={props.paid_base_fees}
+                                            event={props.event}
+                                        />
                     }
                 </div>
             </div>

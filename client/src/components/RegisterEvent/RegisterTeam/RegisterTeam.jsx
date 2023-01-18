@@ -172,15 +172,53 @@ export default function RegisterTeam(props){
                         }}
                         />}
                 </div>
-                <button 
-                    className="btn btn-default" 
-                    style={{"backgroundColor":"white","marginTop":"25px"}}
-                    onClick={()=>{
-                        if(props.paid_base_fees==false){
-                            console.log("Hello")
+
+                {props.paid_base_fees === false 
+                ?
+                <div>
+                    <button 
+                        disabled
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+                        
+                        onClick={()=>{
+                            if(props.paid_base_fees==false){
+                                window.location.href='/pay_base_fees'
+                            }
+                        }}>Register</button>
+                    
+                    <br></br>
+                    
+                    <button 
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+
+                        onClick={()=>{
                             window.location.href='/pay_base_fees'
-                        }
-                    }}>Register</button>
+                        }}>Pay Base Fee</button>
+                </div>
+                :
+                <div>
+                    <button 
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+                        
+                        onClick={()=>{
+                            if(props.paid_base_fees==false){
+                                window.location.href='/pay_base_fees'
+                            }
+                        }}>Register</button>
+                    
+                    {/* <button 
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+
+                        onClick={()=>{
+                            window.location.href='/pay_base_fees'
+                        }}>Pay Base Fee</button> */}
+                </div>}
+              
+                    
             </div>
             
         </div>

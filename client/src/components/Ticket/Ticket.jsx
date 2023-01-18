@@ -3,7 +3,7 @@ import qr from '../../images/qr-ticket.png'
 import { TriangleDownIcon } from '@radix-ui/react-icons';
 import infilogo from '../../images/infilogoblack.svg';
 import iiitblogo from '../../images/iiitblogoblack.svg';
-const Ticket = () => {
+const Ticket = (props) => {
     const length = 12;
     const height = 2;
     const grid = [];
@@ -48,7 +48,7 @@ const Ticket = () => {
                 <div className="row">
                     <div className="col namecol">
                         <div className="row deets1">
-                            JOHN DOE
+                            {props.user.name}
                         </div>
                         <div className="row deets2">
                             84i4huu4y883
