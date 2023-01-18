@@ -34,7 +34,7 @@ function RegisterEvent(props) {
   return (
     <div style={{"overflowX":"hidden"}}>
       <ScrollToTop>
-      <Navbar/>
+      <Navbar props={props}/>
       <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode}/>
       {/* {
         props.paid_base_fees===true ? 
@@ -69,7 +69,8 @@ function RegisterEvent(props) {
           other_details={event.rules} 
           contacts={event.spocs}
           event_fee={201}
-          email={"vikaskaly@gmail.com"}
+          loggedInStatus={props.loggedInStatus}
+          email={props.user.email}
           team_event={event.team}
           signed_in={props.signed_in}
           registered_for_event={props.registered_for_event}

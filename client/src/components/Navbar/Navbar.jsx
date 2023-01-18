@@ -8,7 +8,8 @@ import { BsLinkedin } from 'react-icons/bs';
 import { BsFacebook } from 'react-icons/bs';
 import { BsFillCaretLeftFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-const Navbar = () => {
+
+const Navbar = (props) => {
     const [open, setOpen] = React.useState(false);
 
     const showMod = () => {
@@ -17,6 +18,13 @@ const Navbar = () => {
     const hideMod = () => {
         setOpen(false);
     }
+
+    var page = "";
+    var displayText = "";
+
+    props.props.loggedInStatus ? page = `../profile` : page = `../sign-in`; 
+    props.props.loggedInStatus ? displayText = "Profile" : displayText = "Login"; 
+
 
     return <div className="Navbar">
         <div className="largescreens">
@@ -34,8 +42,8 @@ const Navbar = () => {
                     <Link to={`../events`} className="navbutton">Team</Link>
                 </div>
                 <div className="col">
-                    <Link to={`../profile`} className="navbutton">
-                        Profile
+                    <Link to={page} className="navbutton">
+                        {displayText}
                     </Link>
                 </div>
             </div>

@@ -8,10 +8,10 @@ import Title from './components/Title/Title';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
-function Home() {
+function Home(props) {
   return (
     <div className='App'>
-      <Navbar></Navbar>
+      <Navbar props={props}></Navbar>
       <Title></Title>
       <About></About>
       <div className="Jump">
@@ -24,7 +24,7 @@ function Home() {
             </div>
             <div className="col-4 col-md-2 arrowcol">
               <div className="arrowdiv">
-                <img src={arrow} alt="" className="arrow" />
+                <img src={arrow} alt="image" className="arrow" />
               </div>
             </div>
           </div>
@@ -39,7 +39,7 @@ function Home() {
             </div>
             <div className="col-4 col-md-2 arrowcol">
               <div className="arrowdiv">
-                <img src={arrow} alt="" className="arrow" />
+                <img src={arrow} alt="image" className="arrow" />
               </div>
             </div>
           </div>

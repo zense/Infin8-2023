@@ -63,9 +63,14 @@ export default function RegisterTeam(props){
             <div className="costDiv">
                 {!joinExistingTeam ? "Rs." + props.fee : "Free"}
             </div>
-            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
-             ⓘ Signed in as {props.email}
-            </div>
+            
+            {(props.loggedInStatus)
+            ? (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Signed in as {props.email}
+            </div>)
+            : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
+                ⓘ Not Signed In.
+            </div>)}
         
             
             <div style={{"color":"white", "fontFamily":"Poppins","paddingLeft":"2.7vw","padding-top": "20px" }}>

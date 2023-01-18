@@ -6,9 +6,10 @@ import Navbar from '../components/Navbar/Navbar'
 import Ticket from '../components/Ticket/Ticket'
 
 import Vector from '../images/Vector3.png'
-const Profile = () => {
+import { useReducer } from 'react'
+const Profile = (props) => {
     return <div className="Profile">
-        <Navbar/>
+        <Navbar props={props}/>
         <div className="row title" >
             <div className='col-12 YourProf blue'>
                 &nbsp; {'>'}your 
@@ -20,17 +21,17 @@ const Profile = () => {
         >
             <div className='col-12 YourProf'>
                PROFILE
-               <img src={Vector} alt="" className='arrowicon1' />
+               <img src={Vector} alt="image" className='arrowicon1' />
             </div>
         </div>
         <div className="row titledeets">
-            FISHY BUTT
+            {props.user.name}
         </div>
         <div className="row titledeets">
-              9997989898
+            {props.user.id}
         </div>
         <div className="row titledeets lasttitle">
-            buttfisher@gmail.com
+            {props.user.email}
         </div>
 
         <div className="orange">
@@ -39,7 +40,7 @@ const Profile = () => {
         </div>
         <div className="row page_heading">
             TICKET
-            <img src={arrow} alt="" className='arrowicon' />
+            <img src={arrow} alt="image" className='arrowicon' />
         </div>
         <Ticket/>
         </div>
