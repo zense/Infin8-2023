@@ -95,11 +95,11 @@ const Navbar = (props) => {
                         TEAM <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
-                <div className="row option">
+                {/* <div className="row option">
                     <Link to={`../profile`} className='white'>
                         PROFILE <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
-                </div>
+                </div> */}
                 <div className="row space">
                 </div>
                 <div className="row touch">

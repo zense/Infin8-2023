@@ -65,10 +65,6 @@ function SignUp(props) {
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
         } 
-=======
-            routeChange(`otp-verification`);
-        }
->>>>>>> 01caeebf85d12b222de7296e71c70b733dc87134
         else if (result.status === "Exists") {
             console.log("User already exists");
         }
@@ -168,8 +164,7 @@ function SignUp(props) {
     }
 
 
-<<<<<<< HEAD
-    const [show, setShow] = useState(false);
+    // const [show, setShow] = useState(false);
 
     var passComp = <>
         <span class="input-group-text" id="basic-addon1"><BsEyeFill
@@ -200,7 +195,7 @@ function SignUp(props) {
         </>
     }
 
-    const [conf, setConf] = useState(false);
+    // const [conf, setConf] = useState(false);
     var confComp = <>
         <span
             class="input-group-text"
@@ -278,38 +273,6 @@ function SignUp(props) {
                             aria-describedby="basic-addon1" />
                     </div>
 
-=======
-    return (
-        <div className="signin">
-            <div class="row">
-                <div className="col-12 col-lg-6">
-                    <div className="row">
-                        <h2 class="form-title">Sign up</h2>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1"><FaUser /></span>
-                        <input type="text" class="form-control"
-                            placeholder="Name" aria-label="Name"
-                            id="your_name" onChange={(event) => {
-                                setRegisterName(event.target.value);
-                            }} required="required"
-                            aria-describedby="basic-addon1" />
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">@</span>
-                        <input type="text" class="form-control"
-                            id="your_email"
-                            placeholder="Email" aria-label="Email"
-                            onChange={(event) => {
-                                setRegisterEmail(event.target.value);
-                            }}
-                            required="required"
-                            aria-describedby="basic-addon1" />
-                    </div>
-
->>>>>>> 01caeebf85d12b222de7296e71c70b733dc87134
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><BsFillTelephoneFill /></span>
                         <input type="text" class="form-control"
