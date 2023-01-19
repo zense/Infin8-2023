@@ -29,11 +29,11 @@ function SignUp(props) {
 
     const register = async () => {
         const PORT = process.env.PORT || 5000;
-        
+
         console.log("Before OTP");
 
         var url = `http://localhost:${PORT}/sendOTP`;
-        
+
         // generateOTP(n) generates OTP of length n
         var OTP = generateOTP(4).toString(10);
         console.log(OTP);
@@ -48,7 +48,7 @@ function SignUp(props) {
                 OTP
             }),
         }).then((res) => res.json());
-        
+
         if (result.status === "ok") {
 
             var userDetails = {
@@ -65,28 +65,110 @@ function SignUp(props) {
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
         } 
+=======
+            routeChange(`otp-verification`);
+        }
+>>>>>>> 01caeebf85d12b222de7296e71c70b733dc87134
         else if (result.status === "Exists") {
             console.log("User already exists");
         }
-        else if (result.status === "error"){
+        else if (result.status === "error") {
             console.log("Error encountered!");
         }
     }
 
-    let navigate = useNavigate(); 
-    
-    const routeChange = (path) =>{ 
+    let navigate = useNavigate();
+
+    const routeChange = (path) => {
         // let path = `home`; 
         navigate(path);
     }
 
 
-    function generateOTP(numberOfDigits){
-        var max = Math.pow(10, (numberOfDigits))-1;
-        return Math.floor(Math.random()*max);
+    function generateOTP(numberOfDigits) {
+        var max = Math.pow(10, (numberOfDigits)) - 1;
+        return Math.floor(Math.random() * max);
+    }
+
+    const [show, setShow] = useState(false);
+
+    var passComp = <>
+        <span class="input-group-text" id="basic-addon1"><BsEyeFill
+            id="togglePassword"
+            onClick={() => {
+                setShow(true);
+            }} /></span>
+        <input type="password" class="form-control"
+            placeholder="Password" aria-label="Password"
+            id="your_password" onChange={(event) => {
+                setRegisterPassword(event.target.value);
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (show) {
+        passComp = <>
+            <span class="input-group-text" id="basic-addon1"><BsEyeSlashFill
+                id="togglePassword"
+                onClick={() => {
+                    setShow(false);
+                }} /></span>
+            <input type="text" class="form-control"
+                placeholder="Password" aria-label="Password"
+                id="your_password" onChange={(event) => {
+                    setRegisterPassword(event.target.value);
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
+
+    const [conf, setConf] = useState(false);
+    var confComp = <>
+        <span
+            class="input-group-text"
+            onClick={() => {
+                setConf(true);
+            }}
+        ><BsEyeFill/></span>
+        <input type="password" class="form-control"
+            placeholder="Confirm Password" aria-label="Confirm Password"
+            id="repeat_password" onChange={(event) => {
+                setRegisterRePassword(event.target.value);
+
+                if (event.target.value !== registerPassword) {
+                    event.target.classList.add("focus");
+                }
+                else {
+                    event.target.classList.remove("focus");
+                }
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (conf) {
+        confComp = <>
+            <span
+                class="input-group-text"
+                onClick={() => {
+                    setConf(false);
+                }}
+            ><BsEyeSlashFill /></span>
+            <input type="text" class="form-control"
+                placeholder="Confirm Password" aria-label="Confirm Password"
+                id="repeat_password" onChange={(event) => {
+                    setRegisterRePassword(event.target.value);
+
+                    if (event.target.value !== registerPassword) {
+                        event.target.classList.add("focus");
+                    }
+                    else {
+                        event.target.classList.remove("focus");
+                    }
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
     }
 
 
+<<<<<<< HEAD
     const [show, setShow] = useState(false);
 
     var passComp = <>
@@ -196,6 +278,38 @@ function SignUp(props) {
                             aria-describedby="basic-addon1" />
                     </div>
 
+=======
+    return (
+        <div className="signin">
+            <div class="row">
+                <div className="col-12 col-lg-6">
+                    <div className="row">
+                        <h2 class="form-title">Sign up</h2>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><FaUser /></span>
+                        <input type="text" class="form-control"
+                            placeholder="Name" aria-label="Name"
+                            id="your_name" onChange={(event) => {
+                                setRegisterName(event.target.value);
+                            }} required="required"
+                            aria-describedby="basic-addon1" />
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control"
+                            id="your_email"
+                            placeholder="Email" aria-label="Email"
+                            onChange={(event) => {
+                                setRegisterEmail(event.target.value);
+                            }}
+                            required="required"
+                            aria-describedby="basic-addon1" />
+                    </div>
+
+>>>>>>> 01caeebf85d12b222de7296e71c70b733dc87134
                     <div class="input-group mb-3">
                         <span class="input-group-text" id="basic-addon1"><BsFillTelephoneFill /></span>
                         <input type="text" class="form-control"
