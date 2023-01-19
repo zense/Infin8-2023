@@ -78,7 +78,7 @@ export default function Container(props) {
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
                                             if(word.slice(0, 4)==="http"){
-                                                word="<a target=\"blank\" href=\"" + word + "\" class='changechan'>"+word+"</a>"
+                                                word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
                                         }
@@ -122,7 +122,9 @@ export default function Container(props) {
                             <NotSignedIn  event_fee={props.event_fee}/>
                             :
                             props.registered_for_event === true ?
-                                <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} />
+                                <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} team_event={props.team_event}
+                                    team_members={["TeamMember1","TeamMember2","TeamMember3"]}
+                                />
                                 :
                                 // props.user.baseFeePaid === false ?
                                     // <EntranceRegister

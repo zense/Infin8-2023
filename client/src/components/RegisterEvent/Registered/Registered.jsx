@@ -22,6 +22,25 @@ export default function Registered(props){
             : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 ⓘ Not Signed In.
             </div>)}
+
+            {(props.cannot_register===false && props.team_event===true) &&
+                    <>
+                        <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>
+                        <ol>
+                            {props.team_members.map((team_member, index)=>{
+                                
+                                return(
+                                    
+                                        <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
+                                            <li><h5>{team_member}</h5></li>
+                                        </div>
+                                    
+                                );
+                                
+                            })}
+                        </ol>
+                    </>
+            }
             
         </div>
     );
