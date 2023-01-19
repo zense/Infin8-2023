@@ -3,7 +3,7 @@ const gallery_content  = [
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "2:00 PM",
         "title" : "MAD MIX",
-        "incentives" : "Get ready for a burst of never-ending hysterics at MAD-MIX by a well-renowned stand-up comedian!You'll be in stitches as an electric duo fo comedians take the stage.",
+        "incentives" : "Get ready for a burst of never-ending hysterics at MAD-MIX by a well-renowned stand-up comedian!You'll be in stitches as an electric duo of comedians take the stage.",
         "id" : 1,
     },
     {
