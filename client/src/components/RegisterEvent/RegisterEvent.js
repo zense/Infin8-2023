@@ -24,18 +24,18 @@ function RegisterEvent(props) {
       event=eventDetails[i];
     }
   }
+  console.log(`../../../images/${event.id}`);
 
   if(event.prizes!=="NA"){
     prize_money=parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)
   }else{
     prize_money="NA"
   }
-  
   return (
     <div style={{"overflowX":"hidden"}}>
       <ScrollToTop>
       <Navbar props={props}/>
-      <Heading heading={event.title} paid_base_fees={props.paid_base_fees} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode} id={id}/>
+      <Heading heading={event.title} deadline={event.registrationDeadline} prizes={prize_money} mode={event.mode} id={event.id}/>
       {/* {
         props.paid_base_fees===true ? 
         <Container 
@@ -64,18 +64,18 @@ function RegisterEvent(props) {
       } */}
       <Container 
           user_id={props.user.id}
+          iiitbStudent={props.user.iiitbStudent}
           prize_money={event.prizes.first} 
           prize_money2={event.prizes.second}
           about={event.description} 
           other_details={event.rules} 
           contacts={event.spocs}
-          event_fee={201}
+          event_fee={ props.user.iiitbStudent ? 0 : eventDetails[id-1].fee}
           loggedInStatus={props.loggedInStatus}
           email={props.user.email}
           team_event={event.team}
           signed_in={props.signed_in}
           registered_for_event={props.registered_for_event}
-          paid_base_fees={props.paid_base_fees}
           event={event}
           id={id}
           entrace_fee={props.entrace_fee}

@@ -21,8 +21,7 @@ const ScrollToTop = (props) => {
     return <>{props.children}</>
 };
 function LeftCard(props) {
-    var link="./eventimages/"+ props.props.id+".jpg";
-    console.log(link);
+    var link="./Eventimages/"+ props.props.id+".jpg";
     return (
         <>
             <Zoom duration={1500} delay={100} >
@@ -100,8 +99,7 @@ function RegisterCard(props) {
                 </div> : null} */}
                 <div className='col-12 Disclaimer' style={{"backgroundColor":"#474646","padding":"20px 20px 20px 20px","color":"white","fontFamily":"Archivo"}}>
                     <div>
-                        To register for an event, the base fee of <BiRupee style={{"marginTop": "-5px"}}/><b>50</b> needs to be paid. Once this fee is paid, you can register for any event in this fest. 
-                        <div style={{"marginTop" : "10px"}}>You an pay the base fee <a href="/pay-base-fees" style={{ "color" : "white"}}>here </a></div>
+                      All non-participants will have to pay an Entrance fee of <BiRupee style={{"marginTop": "-5px"}}/><b>50</b> before entering the campus.
                     </div>
                 </div> 
                 {/* disclaimer should be displayed only if the paid_base_fee isn't paid, else it shouldn't be visible, backend peeps, pls take care of this */}

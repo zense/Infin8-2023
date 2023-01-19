@@ -5,9 +5,10 @@ import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
 import {BiRupee} from 'react-icons/bi'
 export default function Heading(props){
+    console.log("this are props",props);
     return (
 
-        <div className="NewTitle" id="title">
+        <div className={`NewTitle NewTitle-img-${props.id}`}>
             {/* <Bounce top duration={1000}> */}
                 <div className='titlename'>
                     <Bounce top duration={1000}>

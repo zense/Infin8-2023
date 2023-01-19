@@ -47,8 +47,9 @@
         },
         "rules": [
             "A band must have a maximum of 8 and a minimum of 3 members.",
-            "The performance should not exceed 15 minutes.",
+            "The performance should not exceed 20 minutes including setup time.",
             "Original compositions are allowed and appreciated.",
+            "All participants must be college students",
             "Music - We believe in art beyond boundaries. All genres and languages are accepted.",
             "There would be a penalty for exceeding the time limit.",
             "Points will be awarded on the basis of creativity, soundtrack, originality, and lyrics.",
@@ -65,7 +66,9 @@
                 "contact":" 9492824058"
             }
         ],
-        "team" : true
+        "team" : true,
+        "fee" : 200,
+        "limit": 8
         
     },
     {
@@ -98,8 +101,8 @@
                 "contact":" 9492824058"
             }
         ],
-        "team" : true
-        
+        "team" : true,
+        "fee" : 200
     },
     {
         "title":"Clash Royale",
@@ -133,7 +136,9 @@
                 "contact":"6305949565"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150,
+        "limit" : 1
         
     },
     {
@@ -168,7 +173,10 @@
                 "contact":"6305949565"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit": 5
+
         
     },
     {
@@ -194,15 +202,17 @@
         ],
         "spocs": [
             {
-                "name":"Balaji Sankalp",
+                "name":"Balaji Sankapal",
                 "contact":"8010785622"
             },
             {
-                "name":"Aryan Bhat",
+                "name":"Aryan Bhatt",
                 "contact":"7425964111"
             }
         ],
-        "team" :true
+        "team" :true,
+        "fee" : 200,
+        "limit" : 2
         
     },
     {
@@ -240,8 +250,9 @@
                 "contact":"9886987649"
             }
         ],
-        "team" : true
-        
+        "team" : true,
+        "fee" : 200,
+        "limit" : 10
     },
     {
         "title":"Take The Stage",
@@ -273,13 +284,15 @@
                 "contact":"7028770201"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit" : 4
     },
     {
         "title":"Brush Up",
         "subtitle": "Art Contest",
         "image":"",
-        "id":"9",
+        "id":"9",   
         "mode":"Offline",
         "type":"all",
         "registrationDeadline":" 5th Feb' 23, 11:59 PM",
@@ -304,7 +317,8 @@
                 "contact":"8817972743"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150
         
     },
     {
@@ -342,7 +356,9 @@
                 "contact":"9246809610"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit" : 2
         
     },
     {
@@ -362,9 +378,8 @@
             "This is a solo participation event.",
             "The performance should not exceed 4 minutes.",
             "If the time exceeds the limit, the participant receives the penalty.",
-            "Pure classical pieces are not allowed, but semi classical pieces will be allowed",
+            "All genres are accepted.",
             "Participants must make sure that the lyrics of the song are not offensive in any way.",
-            "The submission should be exclusive to this event.",
             "One instrument can be used to accompany the singer, which can be played by the singers themself or by one other person.",
             "If participants want to make use of karaoke, then they have to submit the same beforehand to the organizers.",
             "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
@@ -379,7 +394,8 @@
                 "contact":"9752112005"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150
         
     },
     {
@@ -420,7 +436,8 @@
                 "contact":"7020000938"
             }
         ],
-        "team": false   
+        "team": false,
+        "fee" : 100
     },
     {
         "title":"War Of Words",
@@ -439,7 +456,7 @@
             "There will be a team of three. It shall be a mini parliamentary debate format.",
             "Each speaker will get 2.5 minutes to speak.",
             "The theme would revolve around culture, which includes historical events, pop culture, etc.",
-            "For a clearer explanation of the format, refer to thai document - https://docs.google.com/document/d/1qxFnfn_ucjjv2zA9Jsxk399avvScR8ZY/edit?usp=share_link&ouid=104386498173006673249&rtpof=true&sd=true",
+            "For a clearer explanation of the format, refer to this document - https://docs.google.com/document/d/1qxFnfn_ucjjv2zA9Jsxk399avvScR8ZY/edit?usp=share_link&ouid=104386498173006673249&rtpof=true&sd=true",
             "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
         ],
         "spocs": [
@@ -456,7 +473,10 @@
                 "contact":"7696572850"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 3
+
     },
     {
         "title":"League Of Fanatics",
@@ -496,7 +516,9 @@
                 "contact":"7016740700"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 5   
     },
     {
         "title":"Dumb Charades",
@@ -529,7 +551,9 @@
                 "contact":"7893039570"
             }
         ], 
-        "team": true  
+        "team": true,
+        "fee" : 200,
+        "limit" : 4  
     },
     {
         "title":"Gulp And Gobble",
@@ -566,7 +590,8 @@
                 "contact":"9032272225"
             }
         ],
-        "team": false   
+        "team": false,
+        "fee" : 150
     },
     {
         "title":"Valorant",
@@ -602,7 +627,9 @@
                 "contact":"9110322406"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 6   
     }
 
 ]

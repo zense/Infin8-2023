@@ -15,6 +15,7 @@ import './Auth.scss'
 import { FaUser } from 'react-icons/fa'
 import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 
+
 function SignUp(props) {
 
     const [registerName, setRegisterName] = useState("");
@@ -62,8 +63,8 @@ function SignUp(props) {
             console.log("After OTP");
 
             props.setUser(userDetails);
-            routeChange(`otp-verification`);
-        }
+            routeChange(`/otp-verification`);
+        } 
         else if (result.status === "Exists") {
             console.log("User already exists");
         }
@@ -163,7 +164,86 @@ function SignUp(props) {
     }
 
 
-    return (
+    // const [show, setShow] = useState(false);
+
+    var passComp = <>
+        <span class="input-group-text" id="basic-addon1"><BsEyeFill
+            id="togglePassword"
+            onClick={() => {
+                setShow(true);
+            }} /></span>
+        <input type="password" class="form-control"
+            placeholder="Password" aria-label="Password"
+            id="your_password" onChange={(event) => {
+                setRegisterPassword(event.target.value);
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (show) {
+        passComp = <>
+            <span class="input-group-text" id="basic-addon1"><BsEyeSlashFill
+                id="togglePassword"
+                onClick={() => {
+                    setShow(false);
+                }} /></span>
+            <input type="text" class="form-control"
+                placeholder="Password" aria-label="Password"
+                id="your_password" onChange={(event) => {
+                    setRegisterPassword(event.target.value);
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
+
+    // const [conf, setConf] = useState(false);
+    var confComp = <>
+        <span
+            class="input-group-text"
+            onClick={() => {
+                setConf(true);
+            }}
+        ><BsEyeFill/></span>
+        <input type="password" class="form-control"
+            placeholder="Confirm Password" aria-label="Confirm Password"
+            id="repeat_password" onChange={(event) => {
+                setRegisterRePassword(event.target.value);
+
+                if (event.target.value !== registerPassword) {
+                    event.target.classList.add("focus");
+                }
+                else {
+                    event.target.classList.remove("focus");
+                }
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (conf) {
+        confComp = <>
+            <span
+                class="input-group-text"
+                onClick={() => {
+                    setConf(false);
+                }}
+            ><BsEyeSlashFill /></span>
+            <input type="text" class="form-control"
+                placeholder="Confirm Password" aria-label="Confirm Password"
+                id="repeat_password" onChange={(event) => {
+                    setRegisterRePassword(event.target.value);
+
+                    if (event.target.value !== registerPassword) {
+                        event.target.classList.add("focus");
+                    }
+                    else {
+                        event.target.classList.remove("focus");
+                    }
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
+
+
+
+  return (
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6">

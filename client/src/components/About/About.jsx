@@ -15,8 +15,7 @@ const About = () => {
             </div>
             <div className="col-12 col-md-6">
                 <div className="para">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde culpa expedita ipsam, nihil distinctio quo exercitationem necessitatibus fuga porro, facere totam! Nihil hic qui quibusdam voluptatum eos veritatis placeat non expedita sapiente in. Illo repudiandae velit omnis numquam incidunt quia optio laudantium quis a tempore! Cumque laboriosam eaque illum optio. Provident amet sunt voluptatem, harum dolore minima dicta deserunt. Veritatis, ex nobis!
-                </div>
+                IIIT Bangalore is back with a BANG with its 8th iteration of INFIN8- BIGGER and BETTER than before. Hold on to your seats as we present to you the largest and most exciting fest of our institute! A plethora of events awaits you to showcase your inner artist: War of words, Esports, Digital Art, Photography, Singing and Dance competitions and a lot more! Join in and be a part of this fun ride along with us @IIIT Bangalore. See you at the starting point of a marathon of mind-boggling, rib-tickling and adrenaline pumping events!                </div>
             </div>
         </div>
     </div>

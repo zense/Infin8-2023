@@ -65,11 +65,6 @@ export default function EntranceRegister(props){
                 document.getElementById("payBaseFeeButton").innerHTML = "Processed";
                 document.getElementById("payBaseFeeButton").classList.add("disabled");
 
-                updateDoc(userReference, {
-                    paid_base_fees: true
-                })
-                // props.setDisplayText("Payment Successful");
-                // return true;
             }
             else{
                 document.getElementById("payBaseFeeButton").innerHTML = "Processing";

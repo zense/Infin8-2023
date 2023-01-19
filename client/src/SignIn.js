@@ -4,6 +4,9 @@ import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, on
 import { db } from "./firebase-config";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
 import { useNavigate } from 'react-router-dom';
+import './Auth.scss'
+import { FaUser } from 'react-icons/fa'
+import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 
 
 function SignIn(props) {
@@ -35,12 +38,20 @@ function SignIn(props) {
         const docRef = doc(db, "users_list", userCredential.user.uid);
         const docSnap = await getDoc(docRef);
 
+      
         if (docSnap.exists()) {
+
+            var IIITBStudent = false;
+            if (registerEmail.slice(-12) === "@iiitb.ac.in"){
+                IIITBStudent = true;
+            }
+
             const userDetails = {
                 id: userCredential.user.uid,
                 name: docSnap.data().name,
                 email: docSnap.data().email,
-                contact: docSnap.data().contact
+                contact: docSnap.data().contact,
+                iiitbStudent: IIITBStudent
             }
 
             props.setUser(userDetails);
@@ -58,70 +69,78 @@ function SignIn(props) {
         routeChange(`/sign-up`);
     }
 
+    const [show, setShow] = useState(false);
+
+    var passComp = <>
+        <span class="input-group-text" id="basic-addon1"><BsEyeFill
+            id="togglePassword"
+            onClick={() => {
+                setShow(true);
+            }} /></span>
+        <input type="password" class="form-control"
+            placeholder="Password" aria-label="Password"
+            id="your_password" onChange={(event) => {
+                setRegisterPassword(event.target.value);
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (show) {
+        passComp = <>
+            <span class="input-group-text" id="basic-addon1"><BsEyeSlashFill
+                id="togglePassword"
+                onClick={() => {
+                    setShow(false);
+                }} /></span>
+            <input type="text" class="form-control"
+                placeholder="Password" aria-label="Password"
+                id="your_password" onChange={(event) => {
+                    setRegisterPassword(event.target.value);
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
+
 
     return (
-        <div>
-            {/* <section class="sign-in"> */}
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image"></div>
 
+        <div className="signin">
+        <div class="row">
+            <div className="col-12 col-lg-6">
+                <div className="row">
                     <h2 class="form-title">Sign In</h2>
-                    <div class="signin-form login-box">
-
-                        <div class="form-group user-box">
-                            {/* <label for="your_email"><i class=""></i></label> */}
-                            <input type="email" name="your_email" id="your_email" class="form-control" onChange={(event) => {
-                                setRegisterEmail(event.target.value);
-                            }} required="required"/>
-                            <label alt='Email' placeholder='Type Your Email'>Email</label>
-
-                        </div>
-
-                        <div class="form-group user-box">
-                            {/* <label for="your_password"><i class=""></i></label> */}
-                            <input type="password" name="your_password" id="your_password" class="form-control" onChange={(event) => {
-                                setRegisterPassword(event.target.value);
-                            }} required="required"/>
-                            <label alt='Password' placeholder='Password'>Password</label>
-                            <i class="far fa-eye eye-position" id="togglePassword" onClick={()=>{
-
-                                if (document.getElementById("togglePassword").classList.contains('fa-eye')){
-                                    document.getElementById("togglePassword").classList.replace('fa-eye', 'fa-eye-slash');
-                                }
-                                else{
-                                    document.getElementById("togglePassword").classList.replace('fa-eye-slash', 'fa-eye');
-                                }
-
-                                if (document.getElementById("your_password").type === "password"){
-                                    document.getElementById("your_password").type = "text";
-                                }
-                                else{
-                                    document.getElementById("your_password").type = "password";
-                                }
-                            }}></i>
-                        </div>
-
-                        <div class="form-group">
-                            <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn>
-                        </div>
-                        <div class="form-group">
-                            <btn onClick={goToRegister} name="goToRegister" id="goToRegister" class="btn btn-primary" value="Don't have an account? Sign Up">Register</btn> 
-                        </div>
-                      
-                        {/* <div class="social-login">
-                                <span class="social-label">Or login with</span>
-                                <ul class="socials">
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                                </ul>
-                            </div> */}
-                    </div>
                 </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                    <input type="text" class="form-control"
+                        id="your_email"
+                        placeholder="Email" aria-label="Email"
+                        onChange={(event) => {
+                            setRegisterEmail(event.target.value);
+                        }}
+                        required="required"
+                        aria-describedby="basic-addon1" />
+                </div>
+
+                {/* password */}
+                <div class="input-group mb-3">
+                    {passComp}
+                </div>
+
+                <div class="form-group">
+                    <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin">Login</btn>
+                    {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
+                </div>
+                <div class="form-group">
+                    <btn onClick={goToRegister} name="goToRegister" id="goToRegister" class="btn registerbtn btn-dark" value="Don't have an account? Sign Up">Register</btn> 
+                </div>      
             </div>
-            {/* </section> */}
+            
+            <div className="d-none d-lg-block col-lg-6">
+                <div className="signin-image"></div>
+            </div>
         </div>
+    </div>
     );
 }
 
