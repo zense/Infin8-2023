@@ -35,7 +35,7 @@ const RightCard = (props) => {
                                 </div>
                             </div>
                             <div className="row buttonrow">
-                                <div className="col-6 buttoncol mzr">
+                                {/* <div className="col-6 buttoncol mzr">
                                     <button className="rightborder tabbtn"><div className="row">
                                         <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Details
@@ -44,8 +44,8 @@ const RightCard = (props) => {
                                             <BsArrowDownRight />
                                         </div>
                                     </div></button>
-                                </div>
-                                <div className="col-6 buttoncol mzl">
+                                </div> */}
+                                <div className="col-12 buttoncol mzl">
                                     <button className="leftborder tabbtn"><div className="row">
                                         <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Register
@@ -96,7 +96,7 @@ const RightCard = (props) => {
                                 </div>
                             </div>
                             <div className="row buttonrow">
-                                <div className="col-6 buttoncol mzr">
+                                {/* <div className="col-6 buttoncol mzr">
                                     <button className="rightborder tabbtn"><div className="row">
                                         <div className="col-8 buttontextcol"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Details
@@ -105,8 +105,8 @@ const RightCard = (props) => {
                                             <BsArrowDownRight />
                                         </div>
                                     </div></button>
-                                </div>
-                                <div className="col-6 buttoncol mzl">
+                                </div> */}
+                                <div className="col-12 buttoncol mzl">
                                     <button className="leftborder tabbtn"><div className="row">
                                         <div className="col-8"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Register

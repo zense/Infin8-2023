@@ -76,6 +76,11 @@ $fontsize : 30px;
 }
 
 .NavModal {
+    .sociallink{
+        color : black;
+        text-decoration: none;
+        cursor: pointer;
+    }
     .modal-content {
         padding: 0;
     }

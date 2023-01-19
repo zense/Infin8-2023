@@ -3,64 +3,76 @@ $time-color : black;
 $line-width : 3px;
 $buttonbg : black;
 $buttontext : white;
-.RightCard{
+
+.RightCard {
+
     // width: 50vw;
-    .whitetext{
-        color : white;
+    .whitetext {
+        color: white;
         text-decoration: none;
     }
+
     .tabbtn:hover,
-    .tabbtn:active{
+    .tabbtn:active {
         background-color: white;
-        color : black;
-        .whitetext{
-            color : black;
+        color: black;
+
+        .whitetext {
+            color: black;
         }
     }
-    .card{
+
+    .card {
         border: $line-width solid $line-color;
         margin-left: -2.1vw;
         border-radius: 0;
-        box-shadow: 10px 10px 0px 0px rgba(74,58,255,1);
+        box-shadow: 10px 10px 0px 0px rgba(74, 58, 255, 1);
     }
-    .cardimage{
-        width : 100%;
+
+    .cardimage {
+        width: 100%;
         height: auto;
     }
-    .topBorder{
+
+    .topBorder {
         border-top: $line-width solid $line-color;
         width: 12vw;
         margin-left: -5vw !important;
     }
-    .timeBox{
+
+    .timeBox {
         background-color: $line-color;
-        color : $time-color;
-        width : 10vw;
+        color: $time-color;
+        width: 10vw;
         margin-left: -6vw;
     }
-    .title{
+
+    .title {
         text-align: left;
         margin-left: 14px;
         font-size: 30px;
         font-weight: 700;
     }
-    .incentives{
+
+    .incentives {
         text-align: left;
         margin-left: 14px;
         font-size: 17px;
         font-weight: 500;
     }
 
-    .buttonrow{
+    .buttonrow {
         margin-top: 10px;
     }
-    .whitetext{
-        color : white;
+
+    .whitetext {
+        color: white;
     }
 
-    .buttoncol{
-        button{
-            background-color: $buttonbg; /* Green */
+    .buttoncol {
+        button {
+            background-color: $buttonbg;
+            /* Green */
             border: none;
             border-top: $line-width solid $line-color;
             border-radius: 0;
@@ -68,22 +80,27 @@ $buttontext : white;
             padding: 8px 10px;
             text-align: center;
             text-decoration: none;
-            width: 100%;
+            width: 97%;
             height: 100%;
-          font-size: 17px;
-          font-weight: 600;
-          margin: 0;
-      }
-      margin-bottom: 0;
-      .leftborder{
-        border-left: calc($line-width/2) solid $line-color;
-      }
-      .rightborder{
-        border-right: calc($line-width/2) solid $line-color;
-      }
+            font-size: 17px;
+            font-weight: 600;
+            margin: 0;
+            margin-left: 3%;
+        }
+
+        margin-bottom: 0;
+
+        .leftborder {
+            border-left: calc($line-width/2) solid $line-color;
+        }
+
+        .rightborder {
+            border-right: calc($line-width/2) solid $line-color;
+        }
     }
-    @media(max-width : 991px){
-        .topBorder{
+
+    @media(max-width : 991px) {
+        .topBorder {
             border-top: $line-width solid $line-color;
             width: 12vw;
             margin-left: -4vw !important;
@@ -91,79 +108,98 @@ $buttontext : white;
     }
 
     //trivial classes
-    .mzl{
+    .mzl {
         margin-left: 0 !important;
         padding-left: 0 !important;
     }
-    .mzr{
+
+    .mzr {
         margin-right: 0 !important;
         padding-right: 0 !important;
     }
-    .emptyspace{
+
+    .emptyspace {
         height: 60px !important;
     }
-    .emptyspace2{
+
+    .emptyspace2 {
         height: 50px !important;
     }
 
 
-    .smallscreens{
-        max-width : 90%;
+    .smallscreens {
+        max-width: 90%;
         position: relative;
-        .imagebox{
+
+        .tabbtn:hover,
+        .tabbtn:active {
+            background-color: white;
+            color: black;
+
+            .whitetext {
+                color: black;
+            }
+        }
+
+        .imagebox {
             width: 100%;
             height: 100%;
             margin: 0;
             padding: 0;
             // border-right: 5px solid $line-color;
         }
-        img{
+
+        img {
             width: 100%;
             height: auto;
         }
-        .card{
+
+        .card {
             border: $line-width solid $line-color;
             border-radius: 0;
         }
 
 
-        .topBorder{
+        .topBorder {
             border-top: $line-width solid $line-color;
             width: 12vw;
             margin-left: -2vw !important;
-            position : absolute;
+            position: absolute;
         }
-        .timeBox{
+
+        .timeBox {
             background-color: $line-color;
-            color : $time-color;
-            width : 80px;
+            color: $time-color;
+            width: 80px;
             margin-left: -50px;
             z-index: 100;
             margin-right: 0 !important;
         }
-        
-        .title{
+
+        .title {
             text-align: left;
             margin-left: 5px;
             padding-right: 20px;
             font-size: 4vw;
             font-weight: 700;
         }
-        .incentives{
+
+        .incentives {
             text-align: left;
             margin-left: 5px;
             padding-right: 20px;
             font-size: 3.2vw;
             font-weight: 500;
         }
-    
-        .buttonrow{
+
+        .buttonrow {
             margin-top: 10px;
         }
-    
-        .buttoncol{
-            button{
-                background-color: $buttonbg; /* Green */
+
+        .buttoncol {
+            button {
+                background-color: $buttonbg;
+                /* Green */
                 border: none;
                 border-top: $line-width solid $line-color;
                 border-radius: 0;
@@ -171,48 +207,58 @@ $buttontext : white;
                 padding: 8px;
                 text-align: center;
                 text-decoration: none;
-                width: 100%;
+                width: 97%;
                 height: 100%;
-              font-size: 3.1vw;
-              font-weight: 600;
-              margin: 0;
-          }
-          .buttontextcol{
-            overflow-x: hidden;
-            text-overflow: hidden;
-            padding : 0 !important;
-            margin: 0 !important;
-          }
-          margin-bottom: 0;
-          .leftborder{
-            border-left: calc($line-width/2) solid $line-color;
-          }
-          .rightborder{
-            border-right: calc($line-width/2) solid $line-color;
-          }
+                font-size: 3.1vw;
+                font-weight: 600;
+                margin: 0;
+                margin-left: 3%;
+            }
+
+            .buttontextcol {
+                overflow-x: hidden;
+                text-overflow: hidden;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+
+            margin-bottom: 0;
+
+            .leftborder {
+                border-left: calc($line-width/2) solid $line-color;
+            }
+
+            .rightborder {
+                border-right: calc($line-width/2) solid $line-color;
+            }
         }
+
         @media (min-width:374px) {
-            .topBorder{
+            .topBorder {
                 width: 15vw !important;
                 margin-left: -4vw !important;
             }
         }
+
         @media (min-width:462px) {
-            .topBorder{
+            .topBorder {
                 margin-left: -6vw !important;
             }
-            
+
         }
+
         @media (min-width:606px) {
-            .topBorder{
+            .topBorder {
                 margin-left: -7.5vw !important;
             }
-            .buttoncol{
-                button{
+
+            .buttoncol {
+                button {
                     font-size: 17px !important;
                 }
             }
-            .incentives{
+
+            .incentives {
                 font-size: 17px !important;
             }
         }

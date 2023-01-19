@@ -14,7 +14,8 @@ import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 import './Auth.scss'
 // import {"fa-solid fa-paper-plane-top" } from 'react-icons/fa'
 // import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
-
+import infilogo from './images/infilogoblack.svg';
+import { BiTimeFive } from "react-icons/bi";
 
 function OTPVerification(props) {
 
@@ -22,16 +23,16 @@ function OTPVerification(props) {
 
     const auth = getAuth();
 
-    function validateOTP(){
+    async function validateOTP(){
         if (props.user.OTP === enteredOTP){
 
             console.log(enteredOTP);
 
-            const user = createUserWithEmailAndPassword(
+            const user = await createUserWithEmailAndPassword(
                 auth,
                 props.user.email,
-                props.user.password 
-            ).then((userCredential) => {
+                props.user.password
+            ).then(async (userCredential) => {
 
                 const userEventParticipationDetail = {
                     1: "Register",
@@ -74,7 +75,7 @@ function OTPVerification(props) {
                 }
 
                 const docRef = doc(db, "users_list", userCredential.user.uid);
-                setDoc(docRef, {
+                await setDoc(docRef, {
                     name: props.user.name,
                     contact: props.user.contact,
                     email: props.user.email,
@@ -92,22 +93,22 @@ function OTPVerification(props) {
                     contact: props.user.contact,
                     iiitbStudent: props.user.IIITBStudent
                 }
-    
+
                 props.setUser(userDetails);
                 // Add the new uid generated in the user json. 
                 props.setLoggedInStatus(true);
-            
+
                 routeChange(`home`);
 
             }).catch((error) => {
             });
         }
-        else{
+        else {
         }
     }
 
     let navigate = useNavigate();
-    const routeChange = (path) =>{ 
+    const routeChange = (path) => {
         // let path = `home`; 
         navigate(path);
     }
@@ -116,21 +117,25 @@ function OTPVerification(props) {
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6">
-                    <div className="row">
-                        <h2 class="form-title">Enter OTP</h2>
+                <img src={infilogo} className='authlogo'></img>
+                    <div className="row centerrow">
+                        <h2 class="formtitle">Verify</h2>
                     </div>
-
-                    <div class="input-group mb-3">
-                        <span class="input-group-text" id="basic-addon1">OTP</span>
-                        <input type="text" name="otp"  id="otp" class="form-control"
+                    <div className="row centerrow labelrow">
+                        We have sent you an OTP on the email address you provided.<br/>
+                        Enter the same below:
+                    </div>
+                    <div class="input-group mb-3 centerrow mt-5">
+                        <span class="input-group-text" id="basic-addon1"><BiTimeFive></BiTimeFive></span>
+                        <input type="text" name="otp" id="otp" class="form-control"
                             aria-label="Name"
-                             onChange={(event) => {
+                            onChange={(event) => {
                                 setEnteredOTP(event.target.value);
                             }} required="required"
                             aria-describedby="basic-addon1" />
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group centerrow mt-5">
                         <btn onClick={validateOTP} name="otp-btn" id="otp-btn" class="btn registerbtn btn-dark" value="validate-otp">Validate</btn>
                     </div>
                 </div>

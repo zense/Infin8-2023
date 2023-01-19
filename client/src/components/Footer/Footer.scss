@@ -1,4 +1,12 @@
 .Footer{
+    .sociallink:hover,
+    .sociallin:active,
+    .sociallink{
+        color : white;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    
     text-align: center;
     font-family: 'Poppins';
     overflow-y: hidden !important;

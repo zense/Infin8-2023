@@ -24,7 +24,8 @@ const ScrollToTop = (props) => {
   return <>{props.children}</>
 };
 function App(props) {
-
+  // Whenever someone logs in, we need to update tge entire user state
+  
   // function navigator(position, replace) {
   //   props.navigate(position, { replace: replace });
   // }
@@ -70,3 +71,5 @@ function App(props) {
 }
 
 export default App;
+
+

@@ -80,7 +80,7 @@ function RegisterEvent(props) {
           id={id}
           entrace_fee={props.entrace_fee}
         />
-      <Footer/>
+      {/* <Footer/> */}
       </ScrollToTop>
     </div>
   );
