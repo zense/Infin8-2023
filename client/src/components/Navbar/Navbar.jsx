@@ -107,16 +107,24 @@ const Navbar = (props) => {
                 </div>
                 <div className="row">
                     <div className="col">
+                    <a href="https://twitter.com/IIITB_official?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" className="sociallink">
                         <BsTwitter className='icon'></BsTwitter>
+                        </a>
                     </div>
                     <div className="col">
+                    <a href="https://instagram.com/infin8_iiitb?igshid=NTdlMDg3MTY=" className="sociallink">
                         <BsInstagram className='icon'></BsInstagram>
+                        </a>
                     </div>
                     <div className="col">
+                        <a href="https://www.linkedin.com/school/iiitbofficial/" className="sociallink">
                         <BsLinkedin className='icon'></BsLinkedin>
+                        </a>
                     </div>
                     <div className="col">
+                    <a href="https://m.facebook.com/IIITBofficial/" className="sociallink">
                         <BsFacebook className='icon'></BsFacebook>
+                        </a>
                     </div>
                 </div>
             </Modal.Body>
