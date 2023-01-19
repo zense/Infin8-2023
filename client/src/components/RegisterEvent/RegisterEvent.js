@@ -24,7 +24,6 @@ function RegisterEvent(props) {
       event=eventDetails[i];
     }
   }
-  console.log(`../../../images/${event.id}`);
 
   if(event.prizes!=="NA"){
     prize_money=parseInt(event.prizes.first,10) + parseInt(event.prizes.second,10)
@@ -71,6 +70,7 @@ function RegisterEvent(props) {
           other_details={event.rules} 
           contacts={event.spocs}
           event_fee={ props.user.iiitbStudent ? 0 : eventDetails[id-1].fee}
+          event_limit={eventDetails[id-1].limit}
           loggedInStatus={props.loggedInStatus}
           email={props.user.email}
           team_event={event.team}

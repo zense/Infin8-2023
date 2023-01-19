@@ -39,7 +39,7 @@ const TimeLine = () => {
         data = day2;
     }
     for (var i = 0; i < data.length; i++) {
-        var link="./Eventimages/"+ data[i]["id"]+".jpg";
+        var link = "./Eventimages/" + data[i]["id"] + ".jpg";
         if (ct & 1) {
             desktopCardsRight.push(
                 <>
@@ -64,14 +64,24 @@ const TimeLine = () => {
             </>
         )
     }
+    const beginString = [
+        "INFIN8 BEGINS",
+        "DAY 2 BEGINS",
+        "DAY  3  BEGINS",
+    ];
+    const endString = [
+        "DAY 1 ENDS",
+        "DAY 2 ENDS",
+        "INFIN8 ENDS",
+    ];
 
 
     return <div className="Timeline" id="Timeline">
         {/* heading  */}
         <div className="row headingrow">
-                <div className="heading">
-                    TIMELINE
-                </div>
+            <div className="heading">
+                TIMELINE
+            </div>
         </div>
         <div className="row overlayrow">
             <div className="overlay">
@@ -89,7 +99,7 @@ const TimeLine = () => {
                 <div className="col-3"></div>
                 <div className="col-6">
                     <div className="beginRect">
-                        INFIN8 BEGINS
+                        {beginString[day - 1]}
                     </div>
                 </div>
                 <div className="col-3"></div>
@@ -108,7 +118,7 @@ const TimeLine = () => {
                 <div className="col-3"></div>
                 <div className="col-6">
                     <div className="beginRect">
-                        INFIN8 ENDS
+                        {endString[day - 1]}
                     </div>
                 </div>
                 <div className="col-3"></div>
@@ -120,7 +130,7 @@ const TimeLine = () => {
             <div className="row">
                 <div className="col-4">
                     <div className="beginRect">
-                        INFIN8 BEGINS
+                        {beginString[day - 1]}
                     </div>
                 </div>
                 <div className="col"></div>
@@ -135,7 +145,7 @@ const TimeLine = () => {
             <div className="row">
                 <div className="col-4">
                     <div className="beginRect">
-                        INFIN8 ENDS
+                        {endString[day - 1]}
                     </div>
                 </div>
                 <div className="col"></div>

@@ -16,7 +16,6 @@ const Title = () => {
         const hours = Math.floor((diffDate % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diffDate % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diffDate % (1000 * 60)) / 1000);
-        console.log(days, hours, minutes, seconds)
         setdayshoursMinSecs({ das: days, hours: hours, minutes: minutes, seconds: seconds })
     }, [])
     return <div className="titlecontainer" >

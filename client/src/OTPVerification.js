@@ -23,9 +23,10 @@ function OTPVerification(props) {
     const auth = getAuth();
 
     function validateOTP(){
-        console.log(enteredOTP);
-        console.log(props.user.OTP);
         if (props.user.OTP === enteredOTP){
+
+            console.log(enteredOTP);
+
             const user = createUserWithEmailAndPassword(
                 auth,
                 props.user.email,
@@ -99,11 +100,9 @@ function OTPVerification(props) {
                 routeChange(`home`);
 
             }).catch((error) => {
-                console.log(error.message);
             });
         }
         else{
-            console.log("Wrong OTP");
         }
     }
 
