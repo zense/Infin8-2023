@@ -21,6 +21,7 @@
     background-size: cover;
     // background-image: url(../../../images/Battle.png);
     background-repeat: no-repeat;
+    // background-position: center;
     margin : 0 !important;
     padding: 0 !important;
     object-fit: fill !important;
@@ -188,8 +189,13 @@
         padding-left: 10vw;
     }
 }
-// @media (max-width: 768px) {
-//     .Details{
-//         padding-top: 30vh;
-//     }
-// }
+@media (max-width: 992px) {
+    .NewTitle{
+        background-position: 40%;
+    }
+}
+@media (max-width: 768px) {
+    .NewTitle{
+        background-position: center;
+    }
+}
