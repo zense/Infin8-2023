@@ -26,8 +26,8 @@
     "yarn": "^1.22.19"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "deploy": "npm run build && scp -r build/* iiitb@172.16.201.127:/var/www/172.16.201.127"

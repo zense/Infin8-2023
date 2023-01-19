@@ -79,7 +79,7 @@ const RightCard = (props) => {
                             <div className="row">
                                 <div className="col-6">
                                     <div className="imagebox">
-                                        <img src={process.env.PUBLIC_URL + props.image} alt={props.title} cardImage/>
+                                        <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className="timelineImage"/>
                                     </div>
                                 </div>
                                 <div className="col-6">

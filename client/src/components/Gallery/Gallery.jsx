@@ -1,18 +1,21 @@
 import "./Gallery.scss"
 import Card from "./Card"
 import data from '../../content/gallery_content'
+import Zoom from 'react-reveal/Zoom';
+
+
 
 const Gallery = () => {
     const galleryCards = [];
     for (var i = 0; i < data.length; i++) {
-        
-        var link="./Eventimages/"+ data[i]['id']+".jpg";
+
+        var link = "./Eventimages/" + data[i]['id'] + ".jpg";
         galleryCards.push(
             <Card
                 title={data[i]['title']}
                 incentives={data[i]['incentives']}
-                image = {link}
-            id = {data[i]['id']}
+                image={link}
+                id={data[i]['id']}
             />
         );
     }
@@ -27,9 +30,11 @@ const Gallery = () => {
                 BIG EVENTS.
             </h1>
         </div>
-        <div className="scroll">
-            {galleryCards}
-        </div>
+        <Zoom>
+            <div className="scroll">
+                {galleryCards}
+            </div>
+        </Zoom>
     </div>
 }
 

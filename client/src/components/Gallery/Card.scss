@@ -6,8 +6,9 @@ $line-width : 3px;
 .Card{
     flex : 0 0 auto;
     width: 26vw;
-    margin: 3vh 2.7vw;
+    margin: 3vh 4vw !important;
     margin-bottom: 6vh;
+    
     .incentives{
         font-size: medium;
         padding-bottom: 4vh;
@@ -75,7 +76,16 @@ $line-width : 3px;
     @media(min-width : 615px) and (max-width : 869px){
         width: 35vw;
     }
-
+    @media(max-width : 1211px) {
+        margin-left : 5vw !important;
+    }
+    @media(max-width : 1043px){
+        margin-left : 7vw !important;
+    }
+    @media(max-width : 850px){
+        margin-left: 9vw !important;
+    }
+    // @media(max-wi)
 
     .mz{
         margin : 0!important;

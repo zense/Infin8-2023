@@ -38,6 +38,10 @@ $scrollbar : #aaaaaa;
         flex-wrap: nowrap;
         overflow-x: scroll !important;
         padding-left: 3vw;
+        @media(min-width: 1551px){
+            justify-content: center;
+            align-items: center;
+        }
         // white-space: nowrap !important;
     }
 
