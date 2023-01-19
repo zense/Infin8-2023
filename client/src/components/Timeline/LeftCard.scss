@@ -52,6 +52,8 @@ $buttontext : white;
     }
 
     .buttoncol{
+        width: 96%;
+        // padding-left: 3%;
         button{
             background-color: $buttonbg; /* Green */
             border: none;
@@ -66,11 +68,12 @@ $buttontext : white;
           font-size: 17px;
           font-weight: 600;
           margin: 0;
+          margin-left: 4%;
       }
       margin-bottom: 0;
-      .leftborder{
-        border-left: calc($line-width/2) solid $line-color;
-      }
+    //   .leftborder{
+    //     border-left: calc($line-width/2) solid $line-color;
+    //   }
       .rightborder{
         border-right: calc($line-width/2) solid $line-color;
       }

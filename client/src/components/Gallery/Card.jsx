@@ -24,7 +24,7 @@ const Card = (props) => {
             </div>
             {/* </Zoom> */}
             <div className="row">
-                <div className="col-6 mz">
+                {/* <div className="col-6 mz">
                     <button className='border_right registerbutton'><div className="row">
                         <div className="col-9">
                             <Link to={`/registerevent/${props.id}`} className="white">
@@ -34,8 +34,8 @@ const Card = (props) => {
                             <img className="arrow" src={arrow} alt="image" />
                         </div>
                     </div></button>
-                </div>
-                <div className="col-6 mz border_left">
+                </div> */}
+                <div className="col-12 mz border_left">
                     <button className='border_left registerbutton'><div className="row">
                         <div className="col-9">
                             <Link to={`/registerevent/${props.id}`} className="white">
