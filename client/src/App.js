@@ -51,7 +51,7 @@ function App(props) {
             <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             <Route path="/otp-verification" element={<OTPVerification user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             
-            <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus}/>} />
+            <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus} paid_base_fees={user.baseFeePaid}/>} />
             
             {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
             <Route path="/registerevent/:id" element={<RegisterEvent user={user} loggedInStatus={loggedInStatus} entrance_fee={50} signed_in={loggedInStatus} registered_for_event={false}/>} />

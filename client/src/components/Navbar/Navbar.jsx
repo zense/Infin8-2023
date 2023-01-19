@@ -91,7 +91,7 @@ const Navbar = (props) => {
                     </Link>
                 </div>
                 <div className="row option">
-                    <Link to={`#`} className='white'>
+                    <Link to={`../#`} className='white'>
                         TEAM <BsFillCaretLeftFill color="white" className='triangle' />
                     </Link>
                 </div>
