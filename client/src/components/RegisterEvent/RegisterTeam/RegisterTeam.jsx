@@ -60,10 +60,6 @@ export default function RegisterTeam(props) {
 
 
     const createPaymentObject = async () => {
-
-        // console.log(props.user_id);
-        // console.log(props.iiitbStudent);
-
         // Create a new team
         if (!joinExistingTeam) {
             var status = "processing";
@@ -108,7 +104,6 @@ export default function RegisterTeam(props) {
             })
 
             setTeamID(teamData.id);
-            // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
             // Create a Team Button is disabled for now.
             document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
 
