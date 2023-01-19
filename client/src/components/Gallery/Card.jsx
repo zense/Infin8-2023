@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import Zoom from 'react-reveal/Zoom';
 
 const Card = (props) => {
-    return <Zoom>
-        <div className="Card">
+    return <div className="Card">
             <div className="row">
                 <div className="col mz">
                     <img className="cardImage" src={props.image} alt="image" />
@@ -17,11 +16,13 @@ const Card = (props) => {
                     {props.title}
                 </h1>
             </div>
+            {/* <Zoom> */}
             <div className="row">
                 <h5 className="incentives">
                     {props.incentives}
                 </h5>
             </div>
+            {/* </Zoom> */}
             <div className="row">
                 <div className="col-6 mz">
                     <button className='border_right registerbutton'><div className="row">
@@ -48,7 +49,7 @@ const Card = (props) => {
                 </div>
             </div>
         </div>
-    </Zoom>
+    
 }
 
 export default Card;

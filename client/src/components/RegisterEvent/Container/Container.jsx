@@ -140,6 +140,7 @@ export default function Container(props) {
                                             iiitbStudent={props.iiitbStudent}
                                             loggedInStatus={props.signed_in}
                                             email={props.email}
+                                            limit={props.event_limit}
                                         />
                                         :
                                         <Register

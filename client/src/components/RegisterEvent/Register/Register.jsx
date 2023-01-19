@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import './Register.css';
 import { db } from "../../../firebase-config";
 import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 
 export default function Register(props){
@@ -34,17 +34,19 @@ export default function Register(props){
             }
             else{
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
                 document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
             }
         }
 
     }
 
-    if (props.loggedInStatus){
-        checkStatus();
-    }
-
-
+    
+    useEffect(() => {
+        if (props.loggedInStatus) {
+            checkStatus();
+        }
+    },[props.loggedInStatus])
 
 
     const createPaymentObject = async () => {
@@ -55,7 +57,6 @@ export default function Register(props){
             status = "processed";
         }
 
-        console.log(props.user_id);
         // event id
         const paymentRef = await addDoc(collection(db, "payments"), {
             event_id: props.event_id,
@@ -65,14 +66,11 @@ export default function Register(props){
             transaction_id:"ID NUMBER PATA NAHI",
             user: props.user_id
         });
-        console.log("Payment Object Made");
         
         let paymentObjectID = paymentRef.id;
 
         const userRef = doc(db, "users_list", props.user_id);
         const userDocSnap = getDoc(userRef);
-
-        console.log("Setting users_list");
 
         // if (userDocSnap.exists()){
         let paymentDetails = (await userDocSnap).data().paymentDetails;
@@ -84,15 +82,14 @@ export default function Register(props){
 
         // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
         document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+        
         if (props.iiitbStudent){
             document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
         }
-        // }
-        // else{
-            // console.log("User does not exists!");
-        // }
-        // get payment_details from a user
-
+        else{
+            document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+            document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
+        }
     }
 
 
@@ -135,7 +132,7 @@ export default function Register(props){
             {
             user_registered
             ?
-                <h1>You are registered</h1>
+                <h1 style={{"textAlign":"center", "marginTop": "30px"}}>You are registered</h1>
             :
             props.iiitbStudent === true
             ?
@@ -167,7 +164,6 @@ export default function Register(props){
                             document.getElementById("inputFile").click()
                         }} style={{"paddingTop":"20px"}}>
                             <input type={"file"} id="inputFile" style={{"display":"none"}} accept="image/*" onChange={(e)=>{
-                                console.log(e.target.files[0]);
                                 //e.target.files[0] can be posted to backend
                                 var file=e.target.files[0];
                                 var imgtag=document.getElementById("dotted1");
@@ -228,6 +224,10 @@ export default function Register(props){
                         
                     </button>
                     }
+                    <div id="ContactIfNotProcessed" style={{"color":"white", "visibility":"hidden", "textAlign":"center", "marginTop": "30px"}}>
+                    <p>Your payment will be processed within 24 hrs.</p> 
+                    <p>If not done by then, contact +91 9043633668 on WhatsApp</p>
+                    </div>
                 </div>
             </div>
             }

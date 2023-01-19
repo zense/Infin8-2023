@@ -8,6 +8,7 @@ import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "fir
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
+import { useEffect } from "react";
 
 
 export default function RegisterTeam(props) {
@@ -22,6 +23,7 @@ export default function RegisterTeam(props) {
 
     const [upiID, setUpiID] = useState("");
     const [transactionID, setTransactionID] = useState("");
+    const [teamCode, setTeamCode] = useState("");
 
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
@@ -47,21 +49,26 @@ export default function RegisterTeam(props) {
             }
             else {
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
                 document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
             }
         }
 
     }
 
-    if (props.loggedInStatus) {
-        checkStatus();
-    }
+    useEffect(() => {
+        if (props.loggedInStatus) {
+            checkStatus();
+        }
+    },[props.loggedInStatus])
+
 
 
 
     const createPaymentObject = async () => {
         // Create a new team
         if (!joinExistingTeam) {
+
             var status = "processing";
             if (props.iiitbStudent) {
                 status = "processed";
@@ -72,21 +79,20 @@ export default function RegisterTeam(props) {
                 multi: true,
                 screenshot: "",
                 status: status,
-                transaction_id: "ID NUMBER PATA NAHI",
+                transaction_id: transactionID,
+                upi_id: upiID,
                 user: props.user_id
             });
-            console.log("Payment Object Made");
 
             let paymentObjectID = paymentRef.id;
 
             const userRef = doc(db, "users_list", props.user_id);
             const userDocSnap = getDoc(userRef);
 
-            console.log("Setting users_list");
 
             const teamData = await addDoc(collection(db, "teams"), {
-                limit: 5,
-                vacancy: 4,
+                limit: props.limit,
+                vacancy: props.limit-1,
                 members: [props.user_id],
                 leaderID: props.user_id
             });
@@ -112,21 +118,20 @@ export default function RegisterTeam(props) {
             }
             else {
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
             }
         }
 
         else {
             // Joining An Existing team.
-            const inputTeamID = document.getElementById("inputID").value;
-
             var teamToJoin = "";
             var teamToJoinData = {};
             const teamIDs = await getDocs(collection(db, "teams"));
             teamIDs.forEach((teamID) => {
                 // doc.data() is never undefined for query doc snapshots
-                if (teamID.id === inputTeamID) {
-                    setTeamID(inputTeamID);
-                    teamToJoin = inputTeamID;
+                if (teamID.id === teamCode) {
+                    setTeamID(teamCode);
+                    teamToJoin = teamCode;
                     teamToJoinData = teamID.data();
                 }
             });
@@ -142,8 +147,6 @@ export default function RegisterTeam(props) {
                     var teamRef = doc(db, "teams", teamToJoin);
                     var teamMembers = teamToJoinData.members;
                     teamMembers.push(props.user_id);
-
-                    console.log("Team Members: ", teamMembers);
 
                     var leaderID = teamToJoinData.leaderID;
 
@@ -181,6 +184,7 @@ export default function RegisterTeam(props) {
                     }
                     else {
                         document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                        document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
                     }
                 }
             }
@@ -273,7 +277,8 @@ export default function RegisterTeam(props) {
                                         placeholder="Enter Team Code"
                                         id="inputID"
                                         style={{ "width": "200px" }}
-                                        onChange={() => {
+                                        onChange={(event) => {
+                                            setTeamCode(event.target.value);
                                         }}
                                     />}
                             </div>
@@ -323,7 +328,6 @@ export default function RegisterTeam(props) {
                                                         document.getElementById("inputFile").click()
                                                     }} style={{ "paddingTop": "20px" }}>
                                                         <input type={"file"} id="inputFile" style={{ "display": "none" }} accept="image/*" onChange={(e) => {
-                                                            console.log(e.target.files[0]);
                                                             //e.target.files[0] can be posted to backend
                                                             var file = e.target.files[0];
                                                             var imgtag = document.getElementById("dotted2");
@@ -396,11 +400,11 @@ export default function RegisterTeam(props) {
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
                                                 onClick={createPaymentObject}>Register</button>}
                                     </div>
+                                    <div id="ContactIfNotProcessed" style={{"color":"white", "visibility":"hidden", "textAlign":"center", "marginTop": "30px"}}>
+                                        <p>Your payment will be processed within 24 hrs.</p> 
+                                        <p>If not done by then, contact +91 9043633668 on WhatsApp</p>
+                                    </div>
                                 </div>
-
-
-
-
 
                             }
                         </div>

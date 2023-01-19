@@ -29,7 +29,8 @@
                 "contact":" 9492824058"
             }
         ],
-        "team" : false
+        "team" : false,
+        "limit" : 1
         
     },
     {
@@ -102,7 +103,9 @@
             }
         ],
         "team" : true,
-        "fee" : 200
+        "fee" : 200,
+        "limit" : 1
+
     },
     {
         "title":"Clash Royale",
@@ -318,7 +321,9 @@
             }
         ],
         "team": false,
-        "fee" : 150
+        "fee" : 150,
+        "limit" : 1
+
         
     },
     {
@@ -395,7 +400,9 @@
             }
         ],
         "team": false,
-        "fee" : 150
+        "fee" : 150,
+        "limit" : 1
+
         
     },
     {
@@ -437,7 +444,9 @@
             }
         ],
         "team": false,
-        "fee" : 100
+        "fee" : 100,
+        "limit" : 1
+
     },
     {
         "title":"War Of Words",
@@ -591,7 +600,9 @@
             }
         ],
         "team": false,
-        "fee" : 150
+        "fee" : 150,
+        "limit" : 1
+
     },
     {
         "title":"Valorant",

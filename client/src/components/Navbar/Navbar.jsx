@@ -29,19 +29,19 @@ const Navbar = (props) => {
     return <div className="Navbar">
         <div className="largescreens">
             <div className="row navrow">
-                <div className="col-2">
+                <div className="mycol">
                     <Link to={`../home`} className="navbutton">Home </Link>
                 </div>
-                <div className="col-2">
+                <div className="mycol">
                     <Link to={`../events`} className="navbutton">Events </Link>
                 </div>
-                <div className="col-3">
+                <div className="mycolspecial">
                     <Link to={`../contact`} className="navbutton">Contact Us </Link>
                 </div>
-                <div className="col-2">
+                <div className="mycol">
                     <Link to={`#`} className="navbutton">Team</Link>
                 </div>
-                <div className="col">
+                <div className="mycol">
                     <Link to={page} className="navbutton">
                         {displayText}
                     </Link>

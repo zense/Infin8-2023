@@ -11,6 +11,7 @@ import { db } from '../firebase-config'
 import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
 import { useState } from "react";
 import eventDetails from '../content/eventDetails.json';
+import { useEffect } from 'react'
 
 
 const Profile = (props) => {
@@ -36,24 +37,27 @@ const Profile = (props) => {
 
                 var status = (await payData).data().status;
                 var eventID = (await payData).data().event_id;
-                var eventName = eventDetails[eventID].title;
+                var eventName = eventDetails[eventID-1].title;
+                var eventSubtitle = eventDetails[eventID-1].subtitle;
                 // var status = (await payData).data().status;
                 
                 if (status === "processed"){
                     var eventObject = {
-                        eventName: eventName
+                        eventName: eventName,
+                        eventSubtitle: eventSubtitle
                     }
                     eventsParticipatedIn.push(eventObject);
                 }
             }
         }
-        // console.log(eventsParticipatedIn);
         setParticipatedEvents(eventsParticipatedIn);
     }
-
-    if (props.loggedInStatus){
-        checkStatus();
-    }
+    
+    useEffect(() => {
+        if (props.loggedInStatus){
+            checkStatus();
+        }
+    },[props.loggedInStatus])
 
 
     return <div className="Profile">
@@ -105,13 +109,18 @@ const Profile = (props) => {
         
         <div className="slips">
         {
+            participatedEvents.length > 0 ?
             participatedEvents.map((eventDetail)=>{
-                <RegisteredSlip 
-                    title="asdasdadas"
-                    // title = {eventDetail.eventName}
-                    subtitle = "This is sample subtitles"
-                />
-            })
+                return(
+                    <RegisteredSlip 
+                        // title="asdasdadas"
+                        title = {eventDetail.eventName}
+                        subtitle = {eventDetail.eventSubtitle}
+                    />
+                )
+            }) 
+            : 
+            ""
         }
         </div>
         {/* <div className="slips">
