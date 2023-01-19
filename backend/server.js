@@ -64,6 +64,7 @@ app.post('/api/sendOTP', async (req, res) => {
     // Need to create a temporary array for storing unverified data
     // Choose the user with his id and send him verification mail
 
+    console.log(otp);
     // await db.collection()
     var alreadyExist = false;
     const usersData = await db.collection("users_list").get();
@@ -78,6 +79,7 @@ app.post('/api/sendOTP', async (req, res) => {
         res.json({status: "Exists"});
     }
     else{
+        console.log("Wait...sending otp");
         mail.setConfiguration(email, name, otp);
         mail.sendMail(res);
     }

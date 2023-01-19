@@ -1,11 +1,12 @@
 import React from "react";
-import './Team.scss';
+// import './Team.scss';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import CALL from "../../images/call.webp";
 import {Zoom} from "react-reveal";
 import { Fade } from "react-reveal";
 import Vector from '../../images/Vector3.png'
+import './NewTeam.scss'
 function TeamCard(props){
     return <>
         <div className="col-lg-4 col-sm-6">
@@ -13,12 +14,8 @@ function TeamCard(props){
             <div className="card adjust Cards" >
                 <img src={CALL} className="card-img-top" />
                 <div className="card-body" style={{"background-color": "black", "color": "white"}}>
-                    {/* <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
                     <div className="Heading">
                        {props.name}
-                    </div>
-                    <div className="Role">
-                        {props.role}
                     </div>
                 </div>
                 </div>
@@ -26,9 +23,68 @@ function TeamCard(props){
             </div>
     </>
 }
+function NewTeamCard(props){
+    return (
+        <div className="col-lg-4 col-md-6">
+        <div className="team-item">
+            <div className="team-img">
+                <img src={props.img} alt="team Image"/>
+                <div className="normal-text">
+                    <h4 className="team-name">{props.name}</h4>
+                    <span className="subtitle">{props.role}</span>
+                </div>
+            </div>
+            <div className="team-content">
+                <div className="display-table">
+                    <div className="display-table-cell">
+                        <div className="share-icons">
+                            <div className="border"></div>
+                            <ul className="team-social icons-1">
+                                <li><a href="#" className="social-icon"><i className="fa fa-facebook"></i></a>
+                                </li>
+                                <li><a href="#" className="social-icon"><i className="fa fa-twitter"></i></a>
+                                </li>
+                            </ul>
+
+                            <ul className="team-social icons-2">
+                                <li><a href="#" className="social-icon"><i className="fa fa-skype"></i></a>
+                                </li>
+                                <li><a href="#" className="social-icon"><i className="fa fa-linkedin"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div className="team-details">
+                            <h4 className="team-name">
+                                <a href="speakers-single.html">{props.name}</a>
+                            </h4>
+                            <span className="postion">{props.role}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    )   
+}
+function Template(props){
+    return (
+    <div className="Template">
+        <div id="rs-team" className="rs-team fullwidth-team pt-100 pb-70">
+            <div className="container">
+                <div className="row">
+                    <NewTeamCard img={"./eventimages/Dhoni.webp"} name={"Rohit Shah"} role={"Organiser"}/>
+                    <NewTeamCard img={"./eventimages/Dhoni.webp"} name={"Rohit Shah"} role={"Organiser"}/>
+                    <NewTeamCard img={"./eventimages/Dhoni.webp"} name={"Rohit Shah"} role={"Organiser"}/>
+                    <NewTeamCard img={"./eventimages/Dhoni.webp"} name={"Rohit Shah"} role={"Organiser"}/>
+                </div>
+            </div>
+        </div>
+    </div>
+)
+}
 function TeamTitle(props){
     return <div className="TeamTitle">
-        <div className="container-fluid change">
+        <div className="container change">
             <div className="row" >
                     <div className="col-12 register" >
                         <Fade top delay={100} duration={1500}>
@@ -48,20 +104,10 @@ function TeamTitle(props){
 }
 export default function Team(props){
     return(
-        <div className="Team">
+        <div className="Team"  style={{"overflow-x": "hidden"}}>
             <Navbar props={props}></Navbar>
-            <TeamTitle/>
-            <div className="container-fluid">
-                <div className="row ">
-                   <TeamCard name={"Munagala Kalyan Ram"} role={"Frontend Developer"}/>
-                   <TeamCard name={"Vikas Kalyanapuram"} role={"Frontend Developer"}/>
-                   <TeamCard name={"Subhajeet Lahiri"} role={"Frontend Developer"}/>
-                   <TeamCard name={"Rishi Dutt"} role={"UI/UX Designer"}/>
-                   <TeamCard name={"Amar"} role={"Backend Developer"}/>
-                   <TeamCard name={"Rohit Shah"} role={"SPOC"}/>
-                   <TeamCard name={"Dhanvi Medha"} role={"SPOC"}/>
-                </div>
-            </div>
+            {/* <TeamTitle/> */}
+            <Template/>
             <Footer/>
         </div>
     )

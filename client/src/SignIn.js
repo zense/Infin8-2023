@@ -29,7 +29,6 @@ function SignIn(props) {
             // props.navigator("/", false);
 
         }).catch((error) => {
-            console.log(error.message);
         });
     }
 
@@ -55,7 +54,6 @@ function SignIn(props) {
 
             props.setUser(userDetails);
         } else {
-            console.log("No such document!");
         }
     }
 

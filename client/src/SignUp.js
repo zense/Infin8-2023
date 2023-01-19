@@ -31,14 +31,12 @@ function SignUp(props) {
     const register = async () => {
         const PORT = process.env.PORT || 5000;
 
-        console.log("Before OTP");
-
-        var url = `http://localhost:${PORT}/sendOTP`;
+        var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
+        var testingURL = `http://localhost:${PORT}/api/sendOTP`;
 
         // generateOTP(n) generates OTP of length n
         var OTP = generateOTP(4).toString(10);
-        console.log(OTP);
-        const result = await fetch(url, {
+        const result = await fetch(publicURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -61,7 +59,6 @@ function SignUp(props) {
                 OTP: OTP
             }
 
-            console.log("After OTP");
 
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
