@@ -17,43 +17,36 @@ export default function RegisterTeam(props) {
     const [color1, changecolor1] = useState("red");
     const [color2, changecolor2] = useState("green");
 
-    const [paid_base_fees, set_paid_base_fees] = useState(false);
     const [user_registered, set_user_registered] = useState(false);
-    const [teamID, setTeamID] = useState("");
+    const [teamID, setTeamID] = useState("Team_ID");
+
+
 
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
         var userData = getDoc(userReference);
-
-        var baseFeesPaid = (await userData).data().paid_base_fees;
+        // Fetching the payment details from the paymeny object map in firebase.
         var paymentDetails = (await userData).data().paymentDetails;
 
-        if (baseFeesPaid) {
-            set_paid_base_fees(true);
-            document.getElementById("chooseTeam").style.visibility = "visible";
-            // console.log("Paid base fee :", paid_base_fees); 
-        }
-        else {
-            document.getElementById("chooseTeam").style.visibility = "hidden";
-        }
+        var eventTeamMap = (await userData).data().eventTeamMap;
+            // document.getElementById("chooseTeam").style.visibility = "hidden";
 
         if (paymentDetails[props.event_id] !== "Register") {
 
-            if (paymentDetails[props.event_id] === "JoinedATeam") {
+            var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
+            var paymentData = getDoc(paymentReference);
+
+            var status = (await paymentData).data().status;
+
+            if (status === "processed") {
+                setTeamID(eventTeamMap[props.event_id]);
                 set_user_registered(true);
                 document.getElementById("chooseTeam").style.visibility = "visible";
-
+                // document.getElementsByName("RegisterForEvent").innerHTML = "Registered";
             }
-            else {
-                var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
-                var paymentData = getDoc(paymentReference);
-
-                var status = (await paymentData).data().status;
-
-                if (status === "processed") {
-                    set_user_registered(true);
-                    document.getElementById("chooseTeam").style.visibility = "visible";
-                }
+            else{
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
             }
         }
 
@@ -63,24 +56,25 @@ export default function RegisterTeam(props) {
         checkStatus();
     }
 
-    let navigate = useNavigate();
-    const goToPayBaseFeePage = () => {
-        navigate(`/pay-base-fees`);
-    }
 
 
     const createPaymentObject = async () => {
 
+        // console.log(props.user_id);
+        // console.log(props.iiitbStudent);
+     
         // Create a new team
         if (!joinExistingTeam) {
+            var status = "processing";
+            if (props.iiitbStudent){
+                status = "processed";
+            }
 
-            console.log(props.user_id);
-            // event id
             const paymentRef = await addDoc(collection(db, "payments"), {
                 event_id: props.event_id,
                 multi: true,
                 screenshot: "",
-                status: "processing",
+                status: status,
                 transaction_id: "ID NUMBER PATA NAHI",
                 user: props.user_id
             });
@@ -92,27 +86,41 @@ export default function RegisterTeam(props) {
             const userDocSnap = getDoc(userRef);
 
             console.log("Setting users_list");
-
-            // if (userDocSnap.exists()){
-            let paymentDetails = (await userDocSnap).data().paymentDetails;
-            paymentDetails[props.event_id] = paymentObjectID;
-
-            updateDoc(userRef, {
-                paymentDetails: paymentDetails
-            })
-
-
+            
             const teamData = await addDoc(collection(db, "teams"), {
                 limit: 5,
                 vacancy: 4,
-                members: [props.user_id]
+                members: [props.user_id],
+                leaderID: props.user_id
             });
+            
+            // if (userDocSnap.exists()){
+            let paymentDetails = (await userDocSnap).data().paymentDetails;
+            paymentDetails[props.event_id] = paymentObjectID;
+            
+            let eventTeamMap = (await userDocSnap).data().eventTeamMap;
+            eventTeamMap[props.event_id] = teamData.id;
 
+            updateDoc(userRef, {
+                paymentDetails: paymentDetails,
+                eventTeamMap: eventTeamMap
+            })
+         
             setTeamID(teamData.id);
             // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
+            // Create a Team Button is disabled for now.
             document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+
+            if (props.iiitbStudent){
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
+            }
+            else{
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+            }
         }
+
         else {
+            // Joining An Existing team.
             const inputTeamID = document.getElementById("inputID").value;
 
             var teamToJoin = "";
@@ -136,7 +144,13 @@ export default function RegisterTeam(props) {
                 }
                 else {
                     var teamRef = doc(db, "teams", teamToJoin);
-                    var teamMembers = teamToJoinData.members.push(props.user_id);
+                    var teamMembers = teamToJoinData.members;
+                    teamMembers.push(props.user_id);
+
+                    console.log("Team Members: ", teamMembers);
+
+                    var leaderID = teamToJoinData.leaderID; 
+
                     updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
                         members: teamMembers
@@ -144,18 +158,34 @@ export default function RegisterTeam(props) {
 
                     var userRef = doc(db, "users_list", props.user_id);
                     var userDocSnap = getDoc(userRef);
-
-                    console.log("Setting users_list");
-
-                    // if (userDocSnap.exists()){
+                    
+                    var leaderRef = doc(db, "users_list", leaderID);
+                    var leaderDocSnap = getDoc(leaderRef);
+                    
+                    var paymentObjectID = (await leaderDocSnap).data().paymentDetails[props.event_id];
+                    
+                    // Change user data
                     let paymentDetails = (await userDocSnap).data().paymentDetails;
-                    paymentDetails[props.event_id] = "JoinedATeam";
+                    paymentDetails[props.event_id] = paymentObjectID;
 
+                    let eventTeamMap = (await userDocSnap).data().eventTeamMap;
+                    eventTeamMap[props.event_id] = teamToJoin;
+                    
                     updateDoc(userRef, {
-                        paymentDetails: paymentDetails
+                        paymentDetails: paymentDetails,
+                        eventTeamMap: eventTeamMap
                     })
 
                     console.log("Updated!!");
+                    // Disable the Register Button and add team mate details.
+                    document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+                    
+                    if (props.iiitbStudent){
+                        document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
+                    }
+                    else{
+                        document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                    }
                 }
             }
             // get all teams and check if it matches any of the ids
@@ -166,15 +196,14 @@ export default function RegisterTeam(props) {
     }
 
 
-    return (
-
+    return (  
+          
         <div>
             <div style={{ "textAlign": "center" }}>
                 <h1 style={{ "color": "white", "paddingTop": "32px", "paddingBottom": "10px", "fontSize": "3rem", "fontFamily": "Archivo", "fontWeight": "700" }}>REGISTER</h1>
             </div>
             <div id="chooseTeam" className="container-fluid" style={{ "paddingLeft": "2.7vw", "paddingRight": "2.7vw" }}>
                 <div className="row">
-
                     <div className="btn-group btn-group-lg" role="group" aria-label="Basic radio toggle button group" style={{ "marginTop": "10px" }}>
                         <input type="radio" className="btn-check" name="btnradio" id="btnradio1" autoComplete="off" defaultChecked onClick={() => {
                             changejoinExistingTeam(true);
@@ -222,16 +251,43 @@ export default function RegisterTeam(props) {
                 {!joinExistingTeam ? "Rs." + props.fee : "Free"}
             </div>
 
-            {(props.loggedInStatus)
+            {
+            (props.loggedInStatus)
                 ? (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
                     ⓘ Signed in as {props.email}
                 </div>)
                 : (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
                     ⓘ Not Signed In.
-                </div>)}
+                </div>)
+                
+                
+            
+            }
 
-            {user_registered === true
+            
+            {
+            user_registered !== true
                 ?
+                props.iiitbStudent === true
+                ?
+                    <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
+                          <div>
+                          {joinExistingTeam &&
+                            <input
+                                placeholder="Enter Team Code"
+                                id="inputID"
+                                style={{ "width": "200px" }}
+                                onChange={() => {
+                                }}
+                            />}
+                            </div>
+                        <button
+                            name="RegisterForEvent"
+                            className="btn btn-default"
+                            style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                            onClick={createPaymentObject}>Register</button>
+                    </div>
+                :
                 <div>
 
                     <div style={{ "color": "white", "fontFamily": "Poppins", "paddingLeft": "2.7vw", "padding-top": "20px" }}>
@@ -246,11 +302,11 @@ export default function RegisterTeam(props) {
                             <span>Total Fee</span><span style={{ "float": "right", "paddingRight": "50px" }}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span></div>
                     </div>
 
-                    {paid_base_fees === true
-                        ?
+                    {
                         <div>
 
-                            {!joinExistingTeam &&
+                            {
+                            !joinExistingTeam &&
 
                                 <div>
                                     <div style={{ "color": "white", "marginTop": "20px" }}>
@@ -301,10 +357,6 @@ export default function RegisterTeam(props) {
                                                 id="inputID"
                                                 style={{"marginTop": "30px" }}
                                                 onChange={() => {
-                                                    if (props.paid_base_fees == false) {
-                                                        console.log("Hello")
-                                                        window.location.href = '/pay_base_fees'
-                                                    }
                                                 }}
 
                                             />
@@ -317,10 +369,6 @@ export default function RegisterTeam(props) {
                                                 id="inputID"
                                                 style={{"marginTop": "30px" }}
                                                 onChange={() => {
-                                                    if (props.paid_base_fees == false) {
-                                                        console.log("Hello")
-                                                        window.location.href = '/pay_base_fees'
-                                                    }
                                                 }}
                                             />}
                                     </div>
@@ -330,10 +378,6 @@ export default function RegisterTeam(props) {
                                             id="inputID"
                                             style={{ "width": "200px" }}
                                             onChange={() => {
-                                                if (props.paid_base_fees == false) {
-                                                    console.log("Hello")
-                                                    window.location.href = '/pay_base_fees'
-                                                }
                                             }}
                                         />}
                                 </div>
@@ -346,20 +390,18 @@ export default function RegisterTeam(props) {
                                     onClick={createPaymentObject}>Register</button>
                             </div>
                         </div>
-                        :
-                        <div>
-                            <button
-                                className="btn btn-default"
-                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                onClick={goToPayBaseFeePage}>Pay Base Fee</button>
 
-                        </div>}
-                    </div>
+                        
+                        
+                        
+                        
+                        }
+                </div>
 
                     :
                     <div>
                         <h1>
-                        {teamID}
+                            {teamID}
                         </h1>
                     </div>
                 }

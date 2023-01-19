@@ -7,7 +7,55 @@ import Ticket from '../components/Ticket/Ticket'
 
 import Vector from '../images/Vector3.png'
 import { useReducer } from 'react'
+import { db } from '../firebase-config'
+import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
+import { useState } from "react";
+import eventDetails from '../content/eventDetails.json';
+
+
 const Profile = (props) => {
+
+    const [participatedEvents, setParticipatedEvents] = useState([]);
+
+    const checkStatus = async () => {
+
+        var userReference = doc(db, "users_list", props.user.id);
+        var userData = getDoc(userReference);
+
+        var paymentDetails = (await userData).data().paymentDetails;
+        var eventsParticipatedIn = []; 
+
+        // Number of events = 17
+        for (var i=1; i<=17 ;i++){
+            var paymentID = paymentDetails[i];
+
+            if (paymentID !== "Register"){
+            
+                var payRef = doc(db, "payments", paymentID);
+                var payData = getDoc(payRef);
+
+                var status = (await payData).data().status;
+                var eventID = (await payData).data().event_id;
+                var eventName = eventDetails[eventID].title;
+                // var status = (await payData).data().status;
+                
+                if (status === "processed"){
+                    var eventObject = {
+                        eventName: eventName
+                    }
+                    eventsParticipatedIn.push(eventObject);
+                }
+            }
+        }
+        // console.log(eventsParticipatedIn);
+        setParticipatedEvents(eventsParticipatedIn);
+    }
+
+    if (props.loggedInStatus){
+        checkStatus();
+    }
+
+
     return <div className="Profile">
         <Navbar props={props}/>
         <div className="row title" >
@@ -51,24 +99,39 @@ const Profile = (props) => {
             REGISTRATIONS
             <img src={arrow} alt="whatever" className='arrowicon' />
         </div>
+
+        {/* Need to render (not getting rendered) the Registered Slip, data is already passed in  */}
+        {/* participatedEvents array */}
+        
         <div className="slips">
-            <RegisteredSlip
-                title = "Event 1"
-                subtitle = "Beat up baddies to take the crown"
-            />
-            <RegisteredSlip
-                title = "Event 1"
-                subtitle = "Beat up baddies to take the crown"
-            />
-            <RegisteredSlip
-                title = "Event 1"
-                subtitle = "Beat up baddies to take the crown"
-            />
-            <RegisteredSlip
-                title = "Event 1"
-                subtitle = "Beat up baddies to take the crown"
-            />
+        {
+            participatedEvents.map((eventDetail)=>{
+                <RegisteredSlip 
+                    title="asdasdadas"
+                    // title = {eventDetail.eventName}
+                    subtitle = "This is sample subtitles"
+                />
+            })
+        }
         </div>
+        {/* <div className="slips">
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            /> 
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            />
+            <RegisteredSlip
+                title = "Event 1"
+                subtitle = "Beat up baddies to take the crown"
+            /> 
+        </div> */}
         <Footer/>
     </div>
 }

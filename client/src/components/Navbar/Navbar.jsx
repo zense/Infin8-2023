@@ -39,7 +39,7 @@ const Navbar = (props) => {
                     <Link to={`../contact`} className="navbutton">Contact Us </Link>
                 </div>
                 <div className="col-2">
-                    <Link to={`../events`} className="navbutton">Team</Link>
+                    <Link to={`#`} className="navbutton">Team</Link>
                 </div>
                 <div className="col">
                     <Link to={page} className="navbutton">
@@ -68,7 +68,10 @@ const Navbar = (props) => {
                     </div>
                     <div className="col-6  buttoncol">
                         <div className='topbutton bl'>
-                            SIGN UP
+                            {/* SIGN IN */}
+                            <Link to={page} className='white'>
+                                {displayText} <BsFillCaretLeftFill color="white" className='triangle' />
+                            </Link>
                         </div>
                     </div>
                 </div>

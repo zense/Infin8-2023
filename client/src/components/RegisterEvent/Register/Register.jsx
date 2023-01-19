@@ -9,19 +9,15 @@ import { useState } from "react";
 
 export default function Register(props){
     
-    const [paid_base_fees, set_paid_base_fees] = useState(false);
     const [user_registered, set_user_registered] = useState(false);
 
     const checkStatus = async () => {
+
         var userReference = doc(db, "users_list", props.user_id);
         var userData = getDoc(userReference);
 
-        var baseFeesPaid = (await userData).data().paid_base_fees;
         var paymentDetails = (await userData).data().paymentDetails;
         
-        if (baseFeesPaid){
-            set_paid_base_fees(true);
-        }
         if (paymentDetails[props.event_id] !== "Register"){
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
             var paymentData = getDoc(paymentReference);
@@ -34,12 +30,10 @@ export default function Register(props){
                 // props.setDisplayText("Payment Successful");
                 // return true;
             }
-            // else{
-                // set_user_registered(f)
-                // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
-                // document.getElementById("payBaseFeeButton").classList.add("disabled");
-                // return false;
-            // }
+            else{
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+            }
         }
 
     }
@@ -48,13 +42,16 @@ export default function Register(props){
         checkStatus();
     }
 
-    let navigate = useNavigate(); 
-    const goToPayBaseFeePage = () =>{
-        navigate(`/pay-base-fees`);
-    }
+
 
 
     const createPaymentObject = async () => {
+
+        var status = "processing";
+        
+        if (props.iiitbStudent){
+            status = "processed";
+        }
 
         console.log(props.user_id);
         // event id
@@ -62,7 +59,7 @@ export default function Register(props){
             event_id: props.event_id,
             multi: false,
             screenshot: "",
-            status:"processing",
+            status: status,
             transaction_id:"ID NUMBER PATA NAHI",
             user: props.user_id
         });
@@ -85,6 +82,9 @@ export default function Register(props){
 
         // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
         document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+        if (props.iiitbStudent){
+            document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
+        }
         // }
         // else{
             // console.log("User does not exists!");
@@ -129,12 +129,23 @@ export default function Register(props){
             </div>
 
 
-            {paid_base_fees === true && user_registered
+            
+            {
+            user_registered
             ?
                 <h1>You are registered</h1>
             :
-            paid_base_fees === true
+            props.iiitbStudent === true
             ?
+                <button
+                    name="RegisterForEvent"
+                    className="btn btn-default" 
+                    style={{"backgroundColor":"white","marginTop":"25px"}}
+                    onClick={
+                        createPaymentObject
+                    }>Register
+                </button>   
+            :
             <div>
                 <div style={{"color":"white","marginTop":"30px"}}>
                 <h1 style={{"textAlign":"center","fontSize":"3rem","fontFamily":"Archivo","fontWeight":"700"}}>PAYMENT</h1>
@@ -170,7 +181,6 @@ export default function Register(props){
                 </div>
                 
                 
-                
                 <div style={{"paddingTop":"15px","textAlign":"center"}}>
                     <div>
                     <input 
@@ -178,10 +188,7 @@ export default function Register(props){
                         id="inputID" 
                         
                         onChange={()=>{
-                            if(props.paid_base_fees==false){
-                                console.log("Hello")
-                                window.location.href='/pay_base_fees'
-                            }
+
                         }}
                     />
                     </div>
@@ -191,10 +198,6 @@ export default function Register(props){
                         id="inputID" 
                         
                         onChange={()=>{
-                            if(props.paid_base_fees==false){
-                                console.log("Hello")
-                                window.location.href='/pay_base_fees'
-                            }
                         }}
                     />
                     </div>
@@ -206,23 +209,12 @@ export default function Register(props){
                         style={{"backgroundColor":"white","marginTop":"25px"}}
                         onClick={
                             createPaymentObject
-                        }>Register</button>
+                        }>Register
+                        
+                        </button>
                 </div>
             </div>
-            :
-            <div>
-                <button 
-                    className="btn btn-default " 
-                    style={{"backgroundColor":"white","marginTop":"25px"}}
-                    
-                    onClick={
-                        goToPayBaseFeePage
-                        // const routeChange = (path) =>{ 
-                            // let path = `home`; 
-                        // }
-                        // window.location.href='/pay_base_fees'
-                    }>Pay Base Fee</button>
-            </div>}
+            }
             
             </div>
         // </div>

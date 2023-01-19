@@ -39,17 +39,18 @@ const TimeLine = () => {
         data = day2;
     }
     for (var i = 0; i < data.length; i++) {
+        var link="./eventimages/"+ data[i]["id"]+".jpg";
         if (ct & 1) {
             desktopCardsRight.push(
                 <>
                     <div className="space" id='event'></div>
-                    <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
+                    <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
                 </>
             );
         } else {
             desktopCardsLeft.push(
                 <>
-                    <LeftCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></LeftCard>
+                    <LeftCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></LeftCard>
                     <div className="space"></div>
                 </>
             );
@@ -59,7 +60,7 @@ const TimeLine = () => {
             <>
                 <div className="space">
                 </div>
-                <RightCard image={data[i]['image']} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
+                <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
             </>
         )
     }

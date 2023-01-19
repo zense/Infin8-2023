@@ -16,7 +16,9 @@ function ContactCard(props){
                     <div className="extra"><MdMail size={35}/> {props.email}</div>
                 </div>
                 <div className="col-lg-6 col-md-4 alignment">
-                    <button className="btn btn-default font" style={{"backgroundColor":"white"}}>Contact Us <img src={Arrow} style={{"marginTop" : "-2px", "marginLeft": "12px"}}/></button>
+                    <a href="mailto:sac@iiitb.ac.in" style={{"textDecoration": "none", "color":"black"}}>
+                    <button className="btn btn-default font" style={{"backgroundColor":"white"}} >Contact Us <img src={Arrow} style={{"marginTop" : "-2px", "marginLeft": "12px"}} /></button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -36,9 +38,8 @@ export default function Contact(props){
                 </div>
             </div>
             <div className="row idc" >
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
-                <ContactCard name={"Person1"} contact={"+91 99999 99999"} email={"person1@gmail.com"}/>
+            <ContactCard name={"Asrith Nune"} contact={"+91 9492824058"} email={"sac@iiitb.ac.in"}/>
+                <ContactCard name={"VL Sahithi"} contact={"+91 8374150444"} email={"sac@iiitb.ac.in"}/>
             </div>
         </div>
         <Footer />

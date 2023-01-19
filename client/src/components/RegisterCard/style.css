@@ -9,6 +9,13 @@
 .col-12.register{
     padding-left: 2.5vw;
 }
+.col-12.Disclaimer{
+    margin-top: 80px;
+    width: 93%;
+    margin-left: 3.5vw;
+    font-size: 20px;
+}
+
 .invert.a:hover{
     color: white;
 }
@@ -28,7 +35,8 @@ box-shadow: 8px 8px 0px 0px #4A3AFF
 .val{
     display: block;
     max-width: 100%;
-    max-height: 100%;
+    min-height: 100%;
+    object-fit: cover;
 }
 
 .Titl{
@@ -157,6 +165,10 @@ color: white;
         font-style: normal;
         font-weight: 500;
         font-size: 1.7vw;
+    }
+    .col-12.Disclaimer{
+        width: 90%;
+        margin-left: 5.5vw;
     }
 }
 @media (max-width: 900px){
@@ -287,6 +299,10 @@ color: white;
     }
     .col-12.register{
         padding-left: 4.5vw;
+    }
+    .col-12.Disclaimer{
+        width: 88%;
+        margin-left: 6.5vw;
     }
 }
 @media screen and (min-width: 768px) {

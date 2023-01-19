@@ -3,6 +3,7 @@ import "./RightCard.scss"
 import { BsArrowDownRight } from "react-icons/bs"
 import { Link } from "react-router-dom"
 import Fade from 'react-reveal/Fade'
+
 const RightCard = (props) => {
     return <Fade right>
         <div className="RightCard">

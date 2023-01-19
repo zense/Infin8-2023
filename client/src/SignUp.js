@@ -11,6 +11,9 @@ import {
 import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
+import './Auth.scss'
+import { FaUser } from 'react-icons/fa'
+import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 
 
 function SignUp(props) {
@@ -60,7 +63,7 @@ function SignUp(props) {
             console.log("After OTP");
 
             props.setUser(userDetails);
-            routeChange(`otp-verification`);
+            routeChange(`/otp-verification`);
         } 
         else if (result.status === "Exists") {
             console.log("User already exists");
@@ -84,124 +87,247 @@ function SignUp(props) {
     }
 
 
-    return (
-        <div>
-            {/* <section class="sign-in"> */}
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image"></div>
+    const [show, setShow] = useState(false);
 
-                    <h2 class="form-title">Sign up</h2>
+    var passComp = <>
+        <span class="input-group-text" id="basic-addon1"><BsEyeFill
+            id="togglePassword"
+            onClick={() => {
+                setShow(true);
+            }} /></span>
+        <input type="password" class="form-control"
+            placeholder="Password" aria-label="Password"
+            id="your_password" onChange={(event) => {
+                setRegisterPassword(event.target.value);
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (show) {
+        passComp = <>
+            <span class="input-group-text" id="basic-addon1"><BsEyeSlashFill
+                id="togglePassword"
+                onClick={() => {
+                    setShow(false);
+                }} /></span>
+            <input type="text" class="form-control"
+                placeholder="Password" aria-label="Password"
+                id="your_password" onChange={(event) => {
+                    setRegisterPassword(event.target.value);
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
 
-                    <div class="signin-form login-box">
+    const [conf, setConf] = useState(false);
+    var confComp = <>
+        <span
+            class="input-group-text"
+            onClick={() => {
+                setConf(true);
+            }}
+        ><BsEyeFill/></span>
+        <input type="password" class="form-control"
+            placeholder="Confirm Password" aria-label="Confirm Password"
+            id="repeat_password" onChange={(event) => {
+                setRegisterRePassword(event.target.value);
 
-                        {/* Name */}
+                if (event.target.value !== registerPassword) {
+                    event.target.classList.add("focus");
+                }
+                else {
+                    event.target.classList.remove("focus");
+                }
+            }} required="required"
+            aria-describedby="basic-addon1" />
+    </>
+    if (conf) {
+        confComp = <>
+            <span
+                class="input-group-text"
+                onClick={() => {
+                    setConf(false);
+                }}
+            ><BsEyeSlashFill /></span>
+            <input type="text" class="form-control"
+                placeholder="Confirm Password" aria-label="Confirm Password"
+                id="repeat_password" onChange={(event) => {
+                    setRegisterRePassword(event.target.value);
+
+                    if (event.target.value !== registerPassword) {
+                        event.target.classList.add("focus");
+                    }
+                    else {
+                        event.target.classList.remove("focus");
+                    }
+                }} required="required"
+                aria-describedby="basic-addon1" />
+        </>
+    }
+
+
+
+  return (
+        <div className="signin">
+            <div class="row">
+                <div className="col-12 col-lg-6">
+                    <div className="row">
+                        <h2 class="form-title">Sign up</h2>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><FaUser /></span>
+                        <input type="text" class="form-control"
+                            placeholder="Name" aria-label="Name"
+                            id="your_name" onChange={(event) => {
+                                setRegisterName(event.target.value);
+                            }} required="required"
+                            aria-describedby="basic-addon1" />
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                        <input type="text" class="form-control"
+                            id="your_email"
+                            placeholder="Email" aria-label="Email"
+                            onChange={(event) => {
+                                setRegisterEmail(event.target.value);
+                            }}
+                            required="required"
+                            aria-describedby="basic-addon1" />
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><BsFillTelephoneFill /></span>
+                        <input type="text" class="form-control"
+                            placeholder="Contact" aria-label="Contact"
+                            id="your_contact" onChange={(event) => {
+                                setRegisterContact(event.target.value);
+                            }} required="required"
+                            aria-describedby="basic-addon1" />
+                    </div>
+                    {/* password */}
+                    <div class="input-group mb-3">
+                        {passComp}
+                    </div>
+
+
+                    <div class="input-group mb-3">
+                        {confComp}
+                    </div>
+
+                    {/* Name */}
+                    {/* <div class="signin-form login-box">
                         <div class="form-group user-box">
                             <input type="text" name="your_name" class="form-control" id="your_name" onChange={(event) => {
                                 setRegisterName(event.target.value);
                             }} required="required" />
                             <label alt='Name' placeholder='Type Your Name'>Username</label>
-                        </div>
+                        </div> */}
 
-                        {/* Email */}
-                        <div class="form-group user-box">
-                            <input type="email" name="your_email" class="form-control" id="your_email" onChange={(event) => {
-                                setRegisterEmail(event.target.value);
-                            }} required="required" />
-                            <label alt='Email' placeholder='Type Your Email'>Email</label>
-                        </div>
+                    {/* Email */}
+                    {/* <div class="form-group user-box">
+                                <input type="email" name="your_email" class="form-control" id="your_email" onChange={(event) => {
+                                    setRegisterEmail(event.target.value);
+                                }} required="required" />
+                                <label alt='Email' placeholder='Type Your Email'>Email</label>
+                            </div> */}
 
-                        {/* Contact */}
-                        <div class="form-group user-box">
-                            <input type="number" name="your_contact" class="form-control" id="your_contact" onChange={(event) => {
-                                setRegisterContact(event.target.value);
-                            }} required="required" />
-                            <label alt='Contact' placeholder='Contact'>Contact</label>
-                        </div>
+                    {/* Contact */}
+                    {/* <div class="form-group user-box">
+                                <input type="number" name="your_contact" class="form-control" id="your_contact" onChange={(event) => {
+                                    setRegisterContact(event.target.value);
+                                }} required="required" />
+                                <label alt='Contact' placeholder='Contact'>Contact</label>
+                            </div> */}
 
-                        {/* Password */}
-                        <div class="form-group user-box">
-                            <input type="password" name="your_password" class="form-control" id="your_password" onChange={(event) => {
-                                setRegisterPassword(event.target.value);
-                            }} required="required" />
-                            <label alt='Password' placeholder='Password'>Password</label>
-                            <i class="far fa-eye eye-position" id="togglePassword" onClick={() => {
+                    {/* Password */}
+                    {/* <div class="form-group user-box">
+                                <input type="password" name="your_password" class="form-control" id="your_password" onChange={(event) => {
+                                    setRegisterPassword(event.target.value);
+                                }} required="required" />
+                                <label alt='Password' placeholder='Password'>Password</label>
+                                <i class="far fa-eye eye-position" id="togglePassword" onClick={() => {
 
-                                if (document.getElementById("togglePassword").classList.contains('fa-eye')) {
-                                    document.getElementById("togglePassword").classList.replace('fa-eye', 'fa-eye-slash');
-                                }
-                                else {
-                                    document.getElementById("togglePassword").classList.replace('fa-eye-slash', 'fa-eye');
-                                }
+                                    if (document.getElementById("togglePassword").classList.contains('fa-eye')) {
+                                        document.getElementById("togglePassword").classList.replace('fa-eye', 'fa-eye-slash');
+                                    }
+                                    else {
+                                        document.getElementById("togglePassword").classList.replace('fa-eye-slash', 'fa-eye');
+                                    }
 
-                                if (document.getElementById("your_password").type === "password") {
-                                    document.getElementById("your_password").type = "text";
-                                }
-                                else {
-                                    document.getElementById("your_password").type = "password";
-                                }
-                            }}></i>
-                        </div>
+                                    if (document.getElementById("your_password").type === "password") {
+                                        document.getElementById("your_password").type = "text";
+                                    }
+                                    else {
+                                        document.getElementById("your_password").type = "password";
+                                    }
+                                }}></i>
+                            </div> */}
 
-                        {/* Re-Password */}
-                        <div class="form-group user-box">
-                            <input type="password" name="repeat_password" class="form-control" id="repeat_password" onChange={(event) => {
-                                setRegisterRePassword(event.target.value);
+                    {/* Re-Password */}
+                    {/* <div class="form-group user-box">
+                                <input type="password" name="repeat_password" class="form-control" id="repeat_password" onChange={(event) => {
+                                    setRegisterRePassword(event.target.value);
 
-                                if (event.target.value !== registerPassword) {
-                                    event.target.classList.add("focus");
-                                }
-                                else {
-                                    event.target.classList.remove("focus");
-                                }
-                            }} required="required" />
-                            <label alt='RePassword' placeholder='Confirm Password'>Confirm Password</label>
-                            <i class="far fa-eye eye-position" id="reTogglePassword" onClick={() => {
+                                    if (event.target.value !== registerPassword) {
+                                        event.target.classList.add("focus");
+                                    }
+                                    else {
+                                        event.target.classList.remove("focus");
+                                    }
+                                }} required="required" />
+                                <label alt='RePassword' placeholder='Confirm Password'>Confirm Password</label>
+                                <i class="far fa-eye eye-position" id="reTogglePassword" onClick={() => {
 
-                                if (document.getElementById("reTogglePassword").classList.contains('fa-eye')) {
-                                    document.getElementById("reTogglePassword").classList.replace('fa-eye', 'fa-eye-slash');
-                                }
-                                else {
-                                    document.getElementById("reTogglePassword").classList.replace('fa-eye-slash', 'fa-eye');
-                                }
+                                    if (document.getElementById("reTogglePassword").classList.contains('fa-eye')) {
+                                        document.getElementById("reTogglePassword").classList.replace('fa-eye', 'fa-eye-slash');
+                                    }
+                                    else {
+                                        document.getElementById("reTogglePassword").classList.replace('fa-eye-slash', 'fa-eye');
+                                    }
 
-                                if (document.getElementById("repeat_password").type === "password") {
-                                    document.getElementById("repeat_password").type = "text";
-                                }
-                                else {
-                                    document.getElementById("repeat_password").type = "password";
-                                }
-                            }}></i>
-                        </div>
+                                    if (document.getElementById("repeat_password").type === "password") {
+                                        document.getElementById("repeat_password").type = "text";
+                                    }
+                                    else {
+                                        document.getElementById("repeat_password").type = "password";
+                                    }
+                                }}></i>
+                            </div> */}
 
-                        <div class="form-group">
-                            <input type="checkbox" name="iiitb-student" id="iiitb-student" class="agree-term" onChange={(event) => {
+                    <div class="form-group">
+                        <input type="checkbox" name="iiitb-student" id="iiitb-student"
+                            className="agree-term" onChange={(event) => {
                                 toggleIIITBStudent(!IIITBStudent);
                             }} />
-                            <label for="iiitb-student" class="label-agree-term"><span><span></span></span>I am a IIITB student</label>
-                        </div>
-
-                        <div class="form-group">
-                            {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
-                                ? <button onClick={register} name="signup" id="signup" class="btn btn-primary" value="signup">Register</button>
-                                : <button onClick={register} name="signup" id="signup" class="btn btn-secondary" value="signup" disabled>Register</button>}
-                        </div>
-                        {/* <div class="form-group">
-                            <input onClick={getData} name="getData" id="getData" class="btn btn-primary" value="getData" />
-                        </div> */}
-                        {/* </form> */}
-                        {/* <div class="social-login">
-                                <span class="social-label">Or login with</span>
-                                <ul class="socials">
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                    <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
-                                </ul>
-                            </div> */}
+                        <label for="iiitb-student" class="label-agree-term"><span><span></span></span>I am from IIITB</label>
                     </div>
+
+                    <div class="form-group">
+                        {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
+                            ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
+                            : <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled>Register</button>}
+                    </div>
+                    {/* <div class="form-group">
+        <input onClick={getData} name="getData" id="getData" class="btn btn-primary" value="getData" />
+    </div> */}
+                    {/* </form> */}
+                    {/* <div class="social-login">
+            <span class="social-label">Or login with</span>
+            <ul class="socials">
+                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+            </ul>
+        </div> */}
+
+                    {/* to be uncommented */}
+                    {/* </div> */}
+                </div>
+                <div className="d-none d-lg-block col-lg-6">
+                    <div className="signin-image"></div>
                 </div>
             </div>
-            {/* </section> */}
         </div>
     );
 }
