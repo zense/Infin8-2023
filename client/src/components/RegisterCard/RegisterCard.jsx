@@ -21,7 +21,7 @@ const ScrollToTop = (props) => {
     return <>{props.children}</>
 };
 function LeftCard(props) {
-    var link="./eventimages/"+ props.props.id+".jpg";
+    var link="./Eventimages/"+ props.props.id+".jpg";
     return (
         <>
             <Zoom duration={1500} delay={100} >

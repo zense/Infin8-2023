@@ -39,7 +39,7 @@ const TimeLine = () => {
         data = day2;
     }
     for (var i = 0; i < data.length; i++) {
-        var link="./eventimages/"+ data[i]["id"]+".jpg";
+        var link="./Eventimages/"+ data[i]["id"]+".jpg";
         if (ct & 1) {
             desktopCardsRight.push(
                 <>

@@ -6,7 +6,7 @@ const Gallery = () => {
     const galleryCards = [];
     for (var i = 0; i < data.length; i++) {
         
-        var link="./eventimages/"+ data[i]['id']+".jpg";
+        var link="./Eventimages/"+ data[i]['id']+".jpg";
         galleryCards.push(
             <Card
                 title={data[i]['title']}
