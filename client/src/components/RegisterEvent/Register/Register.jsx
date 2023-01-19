@@ -10,6 +10,8 @@ import { useState } from "react";
 export default function Register(props){
     
     const [user_registered, set_user_registered] = useState(false);
+    const [upiID, setUpiID] = useState("");
+    const [transactionID, setTransactionID] = useState("");
 
     const checkStatus = async () => {
 
@@ -187,8 +189,8 @@ export default function Register(props){
                         placeholder="Enter UPI Reference Number / Transaction ID" 
                         id="inputID" 
                         
-                        onChange={()=>{
-
+                        onChange={(event)=>{
+                            setTransactionID(event.target.value);
                         }}
                     />
                     </div>
@@ -197,12 +199,14 @@ export default function Register(props){
                         placeholder="Enter UPI ID" 
                         id="inputID" 
                         
-                        onChange={()=>{
+                        onChange={(event)=>{
+                            setUpiID(event.target.value);
                         }}
                     />
                     </div>
                 
-                        
+                    {(upiID !== "" && transactionID !== "") 
+                    ?
                     <button
                         name="RegisterForEvent"
                         className="btn btn-default" 
@@ -211,7 +215,19 @@ export default function Register(props){
                             createPaymentObject
                         }>Register
                         
-                        </button>
+                    </button>
+                    :
+                    <button
+                        disabled
+                        name="RegisterForEvent"
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+                        onClick={
+                            createPaymentObject
+                        }>Register
+                        
+                    </button>
+                    }
                 </div>
             </div>
             }

@@ -66,7 +66,9 @@
                 "contact":" 9492824058"
             }
         ],
-        "team" : true
+        "team" : true,
+        "fee" : 200,
+        "limit": 8
         
     },
     {
@@ -99,8 +101,8 @@
                 "contact":" 9492824058"
             }
         ],
-        "team" : true
-        
+        "team" : true,
+        "fee" : 200
     },
     {
         "title":"Clash Royale",
@@ -134,7 +136,9 @@
                 "contact":"6305949565"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150,
+        "limit" : 1
         
     },
     {
@@ -169,7 +173,10 @@
                 "contact":"6305949565"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit": 5
+
         
     },
     {
@@ -203,7 +210,9 @@
                 "contact":"7425964111"
             }
         ],
-        "team" :true
+        "team" :true,
+        "fee" : 200,
+        "limit" : 2
         
     },
     {
@@ -241,8 +250,9 @@
                 "contact":"9886987649"
             }
         ],
-        "team" : true
-        
+        "team" : true,
+        "fee" : 200,
+        "limit" : 10
     },
     {
         "title":"Take The Stage",
@@ -274,13 +284,15 @@
                 "contact":"7028770201"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit" : 4
     },
     {
         "title":"Brush Up",
         "subtitle": "Art Contest",
         "image":"",
-        "id":"9",
+        "id":"9",   
         "mode":"Offline",
         "type":"all",
         "registrationDeadline":" 5th Feb' 23, 11:59 PM",
@@ -305,7 +317,8 @@
                 "contact":"8817972743"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150
         
     },
     {
@@ -343,7 +356,9 @@
                 "contact":"9246809610"
             }
         ],
-        "team": true
+        "team": true,
+        "fee" : 200,
+        "limit" : 2
         
     },
     {
@@ -379,7 +394,8 @@
                 "contact":"9752112005"
             }
         ],
-        "team": false
+        "team": false,
+        "fee" : 150
         
     },
     {
@@ -420,7 +436,8 @@
                 "contact":"7020000938"
             }
         ],
-        "team": false   
+        "team": false,
+        "fee" : 100
     },
     {
         "title":"War Of Words",
@@ -456,7 +473,10 @@
                 "contact":"7696572850"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 3
+
     },
     {
         "title":"League Of Fanatics",
@@ -496,7 +516,9 @@
                 "contact":"7016740700"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 5   
     },
     {
         "title":"Dumb Charades",
@@ -529,7 +551,9 @@
                 "contact":"7893039570"
             }
         ], 
-        "team": true  
+        "team": true,
+        "fee" : 200,
+        "limit" : 4  
     },
     {
         "title":"Gulp And Gobble",
@@ -566,7 +590,8 @@
                 "contact":"9032272225"
             }
         ],
-        "team": false   
+        "team": false,
+        "fee" : 150
     },
     {
         "title":"Valorant",
@@ -602,7 +627,9 @@
                 "contact":"9110322406"
             }
         ],
-        "team": true   
+        "team": true,
+        "fee" : 200,
+        "limit" : 6   
     }
 
 ]

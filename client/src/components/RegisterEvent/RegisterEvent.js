@@ -70,7 +70,7 @@ function RegisterEvent(props) {
           about={event.description} 
           other_details={event.rules} 
           contacts={event.spocs}
-          event_fee={ props.user.iiitbStudent ? 0 : 201}
+          event_fee={ props.user.iiitbStudent ? 0 : eventDetails[id-1].fee}
           loggedInStatus={props.loggedInStatus}
           email={props.user.email}
           team_event={event.team}

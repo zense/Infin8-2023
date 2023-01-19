@@ -20,7 +20,8 @@ export default function RegisterTeam(props) {
     const [user_registered, set_user_registered] = useState(false);
     const [teamID, setTeamID] = useState("Team_ID");
 
-
+    const [upiID, setUpiID] = useState("");
+    const [transactionID, setTransactionID] = useState("");
 
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
@@ -29,7 +30,7 @@ export default function RegisterTeam(props) {
         var paymentDetails = (await userData).data().paymentDetails;
 
         var eventTeamMap = (await userData).data().eventTeamMap;
-            // document.getElementById("chooseTeam").style.visibility = "hidden";
+        // document.getElementById("chooseTeam").style.visibility = "hidden";
 
         if (paymentDetails[props.event_id] !== "Register") {
 
@@ -44,7 +45,7 @@ export default function RegisterTeam(props) {
                 document.getElementById("chooseTeam").style.visibility = "visible";
                 // document.getElementsByName("RegisterForEvent").innerHTML = "Registered";
             }
-            else{
+            else {
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
                 document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
             }
@@ -62,11 +63,11 @@ export default function RegisterTeam(props) {
 
         // console.log(props.user_id);
         // console.log(props.iiitbStudent);
-     
+
         // Create a new team
         if (!joinExistingTeam) {
             var status = "processing";
-            if (props.iiitbStudent){
+            if (props.iiitbStudent) {
                 status = "processed";
             }
 
@@ -86,18 +87,18 @@ export default function RegisterTeam(props) {
             const userDocSnap = getDoc(userRef);
 
             console.log("Setting users_list");
-            
+
             const teamData = await addDoc(collection(db, "teams"), {
                 limit: 5,
                 vacancy: 4,
                 members: [props.user_id],
                 leaderID: props.user_id
             });
-            
+
             // if (userDocSnap.exists()){
             let paymentDetails = (await userDocSnap).data().paymentDetails;
             paymentDetails[props.event_id] = paymentObjectID;
-            
+
             let eventTeamMap = (await userDocSnap).data().eventTeamMap;
             eventTeamMap[props.event_id] = teamData.id;
 
@@ -105,16 +106,16 @@ export default function RegisterTeam(props) {
                 paymentDetails: paymentDetails,
                 eventTeamMap: eventTeamMap
             })
-         
+
             setTeamID(teamData.id);
             // document.getElementById("payBaseFeeButton").innerHTML = "Processing";
             // Create a Team Button is disabled for now.
             document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
 
-            if (props.iiitbStudent){
+            if (props.iiitbStudent) {
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
             }
-            else{
+            else {
                 document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
             }
         }
@@ -149,7 +150,7 @@ export default function RegisterTeam(props) {
 
                     console.log("Team Members: ", teamMembers);
 
-                    var leaderID = teamToJoinData.leaderID; 
+                    var leaderID = teamToJoinData.leaderID;
 
                     updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
@@ -158,19 +159,19 @@ export default function RegisterTeam(props) {
 
                     var userRef = doc(db, "users_list", props.user_id);
                     var userDocSnap = getDoc(userRef);
-                    
+
                     var leaderRef = doc(db, "users_list", leaderID);
                     var leaderDocSnap = getDoc(leaderRef);
-                    
+
                     var paymentObjectID = (await leaderDocSnap).data().paymentDetails[props.event_id];
-                    
+
                     // Change user data
                     let paymentDetails = (await userDocSnap).data().paymentDetails;
                     paymentDetails[props.event_id] = paymentObjectID;
 
                     let eventTeamMap = (await userDocSnap).data().eventTeamMap;
                     eventTeamMap[props.event_id] = teamToJoin;
-                    
+
                     updateDoc(userRef, {
                         paymentDetails: paymentDetails,
                         eventTeamMap: eventTeamMap
@@ -179,11 +180,11 @@ export default function RegisterTeam(props) {
                     console.log("Updated!!");
                     // Disable the Register Button and add team mate details.
                     document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
-                    
-                    if (props.iiitbStudent){
+
+                    if (props.iiitbStudent) {
                         document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
                     }
-                    else{
+                    else {
                         document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
                     }
                 }
@@ -196,8 +197,8 @@ export default function RegisterTeam(props) {
     }
 
 
-    return (  
-          
+    return (
+
         <div>
             <div style={{ "textAlign": "center" }}>
                 <h1 style={{ "color": "white", "paddingTop": "32px", "paddingBottom": "10px", "fontSize": "3rem", "fontFamily": "Archivo", "fontWeight": "700" }}>REGISTER</h1>
@@ -252,151 +253,162 @@ export default function RegisterTeam(props) {
             </div>
 
             {
-            (props.loggedInStatus)
-                ? (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
-                    ⓘ Signed in as {props.email}
-                </div>)
-                : (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
-                    ⓘ Not Signed In.
-                </div>)
-                
-                
-            
+                (props.loggedInStatus)
+                    ? (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
+                        ⓘ Signed in as {props.email}
+                    </div>)
+                    : (<div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "#888888", "paddingTop": "15px", "marginLeft": "2.7vw" }}>
+                        ⓘ Not Signed In.
+                    </div>)
+
+
+
             }
 
-            
+
             {
-            user_registered !== true
-                ?
-                props.iiitbStudent === true
-                ?
-                    <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
-                          <div>
-                          {joinExistingTeam &&
-                            <input
-                                placeholder="Enter Team Code"
-                                id="inputID"
-                                style={{ "width": "200px" }}
-                                onChange={() => {
-                                }}
-                            />}
+                user_registered !== true
+                    ?
+                    props.iiitbStudent === true
+                        ?
+                        <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
+                            <div>
+                                {joinExistingTeam &&
+                                    <input
+                                        placeholder="Enter Team Code"
+                                        id="inputID"
+                                        style={{ "width": "200px" }}
+                                        onChange={() => {
+                                        }}
+                                    />}
                             </div>
-                        <button
-                            name="RegisterForEvent"
-                            className="btn btn-default"
-                            style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                            onClick={createPaymentObject}>Register</button>
-                    </div>
-                :
-                <div>
-
-                    <div style={{ "color": "white", "fontFamily": "Poppins", "paddingLeft": "2.7vw", "padding-top": "20px" }}>
-                        <div style={{ "padding-bottom": "3px" }}>
-                            <span>Team Creation</span><span style={{ "float": "right", "paddingRight": "50px" }}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
+                            <button
+                                name="RegisterForEvent"
+                                className="btn btn-default"
+                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                onClick={createPaymentObject}>Register</button>
                         </div>
-                        {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
-                        <div style={{ "backgroundColor": "white", "height": "2px", "marginRight": "20px" }}>
-
-                        </div>
-                        <div style={{ "padding-top": "3px" }}>
-                            <span>Total Fee</span><span style={{ "float": "right", "paddingRight": "50px" }}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span></div>
-                    </div>
-
-                    {
+                        :
                         <div>
 
+                            <div style={{ "color": "white", "fontFamily": "Poppins", "paddingLeft": "2.7vw", "padding-top": "20px" }}>
+                                <div style={{ "padding-bottom": "3px" }}>
+                                    <span>Team Creation</span><span style={{ "float": "right", "paddingRight": "50px" }}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span>
+                                </div>
+                                {/* <hr style={{"border":"2px solid", "backgroundColor":"#A23F5f"}}/> */}
+                                <div style={{ "backgroundColor": "white", "height": "2px", "marginRight": "20px" }}>
+
+                                </div>
+                                <div style={{ "padding-top": "3px" }}>
+                                    <span>Total Fee</span><span style={{ "float": "right", "paddingRight": "50px" }}>{!joinExistingTeam ? "Rs." + props.fee : "Free"}</span></div>
+                            </div>
+
                             {
-                            !joinExistingTeam &&
-
                                 <div>
-                                    <div style={{ "color": "white", "marginTop": "20px" }}>
-                                        <h1 style={{ "textAlign": "center", "fontSize": "3rem", "fontFamily": "Archivo", "fontWeight": "700" }}>PAYMENT</h1>
-                                        <div style={{ "marginLeft": "15px", "marginRight": "15px", "marginTop": "15px", "marginBottom": "15px" }}>Pay the above mentioned amount using UPI and
-                                            upload the receipt screenshot here, making sure that the UPI reference ID is visible. Our team will
-                                            verify the payment. The 'Register' button will turn
-                                            to 'Registered ' if it is approved :</div>
-                                    </div>
 
-                                    <div className="fluid-container">
-                                        <div className="row">
-                                            <div className="col-6" style={{ "paddingLeft": "10px", "paddingTop": "20px" }}>
-                                                <img src={QR} className="img-fluid" style={{ "paddingRight": "15px", "paddingLeft": "15px" }} alt="QR" />
+                                    {
+                                        !joinExistingTeam &&
+
+                                        <div>
+                                            <div style={{ "color": "white", "marginTop": "20px" }}>
+                                                <h1 style={{ "textAlign": "center", "fontSize": "3rem", "fontFamily": "Archivo", "fontWeight": "700" }}>PAYMENT</h1>
+                                                <div style={{ "marginLeft": "15px", "marginRight": "15px", "marginTop": "15px", "marginBottom": "15px" }}>Pay the above mentioned amount using UPI and
+                                                    upload the receipt screenshot here, making sure that the UPI reference ID is visible. Our team will
+                                                    verify the payment. The 'Register' button will turn
+                                                    to 'Registered ' if it is approved :</div>
                                             </div>
 
-                                            <div className="col-6 clickk" onClick={() => {
-                                                document.getElementById("inputFile").click()
-                                            }} style={{ "paddingTop": "20px" }}>
-                                                <input type={"file"} id="inputFile" style={{ "display": "none" }} accept="image/*" onChange={(e) => {
-                                                    console.log(e.target.files[0]);
-                                                    //e.target.files[0] can be posted to backend
-                                                    var file = e.target.files[0];
-                                                    var imgtag = document.getElementById("dotted2");
-                                                    var reader = new FileReader();
-                                                    reader.onload = function (event) {
-                                                        imgtag.src = event.target.result;
-                                                    };
-                                                    reader.readAsDataURL(file);
-                                                }}></input>
-                                                <img src={Dotted} className="img-fluid" id="dotted2" style={{ "paddingRight": "15px", "paddingLeft": "15px" }} alt="ScannedQR" />
+                                            <div className="fluid-container">
+                                                <div className="row">
+                                                    <div className="col-6" style={{ "paddingLeft": "10px", "paddingTop": "20px" }}>
+                                                        <img src={QR} className="img-fluid" style={{ "paddingRight": "15px", "paddingLeft": "15px" }} alt="QR" />
+                                                    </div>
+
+                                                    <div className="col-6 clickk" onClick={() => {
+                                                        document.getElementById("inputFile").click()
+                                                    }} style={{ "paddingTop": "20px" }}>
+                                                        <input type={"file"} id="inputFile" style={{ "display": "none" }} accept="image/*" onChange={(e) => {
+                                                            console.log(e.target.files[0]);
+                                                            //e.target.files[0] can be posted to backend
+                                                            var file = e.target.files[0];
+                                                            var imgtag = document.getElementById("dotted2");
+                                                            var reader = new FileReader();
+                                                            reader.onload = function (event) {
+                                                                imgtag.src = event.target.result;
+                                                            };
+                                                            reader.readAsDataURL(file);
+                                                        }}></input>
+                                                        <img src={Dotted} className="img-fluid" id="dotted2" style={{ "paddingRight": "15px", "paddingLeft": "15px" }} alt="ScannedQR" />
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                    }
+
+
+
+
+                                    <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
+                                        <div>
+                                            <div>
+                                                {!joinExistingTeam &&
+
+                                                    <input
+                                                        placeholder="Enter UPI Reference Number / Transaction ID"
+                                                        id="inputID"
+                                                        style={{ "marginTop": "30px" }}
+                                                        onChange={(event) => {
+                                                            setTransactionID(event.target.value);
+                                                        }}
+
+                                                    />
+                                                }
+                                            </div>
+                                            <div>
+                                                {!joinExistingTeam &&
+                                                    <input
+                                                        placeholder="Enter UPI ID"
+                                                        id="inputID"
+                                                        style={{ "marginTop": "30px" }}
+                                                        onChange={(event) => {
+                                                            setUpiID(event.target.value);
+                                                        }}
+                                                    />}
+                                            </div>
+                                            {joinExistingTeam &&
+                                                <input
+                                                    placeholder="Enter Team Code"
+                                                    id="inputID"
+                                                    style={{ "width": "200px" }}
+                                                    onChange={() => {
+                                                    }}
+                                                />}
+                                        </div>
+
+                                        {(upiID !== "" && transactionID !== "")
+                                            ?
+                                            <button
+                                                name="RegisterForEvent"
+                                                className="btn btn-default"
+                                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                                onClick={createPaymentObject}>Register</button>
+
+                                            :
+                                            <button
+                                                disabled
+                                                name="RegisterForEvent"
+                                                className="btn btn-default"
+                                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                                onClick={createPaymentObject}>Register</button>}
                                     </div>
                                 </div>
+
+
+
+
+
                             }
-
-
-
-
-                            <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
-                                <div>
-                                    <div>
-                                        {!joinExistingTeam &&
-
-                                            <input
-                                                placeholder="Enter UPI Reference Number / Transaction ID"
-                                                id="inputID"
-                                                style={{"marginTop": "30px" }}
-                                                onChange={() => {
-                                                }}
-
-                                            />
-                                        }
-                                    </div>
-                                    <div>
-                                        {!joinExistingTeam &&
-                                            <input
-                                                placeholder="Enter UPI ID"
-                                                id="inputID"
-                                                style={{"marginTop": "30px" }}
-                                                onChange={() => {
-                                                }}
-                                            />}
-                                    </div>
-                                    {joinExistingTeam &&
-                                        <input
-                                            placeholder="Enter Team Code"
-                                            id="inputID"
-                                            style={{ "width": "200px" }}
-                                            onChange={() => {
-                                            }}
-                                        />}
-                                </div>
-
-
-                                <button
-                                    name="RegisterForEvent"
-                                    className="btn btn-default"
-                                    style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                    onClick={createPaymentObject}>Register</button>
-                            </div>
                         </div>
-
-                        
-                        
-                        
-                        
-                        }
-                </div>
 
                     :
                     <div>
@@ -404,7 +416,7 @@ export default function RegisterTeam(props) {
                             {teamID}
                         </h1>
                     </div>
-                }
-            </div>
-        );
+            }
+        </div>
+    );
 }
