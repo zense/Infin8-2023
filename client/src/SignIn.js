@@ -19,9 +19,9 @@ function SignIn(props) {
             auth,
             registerEmail,
             registerPassword
-        ).then((userCredential) => {
+        ).then(async (userCredential) => {
 
-            getData(userCredential);
+            await getData(userCredential);
 
             props.setLoggedInStatus(true);
 

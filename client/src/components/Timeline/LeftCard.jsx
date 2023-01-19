@@ -1,10 +1,11 @@
 import "./LeftCard.scss"
 import Image from "../../images/clashroyale.jpeg"
 import { BsArrowDownRight } from 'react-icons/bs'
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Fade from 'react-reveal/Fade'
 
 const LeftCard = (props) => {
+    const navigate = useNavigate();
     return <Fade left>
         <div className="LeftCard">
             <div className="row">
@@ -37,11 +38,11 @@ const LeftCard = (props) => {
                             </div> */}
                             <div className="col-12 buttoncol mzl">
                                 <button className="leftborder
-                                tabbtn "><div className="row">
+                                tabbtn " onClick={()=>{
+                                    navigate(`/registerevent/${props.id}`)
+                                }}><div className="row">
                                     <div className="col-9">
-                                        <Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Register
-                                        </Link>
                                     </div>
                                     <div className="col-3">
                                         <BsArrowDownRight />

@@ -6,6 +6,7 @@ import Zoom from 'react-reveal/Zoom';
 import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
+    const navigate = useNavigate();
     return <div className="Card">
             <div className="row">
                 <div className="col mz">
@@ -39,8 +40,7 @@ const Card = (props) => {
                 <div className="col-12 mz border_left">
                     <button className='border_left registerbutton' onClick={
                         ()=>{
-                            var navigate = useNavigate();
-                            navigate(`registerevent/${props.id}`);
+                            navigate(`/registerevent/${props.id}`);
                         }
                     }><div className="row">
                         <div className="col-9">
