@@ -13,6 +13,7 @@ import { useEffect } from "react";
 
 export default function RegisterTeam(props) {
 
+    const [invalidTeamCode, changeInvalidTeamCode] = React.useState(false);
     const [joinExistingTeam, changejoinExistingTeam] = React.useState(true);
     //const [teamCodeInput, changeTeamCodeInput] = React.useState(true);
     const [color1, changecolor1] = useState("red");
@@ -382,7 +383,11 @@ export default function RegisterTeam(props) {
                                                     onChange={() => {
                                                     }}
                                                 />}
+                                            
                                         </div>
+                                        
+                                        
+                                        
 
                                         {(upiID !== "" && transactionID !== "")
                                             ?
@@ -400,6 +405,13 @@ export default function RegisterTeam(props) {
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
                                                 onClick={createPaymentObject}>Register</button>}
                                     </div>
+                                    
+                                    {(joinExistingTeam && invalidTeamCode) && 
+                                        <div style={{"color":"white", "textAlign":"center","marginTop": "15px","color":"red"}}>
+                                            Invalid Team Code
+                                        </div>
+                                    }
+                                    
                                     <div id="ContactIfNotProcessed" style={{"color":"white", "visibility":"hidden", "textAlign":"center", "marginTop": "30px"}}>
                                         <p>Your payment will be processed within 24 hrs.</p> 
                                         <p>If not done by then, contact +91 9043633668 on WhatsApp</p>
@@ -410,11 +422,27 @@ export default function RegisterTeam(props) {
                         </div>
 
                     :
-                    <div>
-                        <h1>
-                            {teamID}
-                        </h1>
-                    </div>
+                    <>
+                        <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
+                            <h5>
+                                Your Team ID : <br></br>{teamID}
+                            </h5>
+                        </div>
+                        <div>
+                            <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>
+                            <ol>
+                                {props.team_members.map((team_member, index)=>{
+                                    return(
+                                        
+                                            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
+                                                <li><h5>{team_member}</h5></li>
+                                            </div>
+                                    );
+                                    
+                                })}
+                            </ol>
+                        </div>
+                    </>
             }
         </div>
     );
