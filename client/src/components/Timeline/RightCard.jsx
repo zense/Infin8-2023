@@ -35,7 +35,9 @@ const RightCard = (props) => {
                                     {props.incentives}
                                 </div>
                             </div>
-                            <div className="row buttonrow">
+                            {   props.disabled ? 
+                                <div className="row"></div> :
+                                <div className="row buttonrow">
                                 {/* <div className="col-6 buttoncol mzr">
                                     <button className="rightborder tabbtn"><div className="row">
                                         <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
@@ -58,7 +60,7 @@ const RightCard = (props) => {
                                             </div>
                                         </div></button>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                     <div className="col d-none d-md-block mzr"></div>
@@ -98,17 +100,9 @@ const RightCard = (props) => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="row buttonrow">
-                                {/* <div className="col-6 buttoncol mzr">
-                                    <button className="rightborder tabbtn"><div className="row">
-                                        <div className="col-8 buttontextcol"><Link to={`/registerevent/${props.id}`} className="whitetext">
-                                            Details
-                                        </Link></div>
-                                        <div className="col-4">
-                                            <BsArrowDownRight />
-                                        </div>
-                                    </div></button>
-                                </div> */}
+                            { props.disabled ?
+                                <div className="row"></div> :  
+                                <div className="row buttonrow">
                                 <div className="col-12 buttoncol mzl">
                                     <button className="leftborder tabbtn" onClick={() => {
                                         navigate(`/registerevent/${props.id}`)
@@ -121,7 +115,7 @@ const RightCard = (props) => {
                                             </div>
                                         </div></button>
                                 </div>
-                            </div>
+                            </div>}
                         </div>
                     </div>
                     <div className="col d-none d-md-block mzr"></div>

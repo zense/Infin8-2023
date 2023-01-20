@@ -44,7 +44,7 @@ const TimeLine = () => {
             desktopCardsRight.push(
                 <>
                     <div className="space" id='event'></div>
-                    <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
+                    <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]} disabled = {data[i]["id"] == 19 ? true  : false}></RightCard>
                 </>
             );
         } else {
