@@ -22,7 +22,7 @@ export default function Registered(props){
             : (<div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#888888","paddingTop":"15px","marginLeft":"2.7vw"}}>
                 ⓘ Not Signed In.
             </div>)}
-
+            {/* They can register */}
             {(props.cannot_register===false && props.team_event===true) &&
                     <>
                         <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>

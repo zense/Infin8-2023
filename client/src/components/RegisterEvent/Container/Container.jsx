@@ -4,7 +4,7 @@ import RegisterTeam from "../RegisterTeam/RegisterTeam.jsx"
 import NotSignedIn from "../NotSignedIn/NotSignedIn.jsx"
 import Registered from '../Registered/Registered';
 import EntranceRegister from '../EntranceRegister/EntranceRegister';
-import { BiPhone } from 'react-icons/bi'
+import { BiPhone, BiRepost } from 'react-icons/bi'
 import './Container.scss'
 function PrizeMoney(props) {
     if (props.id == 10) {
@@ -27,7 +27,7 @@ function PrizeMoney(props) {
 
 }
 export default function Container(props) {
-
+    console.log(props.iiitbStudent+" "+props.id);
     return (
         <div className="container-fluid p-0" style={{ "padding": "0px" }}>
 
@@ -77,7 +77,7 @@ export default function Container(props) {
                                         var stringArr=string.split(" ");
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
-                                            if(word.slice(0, 4)==="http"){
+                                            if(word.includes("http")){
                                                 word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
@@ -116,51 +116,48 @@ export default function Container(props) {
 
 
                     {props.id == 1 || props.id == 3 ?
-                        <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
-                        :
-                            props.id== 16 || props.id==15 || props.id ==14 || props.id==13 ?
-                            
-                            props.iiitbStudent===true ?
-                                <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} team_event={false}/>
-                                :
-                                <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email}/>
-                            
+                            <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
                             :
-
-                            props.signed_in === false ?
-                                <NotSignedIn  event_fee={props.event_fee}/>
+                                props.signed_in === false ?
+                                    <NotSignedIn  event_fee={props.event_fee}/>
                                 :
-                                    props.registered_for_event === true ?
-                                        <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} team_event={props.team_event}
-                                            team_members={["TeamMember1","TeamMember2","TeamMember3"]}
-                                        />
-                                        :
-                                        // props.user.baseFeePaid === false ?
-                                            // <EntranceRegister
-                                            //     entrance_fee={props.entrance_fee}
-                                            //     email={props.email}
-                                            // />
-                                            // :                                
-                                            props.team_event === true ? 
-                                                <RegisterTeam
-                                                    event_id={props.id}
-                                                    user_id={props.user_id}
-                                                    fee={props.event_fee}
-                                                    iiitbStudent={props.iiitbStudent}
-                                                    loggedInStatus={props.signed_in}
-                                                    email={props.email}
-                                                    limit={props.event_limit}
-                                                />
-                                                :
-                                                <Register
-                                                    event_id={props.id}
-                                                    user_id={props.user_id}
-                                                    iiitbStudent={props.iiitbStudent}
-                                                    event_fee={props.event_fee}
-                                                    loggedInStatus={props.signed_in}
-                                                    email={props.email}
-                                                    event={props.event}
-                                                />
+                                    (props.id==13 || props.id==14|| props.id==15 || props.id==16) && (props.iiitbStudent === false)?
+                                         
+                                         <Registered cannot_register={true} loggedInStatus={props.signed_in} email = {props.email}/>
+                                            
+                                    :
+                                        props.registered_for_event === true ?
+                                            <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} team_event={props.team_event}
+                                                team_members={["TeamMember1","TeamMember2","TeamMember3"]}
+                                            />
+                                            :
+                                            // props.user.baseFeePaid === false ?
+                                                // <EntranceRegister
+                                                //     entrance_fee={props.entrance_fee}
+                                                //     email={props.email}
+                                                // />
+                                                // :                                
+                                                props.team_event === true ? 
+                                                    <RegisterTeam
+                                                        event_id={props.id}
+                                                        user_id={props.user_id}
+                                                        fee={props.event_fee}
+                                                        iiitbStudent={props.iiitbStudent}
+                                                        loggedInStatus={props.signed_in}
+                                                        email={props.email}
+                                                        limit={props.event_limit}
+                                                        team_members={props.team_members}
+                                                    />
+                                                    :
+                                                    <Register
+                                                        event_id={props.id}
+                                                        user_id={props.user_id}
+                                                        iiitbStudent={props.iiitbStudent}
+                                                        event_fee={props.event_fee}
+                                                        loggedInStatus={props.signed_in}
+                                                        email={props.email}
+                                                        event={props.event}
+                                                    />
                     }
                 </div>
             </div>

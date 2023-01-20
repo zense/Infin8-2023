@@ -24,14 +24,14 @@ export default function EntranceRegister(props){
         let paymentObjectID = paymentRef.id;
 
         const userRef = doc(db, "users_list", props.user_id);
-        const userDocSnap = getDoc(userRef);
+        const userDocSnap = await getDoc(userRef);
 
 
         // if (userDocSnap.exists()){
-        let paymentDetails = (await userDocSnap).data().paymentDetails;
+        let paymentDetails = (userDocSnap).data().paymentDetails;
         paymentDetails[0] = paymentObjectID;
 
-        updateDoc(userRef, {
+        await updateDoc(userRef, {
             paymentDetails: paymentDetails
         })
 
@@ -41,15 +41,15 @@ export default function EntranceRegister(props){
 
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
-        var userData = getDoc(userReference);
+        var userData = await getDoc(userReference);
     
-        var paymentID = (await userData).data().paymentDetails[0];
+        var paymentID = (userData).data().paymentDetails[0];
     
         if (paymentID !== "Register"){
             var paymentReference = doc(db, "payments", paymentID);
-            var paymentData = getDoc(paymentReference);
+            var paymentData = await getDoc(paymentReference);
             
-            var status = (await paymentData).data().status;
+            var status = (paymentData).data().status;
     
             if (status === "processed"){
 

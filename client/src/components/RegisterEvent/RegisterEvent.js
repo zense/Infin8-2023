@@ -79,8 +79,9 @@ function RegisterEvent(props) {
           event={event}
           id={id}
           entrace_fee={props.entrace_fee}
+          team_members={["TeamMember1","TeamMember2","TeamMember3"]}
         />
-      <Footer/>
+      {/* <Footer/> */}
       </ScrollToTop>
     </div>
   );

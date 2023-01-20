@@ -9,8 +9,8 @@ const gallery_content  = [
     {
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "4:00 PM",
-        "title" : "Battle Of Bands",
-        "incentives" : "Battle of Bands is where battalions of music enthusiasts come together and strum their vocal cords against one another in a fierce battle to claim the glory of victory.",
+        "title" : "ROCK ON!",
+        "incentives" : "Featuring Bangalore's top band setting the stage on fire, followed by battalions of music enthusiasts who shall  strum their cords against one another in a fierce battle to claim the glory of victory.",
         "id" : 2,
     },
     {

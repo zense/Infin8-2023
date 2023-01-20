@@ -26,25 +26,33 @@ const Footer = () => {
                     <div className="row">
                         <div className="col-7 col-md-5 col-lg-4 sociallabel">Twitter</div>
                         <div className="col-4 iconcol">
-                            <BsTwitter className="saicon" />
+                        <a href="https://twitter.com/IIITB_official?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" className="sociallink">
+                        <BsTwitter className='saicon'></BsTwitter>
+                        </a>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-7 col-md-5 col-lg-4 sociallabel">Instagram</div>
                         <div className="col-4 iconcol">
-                            <BsInstagram className="saicon" />
+                        <a href="https://instagram.com/infin8_iiitb?igshid=NTdlMDg3MTY=" className="sociallink">
+                        <BsInstagram className='saicon'></BsInstagram>
+                        </a>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-7 col-md-5 col-lg-4 sociallabel">LinkedIn</div>
                         <div className="col-4 iconcol">
-                            <BsLinkedin className="saicon" />
+                        <a href="https://www.linkedin.com/school/iiitbofficial/" className="sociallink">
+                        <BsLinkedin className='saicon'></BsLinkedin>
+                        </a>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-7 col-md-5 col-lg-4 sociallabel">Facebook</div>
                         <div className="col-4 iconcol">
-                            <BsFacebook className="saicon" />
+                        <a href="https://m.facebook.com/IIITBofficial/" className="sociallink">
+                        <BsFacebook className='saicon'></BsFacebook>
+                        </a>
                         </div>
                     </div>
                 </div>

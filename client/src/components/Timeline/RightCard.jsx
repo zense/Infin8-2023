@@ -1,10 +1,11 @@
 import "./RightCard.scss"
 // import Image from "../../images/clashroyale.jpeg"
 import { BsArrowDownRight } from "react-icons/bs"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Fade from 'react-reveal/Fade'
 
 const RightCard = (props) => {
+    const navigate = useNavigate();
     return <Fade right>
         <div className="RightCard">
             <div className="largescreens d-none d-md-block">
@@ -22,7 +23,7 @@ const RightCard = (props) => {
                     <div className="col-md-8 col-lg-7 col-xl-6 mzl">
                         <div className="card">
                             <div className="row">
-                                <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className='cardimage'/>
+                                <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className='cardimage' />
                             </div>
                             <div className="row">
                                 <div className="col title">
@@ -35,7 +36,7 @@ const RightCard = (props) => {
                                 </div>
                             </div>
                             <div className="row buttonrow">
-                                <div className="col-6 buttoncol mzr">
+                                {/* <div className="col-6 buttoncol mzr">
                                     <button className="rightborder tabbtn"><div className="row">
                                         <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Details
@@ -44,16 +45,18 @@ const RightCard = (props) => {
                                             <BsArrowDownRight />
                                         </div>
                                     </div></button>
-                                </div>
-                                <div className="col-6 buttoncol mzl">
-                                    <button className="leftborder tabbtn"><div className="row">
-                                        <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
-                                            Register
-                                        </Link></div>
-                                        <div className="col-3">
-                                            <BsArrowDownRight />
-                                        </div>
-                                    </div></button>
+                                </div> */}
+                                <div className="col-12 buttoncol mzl">
+                                    <button className="leftborder tabbtn" onClick={() => {
+                                        navigate(`/registerevent/${props.id}`)
+                                    }}><div className="row">
+                                            <div className="col-9">
+                                                Register
+                                            </div>
+                                            <div className="col-3">
+                                                <BsArrowDownRight />
+                                            </div>
+                                        </div></button>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +82,7 @@ const RightCard = (props) => {
                             <div className="row">
                                 <div className="col-6">
                                     <div className="imagebox">
-                                        <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className="timelineImage"/>
+                                        <img src={process.env.PUBLIC_URL + props.image} alt={props.title} className="timelineImage" />
                                     </div>
                                 </div>
                                 <div className="col-6">
@@ -96,7 +99,7 @@ const RightCard = (props) => {
                                 </div>
                             </div>
                             <div className="row buttonrow">
-                                <div className="col-6 buttoncol mzr">
+                                {/* <div className="col-6 buttoncol mzr">
                                     <button className="rightborder tabbtn"><div className="row">
                                         <div className="col-8 buttontextcol"><Link to={`/registerevent/${props.id}`} className="whitetext">
                                             Details
@@ -105,16 +108,18 @@ const RightCard = (props) => {
                                             <BsArrowDownRight />
                                         </div>
                                     </div></button>
-                                </div>
-                                <div className="col-6 buttoncol mzl">
-                                    <button className="leftborder tabbtn"><div className="row">
-                                        <div className="col-8"><Link to={`/registerevent/${props.id}`} className="whitetext">
-                                            Register
-                                        </Link></div>
-                                        <div className="col-4">
-                                            <BsArrowDownRight />
-                                        </div>
-                                    </div></button>
+                                </div> */}
+                                <div className="col-12 buttoncol mzl">
+                                    <button className="leftborder tabbtn" onClick={() => {
+                                        navigate(`/registerevent/${props.id}`)
+                                    }}><div className="row">
+                                            <div className="col-8">
+                                                Register
+                                            </div>
+                                            <div className="col-4">
+                                                <BsArrowDownRight />
+                                            </div>
+                                        </div></button>
                                 </div>
                             </div>
                         </div>

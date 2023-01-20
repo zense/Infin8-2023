@@ -21,9 +21,9 @@ const Profile = (props) => {
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user.id);
-        var userData = getDoc(userReference);
+        var userData = await getDoc(userReference);
 
-        var paymentDetails = (await userData).data().paymentDetails;
+        var paymentDetails = (userData).data().paymentDetails;
         var eventsParticipatedIn = []; 
 
         // Number of events = 17
@@ -33,10 +33,10 @@ const Profile = (props) => {
             if (paymentID !== "Register"){
             
                 var payRef = doc(db, "payments", paymentID);
-                var payData = getDoc(payRef);
+                var payData = await getDoc(payRef);
 
-                var status = (await payData).data().status;
-                var eventID = (await payData).data().event_id;
+                var status = (payData).data().status;
+                var eventID = (payData).data().event_id;
                 var eventName = eventDetails[eventID-1].title;
                 var eventSubtitle = eventDetails[eventID-1].subtitle;
                 // var status = (await payData).data().status;

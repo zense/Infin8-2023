@@ -3,18 +3,29 @@
     margin : 0 !important;
     width : 100%;
     padding : 0 !important;
-    .row{
-        margin : 0 !important;
-        padding : 0 !important;
+    .authlogo{
+        height: 80px;
+        width: auto;
+        margin-top: 30px;
+        margin-left: 30px;
+    }
+    .centerrow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 10px;
     }
     .signin-image{
-        height: 100vh;
+        height: 100%;
+        min-height: 100vh;
         width: 50vw;
         padding-top : 0;
         padding-right : -6vw !important;
         margin-top : 0;
         margin-right : 0;
-        background-size: cover;
+        background-repeat: no-repeat;
+        background-size: cover!important;
         background: url(./images/pic.png);
     }
     
@@ -22,35 +33,70 @@
         margin : 0 !important;
         padding : 0 !important;
     }
-    .form-title{
-        margin-top: 0 !important;
+    .formtitle{
         padding-top: 0 !important;
         margin-bottom: 3vh;
+        font-size: 60px;
+        font-weight: 600;
+        font-family: 'Archivo';
     }
-    .eye-position{
-        margin-left : 90% !important;
+    .labelrow{
+        font-size: 20px;
+    }
+    .labelrow1{
+        font-size: 20px;
     }
     .registerbtn{
         margin-top: 1vh;
-        width: 50%;
+        width : 200px;
         margin-bottom: 0vh;
+        background-color: black;
+        border-radius: 0;
+        height: 50px;
+        font-size: 20px;
     }
     .registerbtn2{
         margin-top: 1vh;
         width: 100%;
         margin-bottom: 0vh;
     }
+    .registertext{
+        font-size: 20px;
+    }
+    .txtbtn{
+        font-size : 20px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+    .txtbtn:hover,
+    .txtbtn:active{
+        color : black;
+    }
     .form-control{
         border : 2px solid black;
         border-radius: 0;
         border-left : none;
+        width : 70%;
+        max-width: 450px;
+        height: 50px;
     }
     .input-group-text{
         border : 2px solid black;
         border-radius: 0;
         border-right : none;
+        height: 50px;
+        background-color: black;
+        color : white;
     }
     .agree-term{
         accent-color: black;
+        height: 20px;
+        width: auto;
+    }
+    .label-agree-term{
+        font-size: 18px;
+    }
+    .sgnimg2{
+        height: 100%;
     }
 }
