@@ -17,6 +17,7 @@ import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import './components/Alert/Alert.scss';
 import { AiOutlineWarning } from 'react-icons/ai'
+import {Spinner} from 'react-bootstrap'
 
 function SignUp(props) {
 
@@ -27,7 +28,8 @@ function SignUp(props) {
     const [registerRePassword, setRegisterRePassword] = useState("");
     const [IIITBStudent, toggleIIITBStudent] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-    const [message, setMessage] = useState("You are a moron!");
+    const [message, setMessage] = useState("");
+    const [waiting, setWaiting] = useState(false);
     const auth = getAuth();
 
     const AlertDialog = (props) => {
@@ -66,12 +68,21 @@ function SignUp(props) {
         }
         return true;
     }
+
+    let navigate = useNavigate();
+
+    const routeChange = (path) => {
+        // let path = `home`; 
+        navigate(path);
+    }
+
     const register = async () => {
         setShowAlert(false);
         if(!validateInput()){
             setShowAlert(true);
             return;
         }
+        setWaiting(true);
         setShowAlert(false);
         const PORT = process.env.PORT || 5000;
 
@@ -93,6 +104,8 @@ function SignUp(props) {
             }),
         }).then((res) => res.json());
 
+        console.log(result.status);
+        console.log(result.body);
         if (result.status === "ok") {
             var userDetails = {
                 name: registerName,
@@ -102,8 +115,6 @@ function SignUp(props) {
                 password: registerPassword,
                 OTP: OTP
             }
-
-
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
         }
@@ -113,13 +124,6 @@ function SignUp(props) {
         else if (result.status === "error") {
             console.log("Error encountered!");
         }
-    }
-
-    let navigate = useNavigate();
-
-    const routeChange = (path) => {
-        // let path = `home`; 
-        navigate(path);
     }
 
 
@@ -372,7 +376,12 @@ function SignUp(props) {
                         {/* {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
                             ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
                             :  */}
-                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" >Register</button>
+                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled = {waiting}>{
+                            waiting ?
+                            <Spinner animation="border"/>:
+                            "Register"
+                            }
+                            </button>
                     </div>
                     {/* <div className="form-group centerrow registertext mb-5">
                         New here?

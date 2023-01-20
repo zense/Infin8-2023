@@ -12,6 +12,7 @@ import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "fir
 import { useState } from "react";
 import eventDetails from '../content/eventDetails.json';
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const Profile = (props) => {
@@ -35,7 +36,7 @@ const Profile = (props) => {
     useEffect(() => {
         fetchQr();
     },[])
-
+    let navigate = useNavigate();
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user.id);
@@ -99,6 +100,32 @@ const Profile = (props) => {
                <img src={Vector} alt="image" className='arrowicon1' />
             </div>
         </div>
+        {
+            props.loggedInStatus ?
+            <div className="row logoutrow">
+            <btn className="btn btn-light logout"
+            onClick={
+                ()=>{
+                    console.log("bkdjkfjdk")
+                    props.setLoggedInStatus(false);
+                    props.setUser(
+                        {
+                            id: "",
+                            name: "",
+                            contact: "",
+                            email: "",
+                            iiitbStudent: false
+                        }
+                    )
+                    navigate('/home');
+                }
+            }
+            >
+                Logout
+            </btn>
+        </div> : 
+            <></>
+        }
         <div className="row titledeets">
             {props.user.name}
         </div>
@@ -108,7 +135,6 @@ const Profile = (props) => {
         <div className="row titledeets lasttitle">
             {props.user.email}
         </div>
-
         <div className="orange">
         <div className="row page_heading">
             YOUR

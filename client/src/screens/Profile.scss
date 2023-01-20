@@ -1,4 +1,12 @@
 .Profile{
+    .logout{
+        width : 30%;
+    }
+    .logoutrow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     overflow-x: hidden;
     background-color: black;
     color: white;
