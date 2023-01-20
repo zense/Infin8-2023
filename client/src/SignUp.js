@@ -12,10 +12,11 @@ import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import './Auth.scss'
-import { FaUser } from 'react-icons/fa'
+import { FaLessThanEqual, FaUser } from 'react-icons/fa'
 import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
-
+import './components/Alert/Alert.scss';
+import { AiOutlineWarning } from 'react-icons/ai'
 
 function SignUp(props) {
 
@@ -25,10 +26,52 @@ function SignUp(props) {
     const [registerPassword, setRegisterPassword] = useState("");
     const [registerRePassword, setRegisterRePassword] = useState("");
     const [IIITBStudent, toggleIIITBStudent] = useState(false);
-
+    const [showAlert, setShowAlert] = useState(false);
+    const [message, setMessage] = useState("You are a moron!");
     const auth = getAuth();
 
+    const AlertDialog = (props) => {
+        return <div className="alertdiv">
+            <div className="alertbox">
+                <AiOutlineWarning size={25}/> {message}
+            </div>
+        </div>
+    };
+
+    const validateInput = ()=>{
+
+        if(registerRePassword != registerPassword){
+            setMessage("Passwords do not match!");
+            return false;
+        }
+        if(registerPassword.length < 6){
+            setMessage("Password should be atleast 6 characters long!");
+            return false;
+        }
+        if(registerName.length ==0){
+            setMessage("Please enter your name.");
+            return false;
+        }
+        if(registerName.length > 30){
+            setMessage("The name field can't contain more than 30 characters");
+            return false;
+        }
+        if(IIITBStudent && !registerEmail.trim().endsWith("@iiitb.ac.in")){
+            setMessage("Register with your @iiitb.ac.in email id.");
+            return false;
+        }
+        if(registerEmail.trim().endsWith("@iiitb.ac.in") && !IIITBStudent){
+            setMessage("If you are from IIITB, please check the box above.");
+            return false;
+        }
+        return true;
+    }
     const register = async () => {
+        setShowAlert(false);
+        if(!validateInput()){
+            setShowAlert(true);
+            return;
+        }
         const PORT = process.env.PORT || 5000;
 
         var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
@@ -266,7 +309,7 @@ function SignUp(props) {
                             }} required="required"
                             aria-describedby="basic-addon1" />
                     </div>
-                    
+
                     <div className="row centerrow labelrow1">
                         Contact
                     </div>
@@ -314,10 +357,21 @@ function SignUp(props) {
                         <label for="iiitb-student" class="label-agree-term"><span><span></span></span>I am from IIITB</label>
                     </div>
 
+                    {/* alert */}
+                    {
+                        showAlert ? 
+                        <div className="form-group centerrow">
+                            <AlertDialog></AlertDialog>
+                        </div> : 
+                        <></>
+                    }
+
+
                     <div class="form-group centerrow">
-                        {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
+                        {/* {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
                             ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
-                            : <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled>Register</button>}
+                            :  */}
+                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" >Register</button>
                     </div>
                     {/* <div className="form-group centerrow registertext mb-5">
                         New here?

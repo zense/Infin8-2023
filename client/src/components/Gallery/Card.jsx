@@ -44,7 +44,7 @@ const Card = (props) => {
                         }
                     }><div className="row">
                         <div className="col-9">
-                                Register
+                                {props.isReg ? "Register" : "Details"}
                         </div>
                         <div className="col-3">
                             <img className="arrow" src={arrow} alt="image" />
