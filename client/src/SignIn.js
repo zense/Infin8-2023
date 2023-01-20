@@ -9,6 +9,7 @@ import { FaUser } from 'react-icons/fa'
 import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import { AiOutlineWarning } from 'react-icons/ai'
+import { Spinner } from "react-bootstrap";
 
 function SignIn(props) {
 
@@ -16,17 +17,18 @@ function SignIn(props) {
     const [registerPassword, setRegisterPassword] = useState("");
     const [showAlert, setShowAlert] = useState(false);
     const [message, setMessage] = useState("You are a moron!");
-
+    const [waiting, setWaiting] = useState(false);
     const AlertDialog = (props) => {
         return <div className="alertdiv">
             <div className="alertbox">
-                <AiOutlineWarning size={25}/> {message}
+                <AiOutlineWarning size={25} /> {message}
             </div>
         </div>
     };
 
     const auth = getAuth();
     const login = async () => {
+        setWaiting(true);
         await signInWithEmailAndPassword(
             auth,
             registerEmail,
@@ -42,6 +44,7 @@ function SignIn(props) {
 
         }).catch((error) => {
             setMessage("Invalid Credentials");
+            setWaiting(false);
             setShowAlert(true);
         });
     }
@@ -83,7 +86,7 @@ function SignIn(props) {
     const [show, setShow] = useState(false);
 
 
-    const validateInput = ()=>{
+    const validateInput = () => {
 
         return true;
     }
@@ -123,7 +126,7 @@ function SignIn(props) {
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6 detailscol">
-                    <img src = {infilogo} className='authlogo'></img>
+                    <img src={infilogo} className='authlogo'></img>
                     <div className="row centerrow">
                         <div class="formtitle">Sign In</div>
                     </div>
@@ -150,14 +153,18 @@ function SignIn(props) {
                         {passComp}
                     </div>
                     {
-                        showAlert ? 
-                        <div className="form-group centerrow">
-                            <AlertDialog></AlertDialog>
-                        </div> : 
-                        <></>
+                        showAlert ?
+                            <div className="form-group centerrow">
+                                <AlertDialog></AlertDialog>
+                            </div> :
+                            <></>
                     }
                     <div class="form-group centerrow">
-                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin">Login</btn>
+                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting}>{
+                            waiting ?
+                            <Spinner></Spinner> : 
+                            "Login"
+                        }</btn>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
                     </div>
                     <div className="form-group centerrow registertext mb-5">
