@@ -48,6 +48,14 @@ function SignUp(props) {
             setMessage("Password should be atleast 6 characters long!");
             return false;
         }
+        if(registerName.length ==0){
+            setMessage("Please enter your name.");
+            return false;
+        }
+        if(registerName.length > 30){
+            setMessage("The name field can't contain more than 30 characters");
+            return false;
+        }
         if(IIITBStudent && !registerEmail.trim().endsWith("@iiitb.ac.in")){
             setMessage("Register with your @iiitb.ac.in email id.");
             return false;
