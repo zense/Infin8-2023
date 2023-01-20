@@ -47,24 +47,29 @@ const Profile = (props) => {
         // Number of events = 17
         for (var i=1; i<=17 ;i++){
             var paymentID = paymentDetails[i];
-
-            if (paymentID !== "Register"){
             
+            if (paymentID !== "Register"){
+                
                 var payRef = doc(db, "payments", paymentID);
                 var payData = await getDoc(payRef);
-
-                var status = (payData).data().status;
-                var eventID = (payData).data().event_id;
-                var eventName = eventDetails[eventID-1].title;
-                var eventSubtitle = eventDetails[eventID-1].subtitle;
-                // var status = (await payData).data().status;
-                
-                if (status === "processed"){
-                    var eventObject = {
-                        eventName: eventName,
-                        eventSubtitle: eventSubtitle
+                if(payData.data() !== undefined)
+                {
+                    var status = (payData).data().status;
+                    var eventID = (payData).data().event_id;
+                    var eventName = eventDetails[eventID-1].title;
+                    var eventSubtitle = eventDetails[eventID-1].subtitle;
+                    // var status = (await payData).data().status;
+                    
+                    if (status === "processed"){
+                        var eventObject = {
+                            eventName: eventName,
+                            eventSubtitle: eventSubtitle
+                        }
+                        eventsParticipatedIn.push(eventObject);
                     }
-                    eventsParticipatedIn.push(eventObject);
+                }
+                else{
+                    console.log("payData is undefined")
                 }
             }
         }
