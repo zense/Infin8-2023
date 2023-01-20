@@ -19,20 +19,21 @@ import { BiTimeFive } from "react-icons/bi";
 
 function OTPVerification(props) {
 
+    const [otpdis, setOtpdis] = useState(false);
     const [enteredOTP, setEnteredOTP] = useState("");
 
     const auth = getAuth();
 
-    function validateOTP(){
-        if (props.user.OTP === enteredOTP){
+    async function validateOTP() {
+        if (props.user.OTP === enteredOTP) {
 
             console.log(enteredOTP);
-
-            const user = createUserWithEmailAndPassword(
+            setOtpdis(true);
+            const user = await createUserWithEmailAndPassword(
                 auth,
                 props.user.email,
                 props.user.password
-            ).then((userCredential) => {
+            ).then(async (userCredential) => {
 
                 const userEventParticipationDetail = {
                     1: "Register",
@@ -75,7 +76,7 @@ function OTPVerification(props) {
                 }
 
                 const docRef = doc(db, "users_list", userCredential.user.uid);
-                setDoc(docRef, {
+                await setDoc(docRef, {
                     name: props.user.name,
                     contact: props.user.contact,
                     email: props.user.email,
@@ -113,16 +114,17 @@ function OTPVerification(props) {
         navigate(path);
     }
 
+
     return (
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6">
-                <img src={infilogo} className='authlogo'></img>
+                    <img src={infilogo} className='authlogo'></img>
                     <div className="row centerrow">
                         <h2 class="formtitle">Verify</h2>
                     </div>
                     <div className="row centerrow labelrow">
-                        We have sent you an OTP on the email address you provided.<br/>
+                        We have sent you an OTP on the email address you provided.<br />
                         Enter the same below:
                     </div>
                     <div class="input-group mb-3 centerrow mt-5">
@@ -136,7 +138,9 @@ function OTPVerification(props) {
                     </div>
 
                     <div class="form-group centerrow mt-5">
-                        <btn onClick={validateOTP} name="otp-btn" id="otp-btn" class="btn registerbtn btn-dark" value="validate-otp">Validate</btn>
+                        <btn onClick={validateOTP} name="otp-btn" id="otp-btn" class="btn registerbtn btn-dark"
+                        disabled = {otpdis} 
+                        value="validate-otp">Validate</btn>
                     </div>
                 </div>
                 <div className="d-none d-lg-block col-lg-6">

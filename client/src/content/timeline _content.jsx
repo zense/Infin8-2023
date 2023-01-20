@@ -113,8 +113,8 @@ const day3 = [
     {
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "5:00 PM",
-        "title" : "Battle of the Bands",
-        "incentives" : "",
+        "title" : "ROCK ON!",
+        "incentives" : "The Battle of the Bands",
         "id" : "2",
     },
     {

@@ -54,7 +54,7 @@ function App(props) {
             
             <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus} paid_base_fees={user.baseFeePaid}/>} />
             
-            {/* If the user is not signed in, paid_base_fees has to be given as false if we want the pay Base Fees page to render  */}
+            {/**/}
             <Route path="/registerevent/:id" element={<RegisterEvent user={user} loggedInStatus={loggedInStatus} entrance_fee={50} signed_in={loggedInStatus} registered_for_event={false}/>} />
             <Route path="/profile" element = {<Profile user={user} loggedInStatus={loggedInStatus}/>}/>
             <Route path="/contact" element={<Contact loggedInStatus={loggedInStatus}/>} />

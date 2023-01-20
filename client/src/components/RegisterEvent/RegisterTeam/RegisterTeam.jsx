@@ -13,6 +13,7 @@ import { useEffect } from "react";
 
 export default function RegisterTeam(props) {
 
+    const [invalidTeamCode, changeInvalidTeamCode] = React.useState(false);
     const [joinExistingTeam, changejoinExistingTeam] = React.useState(true);
     //const [teamCodeInput, changeTeamCodeInput] = React.useState(true);
     const [color1, changecolor1] = useState("red");
@@ -27,19 +28,19 @@ export default function RegisterTeam(props) {
 
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
-        var userData = getDoc(userReference);
+        var userData = await getDoc(userReference);
         // Fetching the payment details from the paymeny object map in firebase.
-        var paymentDetails = (await userData).data().paymentDetails;
+        var paymentDetails = (userData).data().paymentDetails;
 
-        var eventTeamMap = (await userData).data().eventTeamMap;
+        var eventTeamMap = (userData).data().eventTeamMap;
         // document.getElementById("chooseTeam").style.visibility = "hidden";
 
         if (paymentDetails[props.event_id] !== "Register") {
 
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
-            var paymentData = getDoc(paymentReference);
+            var paymentData = await getDoc(paymentReference);
 
-            var status = (await paymentData).data().status;
+            var status = (paymentData).data().status;
 
             if (status === "processed") {
                 setTeamID(eventTeamMap[props.event_id]);
@@ -87,7 +88,7 @@ export default function RegisterTeam(props) {
             let paymentObjectID = paymentRef.id;
 
             const userRef = doc(db, "users_list", props.user_id);
-            const userDocSnap = getDoc(userRef);
+            const userDocSnap = await getDoc(userRef);
 
 
             const teamData = await addDoc(collection(db, "teams"), {
@@ -98,13 +99,13 @@ export default function RegisterTeam(props) {
             });
 
             // if (userDocSnap.exists()){
-            let paymentDetails = (await userDocSnap).data().paymentDetails;
+            let paymentDetails = (userDocSnap).data().paymentDetails;
             paymentDetails[props.event_id] = paymentObjectID;
 
-            let eventTeamMap = (await userDocSnap).data().eventTeamMap;
+            let eventTeamMap = (userDocSnap).data().eventTeamMap;
             eventTeamMap[props.event_id] = teamData.id;
 
-            updateDoc(userRef, {
+            await updateDoc(userRef, {
                 paymentDetails: paymentDetails,
                 eventTeamMap: eventTeamMap
             })
@@ -150,27 +151,27 @@ export default function RegisterTeam(props) {
 
                     var leaderID = teamToJoinData.leaderID;
 
-                    updateDoc(teamRef, {
+                    await updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
                         members: teamMembers
                     })
 
                     var userRef = doc(db, "users_list", props.user_id);
-                    var userDocSnap = getDoc(userRef);
+                    var userDocSnap = await getDoc(userRef);
 
                     var leaderRef = doc(db, "users_list", leaderID);
-                    var leaderDocSnap = getDoc(leaderRef);
+                    var leaderDocSnap = await getDoc(leaderRef);
 
-                    var paymentObjectID = (await leaderDocSnap).data().paymentDetails[props.event_id];
+                    var paymentObjectID = (leaderDocSnap).data().paymentDetails[props.event_id];
 
                     // Change user data
-                    let paymentDetails = (await userDocSnap).data().paymentDetails;
+                    let paymentDetails = (userDocSnap).data().paymentDetails;
                     paymentDetails[props.event_id] = paymentObjectID;
 
-                    let eventTeamMap = (await userDocSnap).data().eventTeamMap;
+                    let eventTeamMap = (userDocSnap).data().eventTeamMap;
                     eventTeamMap[props.event_id] = teamToJoin;
 
-                    updateDoc(userRef, {
+                    await updateDoc(userRef, {
                         paymentDetails: paymentDetails,
                         eventTeamMap: eventTeamMap
                     })
@@ -382,7 +383,11 @@ export default function RegisterTeam(props) {
                                                     onChange={() => {
                                                     }}
                                                 />}
+                                            
                                         </div>
+                                        
+                                        
+                                        
 
                                         {(upiID !== "" && transactionID !== "")
                                             ?
@@ -400,6 +405,13 @@ export default function RegisterTeam(props) {
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
                                                 onClick={createPaymentObject}>Register</button>}
                                     </div>
+                                    
+                                    {(joinExistingTeam && invalidTeamCode) && 
+                                        <div style={{"color":"white", "textAlign":"center","marginTop": "15px","color":"red"}}>
+                                            Invalid Team Code
+                                        </div>
+                                    }
+                                    
                                     <div id="ContactIfNotProcessed" style={{"color":"white", "visibility":"hidden", "textAlign":"center", "marginTop": "30px"}}>
                                         <p>Your payment will be processed within 24 hrs.</p> 
                                         <p>If not done by then, contact +91 9043633668 on WhatsApp</p>
@@ -410,11 +422,27 @@ export default function RegisterTeam(props) {
                         </div>
 
                     :
-                    <div>
-                        <h1>
-                            {teamID}
-                        </h1>
-                    </div>
+                    <>
+                        <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
+                            <h5>
+                                Your Team ID : <br></br>{teamID}
+                            </h5>
+                        </div>
+                        <div>
+                            <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>
+                            <ol>
+                                {props.team_members.map((team_member, index)=>{
+                                    return(
+                                        
+                                            <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
+                                                <li><h5>{team_member}</h5></li>
+                                            </div>
+                                    );
+                                    
+                                })}
+                            </ol>
+                        </div>
+                    </>
             }
         </div>
     );

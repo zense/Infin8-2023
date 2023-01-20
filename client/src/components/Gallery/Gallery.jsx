@@ -16,6 +16,7 @@ const Gallery = () => {
                 incentives={data[i]['incentives']}
                 image={link}
                 id={data[i]['id']}
+                isReg = {data[i]['id'] == 2 ? true  : false}
             />
         );
     }

@@ -16,15 +16,15 @@ export default function Register(props){
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user_id);
-        var userData = getDoc(userReference);
+        var userData = await getDoc(userReference);
 
-        var paymentDetails = (await userData).data().paymentDetails;
+        var paymentDetails = (userData).data().paymentDetails;
         
         if (paymentDetails[props.event_id] !== "Register"){
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
-            var paymentData = getDoc(paymentReference);
+            var paymentData = await getDoc(paymentReference);
             
-            var status = (await paymentData).data().status;
+            var status = (paymentData).data().status;
     
             if (status === "processed"){
                 set_user_registered(true);
@@ -70,13 +70,13 @@ export default function Register(props){
         let paymentObjectID = paymentRef.id;
 
         const userRef = doc(db, "users_list", props.user_id);
-        const userDocSnap = getDoc(userRef);
+        const userDocSnap = await getDoc(userRef);
 
         // if (userDocSnap.exists()){
-        let paymentDetails = (await userDocSnap).data().paymentDetails;
+        let paymentDetails = (userDocSnap).data().paymentDetails;
         paymentDetails[props.event_id] = paymentObjectID;
 
-        updateDoc(userRef, {
+        await updateDoc(userRef, {
             paymentDetails: paymentDetails
         })
 
