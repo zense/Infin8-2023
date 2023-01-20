@@ -18,6 +18,24 @@ const Profile = (props) => {
 
     const [participatedEvents, setParticipatedEvents] = useState([]);
 
+    const [qrCodeUrl, setQrCodeUrl] = useState("")
+
+    const fetchQr = async () => {
+        await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${
+            props.user.id
+        }`)
+        .then(url => {
+            setQrCodeUrl(url.url)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+    useEffect(() => {
+        fetchQr();
+    },[])
+
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user.id);
@@ -94,7 +112,7 @@ const Profile = (props) => {
             TICKET
             <img src={arrow} alt="image" className='arrowicon' />
         </div>
-        <Ticket user={props.user}/>
+        <Ticket user={props.user} qrCodeUrl={qrCodeUrl}/>
         </div>
         <div className="row page_heading">
             YOUR

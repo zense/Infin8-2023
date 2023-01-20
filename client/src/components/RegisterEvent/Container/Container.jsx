@@ -163,6 +163,7 @@ export default function Container(props) {
                                                     <RegisterTeam
                                                         event_id={props.id}
                                                         user_id={props.user_id}
+                                                        user_name={props.user_name}
                                                         fee={props.event_fee}
                                                         iiitbStudent={props.iiitbStudent}
                                                         loggedInStatus={props.signed_in}

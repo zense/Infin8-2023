@@ -28,6 +28,8 @@ export default function RegisterTeam(props) {
     const [transactionID, setTransactionID] = useState("");
     const [teamCode, setTeamCode] = useState("");
 
+    const [teamMembers, setTeamMembers] = useState([]);
+
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
         var userData = await getDoc(userReference);
@@ -51,6 +53,13 @@ export default function RegisterTeam(props) {
                 if (status === "processed") {
                     console.log("status is processed")
                     setTeamID(eventTeamMap[props.event_id]);
+
+                    var teamRef = doc(db, "teams", eventTeamMap[props.event_id])
+                    var teamData = await getDoc(teamRef);
+                    console.log("team data: ", teamData.data())
+                    console.log("team members name: ", teamData.data().membersName)
+                    setTeamMembers(teamData.data().membersName);
+
                     set_user_registered(true);
                     document.getElementById("chooseTeam").style.visibility = "visible";
                     // document.getElementsByName("RegisterForEvent").innerHTML = "Registered";
@@ -108,6 +117,7 @@ export default function RegisterTeam(props) {
                 limit: props.limit,
                 vacancy: props.limit-1,
                 members: [props.user_id],
+                membersName: [props.user_name],
                 leaderID: props.user_id
             });
 
@@ -163,7 +173,9 @@ export default function RegisterTeam(props) {
                     setInvalidTeamCode(false)
                     var teamRef = doc(db, "teams", teamToJoin);
                     var teamMembers = teamToJoinData.members;
+                    var teamMembersName = teamToJoinData.membersName;
                     teamMembers.push(props.user_id);
+                    teamMembersName.push(props.user_name);
 
                     console.log("I am here");
                     var leaderID = teamToJoinData.leaderID;
@@ -172,7 +184,8 @@ export default function RegisterTeam(props) {
                     console.log("Leader ID ", leaderID);
                     await updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
-                        members: teamMembers
+                        members: teamMembers,
+                        membersName: teamMembersName
                     })
 
                     var userRef = doc(db, "users_list", props.user_id);
@@ -471,7 +484,7 @@ export default function RegisterTeam(props) {
                         <div>
                             <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>
                             <ol>
-                                {/* {props.team_members.map((team_member, index)=>{
+                                {teamMembers && teamMembers.map((team_member, index)=>{
                                     return(
                                         
                                             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
@@ -479,7 +492,7 @@ export default function RegisterTeam(props) {
                                             </div>
                                     );
                                     
-                                })} */}
+                                })}
                             </ol>
                         </div>
                     </>

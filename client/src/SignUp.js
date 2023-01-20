@@ -72,12 +72,14 @@ function SignUp(props) {
             setShowAlert(true);
             return;
         }
+        setShowAlert(false);
         const PORT = process.env.PORT || 5000;
 
         var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
         var testingURL = `http://localhost:${PORT}/api/sendOTP`;
 
         // generateOTP(n) generates OTP of length n
+
         var OTP = generateOTP(4).toString(10);
         const result = await fetch(publicURL, {
             method: "POST",
@@ -92,7 +94,6 @@ function SignUp(props) {
         }).then((res) => res.json());
 
         if (result.status === "ok") {
-
             var userDetails = {
                 name: registerName,
                 email: registerEmail,
