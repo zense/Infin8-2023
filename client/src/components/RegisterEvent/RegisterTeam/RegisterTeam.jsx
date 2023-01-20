@@ -9,11 +9,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
 import { useEffect } from "react";
+import { confirmPasswordReset } from "@firebase/auth";
 
 
 export default function RegisterTeam(props) {
+    const [isDisabled, setDisabled] = useState(false);
 
-    const [invalidTeamCode, changeInvalidTeamCode] = React.useState(false);
+    const [invalidTeamCode, setInvalidTeamCode] = React.useState(false);
     const [joinExistingTeam, changejoinExistingTeam] = React.useState(true);
     //const [teamCodeInput, changeTeamCodeInput] = React.useState(true);
     const [color1, changecolor1] = useState("red");
@@ -39,22 +41,32 @@ export default function RegisterTeam(props) {
 
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
             var paymentData = await getDoc(paymentReference);
+            console.log("this is paymentdata",(paymentData), props.event_id);
+            // console.log("ths is true or false", "status" in (paymentData).data());
 
-            var status = (paymentData).data().status;
 
-            if (status === "processed") {
-                setTeamID(eventTeamMap[props.event_id]);
-                set_user_registered(true);
-                document.getElementById("chooseTeam").style.visibility = "visible";
-                // document.getElementsByName("RegisterForEvent").innerHTML = "Registered";
+            if((paymentData).data() !== undefined)
+            {
+                var status = (paymentData).data().status;
+                if (status === "processed") {
+                    console.log("status is processed")
+                    setTeamID(eventTeamMap[props.event_id]);
+                    set_user_registered(true);
+                    document.getElementById("chooseTeam").style.visibility = "visible";
+                    // document.getElementsByName("RegisterForEvent").innerHTML = "Registered";
+                }
+                else {
+                    document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                    document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
+                    document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+                }
             }
-            else {
-                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
-                document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
-                document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+            else{
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Register";
+                document.getElementById("ContactIfNotProcessed").style.visibility = "hidden";
+                document.getElementsByName("RegisterForEvent")[0].classList.remove("disabled");
             }
         }
-
     }
 
     useEffect(() => {
@@ -68,6 +80,7 @@ export default function RegisterTeam(props) {
 
     const createPaymentObject = async () => {
         // Create a new team
+        setDisabled(true);
         if (!joinExistingTeam) {
 
             var status = "processing";
@@ -86,7 +99,7 @@ export default function RegisterTeam(props) {
             });
 
             let paymentObjectID = paymentRef.id;
-
+            console.log("paymentObjectid", paymentObjectID)
             const userRef = doc(db, "users_list", props.user_id);
             const userDocSnap = await getDoc(userRef);
 
@@ -139,18 +152,24 @@ export default function RegisterTeam(props) {
 
             if (teamToJoin === "") {
                 console.log("Team Does not Exist!");
+                setInvalidTeamCode(true)
+                
             }
             else {
                 if (teamToJoinData.vacancy === 0) {
                     console.log("Team size already full!");
                 }
                 else {
+                    setInvalidTeamCode(false)
                     var teamRef = doc(db, "teams", teamToJoin);
                     var teamMembers = teamToJoinData.members;
                     teamMembers.push(props.user_id);
 
+                    console.log("I am here");
                     var leaderID = teamToJoinData.leaderID;
-
+                    
+                    console.log("Team Members", teamMembers);
+                    console.log("Leader ID ", leaderID);
                     await updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
                         members: teamMembers
@@ -190,7 +209,8 @@ export default function RegisterTeam(props) {
                 }
             }
             // get all teams and check if it matches any of the ids
-
+            checkStatus();
+            setDisabled(false)
         }
 
 
@@ -287,7 +307,9 @@ export default function RegisterTeam(props) {
                                 name="RegisterForEvent"
                                 className="btn btn-default"
                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                onClick={createPaymentObject}>Register</button>
+                                onClick={createPaymentObject}
+                                disabled={isDisabled}
+                                >Register</button>
                         </div>
                         :
                         <div>
@@ -380,7 +402,8 @@ export default function RegisterTeam(props) {
                                                     placeholder="Enter Team Code"
                                                     id="inputID"
                                                     style={{ "width": "200px" }}
-                                                    onChange={() => {
+                                                    onChange={(event) => {
+                                                        setTeamCode(event.target.value);
                                                     }}
                                                 />}
                                             
@@ -389,13 +412,26 @@ export default function RegisterTeam(props) {
                                         
                                         
 
-                                        {(upiID !== "" && transactionID !== "")
-                                            ?
+                                        
+                                        {
+                                            joinExistingTeam ?                                             
                                             <button
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                                onClick={createPaymentObject}>Register</button>
+                                                disabled={isDisabled}
+                                                onClick={createPaymentObject}>Join team
+                                            </button>
+                                            :
+                                            (
+                                                (upiID !== "" && transactionID !== "") ?
+                                                <button
+                                                name="RegisterForEvent"
+                                                className="btn btn-default"
+                                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                                onClick={createPaymentObject}
+                                                disabled={isDisabled}
+                                                >Register</button>
 
                                             :
                                             <button
@@ -403,7 +439,11 @@ export default function RegisterTeam(props) {
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                                onClick={createPaymentObject}>Register</button>}
+                                                onClick={createPaymentObject}>Register</button>
+                                            )
+                                            
+                                            
+                                        }
                                     </div>
                                     
                                     {(joinExistingTeam && invalidTeamCode) && 
@@ -431,7 +471,7 @@ export default function RegisterTeam(props) {
                         <div>
                             <h2 style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"#FFCD00","paddingTop":"25px","marginLeft":"2.7vw"}}><u>Your Team</u></h2>
                             <ol>
-                                {props.team_members.map((team_member, index)=>{
+                                {/* {props.team_members.map((team_member, index)=>{
                                     return(
                                         
                                             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
@@ -439,7 +479,7 @@ export default function RegisterTeam(props) {
                                             </div>
                                     );
                                     
-                                })}
+                                })} */}
                             </ol>
                         </div>
                     </>

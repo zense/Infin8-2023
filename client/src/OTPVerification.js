@@ -31,7 +31,7 @@ function OTPVerification(props) {
             setOtpdis(true);
             const user = await createUserWithEmailAndPassword(
                 auth,
-                props.user.email,
+                props.user.email,   
                 props.user.password
             ).then(async (userCredential) => {
 
