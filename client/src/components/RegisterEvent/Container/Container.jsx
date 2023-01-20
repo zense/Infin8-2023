@@ -77,7 +77,7 @@ export default function Container(props) {
                                         var stringArr=string.split(" ");
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
-                                            if(word.slice(0, 4)==="http"){
+                                            if(word.includes("http")){
                                                 word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
@@ -146,6 +146,7 @@ export default function Container(props) {
                                                         loggedInStatus={props.signed_in}
                                                         email={props.email}
                                                         limit={props.event_limit}
+                                                        team_members={props.team_members}
                                                     />
                                                     :
                                                     <Register
