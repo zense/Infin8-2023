@@ -17,6 +17,7 @@ import './Auth.scss'
 import infilogo from './images/infilogoblack.svg';
 import { BiTimeFive } from "react-icons/bi";
 import { AiOutlineWarning } from 'react-icons/ai'
+import { Spinner } from "react-bootstrap";
 function OTPVerification(props) {
 
     const [otpdis, setOtpdis] = useState(false);
@@ -159,7 +160,11 @@ function OTPVerification(props) {
                     <div class="form-group centerrow mt-3">
                         <btn onClick={validateOTP} name="otp-btn" id="otp-btn" class="btn registerbtn btn-dark"
                         disabled = {otpdis} 
-                        value="validate-otp">Validate</btn>
+                        value="validate-otp">{
+                            otpdis ?
+                            <Spinner></Spinner>
+                            : "Validate"
+                        }</btn>
                     </div>
                 </div>
                 <div className="d-none d-lg-block col-lg-6">

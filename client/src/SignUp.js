@@ -128,8 +128,8 @@ function SignUp(props) {
 
 
     function generateOTP(numberOfDigits) {
-        var max = Math.pow(10, (numberOfDigits)) - 1;
-        return Math.floor(Math.random() * max);
+        var max = 8999;
+        return Math.floor(Math.random() * max) + 1000;
     }
     const goToLogin = async () => {
         routeChange(`/sign-in`);

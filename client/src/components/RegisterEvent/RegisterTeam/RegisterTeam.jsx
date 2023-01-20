@@ -354,7 +354,7 @@ export default function RegisterTeam(props) {
                                     style={{ "backgroundColor": "white", "marginTop": "25px" }}
                                     onClick={createPaymentObject}
                                     disabled={isDisabled}
-                                    >Register</button>
+                                    >{isDisabled ? "Processing": "Register"}</button>
                                 }
                             </div>
                                 {(joinExistingTeam && invalidTeamCode) && 
