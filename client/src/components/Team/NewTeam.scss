@@ -5,7 +5,7 @@
   .rs-team .team-item {
     position: relative;
     overflow: hidden;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     border: 2px solid white;
   }
   .rs-team .team-item:before {
@@ -30,7 +30,7 @@
     left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
-    background-color: rgba(25, 8, 217, 0.7);
+    background-color: rgba(74, 58, 255, 0.8);
     transition: .3s ease all;
     z-index: 10;
   }
@@ -55,11 +55,9 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 10%;
-    left: 0;
     text-align: center;
     z-index: 1;
-    padding: 30px;
+    // padding: 50px;
     opacity: 0;
     -webkit-transition: 0.3s all ease-out;
     transition: 0.3s all ease-out;
@@ -72,7 +70,7 @@
     top: 0;
     height: 100%;
     width: 100%;
-    background: rgba(217, 8, 69, 0.8);
+    background:  rgba(74, 58, 255, 0.8);
     z-index: -1;
   }
   .rs-team .team-item .team-name {
@@ -181,7 +179,7 @@
   .rs-team .team-item .team-social li a:hover {
     background: #fff;
     border-color: #fff;
-    color: #d90845;
+    color:  rgba(74, 58, 255, 0.8);
   }
   .rs-team .team-item:hover .team-content {
     top: 0;
@@ -284,8 +282,8 @@
   }
   .pagination .page-item > *:hover,
   .pagination .page-item > *.active {
-    color: #d90845;
-    border-color: #d90845;
+    color: rgba(74, 58, 255, 0.8);
+    border-color:  rgba(74, 58, 255, 0.8);
   }
   .pagination .page-item > *.dotted {
     line-height: 40px;
@@ -294,5 +292,40 @@
       list-style: outside none none;
       margin: 0;
       padding: 0;
+  }
+  .newicons{
+    height: 50px;
+    width: auto;
+    padding-left: 6px;
+    padding-bottom: 10px;
+  }
+  .change{
+    margin-top: 40%;
+    // left: 50%;
+    // transform: translate(0%, 160%);
+  }
+  .changewidth{
+    padding-right: calc(var(--bs-gutter-x) * 1) ;
+    padding-left: calc(var(--bs-gutter-x) * 1);
+  }
+  @media (max-width: 1200px) {
+    .change{
+      margin-top: 35%;
+      
+    }
+  }
+  @media (max-width: 576px) {
+    .change{
+      margin-top: 40%;
+      
+    }
+    .changewidth{
+      padding-right: calc(var(--bs-gutter-x) * 2) ;
+      padding-left: calc(var(--bs-gutter-x) * 2);
+    }
+  }
+  .subtitle1{
+    color: white;
+    font-size: 20px;
   }
 }

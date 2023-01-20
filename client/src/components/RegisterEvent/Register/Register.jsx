@@ -8,10 +8,11 @@ import { useState, useEffect } from "react";
 
 
 export default function Register(props){
-    
+    const [isDisabled, setIsDisabled] = useState(false);
     const [user_registered, set_user_registered] = useState(false);
     const [upiID, setUpiID] = useState("");
     const [transactionID, setTransactionID] = useState("");
+    
 
     const checkStatus = async () => {
 
@@ -23,19 +24,23 @@ export default function Register(props){
         if (paymentDetails[props.event_id] !== "Register"){
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
             var paymentData = await getDoc(paymentReference);
-            
-            var status = (paymentData).data().status;
-    
-            if (status === "processed"){
-                set_user_registered(true);
-                // document.getElementById("payBaseFeeButton").classList.add("disabled");
-                // props.setDisplayText("Payment Successful");
-                // return true;
+            // console.log("paymentData: ", paymentData)
+            if(paymentData.data() !== undefined)
+            {
+                var status = (paymentData).data().status;
+                if (status === "processed"){
+                    set_user_registered(true);
+                }
+                else{
+                    document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                    document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
+                    document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+                }
             }
             else{
-                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
-                document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
-                document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
+                document.getElementsByName("RegisterForEvent")[0].innerHTML = "Register";
+                document.getElementById("ContactIfNotProcessed").style.visibility = "hidden";
+                document.getElementsByName("RegisterForEvent")[0].classList.remove("disabled");
             }
         }
 
@@ -51,6 +56,7 @@ export default function Register(props){
 
     const createPaymentObject = async () => {
 
+        setIsDisabled(true)
         var status = "processing";
         
         if (props.iiitbStudent){
@@ -63,12 +69,13 @@ export default function Register(props){
             multi: false,
             screenshot: "",
             status: status,
-            transaction_id:"ID NUMBER PATA NAHI",
+            transaction_id:transactionID,
+            upi_id:upiID,
             user: props.user_id
         });
         
         let paymentObjectID = paymentRef.id;
-
+        console.log("paymentObjectID: ", paymentObjectID);
         const userRef = doc(db, "users_list", props.user_id);
         const userDocSnap = await getDoc(userRef);
 
@@ -90,6 +97,7 @@ export default function Register(props){
             document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
             document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
         }
+        setIsDisabled(false)
     }
 
 
@@ -132,7 +140,11 @@ export default function Register(props){
             {
             user_registered
             ?
-                <h1 style={{"textAlign":"center", "marginTop": "30px"}}>You are registered</h1>
+                <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "textAlign":"center" }}>
+                    <h2>
+                        You are registered
+                    </h2>
+                </div>
             :
             props.iiitbStudent === true
             ?
@@ -140,6 +152,7 @@ export default function Register(props){
                     name="RegisterForEvent"
                     className="btn btn-default" 
                     style={{"backgroundColor":"white","marginTop":"25px"}}
+                    disabled={isDisabled}
                     onClick={
                         createPaymentObject
                     }>Register
@@ -207,6 +220,7 @@ export default function Register(props){
                         name="RegisterForEvent"
                         className="btn btn-default" 
                         style={{"backgroundColor":"white","marginTop":"25px"}}
+                        disabled={isDisabled}
                         onClick={
                             createPaymentObject
                         }>Register

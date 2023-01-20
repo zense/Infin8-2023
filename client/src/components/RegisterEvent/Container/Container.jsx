@@ -57,7 +57,29 @@ export default function Container(props) {
 
                     <div style={{ "padding": "20px 30px 20px 30px", "marginLeft": "0" }} className="row">
                         <div className='col-11' style={{ "backgroundColor": "#005EB4", "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins", "borderRadius": "0px 20px 20px 20px" }}>
-                            <p>{props.about}</p>
+                            <p>{props.about}
+                            {props.id==1 &&
+                                <div style={{"color":"gold"}}>
+                                    <br></br><br></br>
+                                    YOU could be the lucky winner!!
+                                    Every person (not from IIITB) who enters Infin8 on 11th Feb gets added to a lucky draw. The winners get a pass to MAD MIX  on 11th Feb 23 @ 6pm!!
+
+                                    Want to increase your odds?
+
+                                    Winners of the following events gets passes too:
+                                    <ol>
+                                        <li>Sargam</li>
+                                        <li>Chitrakarma</li>
+                                        <li>Nritta</li>
+                                        <li>Ramp it up</li>
+                                        <li>E sports CODM</li>
+                                    </ol>
+                                    Finally, some game stalls are hiding a few passes as well. Win (maybe gamble?) your way to own those tickets.
+
+                                    So, do come hang out with us at Infin8 2023 - Eat, play, compete and enjoy! All with the incentive of possibly experiencing some rib tickling comedy from some of the country;s finest comedians.
+                                </div>
+                            }
+                            </p>
                         </div>
                     </div>
 
@@ -77,7 +99,7 @@ export default function Container(props) {
                                         var stringArr=string.split(" ");
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
-                                            if(word.includes("http")){
+                                            if(word.slice(0, 4)==="http"){
                                                 word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
@@ -141,12 +163,12 @@ export default function Container(props) {
                                                     <RegisterTeam
                                                         event_id={props.id}
                                                         user_id={props.user_id}
+                                                        user_name={props.user_name}
                                                         fee={props.event_fee}
                                                         iiitbStudent={props.iiitbStudent}
                                                         loggedInStatus={props.signed_in}
                                                         email={props.email}
                                                         limit={props.event_limit}
-                                                        team_members={props.team_members}
                                                     />
                                                     :
                                                     <Register

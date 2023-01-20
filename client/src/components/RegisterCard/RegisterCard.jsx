@@ -45,10 +45,10 @@ function LeftCard(props) {
                         <div className="col-md-1"></div>
                         <div className="col-md-10">
                             <div className="row">
-                                <Link to={`/registerevent/${props.props.id}`} className="col-6 link edge popup" > <div>View Details</div> </Link>
-                                <Link to={
+                                {props.props.id==1 || props.props.id==3 ? <Link to={`/registerevent/${props.props.id}`} className="col-12 link edge popup" > <div>Details</div> </Link> : <Link to={`/registerevent/${props.props.id}`} className="col-12 link edge popup" > <div>Register</div> </Link> }
+                                {/* <Link to={
                                     `/registerevent/${props.props.id}`
-                                } className="col-6 edge link popup" style={{ borderLeft: 0 }} > <div>Register</div> </Link>
+                                } className="col-6 edge link popup" style={{ borderLeft: 0 }} > <div>Register</div> </Link> */}
                             </div>
                         </div>
                         <div className="col-md-1"></div>
@@ -63,18 +63,26 @@ function LeftCard(props) {
                         </div>
                     </div>
                     <div className="row" >
-                        <Link to={`/registerevent/${props.props.id}`} className=" col-6 edge1 link" style={{ borderTop: 0 }}>
-                            <div >
+                        {props.props.id==1 || props.props.id==3 ? <Link to={`/registerevent/${props.props.id}`} className=" col-12 edge1 link" style={{ borderTop: 0 }}>
+                            <div style={{"text-align": "center"}}>
                                 Details
-                                <img src={ARROW} className="arrowpoint"></img>
                             </div>
-                        </Link>
-                        <Link to={`/registerevent/${props.props.id}`} className="col-6 edge1 link" style={{ borderLeft: 0, borderTop: 0 }} state={props.props}>
+                        </Link> : <Link to={`/registerevent/${props.props.id}`} className=" col-12 edge1 link" style={{ borderTop: 0 }}>
+                            <div style={{"text-align": "center"}}>
+                                Register
+                            </div>
+                        </Link>}
+                        {/* <Link to={`/registerevent/${props.props.id}`} className=" col-12 edge1 link" style={{ borderTop: 0 }}>
+                            <div style={{"text-align": "center"}}>
+                                Register
+                            </div>
+                        </Link> */}
+                        {/* <Link to={`/registerevent/${props.props.id}`} className="col-6 edge1 link" style={{ borderLeft: 0, borderTop: 0 }} state={props.props}>
                             <div >
                                 Register
                                 <img src={ARROW} className="arrowpoint1"></img>
                             </div>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </Zoom>

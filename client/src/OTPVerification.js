@@ -16,22 +16,31 @@ import './Auth.scss'
 // import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import { BiTimeFive } from "react-icons/bi";
-
+import { AiOutlineWarning } from 'react-icons/ai'
 function OTPVerification(props) {
 
     const [otpdis, setOtpdis] = useState(false);
     const [enteredOTP, setEnteredOTP] = useState("");
-
+    const [showAlert, setShowAlert] = useState(false);
+    const [message, setMessage] = useState("You are a moron!");
     const auth = getAuth();
+
+    const AlertDialog = (props) => {
+        return <div className="alertdiv">
+            <div className="alertbox">
+                <AiOutlineWarning size={25}/> {message}
+            </div>
+        </div>
+    };
 
     async function validateOTP() {
         if (props.user.OTP === enteredOTP) {
-
+            setShowAlert(false);
             console.log(enteredOTP);
             setOtpdis(true);
             const user = await createUserWithEmailAndPassword(
                 auth,
-                props.user.email,
+                props.user.email,   
                 props.user.password
             ).then(async (userCredential) => {
 
@@ -102,9 +111,13 @@ function OTPVerification(props) {
                 routeChange(`home`);
 
             }).catch((error) => {
+                setMessage("User already exists");
+                setShowAlert(true);
             });
         }
         else {
+            setMessage("Invalid OTP");
+            setShowAlert(true);
         }
     }
 
@@ -136,8 +149,14 @@ function OTPVerification(props) {
                             }} required="required"
                             aria-describedby="basic-addon1" />
                     </div>
-
-                    <div class="form-group centerrow mt-5">
+                    {
+                        showAlert ? 
+                        <div className="form-group centerrow">
+                            <AlertDialog></AlertDialog>
+                        </div> : 
+                        <></>
+                    }
+                    <div class="form-group centerrow mt-3">
                         <btn onClick={validateOTP} name="otp-btn" id="otp-btn" class="btn registerbtn btn-dark"
                         disabled = {otpdis} 
                         value="validate-otp">Validate</btn>

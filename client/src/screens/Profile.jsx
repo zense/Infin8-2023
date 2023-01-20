@@ -18,6 +18,24 @@ const Profile = (props) => {
 
     const [participatedEvents, setParticipatedEvents] = useState([]);
 
+    const [qrCodeUrl, setQrCodeUrl] = useState("")
+
+    const fetchQr = async () => {
+        await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${
+            props.user.id
+        }`)
+        .then(url => {
+            setQrCodeUrl(url.url)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
+    useEffect(() => {
+        fetchQr();
+    },[])
+
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user.id);
@@ -29,24 +47,29 @@ const Profile = (props) => {
         // Number of events = 17
         for (var i=1; i<=17 ;i++){
             var paymentID = paymentDetails[i];
-
-            if (paymentID !== "Register"){
             
+            if (paymentID !== "Register"){
+                
                 var payRef = doc(db, "payments", paymentID);
                 var payData = await getDoc(payRef);
-
-                var status = (payData).data().status;
-                var eventID = (payData).data().event_id;
-                var eventName = eventDetails[eventID-1].title;
-                var eventSubtitle = eventDetails[eventID-1].subtitle;
-                // var status = (await payData).data().status;
-                
-                if (status === "processed"){
-                    var eventObject = {
-                        eventName: eventName,
-                        eventSubtitle: eventSubtitle
+                if(payData.data() !== undefined)
+                {
+                    var status = (payData).data().status;
+                    var eventID = (payData).data().event_id;
+                    var eventName = eventDetails[eventID-1].title;
+                    var eventSubtitle = eventDetails[eventID-1].subtitle;
+                    // var status = (await payData).data().status;
+                    
+                    if (status === "processed"){
+                        var eventObject = {
+                            eventName: eventName,
+                            eventSubtitle: eventSubtitle
+                        }
+                        eventsParticipatedIn.push(eventObject);
                     }
-                    eventsParticipatedIn.push(eventObject);
+                }
+                else{
+                    console.log("payData is undefined")
                 }
             }
         }
@@ -94,7 +117,7 @@ const Profile = (props) => {
             TICKET
             <img src={arrow} alt="image" className='arrowicon' />
         </div>
-        <Ticket user={props.user}/>
+        <Ticket user={props.user} qrCodeUrl={qrCodeUrl}/>
         </div>
         <div className="row page_heading">
             YOUR
