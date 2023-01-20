@@ -12,6 +12,7 @@ import { useEffect } from "react";
 
 
 export default function RegisterTeam(props) {
+    const [isDisabled, setDisabled] = useState(false);
 
     const [joinExistingTeam, changejoinExistingTeam] = React.useState(true);
     //const [teamCodeInput, changeTeamCodeInput] = React.useState(true);
@@ -26,6 +27,7 @@ export default function RegisterTeam(props) {
     const [teamCode, setTeamCode] = useState("");
 
     const checkStatus = async () => {
+        setDisabled(true);
         var userReference = doc(db, "users_list", props.user_id);
         var userData = await getDoc(userReference);
         // Fetching the payment details from the paymeny object map in firebase.
@@ -53,6 +55,8 @@ export default function RegisterTeam(props) {
                 document.getElementsByName("RegisterForEvent")[0].classList.add("disabled");
             }
         }
+        setDisabled(false);
+
 
     }
 
@@ -148,8 +152,11 @@ export default function RegisterTeam(props) {
                     var teamMembers = teamToJoinData.members;
                     teamMembers.push(props.user_id);
 
+                    console.log("I am here");
                     var leaderID = teamToJoinData.leaderID;
-
+                    
+                    console.log("Team Members", teamMembers);
+                    console.log("Leader ID ", leaderID);
                     await updateDoc(teamRef, {
                         vacancy: teamToJoinData.vacancy - 1,
                         members: teamMembers
@@ -189,7 +196,7 @@ export default function RegisterTeam(props) {
                 }
             }
             // get all teams and check if it matches any of the ids
-
+            checkStatus();
         }
 
 
@@ -379,14 +386,25 @@ export default function RegisterTeam(props) {
                                                     placeholder="Enter Team Code"
                                                     id="inputID"
                                                     style={{ "width": "200px" }}
-                                                    onChange={() => {
+                                                    onChange={(event) => {
+                                                        setTeamCode(event.target.value);
                                                     }}
                                                 />}
                                         </div>
 
-                                        {(upiID !== "" && transactionID !== "")
-                                            ?
+                                        
+                                        {
+                                            joinExistingTeam ?                                             
                                             <button
+                                                name="RegisterForEvent"
+                                                className="btn btn-default"
+                                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                                onClick={createPaymentObject}>Join team
+                                            </button>
+                                            :
+                                            (
+                                                (upiID !== "" && transactionID !== "") ?
+                                                <button
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
@@ -398,7 +416,12 @@ export default function RegisterTeam(props) {
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"
                                                 style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                                onClick={createPaymentObject}>Register</button>}
+                                           
+                                                onClick={createPaymentObject}>Register</button>
+                                            )
+                                            
+                                            
+                                        }
                                     </div>
                                     <div id="ContactIfNotProcessed" style={{"color":"white", "visibility":"hidden", "textAlign":"center", "marginTop": "30px"}}>
                                         <p>Your payment will be processed within 24 hrs.</p> 
