@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
 import { useEffect } from "react";
 import { confirmPasswordReset } from "@firebase/auth";
+import { ConsoleWriter } from "istanbul-lib-report";
 
 
 export default function RegisterTeam(props) {
@@ -23,6 +24,7 @@ export default function RegisterTeam(props) {
 
     const [user_registered, set_user_registered] = useState(false);
     const [teamID, setTeamID] = useState("Team_ID");
+    const [teamName, setTeamName] = useState("");
 
     const [upiID, setUpiID] = useState("");
     const [transactionID, setTransactionID] = useState("");
@@ -53,12 +55,13 @@ export default function RegisterTeam(props) {
                 if (status === "processed") {
                     console.log("status is processed")
                     setTeamID(eventTeamMap[props.event_id]);
-
+                    
                     var teamRef = doc(db, "teams", eventTeamMap[props.event_id])
                     var teamData = await getDoc(teamRef);
                     console.log("team data: ", teamData.data())
                     console.log("team members name: ", teamData.data().membersName)
                     setTeamMembers(teamData.data().membersName);
+                    setTeamName(teamData.data().team_name);
 
                     set_user_registered(true);
                     document.getElementById("chooseTeam").style.visibility = "visible";
@@ -118,7 +121,9 @@ export default function RegisterTeam(props) {
                 vacancy: props.limit-1,
                 members: [props.user_id],
                 membersName: [props.user_name],
-                leaderID: props.user_id
+                leaderID: props.user_id,
+                event_id: props.event_id,
+                team_name: teamName
             });
 
             // if (userDocSnap.exists()){
@@ -150,28 +155,21 @@ export default function RegisterTeam(props) {
             // Joining An Existing team.
             var teamToJoin = "";
             var teamToJoinData = {};
-            const teamIDs = await getDocs(collection(db, "teams"));
-            teamIDs.forEach((teamID) => {
-                // doc.data() is never undefined for query doc snapshots
-                if (teamID.id === teamCode) {
-                    setTeamID(teamCode);
-                    teamToJoin = teamCode;
-                    teamToJoinData = teamID.data();
-                }
-            });
+            // const teamIDs = await getDocs(collection(db, "teams"));
+            var teamRef = doc(db, "teams", teamCode);
+            var teamData = await getDoc(teamRef);
 
-            if (teamToJoin === "") {
-                console.log("Team Does not Exist!");
-                setInvalidTeamCode(true)
-                
-            }
-            else {
+            console.log(teamData.data());
+
+            if (teamData.data() !== undefined && teamData.data().event_id === props.event_id) {
+                teamToJoin = teamCode;
+                teamToJoinData = teamData.data();
+
                 if (teamToJoinData.vacancy === 0) {
                     console.log("Team size already full!");
                 }
-                else {
+                else{
                     setInvalidTeamCode(false)
-                    var teamRef = doc(db, "teams", teamToJoin);
                     var teamMembers = teamToJoinData.members;
                     var teamMembersName = teamToJoinData.membersName;
                     teamMembers.push(props.user_id);
@@ -196,7 +194,7 @@ export default function RegisterTeam(props) {
 
                     var paymentObjectID = (leaderDocSnap).data().paymentDetails[props.event_id];
 
-                    // Change user data
+                    // ! Change user data
                     let paymentDetails = (userDocSnap).data().paymentDetails;
                     paymentDetails[props.event_id] = paymentObjectID;
 
@@ -221,10 +219,14 @@ export default function RegisterTeam(props) {
                     }
                 }
             }
+            else{
+                console.log("Team Does not Exist!");
+                setInvalidTeamCode(true)
+            }
             // get all teams and check if it matches any of the ids
-            checkStatus();
-            setDisabled(false)
         }
+        checkStatus();
+        setDisabled(false)
 
 
     }
@@ -316,13 +318,39 @@ export default function RegisterTeam(props) {
                                         }}
                                     />}
                             </div>
-                            <button
-                                name="RegisterForEvent"
-                                className="btn btn-default"
-                                style={{ "backgroundColor": "white", "marginTop": "25px" }}
-                                onClick={createPaymentObject}
-                                disabled={isDisabled}
-                                >Register</button>
+                            <div>
+                                {!joinExistingTeam &&
+                                    <input
+                                        placeholder="Enter Team Name"
+                                        id="inputID"
+                                        style={{ "marginTop": "30px" }}
+                                        onChange={(event) => {
+                                            setTeamName(event.target.value);
+                                        }}
+                                />}
+                            </div>
+                            <div>
+                                {
+                                    !joinExistingTeam &&
+                                    <button
+                                    name="RegisterForEvent"
+                                    className="btn btn-default"
+                                    style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                    onClick={createPaymentObject}
+                                    disabled={isDisabled || teamName === ""}
+                                    >Register</button>
+                                }
+                                {
+                                    joinExistingTeam &&
+                                    <button
+                                    name="RegisterForEvent"
+                                    className="btn btn-default"
+                                    style={{ "backgroundColor": "white", "marginTop": "25px" }}
+                                    onClick={createPaymentObject}
+                                    disabled={isDisabled}
+                                    >Register</button>
+                                }
+                            </div>
                         </div>
                         :
                         <div>
@@ -387,6 +415,17 @@ export default function RegisterTeam(props) {
                                         <div>
                                             <div>
                                                 {!joinExistingTeam &&
+                                                    <input
+                                                        placeholder="Enter Team Name"
+                                                        id="inputID"
+                                                        style={{ "marginTop": "30px" }}
+                                                        onChange={(event) => {
+                                                            setTeamName(event.target.value);
+                                                        }}
+                                                />}
+                                            </div>
+                                            <div>
+                                                {!joinExistingTeam &&
 
                                                     <input
                                                         placeholder="Enter UPI Reference Number / Transaction ID"
@@ -437,7 +476,7 @@ export default function RegisterTeam(props) {
                                             </button>
                                             :
                                             (
-                                                (upiID !== "" && transactionID !== "") ?
+                                                (upiID !== "" && transactionID !== "" && teamName !== "") ?
                                                 <button
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"
@@ -479,6 +518,11 @@ export default function RegisterTeam(props) {
                         <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
                             <h5>
                                 Your Team ID : <br></br>{teamID}
+                            </h5>
+                        </div>
+                        <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
+                            <h5>
+                                Your Team Name : <br></br>{teamName}
                             </h5>
                         </div>
                         <div>

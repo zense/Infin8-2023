@@ -148,15 +148,17 @@ export default function Register(props){
             :
             props.iiitbStudent === true
             ?
-                <button
-                    name="RegisterForEvent"
-                    className="btn btn-default" 
-                    style={{"backgroundColor":"white","marginTop":"25px"}}
-                    disabled={isDisabled}
-                    onClick={
-                        createPaymentObject
-                    }>Register
-                </button>   
+                <div style={{"textAlign":"center"}}>
+                    <button
+                        name="RegisterForEvent"
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+                        disabled={isDisabled}
+                        onClick={
+                            createPaymentObject
+                        }>Register
+                    </button>   
+                </div>
             :
             <div>
                 <div style={{"color":"white","marginTop":"30px"}}>
