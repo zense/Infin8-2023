@@ -214,14 +214,20 @@ export default function RegisterTeam(props) {
                         document.getElementsByName("RegisterForEvent")[0].innerHTML = "Registered";
                     }
                     else {
-                        document.getElementsByName("RegisterForEvent")[0].innerHTML = "Processing";
+                        const buttons = document.getElementsByName("RegisterForEvent");
+                        if (buttons[0].innerHTML === "Register") {
+                            buttons[0].innerHTML = "Processing";
+                        }
+                        else {
+                            buttons[1].innerHTML = "Processing";
+                        }
                         document.getElementById("ContactIfNotProcessed").style.visibility = "visible";
                     }
                 }
             }
             else{
                 console.log("Team Does not Exist!");
-                setInvalidTeamCode(true)
+                setInvalidTeamCode(true);
             }
             // get all teams and check if it matches any of the ids
         }
@@ -351,6 +357,11 @@ export default function RegisterTeam(props) {
                                     >Register</button>
                                 }
                             </div>
+                                {(joinExistingTeam && invalidTeamCode) && 
+                                    <div style={{"color":"white", "textAlign":"center","marginTop": "15px","color":"red"}}>
+                                        Invalid Team Code
+                                    </div>
+                                }
                         </div>
                         :
                         <div>
