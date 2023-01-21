@@ -99,7 +99,7 @@ export default function Container(props) {
                                         var stringArr=string.split(" ");
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
-                                            if(word.slice(0, 4)==="http"){
+                                            if(word.includes("http")){
                                                 word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
