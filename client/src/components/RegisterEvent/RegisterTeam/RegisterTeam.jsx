@@ -415,6 +415,15 @@ export default function RegisterTeam(props) {
                                                         <img src={Dotted} className="img-fluid" id="dotted2" style={{ "paddingRight": "15px", "paddingLeft": "15px" }} alt="ScannedQR" />
                                                     </div>
                                                 </div>
+                                                <div className="row">
+                                                    <div className="col12" style={{"textAlign":"center","color":"white","paddingTop":"20px"}}>
+                                                    
+                                                            <h5>UPI ID : iiitbangalore@icici</h5>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+
                                             </div>
                                         </div>
                                     }

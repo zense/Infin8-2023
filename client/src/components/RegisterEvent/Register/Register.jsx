@@ -191,6 +191,13 @@ export default function Register(props){
                             <img src={Dotted} className="img-fluid" id="dotted1" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
                         </div>
                     </div>
+                    <div className="row">
+                        <div className="col12" style={{"textAlign":"center","color":"white","paddingTop":"20px"}}>
+                        
+                                <h5>UPI ID : iiitbangalore@icici</h5>
+                            
+                        </div>
+                    </div>
                 </div>
                 
                 
