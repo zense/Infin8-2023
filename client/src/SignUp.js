@@ -17,6 +17,7 @@ import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import './components/Alert/Alert.scss';
 import { AiOutlineWarning } from 'react-icons/ai'
+import {Spinner} from 'react-bootstrap'
 
 function SignUp(props) {
 
@@ -27,7 +28,8 @@ function SignUp(props) {
     const [registerRePassword, setRegisterRePassword] = useState("");
     const [IIITBStudent, toggleIIITBStudent] = useState(false);
     const [showAlert, setShowAlert] = useState(false);
-    const [message, setMessage] = useState("You are a moron!");
+    const [message, setMessage] = useState("");
+    const [waiting, setWaiting] = useState(false);
     const auth = getAuth();
 
     const AlertDialog = (props) => {
@@ -66,18 +68,29 @@ function SignUp(props) {
         }
         return true;
     }
+
+    let navigate = useNavigate();
+
+    const routeChange = (path) => {
+        // let path = `home`; 
+        navigate(path);
+    }
+
     const register = async () => {
         setShowAlert(false);
         if(!validateInput()){
             setShowAlert(true);
             return;
         }
+        setWaiting(true);
+        setShowAlert(false);
         const PORT = process.env.PORT || 5000;
 
         var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
         var testingURL = `http://localhost:${PORT}/api/sendOTP`;
 
         // generateOTP(n) generates OTP of length n
+
         var OTP = generateOTP(4).toString(10);
         const result = await fetch(publicURL, {
             method: "POST",
@@ -91,8 +104,9 @@ function SignUp(props) {
             }),
         }).then((res) => res.json());
 
+        console.log(result.status);
+        console.log(result.body);
         if (result.status === "ok") {
-
             var userDetails = {
                 name: registerName,
                 email: registerEmail,
@@ -101,8 +115,6 @@ function SignUp(props) {
                 password: registerPassword,
                 OTP: OTP
             }
-
-
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
         }
@@ -114,17 +126,10 @@ function SignUp(props) {
         }
     }
 
-    let navigate = useNavigate();
-
-    const routeChange = (path) => {
-        // let path = `home`; 
-        navigate(path);
-    }
-
 
     function generateOTP(numberOfDigits) {
-        var max = Math.pow(10, (numberOfDigits)) - 1;
-        return Math.floor(Math.random() * max);
+        var max = 8999;
+        return Math.floor(Math.random() * max) + 1000;
     }
     const goToLogin = async () => {
         routeChange(`/sign-in`);
@@ -292,7 +297,13 @@ function SignUp(props) {
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6">
-                    <img src={infilogo} className='authlogo '></img>
+                    <img src={infilogo} className='authlogo'
+                        onClick={
+                            ()=>{
+                                navigate('/home');
+                            }
+                        }
+                    ></img>
                     <div className="row centerrow">
                         <div class="formtitle">Sign up</div>
                     </div>
@@ -371,7 +382,12 @@ function SignUp(props) {
                         {/* {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
                             ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
                             :  */}
-                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" >Register</button>
+                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled = {waiting}>{
+                            waiting ?
+                            <Spinner animation="border"/>:
+                            "Register"
+                            }
+                            </button>
                     </div>
                     {/* <div className="form-group centerrow registertext mb-5">
                         New here?

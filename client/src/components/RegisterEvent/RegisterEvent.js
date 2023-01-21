@@ -58,11 +58,12 @@ function RegisterEvent(props) {
           other_details={event.rules} 
           contacts={event.spocs}
           email={"vikaskaly@gmail.com"}
-          entrance_fee={50}
+          entrance_fee={50}S
         />
       } */}
       <Container 
           user_id={props.user.id}
+          user_name={props.user.name}
           iiitbStudent={props.user.iiitbStudent}
           prize_money={event.prizes.first} 
           prize_money2={event.prizes.second}

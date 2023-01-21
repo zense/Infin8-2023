@@ -10,7 +10,7 @@ const gallery_content  = [
         "image" : "eventimages/clashroyale.jpeg",
         "time" : "4:00 PM",
         "title" : "ROCK ON!",
-        "incentives" : "Featuring Bangalore's top band setting the stage on fire, followed by battalions of music enthusiasts who shall  strum their cords against one another in a fierce battle to claim the glory of victory.",
+        "incentives" : "Featuring Bangalore's top band setting the stage on fire, followed by battalions of music enthusiasts who shall engage in a battle of bands against each other, to claim the glory of victory.",
         "id" : 2,
     },
     {

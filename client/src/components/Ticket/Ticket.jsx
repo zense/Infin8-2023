@@ -7,7 +7,7 @@ const Ticket = (props) => {
     const length = 12;
     const height = 2;
     const grid = [];
-
+    const notLoggedInUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=YOU%20HAVEN%27T%20SIGNED%20IN";
     for (var i = 0; i < height; i++) {
         const line = [];
         for (var j = 0; j < length; j++) {
@@ -33,7 +33,7 @@ const Ticket = (props) => {
         <div className="row ticketrow">
             <div className="col-12 col-sm-5 qrcol container">
 
-                <img src={qr} alt="image" className='qrimage' />
+                <img src={props.qrCodeUrl || notLoggedInUrl} alt="image" className='qrimage' />
             </div>
             <div className="col-12 col-sm-7 restcol">
                 <div className="row titlerow">

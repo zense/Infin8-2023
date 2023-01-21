@@ -148,15 +148,17 @@ export default function Register(props){
             :
             props.iiitbStudent === true
             ?
-                <button
-                    name="RegisterForEvent"
-                    className="btn btn-default" 
-                    style={{"backgroundColor":"white","marginTop":"25px"}}
-                    disabled={isDisabled}
-                    onClick={
-                        createPaymentObject
-                    }>Register
-                </button>   
+                <div style={{"textAlign":"center"}}>
+                    <button
+                        name="RegisterForEvent"
+                        className="btn btn-default" 
+                        style={{"backgroundColor":"white","marginTop":"25px"}}
+                        disabled={isDisabled}
+                        onClick={
+                            createPaymentObject
+                        }>Register
+                    </button>   
+                </div>
             :
             <div>
                 <div style={{"color":"white","marginTop":"30px"}}>
@@ -187,6 +189,13 @@ export default function Register(props){
                                 reader.readAsDataURL(file);
                             }}></input>
                             <img src={Dotted} className="img-fluid" id="dotted1" style={{"paddingRight":"15px","paddingLeft":"15px"}} alt="ScannedQR"/>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="col12" style={{"textAlign":"center","color":"white","paddingTop":"20px"}}>
+                        
+                                <h5>UPI ID : iiitbangalore@icici</h5>
+                            
                         </div>
                     </div>
                 </div>

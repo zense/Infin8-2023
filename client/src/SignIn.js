@@ -8,19 +8,33 @@ import './Auth.scss'
 import { FaUser } from 'react-icons/fa'
 import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
+import { AiOutlineWarning } from 'react-icons/ai'
+import { Spinner } from "react-bootstrap";
+
 function SignIn(props) {
 
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [message, setMessage] = useState("You are a moron!");
+    const [waiting, setWaiting] = useState(false);
+    const AlertDialog = (props) => {
+        return <div className="alertdiv">
+            <div className="alertbox">
+                <AiOutlineWarning size={25} /> {message}
+            </div>
+        </div>
+    };
 
     const auth = getAuth();
     const login = async () => {
+        setWaiting(true);
         await signInWithEmailAndPassword(
             auth,
             registerEmail,
             registerPassword
         ).then(async (userCredential) => {
-
+            setShowAlert(false);
             await getData(userCredential);
 
             props.setLoggedInStatus(true);
@@ -29,6 +43,9 @@ function SignIn(props) {
             // props.navigator("/", false);
 
         }).catch((error) => {
+            setMessage("Invalid Credentials");
+            setWaiting(false);
+            setShowAlert(true);
         });
     }
 
@@ -68,6 +85,12 @@ function SignIn(props) {
 
     const [show, setShow] = useState(false);
 
+
+    const validateInput = () => {
+
+        return true;
+    }
+
     var passComp = <>
         <span class="input-group-text" id="basic-addon1"><BsEyeFill
             id="togglePassword"
@@ -97,13 +120,19 @@ function SignIn(props) {
         </>
     }
 
-
     return (
 
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6 detailscol">
-                    <img src = {infilogo} className='authlogo'></img>
+                    <img src={infilogo} className='authlogo'
+                        onClick={
+                            ()=>{
+                                navigate('/home');
+                            }
+                        }
+                    >
+                    </img>
                     <div className="row centerrow">
                         <div class="formtitle">Sign In</div>
                     </div>
@@ -129,9 +158,19 @@ function SignIn(props) {
                     <div class="input-group mb-3 centerrow">
                         {passComp}
                     </div>
-
+                    {
+                        showAlert ?
+                            <div className="form-group centerrow">
+                                <AlertDialog></AlertDialog>
+                            </div> :
+                            <></>
+                    }
                     <div class="form-group centerrow">
-                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin">Login</btn>
+                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting}>{
+                            waiting ?
+                            <Spinner></Spinner> : 
+                            "Login"
+                        }</btn>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
                     </div>
                     <div className="form-group centerrow registertext mb-5">

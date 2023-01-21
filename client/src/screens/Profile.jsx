@@ -12,70 +12,122 @@ import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "fir
 import { useState } from "react";
 import eventDetails from '../content/eventDetails.json';
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const Profile = (props) => {
 
     const [participatedEvents, setParticipatedEvents] = useState([]);
 
+    const [qrCodeUrl, setQrCodeUrl] = useState("")
+
+    const fetchQr = async () => {
+        await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${props.user.id
+            }`)
+            .then(url => {
+                setQrCodeUrl(url.url)
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    useEffect(() => {
+        fetchQr();
+    }, [])
+    let navigate = useNavigate();
     const checkStatus = async () => {
 
         var userReference = doc(db, "users_list", props.user.id);
         var userData = await getDoc(userReference);
 
         var paymentDetails = (userData).data().paymentDetails;
-        var eventsParticipatedIn = []; 
+        var eventsParticipatedIn = [];
 
         // Number of events = 17
-        for (var i=1; i<=17 ;i++){
+        for (var i = 1; i <= 17; i++) {
             var paymentID = paymentDetails[i];
+            if (paymentID !== "Register") {
 
-            if (paymentID !== "Register"){
-            
                 var payRef = doc(db, "payments", paymentID);
                 var payData = await getDoc(payRef);
+                if (payData.data() !== undefined) {
+                    var status = (payData).data().status;
+                    var eventID = (payData).data().event_id;
+                    var eventName = eventDetails[eventID - 1].title;
+                    var eventSubtitle = eventDetails[eventID - 1].subtitle;
+                    // var status = (await payData).data().status;
 
-                var status = (payData).data().status;
-                var eventID = (payData).data().event_id;
-                var eventName = eventDetails[eventID-1].title;
-                var eventSubtitle = eventDetails[eventID-1].subtitle;
-                // var status = (await payData).data().status;
-                
-                if (status === "processed"){
-                    var eventObject = {
-                        eventName: eventName,
-                        eventSubtitle: eventSubtitle
+                    if (status === "processed") {
+                        var eventObject = {
+                            eventName: eventName,
+                            eventSubtitle: eventSubtitle
+                        }
+                        eventsParticipatedIn.push(eventObject);
                     }
-                    eventsParticipatedIn.push(eventObject);
+                }
+                else {
+                    console.log("payData is undefined")
                 }
             }
         }
         setParticipatedEvents(eventsParticipatedIn);
     }
-    
+
     useEffect(() => {
-        if (props.loggedInStatus){
+        if (props.loggedInStatus) {
             checkStatus();
         }
-    },[props.loggedInStatus])
+    }, [props.loggedInStatus])
 
 
     return <div className="Profile">
-        <Navbar props={props}/>
+        <Navbar props={props} />
         <div className="row title" >
             <div className='col-12 YourProf blue'>
-                &nbsp; {'>'}your 
+                &nbsp; {'>'}your
             </div>
         </div>
-        
-        <div className="row title bottomtitle" 
-        style={{"marginBottom": "12vh"}}
+
+        <div className="row title bottomtitle"
+            style={{ "marginBottom": "12vh" }}
         >
             <div className='col-12 YourProf'>
-               PROFILE
-               <img src={Vector} alt="image" className='arrowicon1' />
+                PROFILE
+                <img src={Vector} alt="image" className='arrowicon1' />
             </div>
         </div>
+        {
+            // props.loggedInStatus ?
+                <div className="row">
+                    <div className="col-1"></div>
+                    <div className="col-8 col-md-4 col-lg-3">
+                        <btn className="btn btn-danger logout"
+                            onClick={
+                                () => {
+                                    console.log("bkdjkfjdk")
+                                    props.setLoggedInStatus(false);
+                                    props.setUser(
+                                        {
+                                            id: "",
+                                            name: "",
+                                            contact: "",
+                                            email: "",
+                                            iiitbStudent: false
+                                        }
+                                    )
+                                    navigate('/home');
+                                }
+                            }
+                        >
+                            Logout
+                        </btn>
+                    </div>
+                    <div className="col"></div>
+                </div> 
+                // :
+                // <></>
+        }
         <div className="row titledeets">
             {props.user.name}
         </div>
@@ -85,16 +137,15 @@ const Profile = (props) => {
         <div className="row titledeets lasttitle">
             {props.user.email}
         </div>
-
         <div className="orange">
-        <div className="row page_heading">
-            YOUR
-        </div>
-        <div className="row page_heading">
-            TICKET
-            <img src={arrow} alt="image" className='arrowicon' />
-        </div>
-        <Ticket user={props.user}/>
+            <div className="row page_heading">
+                YOUR
+            </div>
+            <div className="row page_heading">
+                TICKET
+                <img src={arrow} alt="image" className='arrowicon' />
+            </div>
+            <Ticket user={props.user} qrCodeUrl={qrCodeUrl} />
         </div>
         <div className="row page_heading">
             YOUR
@@ -106,22 +157,22 @@ const Profile = (props) => {
 
         {/* Need to render (not getting rendered) the Registered Slip, data is already passed in  */}
         {/* participatedEvents array */}
-        
+
         <div className="slips">
-        {
-            participatedEvents.length > 0 ?
-            participatedEvents.map((eventDetail)=>{
-                return(
-                    <RegisteredSlip 
-                        // title="asdasdadas"
-                        title = {eventDetail.eventName}
-                        subtitle = {eventDetail.eventSubtitle}
-                    />
-                )
-            }) 
-            : 
-            ""
-        }
+            {
+                participatedEvents.length > 0 ?
+                    participatedEvents.map((eventDetail) => {
+                        return (
+                            <RegisteredSlip
+                                // title="asdasdadas"
+                                title={eventDetail.eventName}
+                                subtitle={eventDetail.eventSubtitle}
+                            />
+                        )
+                    })
+                    :
+                    ""
+            }
         </div>
         {/* <div className="slips">
             <RegisteredSlip
@@ -141,7 +192,7 @@ const Profile = (props) => {
                 subtitle = "Beat up baddies to take the crown"
             /> 
         </div> */}
-        <Footer/>
+        <Footer />
     </div>
 }
 

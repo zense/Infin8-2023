@@ -68,7 +68,7 @@
             }
         ],
         "team" : true,
-        "fee" : 200,
+        "fee" : 250,
         "limit": 8
         
     },
@@ -122,7 +122,7 @@
         },
         "rules": [
             "The tournament is only open to invited participants, who will receive the necessary login information an hour before the event starts.",
-            "The tournament will last for 4 hours and will involve normal matches in Clash Royale.",
+            "The tournament will last for 4 hours(10th Feb, 6PM to 10PM) and will involve normal matches in Clash Royale.",
             "Matches will be played according to the standard rules of the game.",
             "Cheating is not allowed and may result in disqualification.",
             "The player with the most trophies at the end of the tournament will be declared the winner and will receive a prize.",
@@ -232,19 +232,15 @@
             "second":"3000"
         },
         "rules": [
-            "Theme:A theme/topic will be announced exactly 15 days prior to the main event.Participants will have these 15 days to make a short film.",
+            "Theme:A theme/topic will be announced exactly 15 days prior to the main event. Participants will have these 15 days to make a short film.",
             "Duration: The short film must not be less than 2 minutes or more than 12 minutes(titles and credits included). ±30 seconds will be permitted, but its encouraged that the participants limit their film to the given duration. Entries not satisfying the same will be judged only till the 12.5 minute mark.",
-            "Legitimacy: Participants can choose to do either of the two options mentioned below: ",
-            "They can include footage filmed in IIITB on the 2nd day of Infin8, 11th February(minimum 15 seconds). This option is HIGHLY ENCOURAGED, and brownie points will be awarded for the same",         
-            "They can include the Infin8 2023 logo anywhere in the frame physically(eg: on a paper stuck on a wall in the background) in at least 3 different scenes for at least 3 seconds per scene.",
-            "Screenplay submission: The teams will have to submit a draft of the screenplay or a storyboard or any physical piece of written material by 1st February EOD. This will not be a part of the judging criteria, but is aprerequisite for nomination.",            
-            "Deadlines:",
-            "First/existing draft submission: 11:59 pm, 1st February.",
-            "Short film submission: 10:30 pm, 11th February.",
+            "Legitimacy: Participants can choose to do either of the two options mentioned below: <br><br> 3a) They can include footage filmed in IIITB on the 2nd day of Infin8, 11th February(minimum 15 seconds). This option is HIGHLY ENCOURAGED, and brownie points will be awarded for the same. <br> 3b) They can include the Infin8 2023 logo anywhere in the frame physically(eg: on a paper stuck on a wall in the background) in at least 3 different scenes for at least 3 seconds per scene. <br><br>",         
+            "Screenplay submission: The teams will have to submit a draft of the screenplay or a storyboard or any physical piece of written material by 1st February EOD. This will not be a part of the judging criteria, but is a prerequisite for nomination.",            
+            "Deadlines: <br><br> 5a) First/existing draft submission: 11:59 pm, 1st February. <br> 5b) Short film submission: 10:30 pm, 11th February. <br><br>", 
             "Nominations: The core organising team, along with the core team of Parvaaz and Parvaaz Film Division will nominate the best films out of all submissions.The nominations will be out by 1:30 am on 12th February.",
             "Screening: The nominated films will be screened in the Auditorium in front of a live audience. This will happen from 2-4pm on the final day, i.e., 12th February 2023.",
             "Audience participation: After the screening of each film, the audience will be given a 2 minute window to rate the film. This vote will contribute to the final scoring(10% weightage). The judges will give their final verdict after the screening of all the films and cash prizes will be given away to the winners.",
-            "Nominations will be announced on our Instagram handle at 1:30 am on 12th February.(https://www.instagram.com/infin8_iiitb/)"
+            "Nominations will be announced on our Instagram handle at 1:30 am on 12th February : https://www.instagram.com/infin8_iiitb/"
 
         ],
         "spocs": [
@@ -254,7 +250,7 @@
             }
         ],
         "team" : true,
-        "fee" : 200,
+        "fee" : 250,
         "limit" : 10
     },
     {
@@ -464,8 +460,7 @@
         "rules": [
             "There will be a team of three. It shall be a mini parliamentary debate format.",
             "Each speaker will get 2.5 minutes to speak.",
-            "The theme would revolve around culture, which includes historical events, pop culture, etc.",
-            "For a clearer explanation of the format, refer to this document - https://docs.google.com/document/d/1qxFnfn_ucjjv2zA9Jsxk399avvScR8ZY/edit?usp=share_link&ouid=104386498173006673249&rtpof=true&sd=true",
+            "For a clearer explanation of the format, refer to this document - https://drive.google.com/file/d/1cOVwF-tkGQa4ODmYgjFbs1Kqn9ASgwR0/view",
             "Results will be announced on our Instagram handle https://www.instagram.com/infin8_iiitb/"
         ],
         "spocs": [

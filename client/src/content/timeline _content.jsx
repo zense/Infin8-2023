@@ -22,6 +22,13 @@ const day1 = [
     },
     {
         "image" : "eventimages/clashroyale.jpeg",
+        "time" : "6:00 PM",
+        "title" : "Clash Royale",
+        "incentives" : "E-Sports",
+        "id" : "4",
+    },
+    {
+        "image" : "eventimages/clashroyale.jpeg",
         "time" : "10:00 PM",
         "title" : "Movie Screening",
         "incentives" : "",

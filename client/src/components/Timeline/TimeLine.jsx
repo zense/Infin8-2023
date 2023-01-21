@@ -44,13 +44,13 @@ const TimeLine = () => {
             desktopCardsRight.push(
                 <>
                     <div className="space" id='event'></div>
-                    <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]} disabled = {data[i]["id"] == 19 ? true  : false}></RightCard>
+                    <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]} disabled = {data[i]["id"] == 19 || data[i]["id"] == 18 ? true  : false}></RightCard>
                 </>
             );
         } else {
             desktopCardsLeft.push(
                 <>
-                    <LeftCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></LeftCard>
+                    <LeftCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]} disabled = {data[i]["id"] == 19 || data[i]["id"] == 18 ? true  : false}></LeftCard>
                     <div className="space"></div>
                 </>
             );
@@ -60,7 +60,7 @@ const TimeLine = () => {
             <>
                 <div className="space">
                 </div>
-                <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} id={data[i]["id"]}></RightCard>
+                <RightCard image={link} title={data[i]["title"]} incentives={data[i]["incentives"]} time={data[i]["time"]} disabled = {data[i]["id"] == 19 || data[i]["id"] == 18 ? true  : false} id={data[i]["id"]}></RightCard>
             </>
         )
     }

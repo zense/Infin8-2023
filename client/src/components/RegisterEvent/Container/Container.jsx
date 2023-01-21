@@ -99,7 +99,7 @@ export default function Container(props) {
                                         var stringArr=string.split(" ");
                                         for(var i=0;i<stringArr.length;i++){
                                             var word=stringArr[i];
-                                            if(word.slice(0, 4)==="http"){
+                                            if(word.includes("http")){
                                                 word="<a target=\"blank\" href=\"" + word + "\" class='changechan'> here"+"</a>"
                                             }
                                             stringArr[i]=word
@@ -163,6 +163,7 @@ export default function Container(props) {
                                                     <RegisterTeam
                                                         event_id={props.id}
                                                         user_id={props.user_id}
+                                                        user_name={props.user_name}
                                                         fee={props.event_fee}
                                                         iiitbStudent={props.iiitbStudent}
                                                         loggedInStatus={props.signed_in}

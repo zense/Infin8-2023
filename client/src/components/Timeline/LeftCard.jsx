@@ -25,17 +25,10 @@ const LeftCard = (props) => {
                                 {props.incentives}
                             </div>
                         </div>
+                        {props.disabled ? 
+                        
+                        <div className="row"></div> : 
                         <div className="row buttonrow">
-                            {/* <div className="col-6 buttoncol mzr">
-                                <button className="rightborder tabbtn"><div className="row">
-                                    <div className="col-9"><Link to={`/registerevent/${props.id}`} className="whitetext">
-                                        Details
-                                    </Link></div>
-                                    <div className="col-3">
-                                        <BsArrowDownRight />
-                                    </div>
-                                </div></button>
-                            </div> */}
                             <div className="col-12 buttoncol mzl">
                                 <button className="leftborder
                                 tabbtn " onClick={()=>{
@@ -50,6 +43,7 @@ const LeftCard = (props) => {
                                 </div></button>
                             </div>
                         </div>
+                    }
                     </div>
                 </div>
                 <div className="col-md-1 col-lg-2 mzl mzr">

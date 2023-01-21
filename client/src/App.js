@@ -56,7 +56,7 @@ function App(props) {
             
             {/**/}
             <Route path="/registerevent/:id" element={<RegisterEvent user={user} loggedInStatus={loggedInStatus} entrance_fee={50} signed_in={loggedInStatus} registered_for_event={false}/>} />
-            <Route path="/profile" element = {<Profile user={user} loggedInStatus={loggedInStatus}/>}/>
+            <Route path="/profile" element = {<Profile user={user} loggedInStatus={loggedInStatus} setLoggedInStatus={setLoggedInStatus} setUser={setUser}/>}/>
             <Route path="/contact" element={<Contact loggedInStatus={loggedInStatus}/>} />
             <Route path="/team" element={<Team loggedInStatus={loggedInStatus}/>}></Route>
             <Route path="*" element={<Navigate to ="/home" replace/>} />
