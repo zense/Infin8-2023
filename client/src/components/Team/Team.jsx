@@ -1,5 +1,4 @@
 import React from "react";
-// import './Team.scss';
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import CALL from "../../images/call.webp";
@@ -9,22 +8,6 @@ import Vector from '../../images/Vector3.png'
 import { BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import './NewTeam.scss'
-function TeamCard(props){
-    return <>
-        <div className="col-lg-4 col-sm-6">
-            <Zoom duration={2000} delay={100}>
-            <div className="card adjust Cards" >
-                <img src={CALL} className="card-img-top" />
-                <div className="card-body" style={{"background-color": "black", "color": "white"}}>
-                    <div className="Heading">
-                       {props.name}
-                    </div>
-                </div>
-                </div>
-                </Zoom>
-            </div>
-    </>
-}
 function NewTeamCard(props){
     return (
         <div className="col-lg-4 col-md-6 changewidth">
@@ -39,22 +22,6 @@ function NewTeamCard(props){
                 <div className="team-content">
                     <div className="display-table change">
                         <div className="display-table-cell ">
-                            {/* <div className="share-icons">
-                                <div className="border"></div>
-                                <ul className="team-social icons-1">
-                                    <li><a href="#" className="social-icon"><i className="fa fa-facebook"></i></a>
-                                    </li>
-                                    <li><a href="#" className="social-icon"><i className="fa fa-twitter"></i></a>
-                                    </li>
-                                </ul>
-
-                                <ul className="team-social icons-2">
-                                    <li><a href="#" className="social-icon"><i className="fa fa-skype"></i></a>
-                                    </li>
-                                    <li><a href="#" className="social-icon"><i className="fa fa-linkedin"></i></a>
-                                    </li>
-                                </ul>
-                            </div> */}
                             <div >
                                <a href="#" style={{"text-decoration": "none" , "color": "black"}}> <BsInstagram className="newicons"/></a> <a href="#" style={{"text-decoration": "none" , "color": "black"}}> <BsLinkedin className="newicons"/></a> 
                             </div>
@@ -99,11 +66,11 @@ function TeamTitle(props){
         <div className="container change">
             <div className="row" >
                     <div className="col-12 register" >
-                        <Fade top delay={100} duration={1500}>
+                        {/* <Fade top delay={100} duration={1500}>
                         <div className="weird weird1" sty>
                            {">"} infin8
                         </div>
-                        </Fade>
+                        </Fade> */}
                         <div className="awesome awesome1" style={{"color": "white"}}>
                             TEAM
                             <img src={Vector} className='arrowicon1'></img>
@@ -118,7 +85,7 @@ export default function Team(props){
     return(
         <div className="Team"  style={{"overflow-x": "hidden", "background-color": "black"}}>
             <Navbar props={props}></Navbar>
-            {/* <TeamTitle/> */}
+            <TeamTitle/>
             <Template/>
             <Footer/>
         </div>
