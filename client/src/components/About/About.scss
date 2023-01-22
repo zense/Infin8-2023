@@ -40,6 +40,10 @@ $heading-final : 120px;
             text-align: right;
             font-size: $heading-size*1.3 !important;
         }
+        .infin8{
+            text-align: right;
+            font-size: $heading-size*1.3 !important;
+        }
     }
     @media(min-width : 1000px){
         .about,.infin8{
@@ -49,5 +53,8 @@ $heading-final : 120px;
         .infin8{
             font-size: $heading-final + 30px;
         }
+    }
+    .centertext{
+        text-align: center;
     }
 }

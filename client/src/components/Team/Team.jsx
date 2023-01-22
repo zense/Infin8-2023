@@ -8,6 +8,16 @@ import Vector from '../../images/Vector3.png'
 import { BsGithub, BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import './NewTeam.scss'
+import { useEffect } from "react";
+import { useLocation} from "react-router-dom";
+const ScrollToTop = (props) => {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    return <>{props.children}</>
+};
 function NewTeamCard(props){
     return (
         <div className="col-lg-4 col-md-6 changewidth">
@@ -49,14 +59,14 @@ function Template(props){
                     </div>
                 </div>
                 <div className="row">
-                    <NewTeamCard img={"./eventimages/Chaitanya.png"} name={"Chaitanya Manas"} role={"SAC"} insta={"https://instagram.com/cmanas03?igshid=NTdlMDg3MTY="} github={""}/>
-                    <NewTeamCard img={"./eventimages/Jacob.jpg"} name={"Jacob Matthew"} role={"SAC"} insta={""} github={""}/>
-                    <NewTeamCard img={"./eventimages/Asrith.jpeg"} name={"Asrith Nune"} role={"SAC"} insta={"https://www.instagram.com/asrith_gupta/"} github={""}/>
-                    <NewTeamCard img={"./eventimages/Gowtham.jpg"} name={"Gowtham Reddy"} role={"SAC"} insta={"https://instagram.com/_.hgangster._?igshid=NTdlMDg3MTY="} github={""}/>
-                    <NewTeamCard img={"./eventimages/Sahithi.jpg"} name={"V L Sahithi"} role={"SAC"} insta={"https://www.instagram.com/vlsahithi/"} github={""}/>
-                    <NewTeamCard img={"./eventimages/Gopal.jpeg"} name={"Gopal Gupta"} role={"SAC"} insta={""} github={""}/>
-                    <NewTeamCard img={"./eventimages/Rahul.jpeg"} name={"Rahul Tejpal"} role={"SAC"} insta={"https://www.instagram.com/rahultejpal7/"} github={""}/>
-                    <NewTeamCard img={"./eventimages/Debag.jpeg"} name={"Debagana Mukherjee"} role={"SAC"} insta={"https://instagram.com/deegchin?igshid=NTdlMDg3MTY="} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Chaitanya.png"} name={"Chaitanya Manas"} role={"SAC"} insta={"https://instagram.com/cmanas03?igshid=NTdlMDg3MTY="} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Jacob.jpg"} name={"Jacob Matthew"} role={"SAC"} insta={""} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Asrith.jpeg"} name={"Asrith Nune"} role={"SAC"} insta={"https://www.instagram.com/asrith_gupta/"} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Gowtham.jpg"} name={"Gowtham Reddy"} role={"SAC"} insta={"https://instagram.com/_.hgangster._?igshid=NTdlMDg3MTY="} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Sahithi.jpg"} name={"V L Sahithi"} role={"SAC"} insta={"https://www.instagram.com/vlsahithi/"} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Gopal.jpeg"} name={"Gopal Gupta"} role={"SAC"} insta={""} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Rahul.jpeg"} name={"Rahul Tejpal"} role={"SAC"} insta={"https://www.instagram.com/rahultejpal7/"} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Debag.jpeg"} name={"Debagana Mukherjee"} role={"SAC"} insta={"https://instagram.com/deegchin?igshid=NTdlMDg3MTY="} github={""}/>
                 </div>
 
                 <div className="row">
@@ -65,13 +75,13 @@ function Template(props){
                     </div>
                 </div>
                 <div className="row">
-                    <NewTeamCard img={"./eventimages/Rohit.jpg"} name={"Rohit Shah"} role={"SPOC/Backend-Developer"} insta={"https://instagram.com/mr_rohit_shah_?igshid=NTdlMDg3MTY="} github={"https://github.com/RohitShah1706"}/>
-                    <NewTeamCard img={"./eventimages/Dhanvi.jpeg"} name={"Dhanvi Medha"} role={"SPOC/Backend-Developer"} insta={"https://www.instagram.com/dhanvi.medha/"} github={"https://github.com/unbalancedvariance"}/>
-                    <NewTeamCard img={"./eventimages/Rishi.jpeg"} name={"Rishi Dutt"} role={"UI/UX Developer"} insta={""} github={""}/>
-                    <NewTeamCard img={"./eventimages/Subhajeet.jpeg"} name={"Subhajeet Lahiri"} role={"Frontend-Developer"} insta={"https://instagram.com/subhajeetlahiri?igshid=NTdlMDg3MTY="} github={"https://github.com/Heliospook"}/>
-                    <NewTeamCard img={"./eventimages/Kalyan.jpg"} name={"Kalyan Ram"} role={"Frontend-Developer"} insta={"https://instagram.com/kalyanrammunagala?igshid=NmQ2ZmYxZjA="} github={"https://github.com/KalyanRam1234"}/>
-                    <NewTeamCard img={"./eventimages/Vikas2.jpeg"} name={"Vikas Kalyanapuram"} role={"Frontend-Developer"} insta={"https://instagram.com/vkas_13?igshid=NTdlMDg3MTY="} github={"https://github.com/LieutPaul"}/>
-                    <NewTeamCard img={"./eventimages/Amar.jpg"} name={"Amar Pratap Singh"} role={"Backend-Developer"} insta={"https://www.instagram.com/__amar012/"} github={"https://github.com/Amar-Pratap-Singh"}/>
+                    <NewTeamCard img={"./Eventimages/Rohit.jpg"} name={"Rohit Shah"} role={"SPOC/Backend-Developer"} insta={"https://instagram.com/mr_rohit_shah_?igshid=NTdlMDg3MTY="} github={"https://github.com/RohitShah1706"}/>
+                    <NewTeamCard img={"./Eventimages/Dhanvi.jpeg"} name={"Dhanvi Medha"} role={"SPOC/Backend-Developer"} insta={"https://www.instagram.com/dhanvi.medha/"} github={"https://github.com/unbalancedvariance"}/>
+                    <NewTeamCard img={"./Eventimages/Rishi.jpeg"} name={"Rishi Dutt"} role={"UI/UX Developer"} insta={""} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Subhajeet.jpeg"} name={"Subhajeet Lahiri"} role={"Frontend-Developer"} insta={"https://instagram.com/subhajeetlahiri?igshid=NTdlMDg3MTY="} github={"https://github.com/Heliospook"}/>
+                    <NewTeamCard img={"./Eventimages/Kalyan.jpg"} name={"Kalyan Ram"} role={"Frontend-Developer"} insta={"https://instagram.com/kalyanrammunagala?igshid=NmQ2ZmYxZjA="} github={"https://github.com/KalyanRam1234"}/>
+                    <NewTeamCard img={"./Eventimages/Vikas2.jpeg"} name={"Vikas Kalyanapuram"} role={"Frontend-Developer"} insta={"https://instagram.com/vkas_13?igshid=NTdlMDg3MTY="} github={"https://github.com/LieutPaul"}/>
+                    <NewTeamCard img={"./Eventimages/Amar.jpg"} name={"Amar Pratap Singh"} role={"Backend-Developer"} insta={"https://www.instagram.com/__amar012/"} github={"https://github.com/Amar-Pratap-Singh"}/>
                     
                 </div>
             </div>
@@ -97,10 +107,12 @@ function Template(props){
 export default function Team(props){
     return(
         <div className="Team"  style={{"overflow-x": "hidden", "background-color": "black"}}>
+            <ScrollToTop>
             <Navbar props={props}></Navbar>
             {/* <TeamTitle/> */}
             <Template/>
             <Footer/>
+            </ScrollToTop>
         </div>
     )
 }

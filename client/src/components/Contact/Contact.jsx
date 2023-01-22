@@ -6,6 +6,16 @@ import {BiPhone} from 'react-icons/bi'
 import { MdMail } from "react-icons/md";
 import Arrow from '../../images/finalarrow.png'
 import './Contact.scss';
+import { useEffect } from "react";
+import { useLocation} from "react-router-dom";
+const ScrollToTop = (props) => {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    return <>{props.children}</>
+};
 function ContactCard(props){
     return (
         <div className="col-9" style={{"marginBottom" :"70px"}}>
@@ -26,7 +36,9 @@ function ContactCard(props){
 }
 export default function Contact(props){
     return (
+
         <div style={{"overflow-x" : "hidden"}}>
+            <ScrollToTop>
         <Navbar props={props}/>
         <div className="Contacts_style ContactPage">
             <div className="row">
@@ -43,6 +55,7 @@ export default function Contact(props){
             </div>
         </div>
         <Footer />
+        </ScrollToTop>
         </div>
     )
 }
