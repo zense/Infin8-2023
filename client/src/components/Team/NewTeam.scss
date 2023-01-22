@@ -2,6 +2,8 @@
   background-color: black;
   overflow-x: hidden;
   padding-top: 100px;
+  font-family: 'Poppins';
+  font-style: normal;
   .rs-team .team-item {
     position: relative;
     overflow: hidden;
@@ -19,6 +21,36 @@
   }
   .rs-team .team-item .team-img {
     position: relative;
+  }
+  .rs-team .team-item .team-img .img-fluidx{
+    height: 400px;
+    object-fit: cover;
+    object-position: top;
+  }
+  @media screen and (max-width: 1400px) {
+    .rs-team .team-item .team-img .img-fluidx{
+      height: 350px;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+    .rs-team .team-item .team-img .img-fluidx{
+      height: 320px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .rs-team .team-item .team-img .img-fluidx{
+      height: 400px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    .rs-team .team-item .team-img .img-fluidx{
+      height: 330px;
+    }
+  }
+  @media screen and (max-width: 430px) {
+    .rs-team .team-item .team-img .img-fluidx{
+      height: 280px;
+    }
   }
   .rs-team .team-item .team-img .normal-text {
     position: absolute;
@@ -40,7 +72,6 @@
     font-weight: 500;
     margin: 0;
     display: block;
-    text-transform: uppercase;
     padding: 0 0 3px;
   }
   .rs-team .team-item .team-img .normal-text .subtitle {
@@ -80,7 +111,6 @@
     margin-bottom: 6px;
     font-size: 20px;
     color: #fff;
-    text-transform: uppercase;
     position: relative;
     z-index: 1;
   }
@@ -310,13 +340,13 @@
   }
   @media (max-width: 1200px) {
     .change{
-      margin-top: 35%;
+      margin-top: 40%;
       
     }
   }
-  @media (max-width: 576px) {
+  @media (max-width: 768px) {
     .change{
-      margin-top: 40%;
+      margin-top: 30%;
       
     }
     .changewidth{
@@ -325,7 +355,14 @@
     }
   }
   .subtitle1{
-    color: white;
-    font-size: 20px;
+    color: #FF5C00;
+    font-size: 25px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+  }
+  @media screen and (max-width: 768px) {
+    .subtitle1{
+      margin-left: 35px;
+    }
   }
 }
