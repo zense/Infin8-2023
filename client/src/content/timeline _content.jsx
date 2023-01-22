@@ -85,7 +85,14 @@ const day2 = [
         "title" : "Valorant",
         "incentives" : "ESports",
         "id" : "17",
-    }
+    },
+    {
+        "image" : "eventimages/clashroyale.jpeg",
+        "time" : "EOD",
+        "title" : "Pratibimbh 2.0",
+        "incentives" : "Photography Contest",
+        "id" : "12",
+    },
 ];
 
 const day3 = [

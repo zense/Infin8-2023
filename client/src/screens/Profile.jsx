@@ -99,13 +99,12 @@ const Profile = (props) => {
         </div>
         {
             // props.loggedInStatus ?
-                <div className="row">
+                <div className="row logoutrow">
                     <div className="col-1"></div>
                     <div className="col-8 col-md-4 col-lg-3">
                         <btn className="btn btn-danger logout"
                             onClick={
                                 () => {
-                                    console.log("bkdjkfjdk")
                                     props.setLoggedInStatus(false);
                                     props.setUser(
                                         {
