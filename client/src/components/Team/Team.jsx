@@ -8,6 +8,16 @@ import Vector from '../../images/Vector3.png'
 import { BsGithub, BsInstagram } from 'react-icons/bs';
 import { BsLinkedin } from 'react-icons/bs';
 import './NewTeam.scss'
+import { useEffect } from "react";
+import { useLocation} from "react-router-dom";
+const ScrollToTop = (props) => {
+    const location = useLocation();
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [location]);
+
+    return <>{props.children}</>
+};
 function NewTeamCard(props){
     return (
         <div className="col-lg-4 col-md-6 changewidth">
@@ -97,10 +107,12 @@ function Template(props){
 export default function Team(props){
     return(
         <div className="Team"  style={{"overflow-x": "hidden", "background-color": "black"}}>
+            <ScrollToTop>
             <Navbar props={props}></Navbar>
             {/* <TeamTitle/> */}
             <Template/>
             <Footer/>
+            </ScrollToTop>
         </div>
     )
 }
