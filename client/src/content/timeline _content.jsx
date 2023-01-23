@@ -22,6 +22,13 @@ const day1 = [
     },
     {
         "image" : "eventimages/clashroyale.jpeg",
+        "time" : "6:00 PM",
+        "title" : "Clash Royale",
+        "incentives" : "E-Sports",
+        "id" : "4",
+    },
+    {
+        "image" : "eventimages/clashroyale.jpeg",
         "time" : "10:00 PM",
         "title" : "Movie Screening",
         "incentives" : "",
@@ -85,7 +92,14 @@ const day2 = [
         "title" : "Valorant",
         "incentives" : "ESports",
         "id" : "17",
-    }
+    },
+    {
+        "image" : "eventimages/clashroyale.jpeg",
+        "time" : "EOD",
+        "title" : "Pratibimbh 2.0",
+        "incentives" : "Photography Contest",
+        "id" : "12",
+    },
 ];
 
 const day3 = [

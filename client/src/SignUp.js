@@ -297,7 +297,13 @@ function SignUp(props) {
         <div className="signin">
             <div class="row">
                 <div className="col-12 col-lg-6">
-                    <img src={infilogo} className='authlogo '></img>
+                    <img src={infilogo} className='authlogo'
+                        onClick={
+                            ()=>{
+                                navigate('/home');
+                            }
+                        }
+                    ></img>
                     <div className="row centerrow">
                         <div class="formtitle">Sign up</div>
                     </div>
