@@ -6,7 +6,7 @@ const mail = require('./sendMail');
 const router = express.Router();
 const path = require('path');
 const http = require("http");
-const credentials = require("./Database/key.json");
+const credentials = require("./database/key.json");
 var admin = require("firebase-admin");
 const otpGenerator = require('otp-generator')
 
