@@ -89,9 +89,6 @@ function SignUp(props) {
         var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
         var testingURL = `http://localhost:${PORT}/api/sendOTP`;
 
-        // generateOTP(n) generates OTP of length n
-
-        var OTP = generateOTP(4).toString(10);
         const result = await fetch(publicURL, {
             method: "POST",
             headers: {
@@ -100,7 +97,6 @@ function SignUp(props) {
             body: JSON.stringify({
                 registerEmail,
                 registerName,
-                OTP
             }),
         }).then((res) => res.json());
 
@@ -113,7 +109,6 @@ function SignUp(props) {
                 contact: registerContact,
                 IIITBStudent: IIITBStudent,
                 password: registerPassword,
-                OTP: OTP
             }
             props.setUser(userDetails);
             routeChange(`/otp-verification`);
@@ -126,11 +121,6 @@ function SignUp(props) {
         }
     }
 
-
-    function generateOTP(numberOfDigits) {
-        var max = 8999;
-        return Math.floor(Math.random() * max) + 1000;
-    }
     const goToLogin = async () => {
         routeChange(`/sign-in`);
     }

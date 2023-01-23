@@ -8,6 +8,7 @@ const path = require('path');
 const http = require("http");
 const credentials = require("./Database/key.json");
 var admin = require("firebase-admin");
+const otpGenerator = require('otp-generator')
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -57,10 +58,10 @@ app.post('/api/sendOTP', async (req, res) => {
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Access-Control-Allow-Credentials", true);
-    
+    // console.log("this is body",req.body);
     const email = req.body.registerEmail;
     const name = req.body.registerName;
-    const otp = req.body.OTP;
+    const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
     // Need to create a temporary array for storing unverified data
     // Choose the user with his id and send him verification mail
 
@@ -80,8 +81,32 @@ app.post('/api/sendOTP', async (req, res) => {
     }
     else{
         console.log("Wait...sending otp");
+        // save otp in database with email as id
+        await db.collection("otp_list").doc(email).set({
+            otp: otp,
+        })
         mail.setConfiguration(email, name, otp);
         mail.sendMail(res);
+    }
+})
+
+app.post('/api/verifyOTP', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+    const otp = req.body.enteredOTP;
+    const email = req.body.registerEmail;
+
+    const otpData = await db.collection("otp_list").doc(email).get();
+    const otpFromDB = otpData.data().otp;
+    console.log(otpFromDB);
+    if (otpFromDB === otp){
+        res.json({status: "success"});
+    }
+    else{
+        res.json({status: "failed"});
     }
 })
 
