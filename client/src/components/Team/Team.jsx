@@ -54,7 +54,7 @@ function Template(props){
         <div id="rs-team" className="rs-team fullwidth-team pt-100 pb-70">
             <div className="container">
                 <div className="row">
-                    <div className="col-12 subtitle1" >
+                    <div className="col-12 subtitle1" style={{"fontFamily":"Architects Daughter"}}>
                     <h1><u>Organisers</u></h1>
                     </div>
                 </div>
@@ -70,7 +70,7 @@ function Template(props){
                 </div>
 
                 <div className="row">
-                    <div className="col-12 subtitle1" style={{"marginTop": "20px"}}>
+                    <div className="col-12 subtitle1" style={{"marginTop": "20px","fontFamily":"Architects Daughter"}}>
                         <h1><u>Web-Developers</u></h1>
                     </div>
                 </div>
