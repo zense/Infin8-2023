@@ -5,6 +5,8 @@ import './Register.css';
 import { db } from "../../../firebase-config";
 import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
 import { useState, useEffect } from "react";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import {storage} from "../../../firebase-config"
 
 
 export default function Register(props){
@@ -12,6 +14,8 @@ export default function Register(props){
     const [user_registered, set_user_registered] = useState(false);
     const [upiID, setUpiID] = useState("");
     const [transactionID, setTransactionID] = useState("");
+    const [imageUpload, setImageUpload] = useState(null);
+
     
 
     const checkStatus = async () => {
@@ -53,6 +57,15 @@ export default function Register(props){
         }
     },[props.loggedInStatus])
 
+    const uploadFile = async (paymentId) => {
+        console.log("uploading file")
+        const storageRef = ref(storage, `${paymentId}`);
+        const snapshot = await uploadBytes(storageRef, imageUpload);
+        console.log("uploaded file")
+        // return the url of the uploaded file
+        const downloadURL = await getDownloadURL(snapshot.ref);
+        return downloadURL;
+    };
 
     const createPaymentObject = async () => {
 
@@ -76,6 +89,13 @@ export default function Register(props){
         
         let paymentObjectID = paymentRef.id;
         console.log("paymentObjectID: ", paymentObjectID);
+
+        const upload_url = await uploadFile(paymentObjectID);
+        const paymentRef2 = doc(db, "payments", paymentObjectID);
+        await updateDoc(paymentRef2, {
+            screenshot: upload_url
+        })         
+
         const userRef = doc(db, "users_list", props.user_id);
         const userDocSnap = await getDoc(userRef);
 
@@ -180,6 +200,7 @@ export default function Register(props){
                         }} style={{"paddingTop":"20px"}}>
                             <input type={"file"} id="inputFile" style={{"display":"none"}} accept="image/*" onChange={(e)=>{
                                 //e.target.files[0] can be posted to backend
+                                setImageUpload(e.target.files[0])
                                 var file=e.target.files[0];
                                 var imgtag=document.getElementById("dotted1");
                                 var reader=new FileReader();
@@ -223,7 +244,7 @@ export default function Register(props){
                     />
                     </div>
                 
-                    {(upiID !== "" && transactionID !== "") 
+                    {(upiID !== "" && transactionID !== "" && imageUpload !== null) 
                     ?
                     <button
                         name="RegisterForEvent"
