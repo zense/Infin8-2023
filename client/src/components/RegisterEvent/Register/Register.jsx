@@ -16,7 +16,7 @@ export default function Register(props){
     const [transactionID, setTransactionID] = useState("");
     const [imageUpload, setImageUpload] = useState(null);
 
-    
+    console.log("contact_", props.user_contact);
 
     const checkStatus = async () => {
 
@@ -84,7 +84,8 @@ export default function Register(props){
             status: status,
             transaction_id:transactionID,
             upi_id:upiID,
-            user: props.user_id
+            user: props.user_id,
+            contact: props.user_contact
         });
         
         let paymentObjectID = paymentRef.id;

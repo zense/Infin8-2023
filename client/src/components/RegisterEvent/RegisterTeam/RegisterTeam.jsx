@@ -119,7 +119,8 @@ export default function RegisterTeam(props) {
                 status: status,
                 transaction_id: transactionID,
                 upi_id: upiID,
-                user: props.user_id
+                user: props.user_id,
+                contact: props.user_contact
             });
 
             let paymentObjectID = paymentRef.id;
@@ -144,7 +145,8 @@ export default function RegisterTeam(props) {
                 membersName: [props.user_name],
                 leaderID: props.user_id,
                 event_id: props.event_id,
-                team_name: teamName
+                team_name: teamName,
+                contact: props.user_contact
             });
 
             // if (userDocSnap.exists()){
