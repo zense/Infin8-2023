@@ -8,7 +8,8 @@ const path = require('path');
 const http = require("http");
 const credentials = require("./database/key.json");
 var admin = require("firebase-admin");
-const otpGenerator = require('otp-generator')
+const otpGenerator = require('otp-generator');
+const { reset } = require('nodemon');
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -108,6 +109,39 @@ app.post('/api/verifyOTP', async (req, res) => {
     else{
         res.json({status: "failed"});
     }
+})
+
+app.post("/api/changestatus",async(req,res) => {
+    const paymentId = req.query.paymentId;
+    console.log(paymentId);
+    // fetch the user with paymentId from document = payments and change the status to processed
+    // fetch payment object from payments collection
+    const paymentData = await db.collection("payments").doc(paymentId).get();
+    console.log(paymentData.data());
+
+    if(paymentData.data() === null || paymentData.data() === undefined){
+        res.json({status: "failed"});
+    }else{
+        await db.collection("payments").doc(paymentId).update({
+            status: "processed",
+        });
+
+        if (paymentData.data().multi){
+            const userID = paymentData.data().user;
+            const eventID = paymentData.data().event_id;
+
+            // fetch user docs in user collection
+            const userData = await db.collection("users_list").doc(userID).get();
+            const teamID = userData.data().eventTeamMap[eventID];
+
+            // update team status in teams collection
+            await db.collection("teams").doc(teamID).update({
+                status: "processed",
+            })
+        }
+        res.json({status: "success"});
+    }
+
 })
 
 
