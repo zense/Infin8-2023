@@ -64,7 +64,7 @@ function Template(props){
                     <NewTeamCard img={"./Eventimages/Asrith.jpeg"} name={"Asrith Nune"} role={"SAC"} insta={"https://www.instagram.com/asrith_gupta/"} github={""}/>
                     <NewTeamCard img={"./Eventimages/Gowtham.jpg"} name={"Gowtham Reddy"} role={"SAC"} insta={"https://instagram.com/_.hgangster._?igshid=NTdlMDg3MTY="} github={""}/>
                     <NewTeamCard img={"./Eventimages/Sahithi.jpg"} name={"V L Sahithi"} role={"SAC"} insta={"https://www.instagram.com/vlsahithi/"} github={""}/>
-                    <NewTeamCard img={"./Eventimages/Gopal.jpeg"} name={"Gopal Gupta"} role={"SAC"} insta={""} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Gopal.jpeg"} name={"Gopal Gupta"} role={"SAC"} insta={"https://instagram.com/gopalgupta___?igshid=ZDdkNTZiNTM="} github={""}/>
                     <NewTeamCard img={"./Eventimages/Rahul.jpeg"} name={"Rahul Tejpal"} role={"SAC"} insta={"https://www.instagram.com/rahultejpal7/"} github={""}/>
                     <NewTeamCard img={"./Eventimages/Debag.jpeg"} name={"Debagana Mukherjee"} role={"SAC"} insta={"https://instagram.com/deegchin?igshid=NTdlMDg3MTY="} github={""}/>
                 </div>
