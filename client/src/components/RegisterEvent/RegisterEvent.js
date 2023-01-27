@@ -63,6 +63,7 @@ function RegisterEvent(props) {
       } */}
       <Container 
           user_id={props.user.id}
+          user_contact={props.user.contact}
           user_name={props.user.name}
           iiitbStudent={props.user.iiitbStudent}
           prize_money={event.prizes.first} 

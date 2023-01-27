@@ -5,12 +5,15 @@ import { BsFillSquareFill } from "react-icons/bs";
 import React from 'react'
 import { db } from "../../../firebase-config";
 import { collection, doc, getDocs, getDoc, updateDoc, addDoc, setDoc } from "firebase/firestore";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage"
+import {storage} from "../../../firebase-config"
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createRouter } from "@remix-run/router";
 import { useEffect } from "react";
 import { confirmPasswordReset } from "@firebase/auth";
 import { ConsoleWriter } from "istanbul-lib-report";
+import { async } from "@firebase/util";
 
 
 export default function RegisterTeam(props) {
@@ -29,6 +32,7 @@ export default function RegisterTeam(props) {
     const [upiID, setUpiID] = useState("");
     const [transactionID, setTransactionID] = useState("");
     const [teamCode, setTeamCode] = useState("");
+    const [imageUpload, setImageUpload] = useState(null);
 
     const [teamMembers, setTeamMembers] = useState([]);
 
@@ -87,7 +91,15 @@ export default function RegisterTeam(props) {
         }
     },[props.loggedInStatus])
 
-
+  const uploadFile = async (paymentId) => {
+    console.log("uploading file")
+    const storageRef = ref(storage, `${paymentId}`);
+    const snapshot = await uploadBytes(storageRef, imageUpload);
+    console.log("uploaded file")
+    // return the url of the uploaded file
+    const downloadURL = await getDownloadURL(snapshot.ref);
+    return downloadURL;
+  };
 
 
     const createPaymentObject = async () => {
@@ -99,7 +111,7 @@ export default function RegisterTeam(props) {
             if (props.iiitbStudent) {
                 status = "processed";
             }
-
+            
             const paymentRef = await addDoc(collection(db, "payments"), {
                 event_id: props.event_id,
                 multi: true,
@@ -107,11 +119,21 @@ export default function RegisterTeam(props) {
                 status: status,
                 transaction_id: transactionID,
                 upi_id: upiID,
-                user: props.user_id
+                user: props.user_id,
+                contact: props.user_contact
             });
 
             let paymentObjectID = paymentRef.id;
             console.log("paymentObjectid", paymentObjectID)
+
+            const upload_url = await uploadFile(paymentObjectID);
+
+            // Update the payment object with the screenshot url
+            const paymentRef2 = doc(db, "payments", paymentObjectID);
+            await updateDoc(paymentRef2, {
+                screenshot: upload_url
+            })            
+
             const userRef = doc(db, "users_list", props.user_id);
             const userDocSnap = await getDoc(userRef);
 
@@ -123,7 +145,9 @@ export default function RegisterTeam(props) {
                 membersName: [props.user_name],
                 leaderID: props.user_id,
                 event_id: props.event_id,
-                team_name: teamName
+                team_name: teamName,
+                contact: props.user_contact,
+                status: status
             });
 
             // if (userDocSnap.exists()){
@@ -233,7 +257,6 @@ export default function RegisterTeam(props) {
         }
         checkStatus();
         setDisabled(false)
-
 
     }
 
@@ -402,8 +425,9 @@ export default function RegisterTeam(props) {
                                                     <div className="col-6 clickk" onClick={() => {
                                                         document.getElementById("inputFile").click()
                                                     }} style={{ "paddingTop": "20px" }}>
-                                                        <input type={"file"} id="inputFile" style={{ "display": "none" }} accept="image/*" onChange={(e) => {
+                                                        <input type={"file"} id="inputFile" style={{ "display": "none" }} accept="image/*" required={true} onChange={(e) => {
                                                             //e.target.files[0] can be posted to backend
+                                                            setImageUpload(e.target.files[0])
                                                             var file = e.target.files[0];
                                                             var imgtag = document.getElementById("dotted2");
                                                             var reader = new FileReader();
@@ -496,7 +520,7 @@ export default function RegisterTeam(props) {
                                             </button>
                                             :
                                             (
-                                                (upiID !== "" && transactionID !== "" && teamName !== "") ?
+                                                (upiID !== "" && transactionID !== "" && teamName !== "" && imageUpload !== null) ?
                                                 <button
                                                 name="RegisterForEvent"
                                                 className="btn btn-default"

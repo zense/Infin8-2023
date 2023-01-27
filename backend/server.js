@@ -8,7 +8,8 @@ const path = require('path');
 const http = require("http");
 const credentials = require("./database/key.json");
 var admin = require("firebase-admin");
-const otpGenerator = require('otp-generator')
+const otpGenerator = require('otp-generator');
+const { reset } = require('nodemon');
 
 admin.initializeApp({
   credential: admin.credential.cert(credentials),
@@ -108,6 +109,106 @@ app.post('/api/verifyOTP', async (req, res) => {
     else{
         res.json({status: "failed"});
     }
+})
+
+app.post("/api/changestatus",async(req,res) => {
+    const paymentId = req.query.paymentId;
+    console.log(paymentId);
+    // fetch the user with paymentId from document = payments and change the status to processed
+    // fetch payment object from payments collection
+    const paymentData = await db.collection("payments").doc(paymentId).get();
+    console.log(paymentData.data());
+
+    if(paymentData.data() === null || paymentData.data() === undefined){
+        res.json({status: "failed"});
+    }else{
+        await db.collection("payments").doc(paymentId).update({
+            status: "processed",
+        });
+
+        if (paymentData.data().multi){
+            const userID = paymentData.data().user;
+            const eventID = paymentData.data().event_id;
+
+            // fetch user docs in user collection
+            const userData = await db.collection("users_list").doc(userID).get();
+            const teamID = userData.data().eventTeamMap[eventID];
+
+            // update team status in teams collection
+            await db.collection("teams").doc(teamID).update({
+                status: "processed",
+            })
+        }
+        res.json({status: "success"});
+    }
+
+})
+app.post("/api/rejectstatus", async(req,res) => {
+    const paymentId = req.query.paymentId;
+    console.log(paymentId);
+    // fetch the user with paymentId from document = payments and change the status to processed
+    // fetch payment object from payments collection
+    const paymentData = await db.collection("payments").doc(paymentId).get();
+    
+    if(paymentData.data() === null || paymentData.data() === undefined){
+        res.json({status: "failed"});
+    }else{
+        // delete from payments collection
+        await db.collection("payments").doc(paymentId).delete();
+        if(paymentData.data().multi){
+            const userID = paymentData.data().user;
+            const eventID = paymentData.data().event_id;
+
+            // fetch user docs in user collection
+            const userData = await db.collection("users_list").doc(userID).get();
+            const teamID = userData.data().eventTeamMap[eventID];
+
+            // delete team from teams collection
+            await db.collection("teams").doc(teamID).delete();
+        }
+        res.json({status: "success"});
+    }
+
+})
+
+// add contact no in teams collection
+app.post("/api/addContactNoTeams", async(req,res) =>{
+    // get all the docs from teams collection
+    const teamsData = await db.collection("teams").get();
+    teamsData.forEach(async doc => {
+        // get the team leader id
+        const teamLeaderID = doc.data().leaderID;
+        // console.log(teamLeaderID);
+        // get the team leader data from users_list collection
+        const teamLeaderData = await db.collection("users_list").doc(teamLeaderID).get();
+        // get the contact number of team leader
+        const contactNo = teamLeaderData.data().contact;
+        console.log(contactNo);
+        // update the contact number in teams collection
+        await db.collection("teams").doc(doc.id).update({
+            contact: contactNo, 
+        })
+    })
+    res.json({status: "success"});
+
+})
+
+app.post("/api/addContactNoPayments", async(req,res) => {
+    const paymentsData = await db.collection("payments").get();
+    paymentsData.forEach(async doc => {
+        // get the user id
+        const userID = doc.data().user;
+        // get the user data from users_list collection
+        const userData = await db.collection("users_list").doc(userID).get();
+        // get the contact number of user
+        const contactNo = userData.data().contact;
+        console.log(contactNo);
+        // update the contact number in payments collection
+        await db.collection("payments").doc(doc.id).update({
+            contact: contactNo,
+        })
+    })
+    res.json({status: "success"});
 })
 
 
