@@ -146,7 +146,8 @@ export default function RegisterTeam(props) {
                 leaderID: props.user_id,
                 event_id: props.event_id,
                 team_name: teamName,
-                contact: props.user_contact
+                contact: props.user_contact,
+                status: status
             });
 
             // if (userDocSnap.exists()){
