@@ -211,6 +211,28 @@ app.post("/api/addContactNoPayments", async(req,res) => {
     res.json({status: "success"});
 })
 
+app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
+    const paymentsData = await db.collection("teams").get();
+    paymentsData.forEach(async doc => {
+        // console.log(doc.id);
+        // get the leaderID
+        const leaderID = doc.data().leaderID;
+        console.log(leaderID);
+        // get the user data from users_list collection
+        const userData = await db.collection("users_list").doc(leaderID).get();
+        // if the user is from IIITB then update the status to processed
+        if(userData.data() === null || userData.data() === undefined){
+            console.log("no data");
+        }
+        else if(userData.data().email.includes("iiitb.ac.in")){
+            await db.collection("teams").doc(doc.id).update({
+                status: "processed",
+            })
+        }
+    })
+    res.json({status: "success"});
+})
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
