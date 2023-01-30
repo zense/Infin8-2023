@@ -12,86 +12,16 @@ import { AiOutlineWarning } from 'react-icons/ai'
 import { Spinner } from "react-bootstrap";
 import {Link} from "react-router-dom";
 
-function SignIn(props) {
-
-    const [registerEmail, setRegisterEmail] = useState("");
-    const [registerPassword, setRegisterPassword] = useState("");
-    const [showAlert, setShowAlert] = useState(false);
-    const [message, setMessage] = useState("You are a moron!");
-    const [waiting, setWaiting] = useState(false);
-    const AlertDialog = (props) => {
-        return <div className="alertdiv">
-            <div className="alertbox">
-                <AiOutlineWarning size={25} /> {message}
-            </div>
-        </div>
-    };
-
-    const auth = getAuth();
-    const login = async () => {
-        setWaiting(true);
-        await signInWithEmailAndPassword(
-            auth,
-            registerEmail,
-            registerPassword
-        ).then(async (userCredential) => {
-            setShowAlert(false);
-            await getData(userCredential);
-
-            props.setLoggedInStatus(true);
-
-            routeChange(`home`);
-            // props.navigator("/", false);
-
-        }).catch((error) => {
-            setMessage("Invalid Credentials");
-            setWaiting(false);
-            setShowAlert(true);
-        });
-    }
-
-    const getData = async (userCredential) => {
-        const docRef = doc(db, "users_list", userCredential.user.uid);
-        const docSnap = await getDoc(docRef);
-
-
-        if (docSnap.exists()) {
-
-            var IIITBStudent = false;
-            if (registerEmail.slice(-12) === "@iiitb.ac.in") {
-                IIITBStudent = true;
-            }
-
-            const userDetails = {
-                id: userCredential.user.uid,
-                name: docSnap.data().name,
-                email: docSnap.data().email,
-                contact: docSnap.data().contact,
-                iiitbStudent: IIITBStudent
-            }
-
-            props.setUser(userDetails);
-        } else {
-        }
-    }
-
+export function ForgotPassword(props){
     let navigate = useNavigate();
+    const [show, setShow] = useState(false);
+    const [waiting, setWaiting] = useState(false);
     const routeChange = (path) => {
         navigate(path);
     }
-
     const goToRegister = async () => {
         routeChange(`/sign-up`);
     }
-
-    const [show, setShow] = useState(false);
-
-
-    const validateInput = () => {
-
-        return true;
-    }
-
     var passComp = <>
         <span class="input-group-text" id="basic-addon1"><BsEyeFill
             id="togglePassword"
@@ -100,9 +30,7 @@ function SignIn(props) {
             }} /></span>
         <input type="password" class="form-control"
             placeholder="**********" aria-label="Password"
-            id="your_password" onChange={(event) => {
-                setRegisterPassword(event.target.value);
-            }} required="required"
+            id="your_password"  required="required"
             aria-describedby="basic-addon1" />
     </>
     if (show) {
@@ -114,17 +42,14 @@ function SignIn(props) {
                 }} /></span>
             <input type="text" class="form-control"
                 placeholder="**********" aria-label="Password"
-                id="your_password" onChange={(event) => {
-                    setRegisterPassword(event.target.value);
-                }} required="required"
+                id="your_password"  required="required"
                 aria-describedby="basic-addon1" />
         </>
     }
 
     return (
-
-        <div className="signin">
-            <div class="row">
+        <div className="signin" style={{"overflowX": "hidden"}}>
+            <div className="row">
                 <div className="col-12 col-lg-6 detailscol">
                     <img src={infilogo} className='authlogo'
                         onClick={
@@ -135,9 +60,8 @@ function SignIn(props) {
                     >
                     </img>
                     <div className="row centerrow">
-                        <div class="formtitle">Sign In</div>
+                        <div class="formtitle">Forgot Password</div>
                     </div>
-
                     <div className="row centerrow labelrow">
                         Email
                     </div>
@@ -146,35 +70,20 @@ function SignIn(props) {
                         <input type="text" class="form-control"
                             id="your_email"
                             placeholder="yourname@example.com" aria-label="Email"
-                            onChange={(event) => {
-                                setRegisterEmail(event.target.value);
-                            }}
                             required="required"
                             aria-describedby="basic-addon1" />
                     </div>
                     <div className="row centerrow labelrow">
-                        Password
+                        New Password
                     </div>
-                    {/* password */}
                     <div class="input-group mb-3 centerrow">
                         {passComp}
                     </div>
-
-                    <div className="row centerrow labelrow">
-                        <Link to={`/forgot-password`}>Forgot Password?</Link>
-                    </div>
-                    {
-                        showAlert ?
-                            <div className="form-group centerrow">
-                                <AlertDialog></AlertDialog>
-                            </div> :
-                            <></>
-                    }
                     <div class="form-group centerrow">
-                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting}>{
+                        <btn name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting} style={{"margin-top": "20px"}}>{
                             waiting ?
                             <Spinner></Spinner> : 
-                            "Login"
+                            "Change Password"
                         }</btn>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
                     </div>
@@ -184,18 +93,11 @@ function SignIn(props) {
                             Register
                         </button>
                     </div>
-
-                    {/*<div class="form-group centerrow">
-                        <btn onClick={goToRegister} name="goToRegister" id="goToRegister" class="btn registerbtn btn-dark" value="Don't have an account? Sign Up">Register</btn>
-                    </div> */}
                 </div>
-
                 <div className="d-none d-lg-block col-lg-6">
                     <div className="signin-image"></div>
                 </div>
             </div>
         </div>
-    );
+    )
 }
-
-export default SignIn;
