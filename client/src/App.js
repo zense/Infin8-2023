@@ -32,7 +32,7 @@ function App(props) {
   // }
   
   //up = true, for when the website is up
-  const [up, setUp] = useState(false);
+  const [up, setUp] = useState(true);
 
   const [loggedInStatus, setLoggedInStatus] = useState(false);
   

@@ -6,7 +6,8 @@ import {
     onAuthStateChanged,
     sendSignInLinkToEmail,
     isSignInWithEmailLink,
-    signInWithEmailLink
+    signInWithEmailLink,
+    sendEmailVerification
 } from "firebase/auth";
 import { BiRupee } from 'react-icons/bi'
 import { db } from "./firebase-config";
@@ -99,7 +100,10 @@ function SignUp(props) {
                 registerEmail,
                 registerName,
             }),
-        }).then((res) => res.json());
+        }).then((res) => {
+                console.log("printing")
+                return res.json();
+        });
 
         console.log(result.status);
         console.log(result);
@@ -120,6 +124,7 @@ function SignUp(props) {
         else if (result.status === "error") {
             console.log("Error encountered!");
         }
+
     }
 
     const goToLogin = async () => {

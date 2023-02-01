@@ -35,11 +35,14 @@ export function ForgotPassword(props){
         await sendPasswordResetEmail(auth, emailAddress)
         .then(() => {
             // Email sent.
+                console.log("printing")
             setMessage("Password reset link sent to your email");
             setShowAlert(true);
             setWaiting(false);
         })        
         .catch((error) => {
+                console.log("printing")
+
             if(error.message.includes("auth/missing-email")){
                 setMessage("Missing Email");
                 setShowAlert(true);
