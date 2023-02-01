@@ -138,11 +138,16 @@ function SignIn(props) {
                         <div class="formtitle">Sign In</div>
                     </div>
 
-                    <div className='col-12 Disclaimer' style={{ "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins" }}>
-                        <div>
-                            We are facing some technical difficulties with our server, please check again in some time.
-                        </div>
-                    </div>
+                    {
+                        props.up ?
+                            null :
+                            <div className='col-12 Disclaimer' style={{ "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins" }}
+                            >
+                                <div>
+                                    We are facing some technical difficulties with our server, please check again in some time.
+                                </div>
+                            </div>
+                    }
 
                     <div className="row centerrow labelrow">
                         Email
@@ -180,10 +185,10 @@ function SignIn(props) {
                     }
                     <div class="form-group centerrow">
                         <button onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" 
-                        disabled = {true}
+                        disabled = {(!props.up) || waiting}
                         >{
-                            // waiting ?
-                            // <Spinner></Spinner> : 
+                            waiting ?
+                            <Spinner></Spinner> : 
                             "Login"
                         }</button>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
