@@ -138,6 +138,12 @@ function SignIn(props) {
                         <div class="formtitle">Sign In</div>
                     </div>
 
+                    <div className='col-12 Disclaimer' style={{ "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins" }}>
+                        <div>
+                            We are facing some technical difficulties with our server, please check again in some time.
+                        </div>
+                    </div>
+
                     <div className="row centerrow labelrow">
                         Email
                     </div>
@@ -161,7 +167,9 @@ function SignIn(props) {
                     </div>
 
                     <div className="row centerrow labelrow">
-                        <Link to={`/forgot-password`}>Forgot Password?</Link>
+                        <Link to={`/forgot-password`}
+                        >Forgot Password?
+                        </Link>
                     </div>
                     {
                         showAlert ?
@@ -171,11 +179,13 @@ function SignIn(props) {
                             <></>
                     }
                     <div class="form-group centerrow">
-                        <btn onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting}>{
-                            waiting ?
-                            <Spinner></Spinner> : 
+                        <button onClick={login} name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" 
+                        disabled = {true}
+                        >{
+                            // waiting ?
+                            // <Spinner></Spinner> : 
                             "Login"
-                        }</btn>
+                        }</button>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
                     </div>
                     <div className="form-group centerrow registertext mb-5">
