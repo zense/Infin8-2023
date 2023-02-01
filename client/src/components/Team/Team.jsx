@@ -33,7 +33,7 @@ function NewTeamCard(props){
                     <div className="display-table change">
                         <div className="display-table-cell ">
                             <div >
-                               <a href={props.insta} style={{"text-decoration": "none" , "color": "black"}}> <BsInstagram className="newicons"/></a> {props.github && <a href={props.github} style={{"text-decoration": "none" , "color": "black"}}> <BsGithub className="newicons"/></a> }
+                               <a href={props.insta} target="_blank" rel="noopener noreferrer" style={{"text-decoration": "none" , "color": "black"}}> <BsInstagram className="newicons"/> </a> {props.github && <a href={props.github} target="_blank" rel="noopener noreferrer" style={{"text-decoration": "none" , "color": "black"}}> <BsGithub className="newicons"/></a> }
                             </div>
                             <div className="team-details">
                                 <h4 className="team-name">
@@ -82,7 +82,16 @@ function Template(props){
                     <NewTeamCard img={"./Eventimages/Kalyan.jpg"} name={"Kalyan Ram"} role={"Frontend-Developer"} insta={"https://instagram.com/kalyanrammunagala?igshid=NmQ2ZmYxZjA="} github={"https://github.com/KalyanRam1234"}/>
                     <NewTeamCard img={"./Eventimages/Vikas2.jpeg"} name={"Vikas Kalyanapuram"} role={"Frontend-Developer"} insta={"https://instagram.com/vkas_13?igshid=NTdlMDg3MTY="} github={"https://github.com/LieutPaul"}/>
                     <NewTeamCard img={"./Eventimages/Amar.jpg"} name={"Amar Pratap Singh"} role={"Backend-Developer"} insta={"https://www.instagram.com/__amar012/"} github={"https://github.com/Amar-Pratap-Singh"}/>
-                    
+                </div>
+
+                <div className="row">
+                    <div className="col-12 subtitle1" style={{"marginTop": "20px","fontFamily":"Architects Daughter"}}>
+                        <h1><u>Design Team</u></h1>
+                    </div>
+                </div>
+                <div className="row">
+                    <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ansh Avi Khanna"} role={"Design SPOC"} insta={"https://www.instagram.com/anshavikhanna/"} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ayush Singh"} role={"Design SPOC"} insta={"https://www.instagram.com/ayushsingh.h/"} github={""}/>
                 </div>
             </div>
         </div>
