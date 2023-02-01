@@ -10,9 +10,9 @@ import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import { AiOutlineWarning } from 'react-icons/ai'
 import { Spinner } from "react-bootstrap";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export function ForgotPassword(props){
+export function ForgotPassword(props) {
     let navigate = useNavigate();
     const [show, setShow] = useState(false);
     const [emailToreset, setEmailToreset] = useState("");
@@ -33,35 +33,43 @@ export function ForgotPassword(props){
         const auth = getAuth();
         const emailAddress = emailToreset;
         await sendPasswordResetEmail(auth, emailAddress)
-        .then(() => {
-            // Email sent.
+            .then(() => {
+                // Email sent.
                 console.log("printing")
-            setMessage("Password reset link sent to your email");
-            setShowAlert(true);
-            setWaiting(false);
-        })        
-        .catch((error) => {
+                setMessage("Password reset link sent to your email");
+                setShowAlert(true);
+                setWaiting(false);
+            })
+            .catch((error) => {
                 console.log("printing")
 
-            if(error.message.includes("auth/missing-email")){
-                setMessage("Missing Email");
-                setShowAlert(true);
-                setWaiting(false);
-            }else if(error.message.includes("auth/user-not-found")){
-                setMessage("User not found");
-                setShowAlert(true);
-                setWaiting(false);
-            }
-            console.log(error.message);
-        })
+                if (error.message.includes("auth/missing-email")) {
+                    setMessage("Missing Email");
+                    setShowAlert(true);
+                    setWaiting(false);
+                } else if (error.message.includes("auth/user-not-found")) {
+                    setMessage("User not found");
+                    setShowAlert(true);
+                    setWaiting(false);
+                }
+                console.log(error.message);
+            })
     }
 
     const AlertDialog = (props) => {
+        if (props.green) return <div className="alertdiv">
+            <div className="alertbox"
+                style={{ "backgroundColor": "green" }}
+            >
+                {message}
+            </div>
+        </div>
         return <div className="alertdiv">
             <div className="alertbox">
-                <AiOutlineWarning size={25} /> {message}
+                <AiOutlineWarning size={25} />
+                {message}
             </div>
-        </div>  
+        </div>
     };
 
     var passComp = <>
@@ -72,7 +80,7 @@ export function ForgotPassword(props){
             }} /></span>
         <input type="password" class="form-control"
             placeholder="**********" aria-label="Password"
-            id="your_password"  required="required"
+            id="your_password" required="required"
             aria-describedby="basic-addon1" />
     </>
     if (show) {
@@ -84,18 +92,18 @@ export function ForgotPassword(props){
                 }} /></span>
             <input type="text" class="form-control"
                 placeholder="**********" aria-label="Password"
-                id="your_password"  required="required"
+                id="your_password" required="required"
                 aria-describedby="basic-addon1" />
         </>
     }
 
     return (
-        <div className="signin" style={{"overflowX": "hidden"}}>
+        <div className="signin" style={{ "overflowX": "hidden" }}>
             <div className="row">
                 <div className="col-12 col-lg-6 detailscol">
                     <img src={infilogo} className='authlogo'
                         onClick={
-                            ()=>{
+                            () => {
                                 navigate('/home');
                             }
                         }
@@ -117,7 +125,7 @@ export function ForgotPassword(props){
                             onChange={(e) => {
                                 setEmailToreset(e.target.value);
                             }}
-                            />
+                        />
                     </div>
                     {/* <div className="row centerrow labelrow">
                         New Password
@@ -128,18 +136,18 @@ export function ForgotPassword(props){
                     {
                         showAlert ?
                             <div className="form-group centerrow">
-                                <AlertDialog></AlertDialog>
+                                <AlertDialog green={true} remove={true} ></AlertDialog>
                             </div> :
                             <></>
                     }
                     <div class="form-group centerrow">
-                        <btn name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting} style={{"margin-top": "20px"}}
+                        <btn name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting} style={{ "margin-top": "20px" }}
                             onClick={handlePassReset}
                         >{
-                            waiting ?
-                            <Spinner></Spinner> : 
-                            "Change Password"
-                        }</btn>
+                                waiting ?
+                                    <Spinner></Spinner> :
+                                    "Change Password"
+                            }</btn>
                         {/* <btn onClick={login} name="signin" id="signin" class="btn btn-primary" value="signin">Login</btn> */}
                     </div>
                     <div className="form-group centerrow registertext mb-5">

@@ -26,7 +26,7 @@ const ScrollToTop = (props) => {
 };
 function App(props) {
   //up = true, for when the website is up
-  const [up, setUp] = useState(false);
+  const [up, setUp] = useState(true);
   
   // Whenever someone logs in, we need to update tge entire user state
   
