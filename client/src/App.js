@@ -25,14 +25,15 @@ const ScrollToTop = (props) => {
   return <>{props.children}</>
 };
 function App(props) {
+  //up = true, for when the website is up
+  const [up, setUp] = useState(false);
+  
   // Whenever someone logs in, we need to update tge entire user state
   
   // function navigator(position, replace) {
   //   props.navigate(position, { replace: replace });
   // }
   
-  //up = true, for when the website is up
-  const [up, setUp] = useState(false);
 
   const [loggedInStatus, setLoggedInStatus] = useState(false);
   

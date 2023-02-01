@@ -136,12 +136,12 @@ export default function Container(props) {
 
                 <div className="col-md-4 col-12" style={{"paddingBottom":"30px", "backgroundColor": "black" }}>
                     
-                    {/* Div to be removed after server works. */}
+                    {/* Div to be removed after server works.
                     <div className='col-12 Disclaimer' style={{"padding":"20px 20px 20px 20px","color":"white","fontFamily":"Poppins"}}>
                         <div>
                         We are facing some technical difficulties with our server, please check again in some time.
                         </div>
-                    </div>
+                    </div> */}
 
                     {props.id == 1 || props.id == 3 ?
                             <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
