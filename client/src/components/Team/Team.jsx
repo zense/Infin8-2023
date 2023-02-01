@@ -93,7 +93,7 @@ function Template(props){
                 </div>
                 <div className="row">
                     <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ansh Avi Khanna"} role={"Design SPOC"} insta={"https://www.instagram.com/anshavikhanna/"} github={""}/>
-                    <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ayush Singh"} role={"Design SPOC"} insta={"https://www.instagram.com/ayushsingh.h/"} github={""}/>
+                    <NewTeamCard img={"./Eventimages/Ayush.png"} name={"Ayush Singh"} role={"Design SPOC"} insta={"https://www.instagram.com/ayushsingh.h/"} github={""}/>
                 </div>
             
             </div>
