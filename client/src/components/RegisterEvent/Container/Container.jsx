@@ -175,6 +175,7 @@ export default function Container(props) {
                                                     <Register
                                                         event_id={props.id}
                                                         user_id={props.user_id}
+                                                        user_name={props.user_name}
                                                         user_contact={props.user_contact}
                                                         iiitbStudent={props.iiitbStudent}
                                                         event_fee={props.event_fee}

@@ -85,6 +85,7 @@ export default function Register(props){
             transaction_id:transactionID,
             upi_id:upiID,
             user: props.user_id,
+            name: props.user_name,
             contact: props.user_contact
         });
         

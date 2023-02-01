@@ -101,7 +101,7 @@ function SignUp(props) {
         }).then((res) => res.json());
 
         console.log(result.status);
-        console.log(result.body);
+        console.log(result);
         if (result.status === "ok") {
             var userDetails = {
                 name: registerName,

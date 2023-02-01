@@ -44,6 +44,7 @@ function SignIn(props) {
             // props.navigator("/", false);
 
         }).catch((error) => {
+            console.log(error);
             setMessage("Invalid Credentials");
             setWaiting(false);
             setShowAlert(true);
