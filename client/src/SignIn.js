@@ -10,6 +10,7 @@ import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import { AiOutlineWarning } from 'react-icons/ai'
 import { Spinner } from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 function SignIn(props) {
 
@@ -157,6 +158,10 @@ function SignIn(props) {
                     {/* password */}
                     <div class="input-group mb-3 centerrow">
                         {passComp}
+                    </div>
+
+                    <div className="row centerrow labelrow">
+                        <Link to={`/forgot-password`}>Forgot Password?</Link>
                     </div>
                     {
                         showAlert ?

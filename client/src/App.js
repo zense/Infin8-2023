@@ -15,6 +15,7 @@ import SignIn from "./SignIn";
 import OTPVerification from "./OTPVerification";
 import Team from './components/Team/Team'
 import Contact from "./components/Contact/Contact";
+import {ForgotPassword} from "./ForgotPassword";
 const ScrollToTop = (props) => {
   const location = useLocation();
   useEffect(() => {
@@ -50,6 +51,9 @@ function App(props) {
             <Route path="/home" element={<Home user={user} loggedInStatus={loggedInStatus}/>} />
             <Route path="/sign-up" element={<SignUp setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
+
+            <Route path="/forgot-password" element={<ForgotPassword setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
+
             <Route path="/otp-verification" element={<OTPVerification user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             
             <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus} paid_base_fees={user.baseFeePaid}/>} />

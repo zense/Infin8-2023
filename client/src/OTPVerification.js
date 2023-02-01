@@ -35,7 +35,22 @@ function OTPVerification(props) {
     };
 
     async function validateOTP() {
-        if (props.user.OTP === enteredOTP) {
+        
+        var publicURL = `https://infin8-backend.onrender.com/api/verifyOTP`;
+        var testingURL = `http://localhost:${5000}/api/verifyOTP`;
+
+        const result = await fetch(publicURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                registerEmail: props.user.email,
+                enteredOTP: enteredOTP
+            }),
+        }).then((res) => res.json());
+
+        if (result.status === "success") {
             setShowAlert(false);
             console.log(enteredOTP);
             setOtpdis(true);
@@ -112,11 +127,13 @@ function OTPVerification(props) {
                 routeChange(`home`);
 
             }).catch((error) => {
+                console.log("doondha hua error", error)
                 setMessage("User already exists");
                 setShowAlert(true);
             });
+
         }
-        else {
+        else{
             setMessage("Invalid OTP");
             setShowAlert(true);
         }
