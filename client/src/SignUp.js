@@ -8,6 +8,7 @@ import {
     isSignInWithEmailLink,
     signInWithEmailLink
 } from "firebase/auth";
+import {BiRupee} from 'react-icons/bi'
 import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
@@ -307,6 +308,11 @@ function SignUp(props) {
                     <div className="row centerrow">
                         <div class="formtitle">Sign up</div>
                     </div>
+                    <div className='col-12 Disclaimer' style={{"padding":"20px 20px 20px 20px","color":"white","fontFamily":"Poppins"}}>
+                    <div>
+                      We are not accepting any more registrations for the time being. Please check again later.
+                    </div>
+                </div> 
 
                     <div className="row centerrow labelrow1">
                         Name
@@ -382,7 +388,9 @@ function SignUp(props) {
                         {/* {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
                             ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
                             :  */}
-                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled = {waiting}>{
+                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled = {true}
+                            // disabled = {waiting}
+                            >{
                             waiting ?
                             <Spinner animation="border"/>:
                             "Register"
