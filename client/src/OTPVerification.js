@@ -48,7 +48,14 @@ function OTPVerification(props) {
                 registerEmail: props.user.email,
                 enteredOTP: enteredOTP
             }),
-        }).then((res) => res.json());
+        }).then((res) =>{
+                console.log("printing")
+
+            return res.json();
+        }).catch(err => {
+                console.log("printing")
+
+        })
 
         if (result.status === "success") {
             setShowAlert(false);
@@ -59,6 +66,7 @@ function OTPVerification(props) {
                 props.user.email,   
                 props.user.password
             ).then(async (userCredential) => {
+                console.log("printing")
 
                 const userEventParticipationDetail = {
                     1: "Register",
@@ -107,6 +115,12 @@ function OTPVerification(props) {
                     email: props.user.email,
                     paymentDetails: userEventParticipationDetail,
                     eventTeamMap: eventTeamMap
+                }).then(() => {
+                console.log("printing")
+
+                }).catch(err => {
+                console.log("printing")
+
                 })
 
                 // After login or signUp, 

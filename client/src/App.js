@@ -33,7 +33,6 @@ function App(props) {
   // function navigator(position, replace) {
   //   props.navigate(position, { replace: replace });
   // }
-  
 
   const [loggedInStatus, setLoggedInStatus] = useState(false);
   

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, sendPasswordResetEmail } from "firebase/auth";
 // import { auth } from "./firebase-config";
 import { db } from "./firebase-config";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
@@ -15,6 +15,9 @@ import {Link} from "react-router-dom";
 export function ForgotPassword(props){
     let navigate = useNavigate();
     const [show, setShow] = useState(false);
+    const [emailToreset, setEmailToreset] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
+    const [message, setMessage] = useState("You are a moron!");
     const [waiting, setWaiting] = useState(false);
     const routeChange = (path) => {
         navigate(path);
@@ -22,6 +25,45 @@ export function ForgotPassword(props){
     const goToRegister = async () => {
         routeChange(`/sign-up`);
     }
+
+    const handlePassReset = async () => {
+        // first disable the button
+        setWaiting(true);
+        // then send the email reset link using firebase
+        const auth = getAuth();
+        const emailAddress = emailToreset;
+        await sendPasswordResetEmail(auth, emailAddress)
+        .then(() => {
+            // Email sent.
+                console.log("printing")
+            setMessage("Password reset link sent to your email");
+            setShowAlert(true);
+            setWaiting(false);
+        })        
+        .catch((error) => {
+                console.log("printing")
+
+            if(error.message.includes("auth/missing-email")){
+                setMessage("Missing Email");
+                setShowAlert(true);
+                setWaiting(false);
+            }else if(error.message.includes("auth/user-not-found")){
+                setMessage("User not found");
+                setShowAlert(true);
+                setWaiting(false);
+            }
+            console.log(error.message);
+        })
+    }
+
+    const AlertDialog = (props) => {
+        return <div className="alertdiv">
+            <div className="alertbox">
+                <AiOutlineWarning size={25} /> {message}
+            </div>
+        </div>  
+    };
+
     var passComp = <>
         <span class="input-group-text" id="basic-addon1"><BsEyeFill
             id="togglePassword"
@@ -71,16 +113,29 @@ export function ForgotPassword(props){
                             id="your_email"
                             placeholder="yourname@example.com" aria-label="Email"
                             required="required"
-                            aria-describedby="basic-addon1" />
+                            aria-describedby="basic-addon1"
+                            onChange={(e) => {
+                                setEmailToreset(e.target.value);
+                            }}
+                            />
                     </div>
-                    <div className="row centerrow labelrow">
+                    {/* <div className="row centerrow labelrow">
                         New Password
-                    </div>
-                    <div class="input-group mb-3 centerrow">
+                    </div> */}
+                    {/* <div class="input-group mb-3 centerrow">
                         {passComp}
-                    </div>
+                    </div> */}
+                    {
+                        showAlert ?
+                            <div className="form-group centerrow">
+                                <AlertDialog></AlertDialog>
+                            </div> :
+                            <></>
+                    }
                     <div class="form-group centerrow">
-                        <btn name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting} style={{"margin-top": "20px"}}>{
+                        <btn name="signin" id="signin" className="btn registerbtn btn-dark" value="signin" disabled={waiting} style={{"margin-top": "20px"}}
+                            onClick={handlePassReset}
+                        >{
                             waiting ?
                             <Spinner></Spinner> : 
                             "Change Password"

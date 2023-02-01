@@ -39,6 +39,8 @@ export default function RegisterTeam(props) {
     const checkStatus = async () => {
         var userReference = doc(db, "users_list", props.user_id);
         var userData = await getDoc(userReference);
+                console.log("printing")
+
         // Fetching the payment details from the paymeny object map in firebase.
         var paymentDetails = (userData).data().paymentDetails;
 
@@ -49,6 +51,8 @@ export default function RegisterTeam(props) {
 
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
             var paymentData = await getDoc(paymentReference);
+                console.log("printing")
+
             console.log("this is paymentdata",(paymentData), props.event_id);
             // console.log("ths is true or false", "status" in (paymentData).data());
 
@@ -62,6 +66,8 @@ export default function RegisterTeam(props) {
                     
                     var teamRef = doc(db, "teams", eventTeamMap[props.event_id])
                     var teamData = await getDoc(teamRef);
+                console.log("printing")
+
                     console.log("team data: ", teamData.data())
                     console.log("team members name: ", teamData.data().membersName)
                     setTeamMembers(teamData.data().membersName);
@@ -95,9 +101,13 @@ export default function RegisterTeam(props) {
     console.log("uploading file")
     const storageRef = ref(storage, `${paymentId}`);
     const snapshot = await uploadBytes(storageRef, imageUpload);
+                console.log("printing")
+
     console.log("uploaded file")
     // return the url of the uploaded file
     const downloadURL = await getDownloadURL(snapshot.ref);
+                console.log("printing")
+
     return downloadURL;
   };
 
@@ -122,20 +132,32 @@ export default function RegisterTeam(props) {
                 user: props.user_id,
                 contact: props.user_contact
             });
+                console.log("printing")
+
 
             let paymentObjectID = paymentRef.id;
             console.log("paymentObjectid", paymentObjectID)
 
             const upload_url = await uploadFile(paymentObjectID);
+                console.log("printing")
+
 
             // Update the payment object with the screenshot url
             const paymentRef2 = doc(db, "payments", paymentObjectID);
             await updateDoc(paymentRef2, {
                 screenshot: upload_url
+            }).then(() => {
+                console.log("printing")
+
+            }).catch(err => {
+                console.log("printing")
+
             })            
 
             const userRef = doc(db, "users_list", props.user_id);
             const userDocSnap = await getDoc(userRef);
+                console.log("printing")
+
 
 
             const teamData = await addDoc(collection(db, "teams"), {
@@ -149,6 +171,7 @@ export default function RegisterTeam(props) {
                 contact: props.user_contact,
                 status: status
             });
+            console.log("printing")
 
             // if (userDocSnap.exists()){
             let paymentDetails = (userDocSnap).data().paymentDetails;
@@ -160,6 +183,12 @@ export default function RegisterTeam(props) {
             await updateDoc(userRef, {
                 paymentDetails: paymentDetails,
                 eventTeamMap: eventTeamMap
+            }).then(() => {
+                console.log("printing")
+
+            }).catch(err => {
+                console.log("printing")
+
             })
 
             setTeamID(teamData.id);
@@ -179,9 +208,10 @@ export default function RegisterTeam(props) {
             // Joining An Existing team.
             var teamToJoin = "";
             var teamToJoinData = {};
-            // const teamIDs = await getDocs(collection(db, "teams"));
             var teamRef = doc(db, "teams", teamCode);
             var teamData = await getDoc(teamRef);
+                console.log("printing")
+
 
             console.log(teamData.data());
 
@@ -208,13 +238,23 @@ export default function RegisterTeam(props) {
                         vacancy: teamToJoinData.vacancy - 1,
                         members: teamMembers,
                         membersName: teamMembersName
+                    }).then(() => {
+                console.log("printing")
+
+                    }).catch(err => {
+                console.log("printing")
+
                     })
 
                     var userRef = doc(db, "users_list", props.user_id);
                     var userDocSnap = await getDoc(userRef);
+                console.log("printing")
+
 
                     var leaderRef = doc(db, "users_list", leaderID);
                     var leaderDocSnap = await getDoc(leaderRef);
+                console.log("printing")
+
 
                     var paymentObjectID = (leaderDocSnap).data().paymentDetails[props.event_id];
 
@@ -228,6 +268,12 @@ export default function RegisterTeam(props) {
                     await updateDoc(userRef, {
                         paymentDetails: paymentDetails,
                         eventTeamMap: eventTeamMap
+                    }).then(() => {
+                console.log("printing")
+
+                    }).catch(err => {
+                console.log("printing")
+
                     })
 
                     console.log("Updated!!");

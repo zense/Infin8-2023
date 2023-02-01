@@ -25,9 +25,13 @@ const Profile = (props) => {
         await fetch(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${props.user.id
             }`)
             .then(url => {
+                console.log("printing")
+
                 setQrCodeUrl(url.url)
             })
             .catch(err => {
+                console.log("printing")
+
                 console.log(err);
             })
     }
@@ -40,6 +44,8 @@ const Profile = (props) => {
 
         var userReference = doc(db, "users_list", props.user.id);
         var userData = await getDoc(userReference);
+                console.log("printing")
+
 
         var paymentDetails = (userData).data().paymentDetails;
         var eventsParticipatedIn = [];
@@ -51,6 +57,8 @@ const Profile = (props) => {
 
                 var payRef = doc(db, "payments", paymentID);
                 var payData = await getDoc(payRef);
+                console.log("printing")
+
                 if (payData.data() !== undefined) {
                     var status = (payData).data().status;
                     var eventID = (payData).data().event_id;

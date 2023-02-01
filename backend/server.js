@@ -83,26 +83,19 @@ app.post('/api/sendOTP', async (req, res) => {
     console.log(otp);
     // await db.collection()
     var alreadyExist = false;
-    const usersData = await db.collection("users_list").get();
     
-    usersData.forEach(doc=>{
-        if (email === doc.data().email){
-            alreadyExist = true;
-        }
-    });
-    
-    if (alreadyExist){
-        res.json({status: "Exists"});
-    }
-    else{
-        console.log("Wait...sending otp");
-        // save otp in database with email as id
-        await db.collection("otp_list").doc(email).set({
-            otp: otp,
-        })
-        mail.setConfiguration(email, name, otp);
-        mail.sendMail(res);
-    }
+    console.log("Wait...sending otp");
+    // save otp in database with email as id
+    await db.collection("otp_list").doc(email).set({
+        otp: otp,
+    }).then(() => {
+            console.log("printing")
+            mail.setConfiguration(email, name, otp);
+            mail.sendMail(res);    
+    }).catch((error) => {
+            console.log("error") 
+            res.json({status: "error"});
+    })
 })
 
 app.post('/api/verifyOTP', async (req, res) => {
@@ -113,15 +106,21 @@ app.post('/api/verifyOTP', async (req, res) => {
 
     const otp = req.body.enteredOTP;
     const email = req.body.registerEmail;
+    // TODO
+    const otpData = await db.collection("otp_list").where(
+        "otp", "==", otp
+    ).get();
 
-    const otpData = await db.collection("otp_list").doc(email).get();
-    const otpFromDB = otpData.data().otp;
-    console.log(otpFromDB);
-    if (otpFromDB === otp){
-        res.json({status: "success"});
-    }
-    else{
-        res.json({status: "failed"});
+    if(otpData.docs[0] !== undefined && otpData.docs[0] !== null){
+        const otpFromDB = otpData.docs[0].data().otp;
+        console.log(otpFromDB);
+        if (otpFromDB === otp){
+            res.json({status: "success"});
+        }else{
+            res.json({status: "failed"});
+        }
+    }else{
+        res.json({status: "failed"});           
     }
 })
 
@@ -131,6 +130,8 @@ app.post("/api/changestatus",async(req,res) => {
     // fetch the user with paymentId from document = payments and change the status to processed
     // fetch payment object from payments collection
     const paymentData = await db.collection("payments").doc(paymentId).get();
+                console.log("printing")
+
     console.log(paymentData.data());
 
     if(paymentData.data() === null || paymentData.data() === undefined){
@@ -138,7 +139,13 @@ app.post("/api/changestatus",async(req,res) => {
     }else{
         await db.collection("payments").doc(paymentId).update({
             status: "processed",
-        });
+        }).then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
+        })
 
         if (paymentData.data().multi){
             const userID = paymentData.data().user;
@@ -146,11 +153,19 @@ app.post("/api/changestatus",async(req,res) => {
 
             // fetch user docs in user collection
             const userData = await db.collection("users_list").doc(userID).get();
+                console.log("printing")
+
             const teamID = userData.data().eventTeamMap[eventID];
 
             // update team status in teams collection
             await db.collection("teams").doc(teamID).update({
                 status: "processed",
+            }).then(() => {
+                console.log("printing")
+
+            }).catch(err => {
+                console.log("printing")
+
             })
         }
         res.json({status: "success"});
@@ -163,22 +178,37 @@ app.post("/api/rejectstatus", async(req,res) => {
     // fetch the user with paymentId from document = payments and change the status to processed
     // fetch payment object from payments collection
     const paymentData = await db.collection("payments").doc(paymentId).get();
+                console.log("printing")
+
     
     if(paymentData.data() === null || paymentData.data() === undefined){
         res.json({status: "failed"});
     }else{
         // delete from payments collection
-        await db.collection("payments").doc(paymentId).delete();
+        await db.collection("payments").doc(paymentId).delete().then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
+        })
         if(paymentData.data().multi){
             const userID = paymentData.data().user;
             const eventID = paymentData.data().event_id;
 
             // fetch user docs in user collection
             const userData = await db.collection("users_list").doc(userID).get();
+                console.log("printing")
+
             const teamID = userData.data().eventTeamMap[eventID];
 
             // delete team from teams collection
-            await db.collection("teams").doc(teamID).delete();
+            await db.collection("teams").doc(teamID).delete().then(() => {
+                console.log("printing")
+                
+            }).catch(err => {
+                console.log("printing")
+            })
         }
         res.json({status: "success"});
     }
@@ -189,18 +219,28 @@ app.post("/api/rejectstatus", async(req,res) => {
 app.post("/api/addContactNoTeams", async(req,res) =>{
     // get all the docs from teams collection
     const teamsData = await db.collection("teams").get();
+                console.log("printing")
+
     teamsData.forEach(async doc => {
         // get the team leader id
         const teamLeaderID = doc.data().leaderID;
         // console.log(teamLeaderID);
         // get the team leader data from users_list collection
         const teamLeaderData = await db.collection("users_list").doc(teamLeaderID).get();
+                console.log("printing")
+
         // get the contact number of team leader
         const contactNo = teamLeaderData.data().contact;
         console.log(contactNo);
         // update the contact number in teams collection
         await db.collection("teams").doc(doc.id).update({
             contact: contactNo, 
+        }).then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
         })
     })
     res.json({status: "success"});
@@ -209,17 +249,27 @@ app.post("/api/addContactNoTeams", async(req,res) =>{
 
 app.post("/api/addContactNoPayments", async(req,res) => {
     const paymentsData = await db.collection("payments").get();
+                console.log("printing")
+
     paymentsData.forEach(async doc => {
         // get the user id
         const userID = doc.data().user;
         // get the user data from users_list collection
         const userData = await db.collection("users_list").doc(userID).get();
+                console.log("printing")
+
         // get the contact number of user
         const contactNo = userData.data().contact;
         console.log(contactNo);
         // update the contact number in payments collection
         await db.collection("payments").doc(doc.id).update({
             contact: contactNo,
+        }).then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
         })
     })
     res.json({status: "success"});
@@ -227,6 +277,8 @@ app.post("/api/addContactNoPayments", async(req,res) => {
 
 app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
     const paymentsData = await db.collection("teams").get();
+                console.log("printing")
+
     paymentsData.forEach(async doc => {
         // console.log(doc.id);
         // get the leaderID
@@ -234,6 +286,8 @@ app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
         console.log(leaderID);
         // get the user data from users_list collection
         const userData = await db.collection("users_list").doc(leaderID).get();
+                console.log("printing")
+
         // if the user is from IIITB then update the status to processed
         if(userData.data() === null || userData.data() === undefined){
             console.log("no data");
@@ -241,12 +295,29 @@ app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
         else if(userData.data().email.includes("iiitb.ac.in")){
             await db.collection("teams").doc(doc.id).update({
                 status: "processed",
+            }).then(() => {
+                console.log("printing")
+
+            }).catch(err => {
+                console.log("printing")
+
             })
         }
     })
     res.json({status: "success"});
 })
 
+app.post("/api/trial", async(req,res) => {
+    // // get user from users_list collection with email = Tanmay.Arora@iiitb.ac.in
+    // const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
+    // console.log(userData.docs[0]);
+    // res.send("success");
+    // this query is returning all the docs in users_list collection
+    // I need to fetch only one doc with email = "Tanmay.Arora@iiitb.ac.in"
+    const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
+    console.log(userData.docs[0].data());
+    res.send("success");
+})
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -22,12 +22,16 @@ export default function Register(props){
 
         var userReference = doc(db, "users_list", props.user_id);
         var userData = await getDoc(userReference);
+                console.log("printing")
+
 
         var paymentDetails = (userData).data().paymentDetails;
         
         if (paymentDetails[props.event_id] !== "Register"){
             var paymentReference = doc(db, "payments", paymentDetails[props.event_id]);
             var paymentData = await getDoc(paymentReference);
+                console.log("printing")
+
             // console.log("paymentData: ", paymentData)
             if(paymentData.data() !== undefined)
             {
@@ -61,9 +65,13 @@ export default function Register(props){
         console.log("uploading file")
         const storageRef = ref(storage, `${paymentId}`);
         const snapshot = await uploadBytes(storageRef, imageUpload);
+                console.log("printing")
+
         console.log("uploaded file")
         // return the url of the uploaded file
         const downloadURL = await getDownloadURL(snapshot.ref);
+                console.log("printing")
+
         return downloadURL;
     };
 
@@ -85,20 +93,33 @@ export default function Register(props){
             transaction_id:transactionID,
             upi_id:upiID,
             user: props.user_id,
+            name: props.user_name,
             contact: props.user_contact
         });
+                console.log("printing")
+
         
         let paymentObjectID = paymentRef.id;
         console.log("paymentObjectID: ", paymentObjectID);
 
         const upload_url = await uploadFile(paymentObjectID);
+                console.log("printing")
+
         const paymentRef2 = doc(db, "payments", paymentObjectID);
         await updateDoc(paymentRef2, {
             screenshot: upload_url
-        })         
+        }).then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
+        })
 
         const userRef = doc(db, "users_list", props.user_id);
         const userDocSnap = await getDoc(userRef);
+                console.log("printing")
+
 
         // if (userDocSnap.exists()){
         let paymentDetails = (userDocSnap).data().paymentDetails;
@@ -106,6 +127,12 @@ export default function Register(props){
 
         await updateDoc(userRef, {
             paymentDetails: paymentDetails
+        }).then(() => {
+                console.log("printing")
+
+        }).catch(err => {
+                console.log("printing")
+
         })
 
         // document.getElementById("payBaseFeeButton").innerHTML = "Processing";

@@ -35,8 +35,16 @@ function SignIn(props) {
             registerEmail,
             registerPassword
         ).then(async (userCredential) => {
+                console.log("printing")
+
             setShowAlert(false);
-            await getData(userCredential);
+            await getData(userCredential).then(() => {
+                console.log("printing")
+
+            }).catch(err => {
+                console.log("printing")
+
+            })
 
             props.setLoggedInStatus(true);
 
@@ -44,6 +52,7 @@ function SignIn(props) {
             // props.navigator("/", false);
 
         }).catch((error) => {
+            console.log(error);
             setMessage("Invalid Credentials");
             setWaiting(false);
             setShowAlert(true);
@@ -53,6 +62,8 @@ function SignIn(props) {
     const getData = async (userCredential) => {
         const docRef = doc(db, "users_list", userCredential.user.uid);
         const docSnap = await getDoc(docRef);
+                console.log("printing")
+
 
 
         if (docSnap.exists()) {
