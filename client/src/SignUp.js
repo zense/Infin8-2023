@@ -8,6 +8,7 @@ import {
     isSignInWithEmailLink,
     signInWithEmailLink
 } from "firebase/auth";
+import { BiRupee } from 'react-icons/bi'
 import { db } from "./firebase-config";
 import { collection, doc, getDocs, addDoc, setDoc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,7 @@ import { BsFillTelephoneFill, BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import infilogo from './images/infilogoblack.svg';
 import './components/Alert/Alert.scss';
 import { AiOutlineWarning } from 'react-icons/ai'
-import {Spinner} from 'react-bootstrap'
+import { Spinner } from 'react-bootstrap'
 
 function SignUp(props) {
 
@@ -35,34 +36,34 @@ function SignUp(props) {
     const AlertDialog = (props) => {
         return <div className="alertdiv">
             <div className="alertbox">
-                <AiOutlineWarning size={25}/> {message}
+                <AiOutlineWarning size={25} /> {message}
             </div>
         </div>
     };
 
-    const validateInput = ()=>{
+    const validateInput = () => {
 
-        if(registerRePassword != registerPassword){
+        if (registerRePassword != registerPassword) {
             setMessage("Passwords do not match!");
             return false;
         }
-        if(registerPassword.length < 6){
+        if (registerPassword.length < 6) {
             setMessage("Password should be atleast 6 characters long!");
             return false;
         }
-        if(registerName.length ==0){
+        if (registerName.length == 0) {
             setMessage("Please enter your name.");
             return false;
         }
-        if(registerName.length > 30){
+        if (registerName.length > 30) {
             setMessage("The name field can't contain more than 30 characters");
             return false;
         }
-        if(IIITBStudent && !registerEmail.trim().endsWith("@iiitb.ac.in")){
+        if (IIITBStudent && !registerEmail.trim().endsWith("@iiitb.ac.in")) {
             setMessage("Register with your @iiitb.ac.in email id.");
             return false;
         }
-        if(registerEmail.trim().endsWith("@iiitb.ac.in") && !IIITBStudent){
+        if (registerEmail.trim().endsWith("@iiitb.ac.in") && !IIITBStudent) {
             setMessage("If you are from IIITB, please check the box above.");
             return false;
         }
@@ -78,7 +79,7 @@ function SignUp(props) {
 
     const register = async () => {
         setShowAlert(false);
-        if(!validateInput()){
+        if (!validateInput()) {
             setShowAlert(true);
             return;
         }
@@ -289,7 +290,7 @@ function SignUp(props) {
                 <div className="col-12 col-lg-6">
                     <img src={infilogo} className='authlogo'
                         onClick={
-                            ()=>{
+                            () => {
                                 navigate('/home');
                             }
                         }
@@ -297,6 +298,16 @@ function SignUp(props) {
                     <div className="row centerrow">
                         <div class="formtitle">Sign up</div>
                     </div>
+                    {
+                        props.up ?
+                            null :
+                            <div className='col-12 Disclaimer' style={{ "padding": "20px 20px 20px 20px", "color": "white", "fontFamily": "Poppins" }}
+                            >
+                                <div>
+                                    We are facing some technical difficulties with our server, please check again in some time.
+                                </div>
+                            </div>
+                    }
 
                     <div className="row centerrow labelrow1">
                         Name
@@ -360,11 +371,11 @@ function SignUp(props) {
 
                     {/* alert */}
                     {
-                        showAlert ? 
-                        <div className="form-group centerrow">
-                            <AlertDialog></AlertDialog>
-                        </div> : 
-                        <></>
+                        showAlert ?
+                            <div className="form-group centerrow">
+                                <AlertDialog></AlertDialog>
+                            </div> :
+                            <></>
                     }
 
 
@@ -372,12 +383,14 @@ function SignUp(props) {
                         {/* {(registerPassword === registerRePassword && ((IIITBStudent && (registerEmail.slice(-12) === "@iiitb.ac.in")) || (!IIITBStudent && (registerEmail.slice(-12) !== "@iiitb.ac.in"))))
                             ? <button onClick={register} name="signup" id="signup" className="btn registerbtn btn-dark" value="signup">Register</button>
                             :  */}
-                            <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup" disabled = {waiting}>{
-                            waiting ?
-                            <Spinner animation="border"/>:
-                            "Register"
+                        <button onClick={register} name="signup" id="signup" class="btn btn-dark registerbtn" value="signup"
+                            disabled={waiting || !props.up}
+                        >{
+                                waiting ?
+                                    <Spinner animation="border" /> :
+                                    "Register"
                             }
-                            </button>
+                        </button>
                     </div>
                     {/* <div className="form-group centerrow registertext mb-5">
                         New here?

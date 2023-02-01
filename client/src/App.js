@@ -31,7 +31,12 @@ function App(props) {
   //   props.navigate(position, { replace: replace });
   // }
   
+  //up = true, for when the website is up
+  const [up, setUp] = useState(false);
+
   const [loggedInStatus, setLoggedInStatus] = useState(false);
+  
+
   const [user, setUser] = useState({
     id: "",
     name: "",
@@ -49,8 +54,12 @@ function App(props) {
         {/* <ScrollToTop> */}
           <Routes>
             <Route path="/home" element={<Home user={user} loggedInStatus={loggedInStatus}/>} />
-            <Route path="/sign-up" element={<SignUp setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
-            <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
+            <Route path="/sign-up" element={<SignUp setUser={setUser} setLoggedInStatus={setLoggedInStatus}
+            up = {up}
+            />}></Route>
+            <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}
+            up = {up}
+            />}></Route>
 
             <Route path="/forgot-password" element={<ForgotPassword setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
 
