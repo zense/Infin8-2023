@@ -53,6 +53,7 @@ function Template(props){
     <div className="Template">
         <div id="rs-team" className="rs-team fullwidth-team pt-100 pb-70">
             <div className="container">
+                
                 <div className="row">
                     <div className="col-12 subtitle1" style={{"fontFamily":"Architects Daughter"}}>
                     <h1><u>Organisers</u></h1>
@@ -69,6 +70,7 @@ function Template(props){
                     <NewTeamCard img={"./Eventimages/Debag.jpeg"} name={"Debagana Mukherjee"} role={"SAC"} insta={"https://instagram.com/deegchin?igshid=NTdlMDg3MTY="} github={""}/>
                 </div>
 
+                
                 <div className="row">
                     <div className="col-12 subtitle1" style={{"marginTop": "20px","fontFamily":"Architects Daughter"}}>
                         <h1><u>Web-Developers</u></h1>
@@ -93,6 +95,7 @@ function Template(props){
                     <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ansh Avi Khanna"} role={"Design SPOC"} insta={"https://www.instagram.com/anshavikhanna/"} github={""}/>
                     <NewTeamCard img={"./Eventimages/Ansh.jpg"} name={"Ayush Singh"} role={"Design SPOC"} insta={"https://www.instagram.com/ayushsingh.h/"} github={""}/>
                 </div>
+            
             </div>
         </div>
     </div>
