@@ -63,7 +63,7 @@ export function ForgotPassword(props) {
             var publicURL = `https://infin8-backend.onrender.com/api/sendOTPForgotPassword`;
             var testingURL = `http://localhost:${PORT}/api/sendOTPForgotPassword`;
     
-            const result = await fetch(testingURL, {
+            const result = await fetch(publicURL, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -75,8 +75,14 @@ export function ForgotPassword(props) {
                 console.log("printing 2");
                 return res.json();
             });
-    
             console.log(result.status);
+            if (result.status === "exists") {
+                // route change to otp-verification-forgot-password
+                props.setUser({
+                    email: emailAddress,
+                });
+                routeChange(`/otp-verification-forgot-password`);
+            }
         }
        
     }

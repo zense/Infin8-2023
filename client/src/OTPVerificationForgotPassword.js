@@ -40,7 +40,7 @@ function OTPVerificationForgotPassword(props) {
         var publicURL = `https://infin8-backend.onrender.com/api/verifyOTPForgotPassword`;
         var testingURL = `http://localhost:${5000}/api/verifyOTPForgotPassword`;
 
-        const result = await fetch(testingURL, {
+        const result = await fetch(publicURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

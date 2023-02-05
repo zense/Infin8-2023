@@ -39,7 +39,7 @@ function OTPVerification(props) {
         var publicURL = `https://infin8-backend.onrender.com/api/verifyOTP`;
         var testingURL = `http://localhost:${5000}/api/verifyOTP`;
 
-        const result = await fetch(testingURL, {
+        const result = await fetch(publicURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

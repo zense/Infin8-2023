@@ -36,31 +36,36 @@ function EnterNewPassword(props) {
     };
 
     async function updatePassword() {
-        // await auth.updatePassword({email: props.user.email}, "abcdefgh");
-        
-
+        console.log("Password update details", props.user.email, enteredPassword); 
         var publicURL = `https://infin8-backend.onrender.com/api/updatePassword`;
         var testingURL = `http://localhost:${5000}/api/updatePassword`;
 
-        const result = await fetch(testingURL, {
+        const result = await fetch(publicURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
+                email: props.user.email,
+                password: enteredPassword,
             }),
         }).then((res) =>{
+            console.log("Response: ", res);
             return res.json();
         }).catch(err => {
-            console.log("printing")
+            console.log("ERROR: ", err);
         })        
 
 
         if (result.status === "success"){
+            setShowAlert(true);
+            setMessage("Password Updated Successfully!");
             console.log("Password Updated!!");
         }
         else if (result.status === "error"){
-            console.log("Error here bro");
+            setShowAlert(true);
+            setMessage("Error in Updating Password!");
+            console.log("Error in Updating Password!!");
         }
     }
 

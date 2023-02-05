@@ -48,8 +48,6 @@ function SignIn(props) {
             })
 
             props.setLoggedInStatus(true);
-            const user = await getAuth().currentUser();
-            console.log("user mila", user);
             routeChange(`home`);
             // props.navigator("/", false);
 

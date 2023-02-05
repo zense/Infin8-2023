@@ -10,8 +10,6 @@ var admin = require("firebase-admin");
 const otpGenerator = require('otp-generator');
 const { reset } = require('nodemon');
 
-const auth = require('firebase/auth');
-
 const credentials = {
     type:process.env.type,
     project_id:process.env.project_id,
@@ -125,7 +123,6 @@ app.post('/api/sendOTPForgotPassword', async (req, res) => {
         "email", "==", email
     ).get();
 
-    console.log(userData.docs[0]);
     
     if(userData.docs[0] !== undefined && userData.docs[0] !== null){
         
@@ -214,26 +211,121 @@ app.post('/api/updatePassword', async (req, res) => {
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.setHeader("Access-Control-Allow-Credentials", true);
 
-        
+    const email = req.body.email;
+    const password = req.body.password;
 
+    // get the user with email and update the password
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
 
-    // console.log("In backend");
-    // // const email = props.user.email;
-    // const uid = "qUgncxKXpZYawWIDLFTOp7Udzr02";
+    console.log(userData.docs[0].id);
 
-    // // It's not a function
-    // await auth.getAuth().updateUser(uid,{
-    //     password: enteredPassword
-    // }).then((userRecord) => {
-    //     console.log("here 2");
-    //     console.log(userRecord.data());
-    //     res.json({status: "success"})
+    if(userData.docs[0] !== undefined && userData.docs[0] !== null){
+        const userOldId = userData.docs[0].id;
+        // get eventTeamMap & paymentDetails
+        const eventTeamMap = userData.docs[0].data().eventTeamMap;
+        const paymentDetails = userData.docs[0].data().paymentDetails;
+        const contact = userData.docs[0].data().contact;
+        const name = userData.docs[0].data().name;
+        var userNewId = "";
+        // ! payments update -
+        // ! delete the user with email from auth
+        await admin.auth().deleteUser(userOldId).then(async() => {
+            console.log("user deleted from auth");
+            // ! create a new user with email and password
+            await admin.auth().createUser({
+                email: email,
+                password: password,
+            }).then(async(userRecord) => {
+                console.log("user created", userRecord.uid);
+                userNewId = userRecord.uid;
+                // ! delete the user with email from users_list
+                await db.collection("users_list").doc(userOldId).delete().then(async() => {
+                    console.log("user deleted from users_list");
+                    // ! create a new user with email and password in users_list
 
-    // }).catch((error) => {
-    //     console.log("here 3");
-    //     console.log(error.message);
-    //     res.json({status: "error"});
-    // })
+                    // ! iterate over paymentDetails object 
+                    for (let index = 1; index <= 17; index++) {
+                        const paymentObjId = paymentDetails[index];
+                        if(paymentObjId !== "Register"){
+                            // fetch payment obj with id = paymentObjId from payments collection
+                            const paymentObj = await db.collection("payments").doc(paymentObjId).get();
+                            if(paymentObj !== undefined && paymentObj !== null){
+                                const paymentObjData = paymentObj.data();
+                                // update the email in payment obj
+                                if(paymentObjData.user === userOldId){
+                                    await db.collection("payments").doc(paymentObjId).update({
+                                        user: userNewId
+                                    }).then(async() => {
+                                        console.log("payment obj updated");
+                                    }).catch((error) => {
+                                        console.log("error in updating payment obj");
+                                    })
+                                }
+                            }
+                        }
+                    }
+
+                    // ! iterate over eventTeamMap object
+                    for (let index = 1; index <= 17; index++) {
+                        if(eventTeamMap[index] !== ""){
+                            const teamObjId = eventTeamMap[index];
+                            const teamObj = await db.collection("teams").doc(teamObjId).get();
+
+                            if(teamObj !== undefined && teamObj !== null){
+                                const teamObjData = teamObj.data();
+                                // update the email in team obj
+                                const members = teamObjData.members;
+                                for (let index = 0; index < members.length; index++) {
+                                    const member = members[index];
+                                    if(member === userOldId){
+                                        members[index] = userNewId;
+                                    }
+                                }
+                                await db.collection("teams").doc(teamObjId).update({
+                                    members: members,
+                                    leaderID: members[0]
+                                }).then(async() => {
+                                    console.log("team obj updated");
+                                }).catch((error) => {
+                                    console.log("error in updating team obj");
+                                })
+                            }
+                        }
+                    }
+
+                    // ! create a new user with email and password in users_list
+                    await db.collection("users_list").doc(userNewId).set({
+                        email: email,
+                        contact: contact,
+                        name: name,
+                        eventTeamMap: eventTeamMap,
+                        paymentDetails: paymentDetails
+                    })
+
+                }).catch((error) => {
+                    console.log("error in deleting user from users_list");
+                })
+            })
+        }).catch((error) => {
+            console.log("error in deleting user from auth");
+        })
+    }
+    res.json({status: "success"});
+})
+app.post("/api/trial", async(req,res) => {
+    // fetch user obj with email = "Saketh.Manchiraju@iiitb.ac.in"
+    var email = "Saketh.Manchiraju@iiitb.ac.in"		
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
+    const eventTeamMap = userData.docs[0].data().eventTeamMap;
+    console.log(eventTeamMap);
+    for (let index = 1; index <= 17; index++) {
+        console.log(eventTeamMap[index]);
+    }
+    res.send("trial");
 })
 
 
@@ -419,18 +511,6 @@ app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
         }
     })
     res.json({status: "success"});
-})
-
-app.post("/api/trial", async(req,res) => {
-    // // get user from users_list collection with email = Tanmay.Arora@iiitb.ac.in
-    // const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
-    // console.log(userData.docs[0]);
-    // res.send("success");
-    // this query is returning all the docs in users_list collection
-    // I need to fetch only one doc with email = "Tanmay.Arora@iiitb.ac.in"
-    const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
-    console.log(userData.docs[0].data());
-    res.send("success");
 })
 
 const PORT = process.env.PORT || 5000;
