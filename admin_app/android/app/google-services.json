@@ -7,7 +7,7 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:954517266462:android:400a37a01607b82742ce0f",
+        "mobilesdk_app_id": "1:954517266462:android:f7d71d34423119ae42ce0f",
         "android_client_info": {
           "package_name": "com.example.admin_app"
         }
@@ -20,7 +20,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC851PUqgj9JizKWAcPKThZjBTOG-75Hv0"
+          "current_key": "AIzaSyD-tOtXO1oAcIpRML3-nybx0Inb-l6gbwc"
         }
       ],
       "services": {
@@ -56,7 +56,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC851PUqgj9JizKWAcPKThZjBTOG-75Hv0"
+          "current_key": "AIzaSyD-tOtXO1oAcIpRML3-nybx0Inb-l6gbwc"
         }
       ],
       "services": {
