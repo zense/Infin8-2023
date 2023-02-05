@@ -4,7 +4,10 @@ dotenv.config();
 
 const EMAIL_USERNAME=process.env.EMAIL_USERNAME;
 const PASSWORD=process.env.PASSWORD;
+
 console.log(EMAIL_USERNAME, PASSWORD);
+// console.log(process.env.USER);
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
