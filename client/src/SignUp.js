@@ -91,7 +91,7 @@ function SignUp(props) {
         var publicURL = `https://infin8-backend.onrender.com/api/sendOTP`;
         var testingURL = `http://localhost:${PORT}/api/sendOTP`;
 
-        const result = await fetch(publicURL, {
+        const result = await fetch(testingURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -10,6 +10,8 @@ var admin = require("firebase-admin");
 const otpGenerator = require('otp-generator');
 const { reset } = require('nodemon');
 
+const auth = require('firebase/auth');
+
 const credentials = {
     type:process.env.type,
     project_id:process.env.project_id,
@@ -98,6 +100,59 @@ app.post('/api/sendOTP', async (req, res) => {
     })
 })
 
+
+
+
+
+
+
+app.post('/api/sendOTPForgotPassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    // console.log("this is body",req.body);
+    const email = req.body.email;
+    const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+    // Need to create a temporary array for storing unverified data
+    // Choose the user with his id and send him verification mail
+
+    console.log(otp);
+    // await db.collection()
+    var alreadyExist = false;
+
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
+
+    console.log(userData.docs[0]);
+    
+    if(userData.docs[0] !== undefined && userData.docs[0] !== null){
+        
+        console.log("Wait...sending otp for forgot password");
+        // save otp in database with email as id
+        await db.collection("otp_list_forgot_password").doc(email).set({
+            otp: otp,
+        }).then(() => {
+                res.json({status: "exists"});
+                console.log("printing Again");
+                mail.setConfiguration(email, "", otp);
+                mail.sendMail(res);    
+        }).catch((error) => {
+                console.log("error") 
+                res.json({status: "error"});
+        })
+
+    }else{
+        res.json({status: "failed"});           
+    }
+
+})
+
+
+
+
+
 app.post('/api/verifyOTP', async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -123,6 +178,65 @@ app.post('/api/verifyOTP', async (req, res) => {
         res.json({status: "failed"});           
     }
 })
+
+
+
+app.post('/api/verifyOTPForgotPassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+    const otp = req.body.enteredOTP;
+    const email = req.body.email;
+    // TODO
+    const otpData = await db.collection("otp_list_forgot_password").where(
+        "otp", "==", otp
+    ).get();
+
+    if(otpData.docs[0] !== undefined && otpData.docs[0] !== null){
+        const otpFromDB = otpData.docs[0].data().otp;
+        console.log(otpFromDB);
+        if (otpFromDB === otp){
+            res.json({status: "success"});
+        }else{
+            res.json({status: "failed"});
+        }
+    }else{
+        res.json({status: "failed"});           
+    }
+})
+
+
+app.post('/api/updatePassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+        
+
+
+    // console.log("In backend");
+    // // const email = props.user.email;
+    // const uid = "qUgncxKXpZYawWIDLFTOp7Udzr02";
+
+    // // It's not a function
+    // await auth.getAuth().updateUser(uid,{
+    //     password: enteredPassword
+    // }).then((userRecord) => {
+    //     console.log("here 2");
+    //     console.log(userRecord.data());
+    //     res.json({status: "success"})
+
+    // }).catch((error) => {
+    //     console.log("here 3");
+    //     console.log(error.message);
+    //     res.json({status: "error"});
+    // })
+})
+
+
 
 app.post("/api/changestatus",async(req,res) => {
     const paymentId = req.query.paymentId;

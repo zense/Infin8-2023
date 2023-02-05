@@ -1262,6 +1262,17 @@
     node-fetch "2.6.7"
     tslib "^2.1.0"
 
+"@firebase/auth@^0.21.3":
+  version "0.21.3"
+  resolved "https://registry.yarnpkg.com/@firebase/auth/-/auth-0.21.3.tgz#277a3bf4b09db1b5dd471970cecd844d1835dcbf"
+  integrity sha512-HPbcwgArLBVTowFcn4qaQr6LCx7BidI9yrQ5MRbQNv4PsgK/3UGpzCYaNPPbvgr9fe+0jNdJO+uC0+dk4xIzCQ==
+  dependencies:
+    "@firebase/component" "0.6.3"
+    "@firebase/logger" "0.4.0"
+    "@firebase/util" "1.9.2"
+    node-fetch "2.6.7"
+    tslib "^2.1.0"
+
 "@firebase/component@0.5.21":
   version "0.5.21"
   resolved "https://registry.npmjs.org/@firebase/component/-/component-0.5.21.tgz"
@@ -1276,6 +1287,14 @@
   integrity sha512-9hyNc4OmrXMtthDJq6zyJHll/UIYBWYmMG3rXty2eMeWxHWB0vlsq3AOI+k14PL15aSBAQolv0EZJWVJv/gCEg==
   dependencies:
     "@firebase/util" "1.8.0"
+    tslib "^2.1.0"
+
+"@firebase/component@0.6.3":
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/@firebase/component/-/component-0.6.3.tgz#2baea3fa37861eef314a612eba194b0ff7c7ac11"
+  integrity sha512-rnhq5SOsB5nuJphZF50iwqnBiuuyg9kdnlUn1rBrKfu7/cUVJZF5IG1cWrL0rXXyiZW1WBI/J2pmTvVO8dStGQ==
+  dependencies:
+    "@firebase/util" "1.9.2"
     tslib "^2.1.0"
 
 "@firebase/database-compat@0.3.0":
@@ -1561,6 +1580,13 @@
   version "1.8.0"
   resolved "https://registry.npmjs.org/@firebase/util/-/util-1.8.0.tgz"
   integrity sha512-clK6pTTxIiLMYz4UrvDTVAs2rIaOiroAuFdX67C0JalvEwzi6Vv8li6xAGj38tkj7Qax06mosM1fQkxf2h4VTg==
+  dependencies:
+    tslib "^2.1.0"
+
+"@firebase/util@1.9.2":
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/@firebase/util/-/util-1.9.2.tgz#f5e9e393c5bae3547b9c823ee12076be1e23b1e2"
+  integrity sha512-9l0uMGPGw3GsoD5khjMmYCCcMq/OR/OOSViiWMN+s2Q0pxM+fYzrii1H+r8qC/uoMjSVXomjLZt0vZIyryCqtQ==
   dependencies:
     tslib "^2.1.0"
 

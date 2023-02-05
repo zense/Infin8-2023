@@ -15,6 +15,8 @@ import SignIn from "./SignIn";
 import OTPVerification from "./OTPVerification";
 import Team from './components/Team/Team'
 import Contact from "./components/Contact/Contact";
+import OTPVerificationForgotPassword from "./OTPVerificationForgotPassword";
+import EnterNewPassword from "./EnterNewPassword";
 import {ForgotPassword} from "./ForgotPassword";
 const ScrollToTop = (props) => {
   const location = useLocation();
@@ -64,6 +66,9 @@ function App(props) {
             <Route path="/forgot-password" element={<ForgotPassword setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
 
             <Route path="/otp-verification" element={<OTPVerification user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
+            <Route path="/otp-verification-forgot-password" element={<OTPVerificationForgotPassword user={user} setUser={setUser} setLoggedInStatus={setLoggedInStatus}/>}></Route>
+            
+            <Route path="/enter-new-password" element={<EnterNewPassword user={user} setLoggedInStatus={setLoggedInStatus}/>}></Route>
             
             <Route path="/events" element={<RegisterCard loggedInStatus={loggedInStatus} paid_base_fees={user.baseFeePaid}/>} />
             

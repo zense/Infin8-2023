@@ -18,7 +18,8 @@ import infilogo from './images/infilogoblack.svg';
 import { BiTimeFive } from "react-icons/bi";
 import { AiOutlineWarning } from 'react-icons/ai'
 import { Spinner } from "react-bootstrap";
-function OTPVerification(props) {
+
+function OTPVerificationForgotPassword(props) {
 
     const [otpdis, setOtpdis] = useState(false);
     const [enteredOTP, setEnteredOTP] = useState("");
@@ -36,8 +37,8 @@ function OTPVerification(props) {
 
     async function validateOTP() {
         
-        var publicURL = `https://infin8-backend.onrender.com/api/verifyOTP`;
-        var testingURL = `http://localhost:${5000}/api/verifyOTP`;
+        var publicURL = `https://infin8-backend.onrender.com/api/verifyOTPForgotPassword`;
+        var testingURL = `http://localhost:${5000}/api/verifyOTPForgotPassword`;
 
         const result = await fetch(testingURL, {
             method: "POST",
@@ -45,7 +46,7 @@ function OTPVerification(props) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                registerEmail: props.user.email,
+                email: props.user.email,
                 enteredOTP: enteredOTP
             }),
         }).then((res) =>{
@@ -61,90 +62,9 @@ function OTPVerification(props) {
             setShowAlert(false);
             console.log(enteredOTP);
             setOtpdis(true);
-            const user = await createUserWithEmailAndPassword(
-                auth,
-                props.user.email,   
-                props.user.password
-            ).then(async (userCredential) => {
-                console.log("printing")
-
-                const userEventParticipationDetail = {
-                    1: "Register",
-                    2: "Register",
-                    3: "Register",
-                    4: "Register",
-                    5: "Register",
-                    6: "Register",
-                    7: "Register",
-                    8: "Register",
-                    9: "Register",
-                    10: "Register",
-                    11: "Register",
-                    12: "Register",
-                    13: "Register",
-                    14: "Register",
-                    15: "Register",
-                    16: "Register",
-                    17: "Register"
-                }
-
-                const eventTeamMap = {
-                    1: "",
-                    2: "",
-                    3: "",
-                    4: "",
-                    5: "",
-                    6: "",
-                    7: "",
-                    8: "",
-                    9: "",
-                    10: "",
-                    11: "",
-                    12: "",
-                    13: "",
-                    14: "",
-                    15: "",
-                    16: "",
-                    17: ""
-                }
-
-                const docRef = doc(db, "users_list", userCredential.user.uid);
-                await setDoc(docRef, {
-                    name: props.user.name,
-                    contact: props.user.contact,
-                    email: props.user.email,
-                    paymentDetails: userEventParticipationDetail,
-                    eventTeamMap: eventTeamMap
-                }).then(() => {
-                console.log("printing")
-
-                }).catch(err => {
-                console.log("printing")
-
-                })
-
-                // After login or signUp, 
-                // we can access name, uid, email of the user from anywhere
-
-                const userDetails = {
-                    name: props.user.name,
-                    id: userCredential.user.uid,
-                    email: userCredential.user.email,
-                    contact: props.user.contact,
-                    iiitbStudent: props.user.IIITBStudent
-                }
-
-                props.setUser(userDetails);
-                // Add the new uid generated in the user json. 
-                props.setLoggedInStatus(true);
-
-                routeChange(`home`);
-
-            }).catch((error) => {
-                console.log("doondha hua error", error)
-                setMessage("User already exists");
-                setShowAlert(true);
-            });
+            
+            // Move to Enter New Password Page
+            routeChange(`/enter-new-password`);
 
         }
         else{
@@ -213,7 +133,7 @@ function OTPVerification(props) {
     );
 }
 
-export default OTPVerification;
+export default OTPVerificationForgotPassword;
 {/* <div class="form-group user-box">
     <input type="text" name="otp" id="otp" class="form-control" onChange={(event) => {
         setEnteredOTP(event.target.value);
