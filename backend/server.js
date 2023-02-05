@@ -10,6 +10,8 @@ var admin = require("firebase-admin");
 const otpGenerator = require('otp-generator');
 const { reset } = require('nodemon');
 
+const auth = require('firebase/auth');
+
 const credentials = {
     type:process.env.type,
     project_id:process.env.project_id,
@@ -203,6 +205,35 @@ app.post('/api/verifyOTPForgotPassword', async (req, res) => {
     }else{
         res.json({status: "failed"});           
     }
+})
+
+
+app.post('/api/updatePassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+        
+
+
+    // console.log("In backend");
+    // // const email = props.user.email;
+    // const uid = "qUgncxKXpZYawWIDLFTOp7Udzr02";
+
+    // // It's not a function
+    // await auth.getAuth().updateUser(uid,{
+    //     password: enteredPassword
+    // }).then((userRecord) => {
+    //     console.log("here 2");
+    //     console.log(userRecord.data());
+    //     res.json({status: "success"})
+
+    // }).catch((error) => {
+    //     console.log("here 3");
+    //     console.log(error.message);
+    //     res.json({status: "error"});
+    // })
 })
 
 

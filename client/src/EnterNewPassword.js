@@ -6,7 +6,7 @@ import {
     onAuthStateChanged,
     sendSignInLinkToEmail,
     isSignInWithEmailLink,
-    signInWithEmailLink
+    signInWithEmailLink,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { db } from "./firebase-config";
@@ -36,24 +36,32 @@ function EnterNewPassword(props) {
     };
 
     async function updatePassword() {
+        // await auth.updatePassword({email: props.user.email}, "abcdefgh");
+        
 
-        console.log("Here");
-        console.log(props.user);
-        // const email = props.user.email;
-        const uid = "qUgncxKXpZYawWIDLFTOp7Udzr02";
+        var publicURL = `https://infin8-backend.onrender.com/api/updatePassword`;
+        var testingURL = `http://localhost:${5000}/api/updatePassword`;
 
-        // It's not a function
-        await auth.updateUser(uid,{
-            password: enteredPassword
-        }).then((userRecord) => {
-            console.log("here 2");
-            console.log(userRecord.data());
-            routeChange(`/sign-in`);
+        const result = await fetch(testingURL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+            }),
+        }).then((res) =>{
+            return res.json();
+        }).catch(err => {
+            console.log("printing")
+        })        
 
-        }).catch((error) => {
-            console.log("here 3");
-            console.log(error.message);
-        })
+
+        if (result.status === "success"){
+            console.log("Password Updated!!");
+        }
+        else if (result.status === "error"){
+            console.log("Error here bro");
+        }
     }
 
     let navigate = useNavigate();
