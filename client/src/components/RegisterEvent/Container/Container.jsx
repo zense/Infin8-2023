@@ -147,52 +147,48 @@ export default function Container(props) {
                         props.id == 1 || props.id == 3 ?
                             <Registered cannot_register={true} event_closed={false} loggedInStatus={props.signed_in} email={props.email} />
                             :
-                                [4,5,7,9,11,14,15,16,17].includes(props.id) === true ? 
-                                    <Registered cannot_register={false} event_closed={true} loggedInStatus={props.signed_in} email={props.email} /> 
-                                    :
                                 props.signed_in === false ?
-                                    <NotSignedIn  event_fee={props.event_fee}/>
+                                    <NotSignedIn  event_fee={props.event_fee} event_id={props.id}/>
                                 :
                                     (props.id==13) && (props.iiitbStudent === false)?
                                          
-                                         <Registered cannot_register={true} loggedInStatus={props.signed_in} email = {props.email}/>
+                                         <Registered cannot_register={true} event_closed={false} loggedInStatus={props.signed_in} email = {props.email}/>
                                             
                                     :
                                         props.registered_for_event === true ?
                                             <Registered cannot_register={false} loggedInStatus={props.signed_in} email={props.email} team_event={props.team_event}
                                                 team_members={["TeamMember1","TeamMember2","TeamMember3"]}
                                             />
-                                            :
-                                            // props.user.baseFeePaid === false ?
-                                                // <EntranceRegister
-                                                //     entrance_fee={props.entrance_fee}
-                                                //     email={props.email}
-                                                // />
-                                                // :                                
-                                                props.team_event === true ? 
-                                                    <RegisterTeam
-                                                        event_id={props.id}
-                                                        user_id={props.user_id}
-                                                        user_name={props.user_name}
-                                                        user_contact={props.user_contact}
-                                                        fee={props.event_fee}
-                                                        iiitbStudent={props.iiitbStudent}
-                                                        loggedInStatus={props.signed_in}
-                                                        email={props.email}
-                                                        limit={props.event_limit}
-                                                    />
-                                                    :
-                                                    <Register
-                                                        event_id={props.id}
-                                                        user_id={props.user_id}
-                                                        user_name={props.user_name}
-                                                        user_contact={props.user_contact}
-                                                        iiitbStudent={props.iiitbStudent}
-                                                        event_fee={props.event_fee}
-                                                        loggedInStatus={props.signed_in}
-                                                        email={props.email}
-                                                        event={props.event}
-                                                    />
+                                            :                               
+                                                
+                                                    props.team_event === true ? 
+                                                        <RegisterTeam
+                                                            event_id={props.id}
+                                                            user_id={props.user_id}
+                                                            user_name={props.user_name}
+                                                            user_contact={props.user_contact}
+                                                            fee={props.event_fee}
+                                                            iiitbStudent={props.iiitbStudent}
+                                                            loggedInStatus={props.signed_in}
+                                                            email={props.email}
+                                                            limit={props.event_limit}
+                                                        />
+                                                        :
+                                                        <Register
+                                                            event_id={props.id}
+                                                            user_id={props.user_id}
+                                                            user_name={props.user_name}
+                                                            user_contact={props.user_contact}
+                                                            iiitbStudent={props.iiitbStudent}
+                                                            event_fee={props.event_fee}
+                                                            loggedInStatus={props.signed_in}
+                                                            email={props.email}
+                                                            event={props.event}
+                                                        />
+                                                    
+
+                                                
+                                                    
                     }
                 </div>
             </div>

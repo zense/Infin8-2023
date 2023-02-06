@@ -17,6 +17,13 @@ import { async } from "@firebase/util";
 
 
 export default function RegisterTeam(props) {
+    let event_over;
+    if(["5","7","14","15","17"].includes(props.event_id)){
+        event_over=true;
+    }else{
+        event_over=false;
+    }
+    console.log(event_over);
     const [isDisabled, setDisabled] = useState(false);
 
     const [invalidTeamCode, setInvalidTeamCode] = React.useState(false);
@@ -376,9 +383,14 @@ export default function RegisterTeam(props) {
             }
 
 
+
+
+
+
             {
                 user_registered !== true
                     ?
+                    event_over===false ?
                     props.iiitbStudent === true
                         ?
                         <div style={{ "paddingTop": "5px", "textAlign": "center" }}>
@@ -602,7 +614,12 @@ export default function RegisterTeam(props) {
 
                             }
                         </div>
-
+                        :
+                        <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
+                            <h5>
+                                Registrations for this event have been closed. Contact SPOCS for any last minute requests. Join us at Infin8 2023 to enjoy the performances.
+                            </h5>
+                        </div>
                     :
                     <>
                         <div style={{ "fontFamily": 'Poppins', "fontStyle": "normal", "color": "white", "paddingTop": "20px", "marginLeft": "2.7vw" }}>
