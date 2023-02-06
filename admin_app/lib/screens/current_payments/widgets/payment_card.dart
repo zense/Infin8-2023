@@ -24,10 +24,41 @@ class PaymentCard extends StatelessWidget {
     required this.user_id,
   }) : super(key: key);
   Future<void> accept_payment() async {
+    // Mark the payment as accepted in payment object!!
     await FirebaseFirestore.instance
         .collection("payments")
         .doc(doc_id)
         .update({"status": "processed"});
+
+// Fetch the payment object.
+    DocumentSnapshot snapshot = await FirebaseFirestore.instance
+        .collection("payments")
+        .doc(doc_id)
+        .get();
+
+    if (snapshot.exists) {
+      // data is basically the user object in json form.
+      Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+      if (data['multi']) {
+        var userID = data['user'];
+        var eventID = data['event_id'];
+        //Fetch the user document
+        DocumentSnapshot usr = await FirebaseFirestore.instance
+            .collection('users_list')
+            .doc(userID)
+            .get();
+        // Fetch the users event map!!
+        Map<String, dynamic> usrdata = usr.data() as Map<String, dynamic>;
+        var teamID = usrdata['eventTeamMap'][eventID];
+
+        //Marking the status of the payment in the teams collection too.
+        // one more write!!
+        await FirebaseFirestore.instance
+            .collection("teams")
+            .doc(teamID)
+            .update({"status": "processed"});
+      }
+    }
   }
 
   Future<void> reject_payment() async {
@@ -36,9 +67,11 @@ class PaymentCard extends StatelessWidget {
         .collection('users_list')
         .doc(user_id)
         .get();
+
     if (snapshot.exists) {
       // data is basically the user object in json form.
       Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
+
       String _name = data['name'];
       String _email = data['email'];
       // Sending the mail:
@@ -60,10 +93,36 @@ class PaymentCard extends StatelessWidget {
               "event_name": event_name,
             }
           }));
-      await FirebaseFirestore.instance
+
+      DocumentSnapshot paysnap = await FirebaseFirestore.instance
           .collection("payments")
           .doc(doc_id)
-          .delete();
+          .get();
+
+      if (paysnap.exists) {
+        // data is basically the user object in json form.
+        Map<String, dynamic> paydata = paysnap.data() as Map<String, dynamic>;
+        print(paydata);
+
+        if (paydata['multi']) {
+          var eventID = paydata['event_id'];
+          DocumentSnapshot usr = await FirebaseFirestore.instance
+              .collection('users_list')
+              .doc(user_id)
+              .get();
+          Map<String, dynamic> usrdata = usr.data() as Map<String, dynamic>;
+          var teamID = usrdata['eventTeamMap'][eventID];
+          await FirebaseFirestore.instance
+              .collection("teams")
+              .doc(teamID)
+              .delete();
+        }
+
+        await FirebaseFirestore.instance
+            .collection("payments")
+            .doc(doc_id)
+            .delete();
+      }
     }
   }
 

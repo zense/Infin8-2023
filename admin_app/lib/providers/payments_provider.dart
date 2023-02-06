@@ -28,8 +28,10 @@ class PaymentProvider with ChangeNotifier {
   Future<void> fetchpayments() async {
     // Fetch all the payment objects!
     List<PaymentItem> curr_list = [];
-    QuerySnapshot snapshots =
-        await FirebaseFirestore.instance.collection('payments').get();
+    QuerySnapshot snapshots = await FirebaseFirestore.instance
+        .collection('payments')
+        .where('status', isEqualTo: "processing")
+        .get();
 
     for (var doc in snapshots.docs) {
       // for every payment document

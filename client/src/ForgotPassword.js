@@ -32,7 +32,9 @@ export function ForgotPassword(props) {
         // then send the email reset link using firebase
         const auth = getAuth();
         const emailAddress = emailToreset;
-        await sendPasswordResetEmail(auth, emailAddress)
+
+        if (!emailAddress.includes("@iiitb.ac.in")){            
+            await sendPasswordResetEmail(auth, emailAddress)
             .then(() => {
                 // Email sent.
                 console.log("printing")
@@ -54,6 +56,35 @@ export function ForgotPassword(props) {
                 }
                 console.log(error.message);
             })
+        }
+        else{
+            const PORT = process.env.PORT || 5000;
+    
+            var publicURL = `https://infin8-backend.onrender.com/api/sendOTPForgotPassword`;
+            var testingURL = `http://localhost:${PORT}/api/sendOTPForgotPassword`;
+    
+            const result = await fetch(publicURL, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email: emailAddress
+                }),
+            }).then((res) => {
+                console.log("printing 2");
+                return res.json();
+            });
+            console.log(result.status);
+            if (result.status === "exists") {
+                // route change to otp-verification-forgot-password
+                props.setUser({
+                    email: emailAddress,
+                });
+                routeChange(`/otp-verification-forgot-password`);
+            }
+        }
+       
     }
 
     const AlertDialog = (props) => {

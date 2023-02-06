@@ -94,7 +94,8 @@ export default function Register(props){
             upi_id:upiID,
             user: props.user_id,
             name: props.user_name,
-            contact: props.user_contact
+            contact: props.user_contact,
+            email: props.email,
         });
                 console.log("printing")
 

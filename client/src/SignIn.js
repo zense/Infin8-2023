@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {getAuth} from "@firebase/auth"
 // import { auth } from "./firebase-config";
 import { db } from "./firebase-config";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
@@ -47,7 +48,6 @@ function SignIn(props) {
             })
 
             props.setLoggedInStatus(true);
-
             routeChange(`home`);
             // props.navigator("/", false);
 

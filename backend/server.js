@@ -98,6 +98,58 @@ app.post('/api/sendOTP', async (req, res) => {
     })
 })
 
+
+
+
+
+
+
+app.post('/api/sendOTPForgotPassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    // console.log("this is body",req.body);
+    const email = req.body.email;
+    const otp = otpGenerator.generate(6, { upperCaseAlphabets: false, specialChars: false });
+    // Need to create a temporary array for storing unverified data
+    // Choose the user with his id and send him verification mail
+
+    console.log(otp);
+    // await db.collection()
+    var alreadyExist = false;
+
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
+
+    
+    if(userData.docs[0] !== undefined && userData.docs[0] !== null){
+        
+        console.log("Wait...sending otp for forgot password");
+        // save otp in database with email as id
+        await db.collection("otp_list_forgot_password").doc(email).set({
+            otp: otp,
+        }).then(() => {
+                res.json({status: "exists"});
+                console.log("printing Again");
+                mail.setConfiguration(email, "", otp);
+                mail.sendMail(res);    
+        }).catch((error) => {
+                console.log("error") 
+                res.json({status: "error"});
+        })
+
+    }else{
+        res.json({status: "failed"});           
+    }
+
+})
+
+
+
+
+
 app.post('/api/verifyOTP', async (req, res) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
@@ -123,6 +175,160 @@ app.post('/api/verifyOTP', async (req, res) => {
         res.json({status: "failed"});           
     }
 })
+
+
+
+app.post('/api/verifyOTPForgotPassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+    const otp = req.body.enteredOTP;
+    const email = req.body.email;
+    // TODO
+    const otpData = await db.collection("otp_list_forgot_password").where(
+        "otp", "==", otp
+    ).get();
+
+    if(otpData.docs[0] !== undefined && otpData.docs[0] !== null){
+        const otpFromDB = otpData.docs[0].data().otp;
+        console.log(otpFromDB);
+        if (otpFromDB === otp){
+            res.json({status: "success"});
+        }else{
+            res.json({status: "failed"});
+        }
+    }else{
+        res.json({status: "failed"});           
+    }
+})
+
+
+app.post('/api/updatePassword', async (req, res) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+
+    const email = req.body.email;
+    const password = req.body.password;
+
+    // get the user with email and update the password
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
+
+    console.log(userData.docs[0].id);
+
+    if(userData.docs[0] !== undefined && userData.docs[0] !== null){
+        const userOldId = userData.docs[0].id;
+        // get eventTeamMap & paymentDetails
+        const eventTeamMap = userData.docs[0].data().eventTeamMap;
+        const paymentDetails = userData.docs[0].data().paymentDetails;
+        const contact = userData.docs[0].data().contact;
+        const name = userData.docs[0].data().name;
+        var userNewId = "";
+        // ! payments update -
+        // ! delete the user with email from auth
+        await admin.auth().deleteUser(userOldId).then(async() => {
+            console.log("user deleted from auth");
+            // ! create a new user with email and password
+            await admin.auth().createUser({
+                email: email,
+                password: password,
+            }).then(async(userRecord) => {
+                console.log("user created", userRecord.uid);
+                userNewId = userRecord.uid;
+                // ! delete the user with email from users_list
+                await db.collection("users_list").doc(userOldId).delete().then(async() => {
+                    console.log("user deleted from users_list");
+                    // ! create a new user with email and password in users_list
+
+                    // ! iterate over paymentDetails object 
+                    for (let index = 1; index <= 17; index++) {
+                        const paymentObjId = paymentDetails[index];
+                        if(paymentObjId !== "Register"){
+                            // fetch payment obj with id = paymentObjId from payments collection
+                            const paymentObj = await db.collection("payments").doc(paymentObjId).get();
+                            if(paymentObj !== undefined && paymentObj !== null){
+                                const paymentObjData = paymentObj.data();
+                                // update the email in payment obj
+                                if(paymentObjData.user === userOldId){
+                                    await db.collection("payments").doc(paymentObjId).update({
+                                        user: userNewId
+                                    }).then(async() => {
+                                        console.log("payment obj updated");
+                                    }).catch((error) => {
+                                        console.log("error in updating payment obj");
+                                    })
+                                }
+                            }
+                        }
+                    }
+
+                    // ! iterate over eventTeamMap object
+                    for (let index = 1; index <= 17; index++) {
+                        if(eventTeamMap[index] !== ""){
+                            const teamObjId = eventTeamMap[index];
+                            const teamObj = await db.collection("teams").doc(teamObjId).get();
+
+                            if(teamObj !== undefined && teamObj !== null){
+                                const teamObjData = teamObj.data();
+                                // update the email in team obj
+                                const members = teamObjData.members;
+                                for (let index = 0; index < members.length; index++) {
+                                    const member = members[index];
+                                    if(member === userOldId){
+                                        members[index] = userNewId;
+                                    }
+                                }
+                                await db.collection("teams").doc(teamObjId).update({
+                                    members: members,
+                                    leaderID: members[0]
+                                }).then(async() => {
+                                    console.log("team obj updated");
+                                }).catch((error) => {
+                                    console.log("error in updating team obj");
+                                })
+                            }
+                        }
+                    }
+
+                    // ! create a new user with email and password in users_list
+                    await db.collection("users_list").doc(userNewId).set({
+                        email: email,
+                        contact: contact,
+                        name: name,
+                        eventTeamMap: eventTeamMap,
+                        paymentDetails: paymentDetails
+                    })
+
+                }).catch((error) => {
+                    console.log("error in deleting user from users_list");
+                })
+            })
+        }).catch((error) => {
+            console.log("error in deleting user from auth");
+        })
+    }
+    res.json({status: "success"});
+})
+app.post("/api/trial", async(req,res) => {
+    // fetch user obj with email = "Saketh.Manchiraju@iiitb.ac.in"
+    var email = "Saketh.Manchiraju@iiitb.ac.in"		
+    const userData = await db.collection("users_list").where(
+        "email", "==", email
+    ).get();
+    const eventTeamMap = userData.docs[0].data().eventTeamMap;
+    console.log(eventTeamMap);
+    for (let index = 1; index <= 17; index++) {
+        console.log(eventTeamMap[index]);
+    }
+    res.send("trial");
+})
+
+
 
 app.post("/api/changestatus",async(req,res) => {
     const paymentId = req.query.paymentId;
@@ -305,18 +511,6 @@ app.post("/api/updateProcessStatusforIIITB", async(req,res) => {
         }
     })
     res.json({status: "success"});
-})
-
-app.post("/api/trial", async(req,res) => {
-    // // get user from users_list collection with email = Tanmay.Arora@iiitb.ac.in
-    // const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
-    // console.log(userData.docs[0]);
-    // res.send("success");
-    // this query is returning all the docs in users_list collection
-    // I need to fetch only one doc with email = "Tanmay.Arora@iiitb.ac.in"
-    const userData = await db.collection("users_list").where("email", "==", "Tanmay.Arora@iiitb.ac.in").get();
-    console.log(userData.docs[0].data());
-    res.send("success");
 })
 
 const PORT = process.env.PORT || 5000;
