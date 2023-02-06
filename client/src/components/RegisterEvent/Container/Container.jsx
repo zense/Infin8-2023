@@ -143,13 +143,17 @@ export default function Container(props) {
                         </div>
                     </div> */}
 
-                    {props.id == 1 || props.id == 3 ?
-                            <Registered cannot_register={true} loggedInStatus={props.signed_in} email={props.email} />
+                    {
+                        props.id == 1 || props.id == 3 ?
+                            <Registered cannot_register={true} event_closed={false} loggedInStatus={props.signed_in} email={props.email} />
                             :
+                                [4,5,7,9,11,14,15,16,17].includes(props.id) === true ? 
+                                    <Registered cannot_register={false} event_closed={true} loggedInStatus={props.signed_in} email={props.email} /> 
+                                    :
                                 props.signed_in === false ?
                                     <NotSignedIn  event_fee={props.event_fee}/>
                                 :
-                                    (props.id==13 || props.id==14|| props.id==15 || props.id==16) && (props.iiitbStudent === false)?
+                                    (props.id==13) && (props.iiitbStudent === false)?
                                          
                                          <Registered cannot_register={true} loggedInStatus={props.signed_in} email = {props.email}/>
                                             

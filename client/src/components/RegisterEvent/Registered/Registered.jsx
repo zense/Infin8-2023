@@ -13,6 +13,7 @@ export default function Registered(props){
             }
             <div style={{"fontFamily": 'Poppins',"fontStyle": "normal","color":"white","paddingTop":"25px","marginLeft":"2.7vw"}}>
                 {props.cannot_register === true ?  "You cannot register for this event": "You have successfully Registered for this event"}
+                {props.event_closed === true  && "Registrations for this event have been closed. Contact SPOCS for any last minute requests. Join is at Infin8 2023 to enjoy the performances!!"}
             </div>
             
             {(props.loggedInStatus)
