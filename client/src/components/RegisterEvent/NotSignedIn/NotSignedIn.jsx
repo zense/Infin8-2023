@@ -2,7 +2,7 @@ import './NotSignedIn.css'
 import { useNavigate } from 'react-router-dom';
 
 export default function NotSignedIn(props){
-    const event_closed = ["4","5","7","9","11","14","15","16","17"].includes(props.event_id);
+    const event_closed = ["2","4","5","6","7","8","9","10","11","12","13","14","15","16","17"].includes(props.event_id);
     console.log(props.event_id);
     const navigate = useNavigate();
     

@@ -11,7 +11,7 @@ import {storage} from "../../../firebase-config"
 
 export default function Register(props){
     let event_over;
-    if(["4","9","11","16"].includes(props.event_id)){
+    if(["4","9","11","12","16"].includes(props.event_id)){
         event_over=true;
     }else{
         event_over=false;

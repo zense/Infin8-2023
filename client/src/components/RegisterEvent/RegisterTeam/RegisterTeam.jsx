@@ -18,7 +18,7 @@ import { async } from "@firebase/util";
 
 export default function RegisterTeam(props) {
     let event_over;
-    if(["5","7","14","15","17"].includes(props.event_id)){
+    if(["2","5","6","7","8","10","13","14","15","17"].includes(props.event_id)){
         event_over=true;
     }else{
         event_over=false;
